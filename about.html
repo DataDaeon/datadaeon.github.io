@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Dario Espinosa · Lead Experience Designer</title>
+  <meta name="description" content="Dario Espinosa — Lead Experience Designer with 18+ years building digital products. Specializing in design systems, accessibility, AI-assisted design, and enterprise UX.">
+  <meta name="author" content="Dario Espinosa">
+  <link rel="canonical" href="https://darioespinosa.design/about.html">
+  <meta property="og:title" content="About — Dario Espinosa · Lead Experience Designer">
+  <meta property="og:description" content="18+ years building digital products across telecom, healthcare, energy, and spatial computing.">
+  <meta property="og:url" content="https://darioespinosa.design/about.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="effects.css">
+<style>
+/* ── DESIGN SYSTEM ──────────────────────────────────────────────────────── */
+:root {
+  --bg:       #050508;
+  --teal:     #50e3c2;
+  --violet:   #a78bfa;
+  --t1:       #ffffff;
+  --t2:       rgba(255,255,255,0.65);
+  --t3:       rgba(255,255,255,0.45);
+  --border-w: rgba(255,255,255,0.07);
+  --surface:  rgba(255,255,255,0.04);
+  --surface2: rgba(255,255,255,0.08);
+  --solid:    #0c0c12;
+  --teal-dim: rgba(80,227,194,0.08);
+  --r:        8px;
+  --max:      1080px;
+  --mono:     'Geist Mono', monospace;
+  --fs-2xs:   0.6875rem;
+  --fs-xs:    0.75rem;
+  --fs-sm:    0.875rem;
+  --fs-base:  1rem;
+  --fs-lg:    1.125rem;
+  --fs-xl:    1.375rem;
+  --fs-2xl:   1.75rem;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--t1);
+  font-family: 'Geist', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ────────────────────────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 48px;
+  border-bottom: 1px solid var(--border-w);
+  background: rgba(5,5,8,0.85);
+  backdrop-filter: blur(24px);
+  display: flex; align-items: center;
+  padding: 0 32px; gap: 12px;
+  font-family: var(--mono);
+}
+.nav-name { font-size: 12px; font-weight: 600; color: var(--t1); text-decoration: none; }
+.nav-sep  { color: var(--border-w); }
+.nav-role { font-size: 11px; color: var(--t3); }
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: 22px; }
+.nav-link { font-size: 11px; color: var(--t3); text-decoration: none; transition: color .2s; }
+.nav-link:hover { color: var(--t1); }
+.nav-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--teal); box-shadow: 0 0 10px var(--teal);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* ── HERO (WebGL) ───────────────────────────────────────────────────────── */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+#webgl-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  display: block; opacity: 0.35;
+}
+.hero-overlay {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 24px;
+  padding: 0 32px; max-width: 760px;
+}
+.hero-eyebrow {
+  font-family: var(--mono); font-size: var(--fs-2xs);
+  color: var(--teal); letter-spacing: 0.14em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: ''; width: 28px; height: 1px; background: rgba(80,227,194,.5);
+}
+.hero-title {
+  font-size: clamp(52px, 9vw, 96px);
+  font-weight: 800; letter-spacing: -0.055em; line-height: 0.9;
+  color: var(--t1);
+}
+.hero-title em { font-style: normal; color: var(--teal); }
+.hero-sub {
+  font-size: var(--fs-lg); color: var(--t2);
+  line-height: 1.7; max-width: 520px; font-weight: 300;
+}
+.avail-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: var(--fs-2xs);
+  color: #4ade80;
+}
+.avail-dot { position: relative; width: 8px; height: 8px; }
+.avail-dot span {
+  position: absolute; inset: 0; border-radius: 50%; background: #4ade80;
+}
+.avail-dot span:first-child {
+  animation: ping 1.5s ease-in-out infinite; opacity: 0.75;
+}
+@keyframes ping { 0%,100%{transform:scale(1);opacity:.75} 50%{transform:scale(2);opacity:0} }
+.glass-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 14px 36px; border-radius: 99px;
+  font-size: var(--fs-sm); font-weight: 600; font-family: 'Geist', sans-serif;
+  color: var(--t1); text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 0 24px rgba(80,227,194,0.12),
+    0 4px 20px rgba(0,0,0,0.3);
+  transition: all .3s ease; cursor: pointer;
+}
+.glass-btn:hover {
+  background: rgba(80,227,194,0.12);
+  border-color: rgba(80,227,194,0.4);
+  box-shadow: 0 0 32px rgba(80,227,194,0.25);
+  transform: translateY(-2px);
+}
+
+/* ── SECTIONS ───────────────────────────────────────────────────────────── */
+.section { padding: 96px 32px; max-width: var(--max); margin: 0 auto; }
+.section-label {
+  font-family: var(--mono); font-size: 10px; color: var(--t3);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 40px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border-w); }
+.section-title {
+  font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+  letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 20px;
+}
+.section-title em { font-style: normal; color: var(--teal); }
+.divider { height: 1px; background: var(--border-w); max-width: var(--max); margin: 0 auto; }
+
+/* ── BIO — SCROLL TEXT REVEAL ───────────────────────────────────────────── */
+.bio-reveal {
+  font-size: clamp(26px, 3.6vw, 42px);
+  font-weight: 600; letter-spacing: -0.03em; line-height: 1.35;
+  max-width: 920px;
+}
+.bio-reveal p + p { margin-top: 1.2em; }
+.bio-reveal .rw {
+  color: rgba(255,255,255,0.16);
+  transition: color .35s ease;
+}
+.bio-reveal .rw.lit { color: var(--t1); }
+.bio-reveal em { font-style: normal; }
+.bio-reveal em .rw.lit { color: var(--teal); }
+
+/* Stats row — count-up */
+.stat-row {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 1px; background: var(--border-w);
+  border: 1px solid var(--border-w); border-radius: var(--r);
+  overflow: hidden; margin-top: 72px;
+}
+.stat-cell { padding: 26px 24px; background: var(--solid); }
+.stat-val {
+  font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+  letter-spacing: -0.04em; color: var(--teal); line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.stat-val.alt { color: var(--violet); }
+.stat-label {
+  font-family: var(--mono); font-size: var(--fs-2xs); color: var(--t3);
+  margin-top: 8px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+/* ── COMPETENCY FOCUS — SPOTLIGHT GRID ──────────────────────────────────── */
+.focus-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 14px;
+}
+.focus-card {
+  position: relative; padding: 30px 24px;
+  background: var(--solid);
+  border: 1px solid var(--border-w); border-radius: 12px;
+  overflow: hidden;
+  transition: border-color .3s ease, transform .3s ease;
+}
+.focus-card:hover { border-color: rgba(80,227,194,0.35); transform: translateY(-3px); }
+.focus-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(220px circle at var(--mx,50%) var(--my,50%),
+              rgba(80,227,194,0.14), transparent 65%);
+  opacity: 0; transition: opacity .35s ease; pointer-events: none;
+}
+.focus-card:hover::before { opacity: 1; }
+.focus-num {
+  font-family: var(--mono); font-size: 10px; color: var(--t3);
+  letter-spacing: .1em; display: block; margin-bottom: 18px;
+}
+.focus-card h3 { font-size: var(--fs-sm); font-weight: 600; margin-bottom: 10px; color: var(--teal); position: relative; }
+.focus-card p { font-size: var(--fs-xs); color: var(--t2); line-height: 1.65; position: relative; }
+
+/* ── SKILLS TICKER ──────────────────────────────────────────────────────── */
+.ticker-section { padding: 56px 0; overflow: hidden; border-top: 1px solid var(--border-w); border-bottom: 1px solid var(--border-w); }
+.ticker-label { font-family: var(--mono); font-size: 10px; color: var(--t3); letter-spacing: .1em; text-transform: uppercase; text-align: center; margin-bottom: 20px; }
+.ticker-track-wrap { overflow: hidden; white-space: nowrap; }
+.ticker-track { display: inline-flex; gap: 0; will-change: transform; }
+.ticker-item {
+  display: inline-flex; align-items: center;
+  font-family: var(--mono); font-size: var(--fs-sm);
+  color: var(--t2); padding: 0 28px;
+  border-right: 1px solid var(--border-w);
+  white-space: nowrap;
+}
+.ticker-item span { color: var(--teal); margin-right: 10px; font-size: 10px; }
+
+/* Second ticker (tools) — violet */
+.ticker-track.violet .ticker-item { color: var(--t3); }
+.ticker-track.violet .ticker-item span { color: var(--violet); }
+
+/* ── EXPERIENCE — STICKY CARD STACK ─────────────────────────────────────── */
+.exp-stack { display: flex; flex-direction: column; }
+.exp-pin { padding-bottom: 28vh; }
+.exp-pin:last-child { padding-bottom: 0; }
+.exp-card {
+  position: sticky;
+  padding: 40px 44px;
+  background: var(--solid);
+  border: 1px solid var(--border-w);
+  border-radius: 16px;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 32px;
+  align-items: start;
+  box-shadow: 0 -12px 40px rgba(0,0,0,0.45);
+  transform-origin: center top;
+  will-change: transform;
+}
+.exp-pin:nth-child(1) .exp-card { top: 96px; }
+.exp-pin:nth-child(2) .exp-card { top: 116px; }
+.exp-pin:nth-child(3) .exp-card { top: 136px; }
+.exp-index {
+  font-family: var(--mono); font-size: var(--fs-xs); color: var(--t3);
+  padding-top: 6px;
+}
+.exp-role { font-size: clamp(20px, 2.6vw, 28px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+.exp-company { font-family: var(--mono); font-size: var(--fs-xs); color: var(--teal); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 16px; }
+.exp-desc { font-size: var(--fs-sm); color: var(--t2); line-height: 1.75; max-width: 640px; }
+.exp-period {
+  font-family: var(--mono); font-size: var(--fs-2xs); color: var(--t3);
+  white-space: nowrap; padding: 6px 14px;
+  border: 1px solid var(--border-w); border-radius: 99px;
+}
+
+/* ── RECOMMENDATIONS — DRAGGABLE DECK ───────────────────────────────────── */
+.deck-zone { display: grid; grid-template-columns: 1fr; justify-items: center; }
+.deck {
+  position: relative; width: min(640px, 100%);
+  touch-action: pan-y;
+}
+.deck-card {
+  position: absolute; inset: 0 auto auto 0; width: 100%;
+  padding: 36px 40px;
+  background: var(--solid);
+  border: 1px solid var(--border-w); border-radius: 16px;
+  cursor: grab; user-select: none;
+  transition: transform .45s cubic-bezier(.22,1,.36,1), opacity .45s ease, border-color .3s;
+  will-change: transform;
+}
+.deck-card.dragging { transition: none; cursor: grabbing; }
+.deck-card.top { border-color: rgba(80,227,194,0.25); }
+.rec-quote { font-size: var(--fs-base); color: var(--t2); line-height: 1.75; margin-bottom: 24px; font-style: italic; pointer-events: none; }
+.rec-quote::before { content: '"'; color: var(--teal); font-size: 28px; font-style: normal; line-height: 0; vertical-align: -10px; margin-right: 5px; }
+.rec-author { display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
+.rec-name { font-size: var(--fs-sm); font-weight: 600; }
+.rec-role { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--t3); }
+.rec-link { pointer-events: auto; }
+.rec-link a { color: var(--teal); text-decoration: none; font-family: var(--mono); font-size: var(--fs-2xs); }
+.deck-controls {
+  display: flex; align-items: center; gap: 18px; margin-top: 28px;
+  justify-content: center;
+}
+.deck-btn {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--border-w);
+  color: var(--t2); font-size: 16px; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+.deck-btn:hover { background: var(--teal-dim); border-color: rgba(80,227,194,0.4); color: var(--teal); }
+.deck-dots { display: flex; gap: 8px; }
+.deck-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--surface2); transition: all .3s;
+}
+.deck-dot.on { background: var(--teal); transform: scale(1.3); }
+.deck-hint {
+  font-family: var(--mono); font-size: 10px; color: var(--t3);
+  text-align: center; margin-top: 14px; letter-spacing: .08em; text-transform: uppercase;
+}
+
+/* ── AWARDS — SCRAMBLE HOVER ────────────────────────────────────────────── */
+.award-list { display: flex; flex-direction: column; gap: 12px; }
+.award-item {
+  display: flex; align-items: center; gap: 24px;
+  padding: 24px 28px; background: var(--solid);
+  border: 1px solid var(--border-w); border-radius: var(--r);
+  border-left: 2px solid var(--teal);
+  transition: background .25s, transform .25s;
+}
+.award-item:hover { background: var(--surface2); transform: translateX(6px); }
+.award-year { font-family: var(--mono); font-size: var(--fs-xs); color: var(--teal); min-width: 44px; }
+.award-title { font-size: var(--fs-base); font-weight: 600; font-family: var(--mono); letter-spacing: -0.01em; }
+.award-org { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--t3); margin-top: 4px; }
+
+/* ── CONTACT STRIP ──────────────────────────────────────────────────────── */
+.contact-strip { background: var(--surface); border-top: 1px solid var(--border-w); border-bottom: 1px solid var(--border-w); }
+.contact-inner { max-width: var(--max); margin: 0 auto; padding: 52px 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.contact-kicker { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--t3); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
+.contact-headline { font-size: var(--fs-xl); font-weight: 700; letter-spacing: -0.035em; }
+.contact-headline span { color: var(--teal); }
+.contact-links { display: flex; gap: 10px; flex-shrink: 0; }
+.btn { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; padding: 10px 20px; border-radius: 6px; transition: background .2s, color .2s, opacity .2s; cursor: pointer; border: none; will-change: transform; }
+.btn-primary { background: var(--teal); color: #050508; }
+.btn-primary:hover { opacity: 0.88; }
+.btn-secondary { background: var(--surface2); color: var(--t2); border: 1px solid var(--border-w); }
+.btn-secondary:hover { color: var(--t1); }
+footer { max-width: var(--max); margin: 0 auto; padding: 22px 32px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-w); font-family: var(--mono); font-size: 10px; color: var(--t3); }
+
+/* ── PAGE REVEALS ───────────────────────────────────────────────────────── */
+.fx-reveal {
+  opacity: 0; transform: translateY(26px); filter: blur(6px);
+  transition: opacity .8s cubic-bezier(.22,1,.36,1),
+              transform .8s cubic-bezier(.22,1,.36,1),
+              filter .8s cubic-bezier(.22,1,.36,1);
+  transition-delay: var(--d, 0s);
+}
+.fx-reveal.in { opacity: 1; transform: none; filter: none; }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media(max-width:768px) {
+  .stat-row { grid-template-columns: repeat(2,1fr); }
+  .stat-cell:last-child { grid-column: span 2; }
+  .focus-grid { grid-template-columns: 1fr 1fr; }
+  .exp-card { grid-template-columns: 1fr; gap: 14px; padding: 28px 24px; }
+  .exp-index { display: none; }
+  .exp-period { justify-self: start; }
+  .exp-pin { padding-bottom: 18vh; }
+  .deck-card { padding: 28px 22px; }
+  .contact-inner { flex-direction: column; text-align: center; }
+  .section { padding: 64px 20px; }
+}
+@media(max-width:480px) {
+  .focus-grid { grid-template-columns: 1fr; }
+}
+
+/* ── ACCESSIBILITY: FOCUS STYLES ────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
+[role="link"]:focus-visible, [role="button"]:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ── REDUCED MOTION ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fx-reveal { opacity: 1; transform: none; filter: none; transition: none; }
+  .bio-reveal .rw { color: var(--t1); transition: none; }
+  .bio-reveal em .rw { color: var(--teal); }
+  .deck-card { transition: none; }
+  .exp-card { position: static !important; }
+  .exp-pin { padding-bottom: 16px; }
+  .nav-dot, .avail-dot span:first-child { animation: none; }
+}
+/* ────────────────────────────────────────────────────────────────────────── */
+</style>
+</head>
+<body>
+<!-- Skip navigation -->
+<a href="#main-content" style="position:absolute;left:-9999px;top:4px;z-index:9999;background:var(--teal,#50e3c2);color:#050508;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none" onfocus="this.style.left='4px'" onblur="this.style.left='-9999px'">Skip to main content</a>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="index.html">dario-espinosa</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-role">about</span>
+  <div class="nav-right">
+    <a class="nav-link" href="index.html">work</a>
+    <a class="nav-link" href="about.html" style="color:var(--t1)">about</a>
+    <a class="nav-link" href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener">linkedin</a>
+    <div class="nav-dot"></div>
+  </div>
+</nav>
+
+<main id="main-content">
+<!-- HERO — WebGL Shader -->
+<section class="hero">
+  <canvas id="webgl-canvas"></canvas>
+  <div class="hero-overlay">
+    <div class="hero-eyebrow">Lead Experience Designer · Chiapas MX</div>
+    <h1 class="hero-title">Design is<br><em>Everything.</em></h1>
+    <p class="hero-sub">18+ years turning complex systems into clear, human experiences — from enterprise telecom to AI-powered tools and immersive spatial design.</p>
+    <div class="avail-badge">
+      <span class="avail-dot"><span></span><span></span></span>
+      Available for new opportunities
+    </div>
+    <a class="glass-btn" href="mailto:despi@softserveinc.com">Get in touch</a>
+  </div>
+</section>
+
+<!-- BIO — Scroll Text Reveal -->
+<section class="section" aria-label="About Dario Espinosa">
+  <div class="section-label fx-reveal">About</div>
+  <div class="bio-reveal" id="bio-reveal">
+    <p>I'm Dario Espinosa — a Lead Experience Designer who turns <em>complex, outdated systems</em> into clear, human solutions that drive real business impact.</p>
+    <p>Great design combines <em>strategy, creativity, and execution.</em> Every decision research-driven, built shoulder-to-shoulder with stakeholders and engineering.</p>
+    <p>Accessibility and innovation aren't add-ons — they've earned <em>international recognition.</em> My principle never changes: understand the system before you redesign it.</p>
+  </div>
+  <div class="stat-row" id="stat-row">
+    <div class="stat-cell fx-reveal" style="--d:.0s">
+      <div class="stat-val" data-count="18" data-suffix="+">0+</div>
+      <div class="stat-label">Years of experience</div>
+    </div>
+    <div class="stat-cell fx-reveal" style="--d:.08s">
+      <div class="stat-val" data-count="40" data-suffix="+">0+</div>
+      <div class="stat-label">Enterprise components</div>
+    </div>
+    <div class="stat-cell fx-reveal" style="--d:.16s">
+      <div class="stat-val" data-count="9">0</div>
+      <div class="stat-label">Industry verticals</div>
+    </div>
+    <div class="stat-cell fx-reveal" style="--d:.24s">
+      <div class="stat-val alt">ES</div>
+      <div class="stat-label">Español · Native</div>
+    </div>
+    <div class="stat-cell fx-reveal" style="--d:.32s">
+      <div class="stat-val alt">EN</div>
+      <div class="stat-label">English · B2</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPETENCY FOCUS — Spotlight Grid -->
+<section class="section" aria-label="Competency focus">
+  <div class="section-label fx-reveal">Competency Focus</div>
+  <div class="focus-grid">
+    <div class="focus-card fx-reveal" style="--d:.0s">
+      <span class="focus-num">01</span>
+      <h3>IA &amp; Design Systems</h3>
+      <p>Comprehensive information frameworks that enhance usability. Design systems that ensure consistency and efficiency across large digital products.</p>
+    </div>
+    <div class="focus-card fx-reveal" style="--d:.08s">
+      <span class="focus-num">02</span>
+      <h3>Accessibility</h3>
+      <p>WCAG standards and inclusive UX methods are fundamental to my process — ensuring digital products are usable for everyone, always.</p>
+    </div>
+    <div class="focus-card fx-reveal" style="--d:.16s">
+      <span class="focus-num">03</span>
+      <h3>Product Design</h3>
+      <p>Translating business objectives into user-focused digital solutions. Balancing aesthetics and functionality to create intuitive interfaces that convert.</p>
+    </div>
+    <div class="focus-card fx-reveal" style="--d:.24s">
+      <span class="focus-num">04</span>
+      <h3>Art Direction</h3>
+      <p>Strategic vision for digital experiences — brand consistency, visual storytelling, and design leadership that connects product with identity.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS TICKER -->
+<div class="ticker-section">
+  <div class="ticker-label">// aptitudes</div>
+  <div class="ticker-track-wrap">
+    <div class="ticker-track" id="ticker-skills">
+      <!-- Duplicated for seamless loop -->
+    </div>
+  </div>
+  <div style="margin-top:16px">
+    <div class="ticker-track-wrap">
+      <div class="ticker-track violet" id="ticker-tools" style="direction:rtl">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE — Sticky Card Stack -->
+<section class="section" aria-label="Experience">
+  <div class="section-label fx-reveal">Experience</div>
+  <h2 class="section-title fx-reveal" style="margin-bottom:48px">Where I've <em>built.</em></h2>
+  <div class="exp-stack" id="exp-stack">
+    <div class="exp-pin">
+      <div class="exp-card">
+        <span class="exp-index">01</span>
+        <div>
+          <div class="exp-role">Lead Experience Designer</div>
+          <div class="exp-company">SoftServe</div>
+          <div class="exp-desc">Leading UX strategy for enterprise clients across energy, healthcare, analytics, construction, and spatial computing. Conducting user research, journey mapping, and accessibility advocacy. Creating and evolving design systems. Mentoring designers and multidisciplinary teams.</div>
+        </div>
+        <div class="exp-period">Jun 2022 — Present</div>
+      </div>
+    </div>
+    <div class="exp-pin">
+      <div class="exp-card">
+        <span class="exp-index">02</span>
+        <div>
+          <div class="exp-role">Lead UX Designer</div>
+          <div class="exp-company">3Pillar Global</div>
+          <div class="exp-desc">Led design initiatives from ideation to UI/UX delivery. Established DesignOps practices, recruited design talent, built and maintained design systems. User research, competitive analysis, from low-fi to high-fidelity prototypes.</div>
+        </div>
+        <div class="exp-period">Nov 2020 — May 2022</div>
+      </div>
+    </div>
+    <div class="exp-pin">
+      <div class="exp-card">
+        <span class="exp-index">03</span>
+        <div>
+          <div class="exp-role">Web &amp; eCommerce Manager</div>
+          <div class="exp-company">AT&amp;T México</div>
+          <div class="exp-desc">Owned and managed the AT&amp;T México website, subdomains, and eCommerce channel. Led UX/UI for digital transformation across multiple acquisitions. Unified technologies under Adobe Experience Manager. Applied Sales Ops, Service Design, and data-driven methods for direct ROI. Recognized with the 2020 Accessibility in Action Award.</div>
+        </div>
+        <div class="exp-period">Jan 2015 — Nov 2020</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RECOMMENDATIONS — Draggable Deck -->
+<section class="section" aria-label="Recommendations">
+  <div class="section-label fx-reveal">Recommendations</div>
+  <h2 class="section-title fx-reveal" style="margin-bottom:48px">What colleagues <em>say.</em></h2>
+  <div class="deck-zone fx-reveal">
+    <div class="deck" id="rec-deck" aria-roledescription="carousel" aria-label="Colleague recommendations">
+      <article class="deck-card" aria-label="Recommendation 1 of 4">
+        <p class="rec-quote">Dario is a very responsible person, with a lot of knowledge in HCD, with great creativity to solve problems, and he always seeks to share his knowledge with others.</p>
+        <div class="rec-author">
+          <div class="rec-name">Rosa Contreras</div>
+          <div class="rec-role">Senior UX/UI Designer · Marketing · PM · Mentor · Tech Women LATAM</div>
+          <div class="rec-role rec-link" style="margin-top:4px"><a href="https://www.linkedin.com/in/rosa-contreras-b41250123/" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+        </div>
+      </article>
+      <article class="deck-card" aria-label="Recommendation 2 of 4">
+        <p class="rec-quote">David is a creative person, with a lot of experience in the digital field, results-oriented, with a business vision, an excellent professional and human being.</p>
+        <div class="rec-author">
+          <div class="rec-name">Mariana Luna H.</div>
+          <div class="rec-role">Marketing Director · Digital Marketing · Demand Generation · Business Strategy</div>
+          <div class="rec-role rec-link" style="margin-top:4px"><a href="https://www.linkedin.com/in/marianalunah/" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+        </div>
+      </article>
+      <article class="deck-card" aria-label="Recommendation 3 of 4">
+        <p class="rec-quote">Tuve el privilegio de trabajar con Dario, es un excelente profesional, responsable, con enfoque en trabajo en equipo, cumple con todos los objetivos impuestos y ayuda a crecimiento de los demás aportando con su conocimiento.</p>
+        <div class="rec-author">
+          <div class="rec-name">Luis Sztul Torselli</div>
+          <div class="rec-role">Solution Engineer · Adobe Experience Cloud · Enterprise Digital Platforms</div>
+          <div class="rec-role rec-link" style="margin-top:4px"><a href="https://www.linkedin.com/in/ljsztul/" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+        </div>
+      </article>
+      <article class="deck-card" aria-label="Recommendation 4 of 4">
+        <p class="rec-quote">Dario es un diseñador de gran experiencia. Se destaca por la búsqueda constante para ofrecer la mejor solución a sus clientes internos. Sus aportaciones son desarrolladas con un alto nivel creativo, innovador y estratégico. Dario es un gran compañero de trabajo con quien tuve la oportunidad de trabajar en diversos proyectos.</p>
+        <div class="rec-author">
+          <div class="rec-name">Verónica Miranda</div>
+          <div class="rec-role">Strategic Communication &amp; Reputation Advisor · Crisis Management · Corporate Affairs</div>
+          <div class="rec-role rec-link" style="margin-top:4px"><a href="https://www.linkedin.com/in/veronica-miranda-osorio/" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+        </div>
+      </article>
+    </div>
+    <div class="deck-controls">
+      <button class="deck-btn" id="deck-prev" aria-label="Previous recommendation">←</button>
+      <div class="deck-dots" id="deck-dots" aria-hidden="true"></div>
+      <button class="deck-btn" id="deck-next" aria-label="Next recommendation">→</button>
+    </div>
+    <div class="deck-hint">drag the card · or use arrows</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AWARDS — Scramble Hover -->
+<section class="section" aria-label="Recognition and awards">
+  <div class="section-label fx-reveal">Reconocimientos y Premios</div>
+  <h2 class="section-title fx-reveal" style="margin-bottom:32px">Recognition &amp; <em>Awards.</em></h2>
+  <div class="award-list">
+    <div class="award-item fx-reveal" style="--d:.0s">
+      <div class="award-year">2020</div>
+      <div>
+        <div class="award-title" data-scramble>Accessibility in Action Award</div>
+        <div class="award-org">AT&amp;T International · Nacional recognition for digital accessibility leadership in México</div>
+      </div>
+    </div>
+    <div class="award-item fx-reveal" style="--d:.08s">
+      <div class="award-year">2020</div>
+      <div>
+        <div class="award-title" data-scramble>IFETEL Digital Accessibility Recognition</div>
+        <div class="award-org">Instituto Federal de Telecomunicaciones · México — National leadership in web accessibility compliance</div>
+      </div>
+    </div>
+    <div class="award-item fx-reveal" style="--d:.16s">
+      <div class="award-year">2019</div>
+      <div>
+        <div class="award-title" data-scramble>Best Digital Experience — Telecom Sector</div>
+        <div class="award-org">AT&amp;T México Internal Recognition · eCommerce redesign driving +500% online sales</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-strip">
+  <div class="contact-inner">
+    <div>
+      <div class="contact-kicker">// available for opportunities</div>
+      <div class="contact-headline">Let&rsquo;s build something <span>remarkable.</span></div>
+    </div>
+    <div class="contact-links" id="contact-links">
+      <a class="btn btn-primary" data-magnetic href="mailto:despi@softserveinc.com">get in touch</a>
+      <a class="btn btn-secondary" data-magnetic href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener">linkedin &#8599;</a>
+    </div>
+  </div>
+</div>
+</main>
+<footer>
+  <span>about · 2026 · dario-espinosa</span>
+  <span>lead-experience-designer · chiapas-mx</span>
+</footer>
+
+<!-- Three.js r128 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+/* ── WEBGL CHROMATIC ABERRATION SHADER ───────────────────────────────────── */
+(function () {
+  if (typeof THREE === 'undefined') return;
+  var canvas = document.getElementById('webgl-canvas');
+  var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+  renderer.setClearColor(new THREE.Color(0x050508));
+
+  var scene  = new THREE.Scene();
+  var camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, -1);
+
+  var uniforms = {
+    resolution:  { value: [window.innerWidth, window.innerHeight] },
+    time:        { value: 0.0 },
+    xScale:      { value: 1.0 },
+    yScale:      { value: 0.5 },
+    distortion:  { value: 0.05 }
+  };
+
+  var vert = [
+    'attribute vec3 position;',
+    'void main() { gl_Position = vec4(position, 1.0); }'
+  ].join('\n');
+
+  var frag = [
+    'precision highp float;',
+    'uniform vec2 resolution;',
+    'uniform float time;',
+    'uniform float xScale;',
+    'uniform float yScale;',
+    'uniform float distortion;',
+    'void main() {',
+    '  vec2 p = (gl_FragCoord.xy * 2.0 - resolution) / min(resolution.x, resolution.y);',
+    '  float d = length(p) * distortion;',
+    '  float rx = p.x * (1.0 + d);',
+    '  float gx = p.x;',
+    '  float bx = p.x * (1.0 - d);',
+    '  float r = 0.05 / abs(p.y + sin((rx + time) * xScale) * yScale);',
+    '  float g = 0.05 / abs(p.y + sin((gx + time) * xScale) * yScale);',
+    '  float b = 0.05 / abs(p.y + sin((bx + time) * xScale) * yScale);',
+    '  gl_FragColor = vec4(r, g, b, 1.0);',
+    '}'
+  ].join('\n');
+
+  var geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array([
+    -1,-1,0, 1,-1,0, -1,1,0,
+     1,-1,0,-1, 1,0,  1,1,0
+  ]), 3));
+
+  var mat = new THREE.RawShaderMaterial({
+    vertexShader: vert, fragmentShader: frag,
+    uniforms: uniforms, side: THREE.DoubleSide
+  });
+  scene.add(new THREE.Mesh(geo, mat));
+
+  function resize() {
+    var w = window.innerWidth, h = window.innerHeight;
+    renderer.setSize(w, h, false);
+    uniforms.resolution.value = [w, h];
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  (function animate() {
+    uniforms.time.value += 0.008;
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+  })();
+})();
+
+/* ── SKILLS / TOOLS TICKER ───────────────────────────────────────────────── */
+(function () {
+  var SKILLS = [
+    'Product Design','Design Systems','UX Research','Information Architecture',
+    'Accessibility · WCAG 2.1 AA','Interaction Design','Agile UX','Design Thinking',
+    'Service Design','Prototyping','Art Direction','User Testing','Digital Marketing',
+    'Graphic Design','Human-Computer Interaction','DesignOps'
+  ];
+  var TOOLS = [
+    'Figma','Adobe XD','Sketch','Miro','Adobe Experience Manager',
+    'HotJar','Lookback','Maze.co','UserTesting','Google Analytics',
+    'Claude · AI','Cursor','HTML · CSS · JS','Keynote','Adobe Creative Suite'
+  ];
+
+  function buildTrack(items, el) {
+    var inner = items.map(function(s) {
+      return '<span class="ticker-item"><span>◆</span>' + s + '</span>';
+    }).join('');
+    el.innerHTML = inner + inner; // duplicate for loop
+  }
+
+  var t1 = document.getElementById('ticker-skills');
+  var t2 = document.getElementById('ticker-tools');
+  buildTrack(SKILLS, t1);
+  buildTrack(TOOLS, t2);
+
+  var pos1 = 0, pos2 = 0;
+  var lastY = window.scrollY, scrollVel = 0;
+  var BASE = 0.6;
+
+  window.addEventListener('scroll', function () {
+    scrollVel = (window.scrollY - lastY) * 0.08;
+    lastY = window.scrollY;
+  });
+
+  (function tick() {
+    scrollVel *= 0.88;
+    var speed = BASE + Math.abs(scrollVel);
+    pos1 -= speed;
+    pos2 += speed;
+    var half1 = t1.scrollWidth / 2;
+    var half2 = t2.scrollWidth / 2;
+    if (Math.abs(pos1) >= half1) pos1 = 0;
+    if (pos2 >= 0) pos2 = -half2;
+    t1.style.transform = 'translateX(' + pos1 + 'px)';
+    t2.style.transform = 'translateX(' + pos2 + 'px)';
+    requestAnimationFrame(tick);
+  })();
+})();
+
+/* ════════════════════════════════════════════════════════════════════════
+   ABOUT PAGE FX — Session 10
+   1. Scroll text reveal (bio)        — motion.dev "Scroll Text Lines"
+   2. Count-up stats                  — motion.dev "Number trend"
+   3. Spotlight hover grid (focus)    — skiper-ui hover cards
+   4. Sticky experience card stack    — skiper-ui card stack
+   5. Draggable recommendation deck   — motion.dev "Card stack"
+   6. Scramble text on hover (awards) — motion.dev "Scramble text: Hover"
+   7. Magnetic CTA buttons            — motion.dev "Cursor: Magnetic target"
+   8. Section reveals + reduced-motion guards
+   ════════════════════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+  var RM = window.matchMedia
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    : false;
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+  /* ── 1. BIO SCROLL TEXT REVEAL ─────────────────────────────────────── */
+  (function () {
+    var block = document.getElementById('bio-reveal');
+    if (!block) return;
+
+    // Wrap every word in a span (preserving <em> accents)
+    function wrapWords(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+        if (child.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            var s = document.createElement('span');
+            s.className = 'rw';
+            s.textContent = part;
+            frag.appendChild(s);
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1) {
+          wrapWords(child);
+        }
+      });
+    }
+    wrapWords(block);
+    var words = block.querySelectorAll('.rw');
+
+    if (RM) {
+      words.forEach(function (w) { w.classList.add('lit'); });
+      return;
+    }
+
+    var ticking = false;
+    function update() {
+      var rect = block.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var p = clamp((vh * 0.85 - rect.top) / (rect.height + vh * 0.35), 0, 1);
+      var n = Math.round(p * words.length);
+      for (var i = 0; i < words.length; i++) {
+        words[i].classList.toggle('lit', i < n);
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  })();
+
+  /* ── 2. COUNT-UP STATS ─────────────────────────────────────────────── */
+  (function () {
+    var vals = document.querySelectorAll('.stat-val[data-count]');
+    if (!vals.length) return;
+
+    function run(el) {
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      if (RM) { el.textContent = target + suffix; return; }
+      var t0 = null, DUR = 1300;
+      function frame(t) {
+        if (!t0) t0 = t;
+        var p = clamp((t - t0) / DUR, 0, 1);
+        var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+        el.textContent = Math.round(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      vals.forEach(run);
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.6 });
+    vals.forEach(function (v) { io.observe(v); });
+  })();
+
+  /* ── 3. SPOTLIGHT HOVER GRID ───────────────────────────────────────── */
+  (function () {
+    document.querySelectorAll('.focus-card').forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+        card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+      });
+    });
+  })();
+
+  /* ── 4. STICKY EXPERIENCE STACK — depth scale ──────────────────────── */
+  (function () {
+    if (RM) return;
+    var pins = document.querySelectorAll('#exp-stack .exp-pin');
+    if (pins.length < 2) return;
+    var cards = [];
+    pins.forEach(function (p) { cards.push(p.querySelector('.exp-card')); });
+
+    var ticking = false;
+    function update() {
+      for (var i = 0; i < cards.length - 1; i++) {
+        var cur = cards[i].getBoundingClientRect();
+        var nxt = cards[i + 1].getBoundingClientRect();
+        // How far the next card has slid over this one (0 → 1)
+        var overlap = clamp(1 - (nxt.top - cur.top - 60) / (cur.height * 0.9), 0, 1);
+        var sc = (1 - overlap * 0.06).toFixed(4);
+        cards[i].style.transform = 'scale(' + sc + ')';
+        cards[i].style.filter = overlap > 0 ? 'brightness(' + (1 - overlap * 0.25).toFixed(3) + ')' : '';
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  })();
+
+  /* ── 5. DRAGGABLE RECOMMENDATION DECK ──────────────────────────────── */
+  (function () {
+    var deck = document.getElementById('rec-deck');
+    if (!deck) return;
+    var cards = Array.prototype.slice.call(deck.querySelectorAll('.deck-card'));
+    var order = cards.slice();
+    var dotsWrap = document.getElementById('deck-dots');
+
+    // Dots
+    cards.forEach(function () {
+      var d = document.createElement('span');
+      d.className = 'deck-dot';
+      dotsWrap.appendChild(d);
+    });
+    var dots = dotsWrap.querySelectorAll('.deck-dot');
+
+    // Size the deck to its tallest card
+    function sizeDeck() {
+      var h = 0;
+      cards.forEach(function (c) {
+        c.style.position = 'static';
+        h = Math.max(h, c.offsetHeight);
+        c.style.position = 'absolute';
+      });
+      deck.style.height = (h + 36) + 'px';
+    }
+
+    function layout() {
+      order.forEach(function (card, i) {
+        var depth = Math.min(i, 3);
+        card.classList.toggle('top', i === 0);
+        card.style.zIndex = String(order.length - i);
+        card.style.transform =
+          'translateY(' + (depth * 14) + 'px) scale(' + (1 - depth * 0.045) + ')';
+        card.style.opacity = i > 2 ? '0' : String(1 - depth * 0.18);
+        card.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
+      });
+      var topIdx = cards.indexOf(order[0]);
+      dots.forEach(function (d, i) { d.classList.toggle('on', i === topIdx); });
+    }
+
+    function cycle(dir) {
+      var top = order[0];
+      if (RM) {
+        if (dir >= 0) { order.push(order.shift()); }
+        else { order.unshift(order.pop()); }
+        layout();
+        return;
+      }
+      if (dir >= 0) {
+        top.style.transform = 'translateX(' + (window.innerWidth * 0.7) + 'px) rotate(8deg)';
+        top.style.opacity = '0';
+        setTimeout(function () {
+          order.push(order.shift());
+          layout();
+        }, 320);
+      } else {
+        var last = order[order.length - 1];
+        last.style.transition = 'none';
+        last.style.transform = 'translateX(-' + (window.innerWidth * 0.7) + 'px) rotate(-8deg)';
+        last.style.opacity = '0';
+        order.unshift(order.pop());
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            last.style.transition = '';
+            layout();
+          });
+        });
+      }
+    }
+
+    // Drag (pointer events)
+    var startX = 0, dx = 0, active = null;
+    deck.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('a')) return; // let links work
+      var top = order[0];
+      if (!top.contains(e.target)) return;
+      active = top;
+      startX = e.clientX;
+      dx = 0;
+      active.classList.add('dragging');
+      active.setPointerCapture && deck.setPointerCapture(e.pointerId);
+    });
+    deck.addEventListener('pointermove', function (e) {
+      if (!active) return;
+      dx = e.clientX - startX;
+      active.style.transform =
+        'translateX(' + dx + 'px) rotate(' + (dx * 0.04) + 'deg)';
+    });
+    function release() {
+      if (!active) return;
+      active.classList.remove('dragging');
+      if (Math.abs(dx) > 90) {
+        active.style.transform =
+          'translateX(' + (dx > 0 ? 1 : -1) * window.innerWidth * 0.7 + 'px) rotate(' + (dx * 0.06) + 'deg)';
+        active.style.opacity = '0';
+        setTimeout(function () { order.push(order.shift()); layout(); }, 300);
+      } else {
+        layout(); // snap back
+      }
+      active = null; dx = 0;
+    }
+    deck.addEventListener('pointerup', release);
+    deck.addEventListener('pointercancel', release);
+
+    // Buttons + keyboard
+    document.getElementById('deck-next').addEventListener('click', function () { cycle(1); });
+    document.getElementById('deck-prev').addEventListener('click', function () { cycle(-1); });
+    deck.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') cycle(1);
+      if (e.key === 'ArrowLeft') cycle(-1);
+    });
+    deck.setAttribute('tabindex', '0');
+
+    sizeDeck();
+    layout();
+    window.addEventListener('resize', function () { sizeDeck(); });
+  })();
+
+  /* ── 6. SCRAMBLE TEXT ON HOVER (AWARDS) ────────────────────────────── */
+  (function () {
+    if (RM) return;
+    var CHARS = '!<>-_\\/[]{}—=+*^?#·◆';
+    document.querySelectorAll('[data-scramble]').forEach(function (el) {
+      var original = el.textContent;
+      var timer = null;
+      el.closest('.award-item').addEventListener('mouseenter', function () {
+        if (timer) clearInterval(timer);
+        var frame = 0;
+        var resolveAt = 1.8; // frames per resolved char
+        timer = setInterval(function () {
+          var resolved = Math.floor(frame / resolveAt);
+          if (resolved >= original.length) {
+            el.textContent = original;
+            clearInterval(timer); timer = null;
+            return;
+          }
+          var out = original.slice(0, resolved);
+          for (var i = resolved; i < original.length; i++) {
+            out += original[i] === ' ' ? ' '
+                 : CHARS[Math.floor(Math.random() * CHARS.length)];
+          }
+          el.textContent = out;
+          frame++;
+        }, 24);
+      });
+    });
+  })();
+
+  /* ── 7. MAGNETIC CTA BUTTONS ───────────────────────────────────────── */
+  (function () {
+    if (RM) return;
+    document.querySelectorAll('[data-magnetic]').forEach(function (btn) {
+      var strength = 0.35, range = 80;
+      function reset() {
+        btn.style.transition = 'transform .5s cubic-bezier(.22,1,.36,1)';
+        btn.style.transform = '';
+      }
+      btn.addEventListener('mousemove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        var dx = e.clientX - cx, dy = e.clientY - cy;
+        btn.style.transition = 'transform .15s ease-out';
+        btn.style.transform =
+          'translate(' + clamp(dx * strength, -range, range).toFixed(1) + 'px,' +
+                         clamp(dy * strength, -range, range).toFixed(1) + 'px)';
+      });
+      btn.addEventListener('mouseleave', reset);
+    });
+  })();
+
+  /* ── 8. SECTION REVEALS ────────────────────────────────────────────── */
+  (function () {
+    var els = document.querySelectorAll('.fx-reveal');
+    if (!els.length) return;
+    if (RM || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+})();
+</script>
+
+<script src="effects.js"></script>
+</body>
+</html>

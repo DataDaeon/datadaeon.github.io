@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIRTU4L — Brand, Website & AI-Powered VR Business · Dario Espinosa</title>
+<meta name="description" content="VIRTU4L — founding a VR entertainment business in Chiapas: brand identity, website, AI-powered operations, and physical VR center experience design.">
+<meta name="author" content="Dario Espinosa">
+<link rel="canonical" href="https://darioespinosa.design/virtu4l.html">
+<meta property="og:title" content="VIRTU4L — Brand, Website & AI-Powered VR Business · Dario Espinosa">
+<meta property="og:description" content="Founding a VR entertainment business: brand, website, AI operations, and spatial experience design.">
+<meta property="og:url" content="https://darioespinosa.design/virtu4l.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="effects.css">
+<script>/* IO shim — immediate-fire fallback (Session 10c) */
+if(!('IntersectionObserver' in window)){window.IntersectionObserver=function(cb){this._cb=cb};IntersectionObserver.prototype.observe=function(el){var s=this;setTimeout(function(){s._cb([{isIntersecting:true,target:el}],s)},0)};IntersectionObserver.prototype.unobserve=function(){};IntersectionObserver.prototype.disconnect=function(){}}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050508;--bg2:#08080d;--surface:#0d0d14;--surface2:#111118;
+  --border:rgba(80,227,194,0.12);--border-v:rgba(167,139,250,0.12);--border-w:rgba(255,255,255,0.07);
+  --t1:#ffffff;--t2:rgba(255,255,255,0.65);--t3:rgba(255,255,255,0.44);--t4:rgba(255,255,255,0.07);
+  --teal:#50e3c2;--teal-dim:rgba(80,227,194,0.08);
+  --violet:#a78bfa;--violet-dim:rgba(167,139,250,0.08);
+  --red:#ef4444;--red-dim:rgba(239,68,68,0.08);
+  --font:'Geist','Inter',system-ui,sans-serif;
+  --mono:'Geist Mono','SF Mono',ui-monospace,monospace;
+  --max:820px;--r:6px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:var(--font);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1px solid var(--border-w);background:rgba(5,5,8,0.88);backdrop-filter:blur(24px) saturate(1.4);display:flex;align-items:center;padding:0 32px;gap:12px}
+.nav-name{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--t1);text-decoration:none;letter-spacing:0.02em}
+.nav-sep{color:var(--t4);font-size:14px}
+.nav-role{font-family:var(--mono);font-size:11px;color:var(--t3)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:22px}
+.nav-link{font-family:var(--mono);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s}
+.nav-link:hover{color:var(--teal)}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 10px var(--teal)}50%{opacity:0.35;box-shadow:0 0 3px var(--teal)}}
+
+/* HERO */
+header.cs-hero{padding:120px 32px 60px;border-bottom:1px solid var(--border-w)}
+.cs-hero-inner{max-width:var(--max);margin:0 auto}
+.cs-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:var(--teal);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.cs-eyebrow::before{content:'';width:24px;height:1px;background:var(--teal);opacity:0.5}
+.cs-hero h1{font-size:clamp(36px,5.5vw,60px);font-weight:800;letter-spacing:-0.05em;line-height:1;margin-bottom:20px;color:var(--t1)}
+.cs-hero h1 span{color:var(--teal)}
+.cs-xyz{font-size:16px;color:var(--t2);line-height:1.75;max-width:640px;margin-bottom:32px}
+.cs-xyz strong{color:var(--teal);font-weight:500}
+.meta-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border-w);border-radius:var(--r);overflow:hidden;max-width:640px}
+.meta-cell{padding:10px 14px;border-right:1px solid var(--border-w)}
+.meta-cell:last-child{border-right:none}
+.meta-label{font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px}
+.meta-val{font-family:var(--mono);font-size:11px;color:var(--t1)}
+
+/* METRICS BAR */
+.metrics{border-bottom:1px solid var(--border-w);padding:0}
+.metrics-inner{max-width:var(--max);margin:0 auto;padding:28px 32px;display:flex;gap:1px;background:var(--border-w)}
+.metric-box{flex:1;background:var(--bg);padding:20px 24px;display:flex;flex-direction:column;gap:6px}
+.metric-val{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--teal);letter-spacing:-0.04em;line-height:1}
+.metric-label{font-family:var(--mono);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:0.07em}
+
+/* CONTENT BLOCKS */
+.block{border-bottom:1px solid var(--border-w)}
+.block-inner{max-width:var(--max);margin:0 auto;padding:48px 32px}
+.block-label{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.block-label::after{content:'';flex:1;height:1px;background:var(--border-w)}
+.block h2{font-size:22px;font-weight:700;letter-spacing:-0.035em;color:var(--t1);margin-bottom:16px}
+.block p{font-size:14px;color:var(--t2);line-height:1.85;margin-bottom:14px}
+.block p:last-child{margin-bottom:0}
+.block p strong{color:var(--t1);font-weight:500}
+.slide{margin:0 0 16px}
+.slide img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
+.slide-caption{font-family:var(--mono);font-size:10px;color:var(--t3);margin-top:8px;letter-spacing:0.03em}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.grid-2 img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+.grid-3 img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
+.decision{border-left:2px solid var(--teal);padding:18px 22px;background:var(--teal-dim);border-radius:0 var(--r) var(--r) 0;margin:8px 0}
+.decision-label{font-family:var(--mono);font-size:9px;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px}
+.decision p{font-size:14px;color:var(--t2);line-height:1.75;margin:0}
+.decision-v{border-left-color:var(--violet);background:var(--violet-dim)}
+.decision-v .decision-label{color:var(--violet)}
+.decision-r{border-left-color:var(--red);background:var(--red-dim)}
+.decision-r .decision-label{color:var(--red)}
+.ai-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--violet);background:var(--violet-dim);border:1px solid var(--border-v);padding:3px 10px;border-radius:3px;letter-spacing:0.04em;margin-bottom:18px}
+.ai-badge::before{content:'◆';font-size:8px}
+.founder-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--teal);background:var(--teal-dim);border:1px solid var(--border);padding:3px 10px;border-radius:3px;letter-spacing:0.04em;margin-bottom:18px}
+.founder-badge::before{content:'★';font-size:8px}
+.flow-row{display:flex;align-items:flex-start;gap:0;margin:20px 0;overflow:hidden;border-radius:var(--r);border:1px solid var(--border-w)}
+.flow-step{flex:1;padding:14px 12px;background:var(--surface);border-right:1px solid var(--border-w);position:relative}
+.flow-step:last-child{border-right:none}
+.flow-n{font-family:var(--mono);font-size:9px;color:var(--teal);letter-spacing:0.08em;margin-bottom:4px}
+.flow-title{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:3px}
+.flow-sub{font-size:11px;color:var(--t3)}
+.tag{font-family:var(--mono);font-size:10px;color:var(--t3);background:var(--t4);border:1px solid var(--border-w);padding:2px 7px;border-radius:3px;letter-spacing:0.02em;display:inline-block;margin-right:6px;margin-bottom:4px}
+.tag.tc{color:var(--teal);background:var(--teal-dim);border-color:rgba(80,227,194,0.18)}
+.tag.tv{color:var(--violet);background:var(--violet-dim);border-color:rgba(167,139,250,0.18)}
+.tag.tr{color:var(--red);background:var(--red-dim);border-color:rgba(239,68,68,0.18)}
+
+/* PACKAGE CARDS */
+.pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-w);border:1px solid var(--border-w);border-radius:var(--r);overflow:hidden;margin:20px 0}
+.pkg-card{background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:8px}
+.pkg-name{font-family:var(--mono);font-size:10px;color:var(--teal);letter-spacing:0.1em;text-transform:uppercase}
+.pkg-price{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--t1);letter-spacing:-0.04em}
+.pkg-price span{font-size:11px;color:var(--t3);font-weight:400}
+.pkg-desc{font-size:12px;color:var(--t2);line-height:1.6}
+.pkg-detail{font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:0.04em}
+
+/* SITE MAP */
+.sitemap{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.sitemap-page{background:var(--surface);border:1px solid var(--border-w);border-radius:var(--r);padding:14px 16px}
+.sitemap-url{font-family:var(--mono);font-size:9px;color:var(--teal);letter-spacing:0.06em;margin-bottom:6px}
+.sitemap-name{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:4px}
+.sitemap-desc{font-size:11px;color:var(--t3);line-height:1.5}
+
+/* TECH STACK */
+.stack-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.stack-item{font-family:var(--mono);font-size:10px;color:var(--t2);background:var(--surface);border:1px solid var(--border-w);padding:6px 12px;border-radius:3px;letter-spacing:0.04em}
+
+/* CTA */
+.cta-block{border-bottom:1px solid var(--border-w)}
+.cta-inner{max-width:var(--max);margin:0 auto;padding:48px 32px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.cta-text h3{font-size:18px;font-weight:700;letter-spacing:-0.03em;margin-bottom:6px}
+.cta-text p{font-size:13px;color:var(--t3)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-decoration:none;padding:10px 20px;border-radius:var(--r);transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:var(--teal);color:#050508;font-weight:600}
+.btn-primary:hover{background:#6ef7d8;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--t2);border:1px solid var(--border-w)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+
+/* SCROLL HERO CONTAINER */
+.scroll-hero-wrap{max-width:var(--max);margin:0 auto;padding:52px 0 0}
+.scroll-hero{width:100%;border-radius:10px;overflow:hidden;transform-origin:50% 100%;will-change:transform;border:1px solid rgba(255,255,255,0.07);box-shadow:0 2px 4px rgba(0,0,0,.2),0 12px 24px rgba(0,0,0,.3),0 32px 64px rgba(0,0,0,.35);transform:perspective(1000px) rotateX(20deg) scale(0.88)}
+.scroll-hero img{display:block;width:100%;height:auto;pointer-events:none;user-select:none}
+.scroll-hero-wrap::after{content:'';display:block;height:80px;margin-top:-40px;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(80,227,194,.10),transparent 80%);pointer-events:none}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.v{opacity:1;transform:translateY(0)}
+
+@media(max-width:600px){
+  .pkg-grid{grid-template-columns:1fr 1fr}
+  .sitemap{grid-template-columns:1fr 1fr}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .cta-inner{flex-direction:column;align-items:flex-start}
+  .cs-hero h1{font-size:clamp(28px,10vw,44px)}
+}
+
+/* ── ACCESSIBILITY: FOCUS STYLES ── */
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
+</style>
+</head>
+<body>
+<a href="#main-content" style="position:absolute;left:-9999px;top:4px;z-index:9999;background:#50e3c2;color:#050508;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none" onfocus="this.style.left='4px'" onblur="this.style.left='-9999px'">Skip to main content</a>
+
+<nav>
+  <a href="index.html" class="nav-name">dario-espinosa</a>
+  <span class="nav-sep">·</span>
+  <span class="nav-role">lead-experience-designer</span>
+  <div class="nav-right">
+    <a href="index.html" class="nav-link">← work</a>
+    <a href="about.html" class="nav-link">about</a>
+    <a href="https://www.realidadvirtu4l.com" target="_blank" rel="noopener" class="nav-link">live site ↗</a>
+    <div class="nav-dot"></div>
+  </div>
+</nav>
+
+<header class="cs-hero" id="main-content">
+  <div class="cs-hero-inner">
+    <div class="cs-eyebrow">personal business · founder</div>
+    <h1>VIRTU4L — Brand, Website<br>&amp; <span>AI-Powered</span> VR Business</h1>
+    <p class="cs-xyz">Founding and building Chiapas' first VR center from the ground up — <strong>complete brand identity</strong>, a multi-page website with an AI game assistant and online quoter, a digital marketing system, and an AI avatar that runs operations. Every touchpoint designed and built by hand.</p>
+    <div class="meta-row">
+      <div class="meta-cell"><div class="meta-label">context</div><div class="meta-val">Personal Business</div></div>
+      <div class="meta-cell"><div class="meta-label">role</div><div class="meta-val">Founder · Designer · Dev</div></div>
+      <div class="meta-cell"><div class="meta-label">timeline</div><div class="meta-val">2024 – present</div></div>
+      <div class="meta-cell"><div class="meta-label">location</div><div class="meta-val">Tuxtla Gutiérrez MX</div></div>
+    </div>
+
+    <div class="scroll-hero-wrap" data-src="https://www.realidadvirtu4l.com/assets/images/hero-index.jpg" data-alt="VIRTU4L — Centro de Realidad Virtual en Tuxtla Gutiérrez"></div>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="metrics-inner">
+    <div class="metric-box"><span class="metric-val">150+</span><span class="metric-label">VR games</span></div>
+    <div class="metric-box"><span class="metric-val">5+</span><span class="metric-label">Website pages</span></div>
+    <div class="metric-box"><span class="metric-val">4</span><span class="metric-label">Experience packages</span></div>
+    <div class="metric-box"><span class="metric-val">AI</span><span class="metric-label">Game assistant built</span></div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">01 — Overview</div>
+    <div class="founder-badge">Personal Business · Founder</div>
+    <h2>The First VR Center in Chiapas</h2>
+    <p>VIRTU4L is not a client project — it's a real business I co-founded, designed, and built in Tuxtla Gutiérrez, Chiapas. The challenge was not just design: it meant going from zero to a <strong>fully operational venue</strong>, with a brand, a digital presence, pricing strategy, marketing, and AI tooling all running simultaneously.</p>
+    <p>The venue features <strong>free-roaming Meta Quest</strong> headsets with 45+ VR titles in-room, Xbox Cloud Gaming, Gotcha (paintball), private events for birthdays, corporate team building, and concerts. As the experience lead, I handled everything from naming and visual identity to the code that powers the website — and then kept iterating while the business was already running customers.</p>
+
+    <div class="flow-row">
+      <div class="flow-step">
+        <div class="flow-n">01</div>
+        <div class="flow-title">Brand Identity</div>
+        <div class="flow-sub">Logo, palette, tone</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-n">02</div>
+        <div class="flow-title">Website</div>
+        <div class="flow-sub">5 pages, vibe-coded</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-n">03</div>
+        <div class="flow-title">Business Dev</div>
+        <div class="flow-sub">Pricing & packages</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-n">04</div>
+        <div class="flow-title">Marketing</div>
+        <div class="flow-sub">Social + AI content</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-n">05</div>
+        <div class="flow-title">AI Tools</div>
+        <div class="flow-sub">Assistant + avatar</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND IDENTITY -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">02 — Brand Identity</div>
+    <h2>Building from Zero: Logo, Palette &amp; Voice</h2>
+    <p>The name <strong>VIRTU4L</strong> — with the 4 standing in for the letter A — immediately signals the digital-first identity and sets it apart from generic venue names. The brand had to feel exciting and premium while staying accessible to families, teenagers, and corporates alike.</p>
+
+    <div class="decision">
+      <div class="decision-label">Brand Principle</div>
+      <p>Dark, immersive, neon-forward. The brand lives in the space between tech product and entertainment venue — more like a gaming company than a carnival. Red (#ef4444) as the primary action color; teal as the digital-future accent; black as the permanent foundation.</p>
+    </div>
+
+    <div class="grid-2" style="margin-top:20px">
+      <div style="background:var(--surface);border:1px solid var(--border-w);border-radius:var(--r);padding:28px;display:flex;align-items:center;justify-content:center;min-height:160px">
+        <img src="https://www.realidadvirtu4l.com/assets/images/Logo.png" alt="VIRTU4L Logo" style="max-height:80px;width:auto;filter:none;border:none;border-radius:0">
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border-w);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px">Color System</div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <div style="width:36px;height:36px;border-radius:4px;background:#ef4444;flex-shrink:0"></div>
+          <div><div style="font-family:var(--mono);font-size:11px;color:var(--t1)">#EF4444</div><div style="font-family:var(--mono);font-size:9px;color:var(--t3)">Primary action · CTA</div></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <div style="width:36px;height:36px;border-radius:4px;background:#3cffd0;flex-shrink:0"></div>
+          <div><div style="font-family:var(--mono);font-size:11px;color:var(--t1)">#3CFFD0</div><div style="font-family:var(--mono);font-size:9px;color:var(--t3)">Digital accent · highlights</div></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <div style="width:36px;height:36px;border-radius:4px;background:#0a0a0f;border:1px solid rgba(255,255,255,0.1);flex-shrink:0"></div>
+          <div><div style="font-family:var(--mono);font-size:11px;color:var(--t1)">#0A0A0F</div><div style="font-family:var(--mono);font-size:9px;color:var(--t3)">Immersive background</div></div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:16px">Typography uses a clean bold sans across all touch points — headers run heavy to create the cinematic weight the VR experience demands, while body copy stays readable across mobile and venue screens. The tag line <em>"Experimenta la Realidad Virtual"</em> is direct, action-first, and bilingual by design.</p>
+  </div>
+</div>
+
+<!-- WEBSITE -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">03 — Website Design &amp; Development</div>
+    <div class="ai-badge">Vibe-coded · Vanilla JS · No framework</div>
+    <h2>A Multi-Page Business Website Built from Scratch</h2>
+    <p>The site was designed and developed end-to-end — no template, no CMS. Built in vanilla HTML, CSS, and JavaScript with deliberate performance constraints: fast-loading on mobile, SEO-ready, and deployable without a backend.</p>
+
+    <div class="sitemap">
+      <div class="sitemap-page">
+        <div class="sitemap-url">/ index</div>
+        <div class="sitemap-name">Home</div>
+        <div class="sitemap-desc">Hero, features, experience packages, games carousel, events, client logos, CTA</div>
+      </div>
+      <div class="sitemap-page">
+        <div class="sitemap-url">/ juegos</div>
+        <div class="sitemap-name">Games Catalog</div>
+        <div class="sitemap-desc">45+ VR titles + 550+ Xbox Cloud with filter by genre, AI game mood assistant</div>
+      </div>
+      <div class="sitemap-page">
+        <div class="sitemap-url">/ cotizador</div>
+        <div class="sitemap-name">Quote Wizard</div>
+        <div class="sitemap-desc">6-step interactive wizard: event type → package → location → extras → WhatsApp send</div>
+      </div>
+      <div class="sitemap-page">
+        <div class="sitemap-url">/ faq</div>
+        <div class="sitemap-name">FAQ</div>
+        <div class="sitemap-desc">Accordion-based FAQ covering booking, safety, age limits, and accessibility</div>
+      </div>
+      <div class="sitemap-page">
+        <div class="sitemap-url">/ halloween</div>
+        <div class="sitemap-name">Seasonal Events</div>
+        <div class="sitemap-desc">Themed landing for special events — Halloween 2024 was the first edition</div>
+      </div>
+      <div class="sitemap-page" style="border-color:var(--border)">
+        <div class="sitemap-url" style="color:var(--teal)">interactive</div>
+        <div class="sitemap-name">AI Mood Assistant</div>
+        <div class="sitemap-desc">JS-powered 2-step mood questionnaire that recommends up to 3 VR games</div>
+      </div>
+    </div>
+
+    <div class="slide" style="margin-top:20px">
+      <img src="https://www.realidadvirtu4l.com/assets/images/hero-index.jpg" alt="VIRTU4L website hero — home page">
+      <div class="slide-caption">↑ Home page hero — full-bleed immersive layout with booking CTA above the fold</div>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <img src="https://www.realidadvirtu4l.com/assets/images/hero-juegos.png" alt="VIRTU4L games catalog page">
+        <div class="slide-caption" style="margin-top:8px">↑ Games catalog — filterable, searchable, 45+ VR titles</div>
+      </div>
+      <div>
+        <img src="https://www.realidadvirtu4l.com/assets/images/hero-cotizador.png" alt="VIRTU4L cotizador page">
+        <div class="slide-caption" style="margin-top:8px">↑ Online quoter — 6-step wizard ending in a WhatsApp pre-filled message</div>
+      </div>
+    </div>
+
+    <div class="decision">
+      <div class="decision-label">Key Design Decision</div>
+      <p>The quote wizard was the single highest-impact UX feature. Instead of a generic contact form, users answer 6 structured questions (event type, package, extras, location) and get a WhatsApp message pre-filled with their configuration. <strong>Zero sales friction, zero back-and-forth.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- BUSINESS DEV -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">04 — Business Development</div>
+    <h2>Pricing Architecture &amp; Package Strategy</h2>
+    <p>Defining the pricing model was as much a design challenge as a business one. The goal: make the entry point irresistible ($50 MXN walk-in), scale cleanly to group events, and never leave money on the table with vague "custom quotes".</p>
+
+    <div class="pkg-grid">
+      <div class="pkg-card">
+        <div class="pkg-name">Star</div>
+        <div class="pkg-price">$50 <span>MXN</span></div>
+        <div class="pkg-desc">5–10 min individual — gateway experience, walk-in, no booking needed</div>
+        <div class="pkg-detail">1 person · intro games only</div>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-name">Mini</div>
+        <div class="pkg-price">$120 <span>MXN</span></div>
+        <div class="pkg-desc">30 min individual — full catalog access, guided session</div>
+        <div class="pkg-detail">1 person · all games</div>
+      </div>
+      <div class="pkg-card" style="border-top:2px solid var(--teal)">
+        <div class="pkg-name" style="color:var(--teal)">Club ✦</div>
+        <div class="pkg-price" style="color:var(--teal)">$400 <span style="color:var(--t3)">MXN</span></div>
+        <div class="pkg-desc">60 min group — private area, multiplayer, ideal for friends &amp; family</div>
+        <div class="pkg-detail">2–4 people · most popular</div>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-name">Arena</div>
+        <div class="pkg-price">$800 <span>MXN</span></div>
+        <div class="pkg-desc">90 min events — full space, tournaments, competitions, corporate</div>
+        <div class="pkg-detail">5+ people · events &amp; groups</div>
+      </div>
+    </div>
+
+    <p>Beyond walk-in packages, a parallel revenue track was designed for <strong>B2B and event rentals</strong>: birthday packages with Gotcha paintball add-ons, corporate team building with catering coordination, and venue rental for concerts and private events up to 50 people. Each has its own pricing logic and a dedicated section in the quote wizard.</p>
+
+    <div class="decision-v decision">
+      <div class="decision-label">Partnership</div>
+      <p>Gotcha Depredadores — a local paintball venue — was brought in as a strategic partner, expanding the offer to combined VR + Gotcha packages. This cross-sell drives higher AOV and differentiates VIRTU4L from a standard gaming lounge into a <strong>full entertainment destination</strong>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MARKETING -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">05 — Digital Marketing &amp; Social</div>
+    <h2>Content Strategy &amp; AI-Assisted Execution</h2>
+    <p>Running a business and creating daily content simultaneously is unsustainable without a system. VIRTU4L's social presence spans Instagram, TikTok, Threads, and Facebook — each with a distinct content format designed for that platform's algorithm.</p>
+
+    <div class="grid-2">
+      <div class="decision">
+        <div class="decision-label">Instagram @virtu4lsc</div>
+        <p>Reels-first: in-venue gameplay clips, customer reactions, game highlights. High-production shorts drive reach; stories drive reservations via link-in-bio.</p>
+      </div>
+      <div class="decision-v decision">
+        <div class="decision-label">TikTok @realidadvirtu4l</div>
+        <p>Organic discovery channel — raw gameplay + funny moments format. Lower production cost, higher reach ceiling. Used for new game announcements and walk-in promotions.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:16px"><strong>AI-assisted content creation</strong> is central to the operation. Claude and Midjourney are used to draft caption variants, social copy, and visual concepts — cutting content production time by 60% while maintaining brand voice consistency. Seasonal campaigns (Halloween, summer breaks, corporate season) are planned and partially generated with AI.</p>
+
+    <div class="decision">
+      <div class="decision-label">Marketing Principle</div>
+      <p>The best marketing for a VR venue is <em>showing people what it feels like to be inside one</em>. All content strategy is anchored to first-person reaction content — the guest's face when they first put on the headset is the most effective ad we can run.</p>
+    </div>
+  </div>
+</div>
+
+<!-- AI TOOLS -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">06 — AI Tools Built</div>
+    <div class="ai-badge">AI-native operations</div>
+    <h2>Three Distinct AI Systems for One Business</h2>
+    <p>Running a small VR venue means wearing every hat. Rather than hiring for each gap, AI tools were designed and built to fill specific operational holes — each one scoped to a real pain point.</p>
+
+    <div style="display:flex;flex-direction:column;gap:12px;margin:20px 0">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--teal);background:var(--teal-dim);padding:2px 8px;border-radius:3px;letter-spacing:0.08em">WEBSITE</div>
+          <div style="font-size:13px;font-weight:600;color:var(--t1)">AI Game Mood Assistant</div>
+        </div>
+        <p style="margin:0;font-size:13px;color:var(--t2)">Built into the games catalog page — a 2-step conversational filter that asks the user how they feel today (tranquil / excited / social / first-timer / with kids) and recommends up to 3 VR titles matched to that mood and available session time. Pure vanilla JS, no API calls.</p>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid var(--border-v);border-radius:var(--r);padding:20px 24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--violet);background:var(--violet-dim);padding:2px 8px;border-radius:3px;letter-spacing:0.08em">OPERATIONS</div>
+          <div style="font-size:13px;font-weight:600;color:var(--t1)">VOS — VIRTU4L Operations System</div>
+        </div>
+        <p style="margin:0;font-size:13px;color:var(--t2)">A Slack-native agent (Node.js + Ollama) handling daily checklists, reservations, sales tracking, and Dasha — an AI assistant that runs locally with zero cloud dependency. 293 passing tests. Full case study available separately.</p>
+        <a href="virtu4lslacksagent.html" style="display:inline-block;margin-top:10px;font-family:var(--mono);font-size:10px;color:var(--violet);text-decoration:none;letter-spacing:0.04em">→ VOS case study</a>
+      </div>
+
+      <div style="background:var(--surface);border:1px solid rgba(239,68,68,0.15);border-radius:var(--r);padding:20px 24px">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--red);background:var(--red-dim);padding:2px 8px;border-radius:3px;letter-spacing:0.08em">BRAND</div>
+          <div style="font-size:13px;font-weight:600;color:var(--t1)">AI Avatar — Dasha</div>
+        </div>
+        <p style="margin:0;font-size:13px;color:var(--t2)">Created a branded AI avatar — Dasha — as the face of VIRTU4L's customer communications and operations assistant. Dasha has a defined personality (energetic, direct, local), appears in social content, and powers the Slack operations brain inside VOS. Designed with a consistent visual identity so the avatar becomes a recognizable character.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TECH STACK -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">07 — Technical Stack</div>
+    <h2>Built to Run Without a Backend</h2>
+    <p>Every decision in the technical stack was shaped by one constraint: <strong>this business runs on a tight budget</strong> in a city with limited dev talent. The stack had to be maintainable by me alone, fast to deploy, and free to host.</p>
+
+    <div class="stack-row">
+      <div class="stack-item">HTML5</div>
+      <div class="stack-item">CSS3</div>
+      <div class="stack-item">Vanilla JS</div>
+      <div class="stack-item">Google Calendar API</div>
+      <div class="stack-item">WhatsApp API</div>
+      <div class="stack-item">Google Maps embed</div>
+      <div class="stack-item">Netlify / GitHub Pages</div>
+      <div class="stack-item">Node.js (VOS)</div>
+      <div class="stack-item">Ollama (local LLM)</div>
+      <div class="stack-item">Claude (AI assist)</div>
+      <div class="stack-item">Midjourney (visuals)</div>
+    </div>
+
+    <div class="decision">
+      <div class="decision-label">No-backend design choice</div>
+      <p>The quote wizard generates a WhatsApp deep link with a pre-filled message constructed entirely in JS on the client side. The calendar booking uses Google's public calendar embed. There is no server, no database, no API keys exposed. <strong>Zero hosting cost, zero attack surface, zero maintenance overhead.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- LEARNINGS -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">08 — Reflection</div>
+    <h2>What Running a Business Teaches a Designer</h2>
+    <p>This project is ongoing — the business is live, customers are walking in, and the product keeps evolving. The difference between client work and founder work is that <strong>you feel every design decision in your bank account</strong>.</p>
+
+    <div style="display:flex;flex-direction:column;gap:10px;margin:20px 0">
+      <div class="decision">
+        <div class="decision-label">Learned: Speed beats perfect</div>
+        <p>The first version of the website launched in under 2 weeks. It was imperfect. It still generated the first 20 reservations. Every sprint since has been driven by real customer behavior, not assumptions.</p>
+      </div>
+      <div class="decision-v decision">
+        <div class="decision-label">Learned: AI amplifies solo founders</div>
+        <p>Running marketing, operations, development, and design simultaneously is only feasible because of AI tooling. Claude wrote first drafts of copy that I refined. Midjourney generated visual concepts in hours. VOS automated the operational checklist that used to require a dedicated person.</p>
+      </div>
+      <div class="decision-r decision">
+        <div class="decision-label">Ongoing challenge</div>
+        <p>Local market education — many potential customers in Tuxtla Gutiérrez have never tried VR. A significant part of the content strategy is converting curiosity into first-visit intent, not just retaining existing customers.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:24px">
+      <span class="tag tc">brand-design</span>
+      <span class="tag">web-development</span>
+      <span class="tag">business-development</span>
+      <span class="tag">digital-marketing</span>
+      <span class="tag tv">ai-tools</span>
+      <span class="tag">vibe-coded</span>
+      <span class="tag">founder</span>
+      <span class="tag">meta-quest</span>
+      <span class="tag tr">personal-project</span>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-block">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h3>See it live</h3>
+      <p>realidadvirtu4l.com is open to the public — walk-ins welcome, events bookable online.</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href="https://www.realidadvirtu4l.com" target="_blank" rel="noopener" class="btn btn-primary">Visit VIRTU4L ↗</a>
+      <a href="index.html" class="btn btn-ghost">← All work</a>
+    </div>
+  </div>
+</div>
+
+<script src="effects.js"></script>
+<script>
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

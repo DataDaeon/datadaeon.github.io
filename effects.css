@@ -1,0 +1,375 @@
+/* ================================================================
+   effects.css — dario-cv-website shared visual effects
+   Session 9 — June 2026
+   ================================================================ */
+
+/* ── 1. NOISE BUTTONS ─────────────────────────────────────────────
+   Grain texture + shimmer sweep on every .btn element.
+   JS (effects.js) injects .btn-grain and .btn-shimmer spans.
+   ─────────────────────────────────────────────────────────────── */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Animated grain overlay */
+.btn-grain {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  animation: grain-drift 0.5s steps(1) infinite;
+}
+
+@keyframes grain-drift {
+  0%   { background-position:   0px    0px; }
+  16%  { background-position: -12px   -8px; }
+  33%  { background-position:  10px  -14px; }
+  50%  { background-position:  -8px   12px; }
+  66%  { background-position:  14px    6px; }
+  83%  { background-position:  -6px  -10px; }
+  100% { background-position:   0px    0px; }
+}
+
+/* Shimmer sweep on hover */
+.btn-shimmer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  transform: translateX(-130%);
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.16) 50%,
+    transparent 100%
+  );
+}
+
+.btn:hover .btn-shimmer {
+  animation: shimmer-sweep 0.55s ease-out forwards;
+}
+
+@keyframes shimmer-sweep {
+  to { transform: translateX(230%); }
+}
+
+/* Keep text & icon above overlays */
+.btn > *:not(.btn-grain):not(.btn-shimmer) {
+  position: relative;
+  z-index: 3;
+}
+
+
+/* ── 2. TRACING BEAM ──────────────────────────────────────────────
+   Scroll-driven vertical light beam on left edge of project pages.
+   JS (effects.js) injects #tracing-beam into the body.
+   ─────────────────────────────────────────────────────────────── */
+#tracing-beam {
+  position: fixed;
+  left: calc(50% - var(--max, 820px) / 2 - 28px);
+  top: 48px; /* clears nav */
+  bottom: 0;
+  width: 2px;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.beam-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.beam-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  border-radius: 2px;
+  will-change: height;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(80, 227, 194, 0.25) 30%,
+    rgba(80, 227, 194, 0.7) 100%
+  );
+}
+
+.beam-dot {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #50e3c2;
+  box-shadow:
+    0 0  6px #50e3c2,
+    0 0 14px rgba(80, 227, 194, 0.6),
+    0 0 28px rgba(80, 227, 194, 0.3);
+}
+
+/* Hide on narrow viewports — not enough side room */
+@media (max-width: 860px) {
+  #tracing-beam { display: none; }
+}
+
+
+/* ── 3. COMET CARD ────────────────────────────────────────────────
+   Mouse-tracking radial glow + border highlight on project images.
+   JS wraps each eligible <img> in a .comet-wrap span.
+   ─────────────────────────────────────────────────────────────── */
+.comet-wrap {
+  position: relative;
+  display: block;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.comet-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+
+/* Radial glow follows cursor — background set by JS */
+.comet-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.comet-wrap:hover .comet-glow {
+  opacity: 1;
+}
+
+/* Teal border appears on hover */
+.comet-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(80, 227, 194, 0.0);
+  transition: box-shadow 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.comet-wrap:hover::after {
+  box-shadow: inset 0 0 0 1px rgba(80, 227, 194, 0.4);
+}
+
+
+/* ── 4. COMPARE SLIDER ────────────────────────────────────────────
+   Drag-handle before/after comparison.
+
+   Required HTML structure:
+   ───────────────────────────────────────
+   <div class="compare-slider">
+     <img class="compare-img-after" src="after.jpg" alt="After">
+     <div class="compare-before-clip">
+       <img class="compare-img-before" src="before.jpg" alt="Before">
+     </div>
+     <div class="compare-handle"></div>
+     <span class="compare-label before-label">before</span>
+     <span class="compare-label after-label">after</span>
+   </div>
+   ───────────────────────────────────────
+
+   JS (effects.js initCompareSliders) wires up drag interaction.
+   ─────────────────────────────────────────────────────────────── */
+.compare-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  user-select: none;
+  cursor: col-resize;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  touch-action: none;
+}
+
+.compare-img-after {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.compare-before-clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  width: 50%; /* JS will update this */
+  z-index: 2;
+}
+
+.compare-img-before {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* Drag handle */
+.compare-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%; /* JS will update */
+  width: 2px;
+  background: #50e3c2;
+  z-index: 10;
+  transform: translateX(-50%);
+  cursor: col-resize;
+}
+
+/* Handle knob */
+.compare-handle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #50e3c2;
+  box-shadow:
+    0 0  8px rgba(80, 227, 194, 0.8),
+    0 0 20px rgba(80, 227, 194, 0.4);
+}
+
+/* Chevrons inside knob via pseudo text */
+.compare-handle::after {
+  content: '⟨ ⟩';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  color: #050508;
+  font-weight: 800;
+  letter-spacing: -1px;
+  pointer-events: none;
+}
+
+/* Before / After labels */
+.compare-label {
+  position: absolute;
+  bottom: 12px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 3px;
+  z-index: 11;
+  pointer-events: none;
+  backdrop-filter: blur(6px);
+}
+
+.compare-label.before-label {
+  left: 12px;
+  background: rgba(5, 5, 8, 0.65);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.compare-label.after-label {
+  right: 12px;
+  background: rgba(5, 5, 8, 0.65);
+  color: #50e3c2;
+}
+
+
+/* ── 5. SCROLL HERO — 3D tilt-in on scroll ────────────────────────
+   Placed directly below .meta-row in each project page hero.
+   JS (initScrollHeroes) auto-picks the first content image and
+   drives rotateX 20°→0° + scale 0.88→1.0 as element scrolls in.
+   ─────────────────────────────────────────────────────────────── */
+.scroll-hero-wrap {
+  max-width: var(--max, 820px);
+  margin: 0 auto;
+  /* horizontal padding comes from the parent section; only add vertical gap */
+  padding: 52px 0 0;
+}
+
+.scroll-hero {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  /* perspective on the element itself, transform-origin at bottom */
+  transform-origin: 50% 100%;
+  will-change: transform;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow:
+    0  2px  4px  rgba(0,0,0,0.20),
+    0 12px 24px  rgba(0,0,0,0.30),
+    0 32px 64px  rgba(0,0,0,0.35),
+    0 64px 96px  rgba(0,0,0,0.20);
+  /* start tilted — JS will override this on first rAF */
+  transform: perspective(1000px) rotateX(20deg) scale(0.88);
+}
+
+.scroll-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Teal gradient glow beneath the card (ambient light effect) */
+.scroll-hero-wrap::after {
+  content: '';
+  display: block;
+  height: 80px;
+  margin-top: -40px;
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 0%,
+    rgba(80, 227, 194, 0.10),
+    transparent 80%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .scroll-hero-wrap { padding: 36px 20px 0; }
+}
+
+
+
+/* ════════════════════════════════════════════════════════════════════════
+   REDUCED MOTION — site-wide (Session 10c)
+   Collapses all CSS animations/transitions to near-instant and disables
+   smooth scroll for users with vestibular-motion sensitivity. JS-driven
+   transforms are guarded separately in effects.js / inline scripts.
+   ════════════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto !important; }
+  #tracing-beam { display: none !important; }
+}
