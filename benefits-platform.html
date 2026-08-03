@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modernizing Benefits Software: A Multinational, AI-Assisted Design System · Dario Espinosa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="effects.css">
+<script>/* IO shim — immediate-fire fallback */
+if(!('IntersectionObserver' in window)){window.IntersectionObserver=function(cb){this._cb=cb};IntersectionObserver.prototype.observe=function(el){var s=this;setTimeout(function(){s._cb([{isIntersecting:true,target:el}],s)},0)};IntersectionObserver.prototype.unobserve=function(){};IntersectionObserver.prototype.disconnect=function(){}}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050508;--bg2:#08080d;--surface:#0d0d14;--surface2:#111118;
+  --border:rgba(80,227,194,0.12);--border-v:rgba(167,139,250,0.12);--border-w:rgba(255,255,255,0.07);
+  --t1:#ffffff;--t2:rgba(255,255,255,0.65);--t3:rgba(255,255,255,0.44);--t4:rgba(255,255,255,0.07);
+  --teal:#50e3c2;--teal-dim:rgba(80,227,194,0.08);
+  --violet:#a78bfa;--violet-dim:rgba(167,139,250,0.08);
+  --font:'Geist','Inter',system-ui,sans-serif;
+  --mono:'Geist Mono','SF Mono',ui-monospace,monospace;
+  --max:820px;--r:6px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:var(--font);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1px solid var(--border-w);background:rgba(5,5,8,0.88);backdrop-filter:blur(24px) saturate(1.4);display:flex;align-items:center;padding:0 32px;gap:12px}
+.nav-name{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--t1);text-decoration:none;letter-spacing:0.02em}
+.nav-sep{color:var(--t4);font-size:14px}
+.nav-role{font-family:var(--mono);font-size:11px;color:var(--t3)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:22px}
+.nav-link{font-family:var(--mono);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s}
+.nav-link:hover{color:var(--teal)}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 10px var(--teal)}50%{opacity:0.35;box-shadow:0 0 3px var(--teal)}}
+.cs-hero{padding:120px 32px 60px;border-bottom:1px solid var(--border-w)}
+.cs-hero-inner{max-width:var(--max);margin:0 auto}
+.cs-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:var(--teal);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.cs-eyebrow::before{content:'';width:24px;height:1px;background:var(--teal);opacity:0.5}
+.cs-hero h1{font-size:clamp(40px,6vw,64px);font-weight:800;letter-spacing:-0.05em;line-height:1;margin-bottom:20px;color:var(--t1)}
+.cs-xyz{font-size:16px;color:var(--t2);line-height:1.75;max-width:640px;margin-bottom:32px}
+.cs-xyz strong{color:var(--teal);font-weight:500}
+.tag{font-family:var(--mono);font-size:10px;color:var(--t3);background:var(--t4);border:1px solid var(--border-w);padding:2px 7px;border-radius:3px;letter-spacing:0.02em;display:inline-block;margin-right:6px;margin-bottom:4px}
+.tag-ind{color:#f59e0b;background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.25)}
+.meta-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border-w);border-radius:var(--r);overflow:hidden;max-width:640px}
+.meta-cell{padding:10px 14px;border-right:1px solid var(--border-w)}
+.meta-cell:last-child{border-right:none}
+.meta-label{font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px}
+.meta-val{font-family:var(--mono);font-size:11px;color:var(--t1)}
+.metrics{border-bottom:1px solid var(--border-w);padding:0}
+.metrics-inner{max-width:var(--max);margin:0 auto;padding:28px 32px;display:flex;gap:1px;background:var(--border-w)}
+.metric-box{flex:1;background:var(--bg);padding:20px 24px;display:flex;flex-direction:column;gap:6px}
+.metric-val{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--teal);letter-spacing:-0.04em;line-height:1}
+.metric-label{font-family:var(--mono);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:0.07em}
+.block{border-bottom:1px solid var(--border-w)}
+.block-inner{max-width:var(--max);margin:0 auto;padding:48px 32px}
+.block-label{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.block-label::after{content:'';flex:1;height:1px;background:var(--border-w)}
+.block h2{font-size:22px;font-weight:700;letter-spacing:-0.035em;color:var(--t1);margin-bottom:16px}
+.block p{font-size:14px;color:var(--t2);line-height:1.85;margin-bottom:14px}
+.block p:last-child{margin-bottom:0}
+.hmw{border:1px solid var(--border);border-radius:var(--r);padding:24px 28px;background:var(--teal-dim);margin-bottom:8px}
+.hmw-label{font-family:var(--mono);font-size:10px;color:var(--teal);letter-spacing:0.08em;margin-bottom:10px}
+.hmw q{font-size:16px;font-style:italic;color:var(--t1);line-height:1.65;quotes:none}
+.slide{margin:0 0 16px}
+.slide img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
+.slide-caption{font-family:var(--mono);font-size:10px;color:var(--t3);margin-top:8px;letter-spacing:0.03em}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.grid-2 img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
+.decision{border-left:2px solid var(--teal);padding:18px 22px;background:var(--teal-dim);border-radius:0 var(--r) var(--r) 0;margin:8px 0}
+.decision-label{font-family:var(--mono);font-size:9px;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px}
+.decision p{font-size:14px;color:var(--t2);line-height:1.75;margin:0}
+.decision p strong{color:var(--t1)}
+.reflection{border-top:1px solid var(--border);padding-top:28px;margin-top:4px}
+.reflection-label{font-family:var(--mono);font-size:10px;color:var(--violet);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
+.reflection p{font-size:14px;color:var(--t2);line-height:1.85;font-style:italic}
+.token-block{background:#0a0a10;border:1px solid var(--border-w);border-radius:var(--r);padding:20px 22px;overflow-x:auto;margin:8px 0 18px}
+.token-block pre{font-family:var(--mono);font-size:12.5px;line-height:1.9;color:var(--t2);white-space:pre}
+.token-block .c1{color:var(--t3)}
+.token-block .c2{color:var(--teal)}
+.token-block .c3{color:var(--violet)}
+.token-block .c4{color:#f59e0b}
+.a11y-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin:8px 0 18px}
+.a11y-item{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--t2);line-height:1.6}
+.a11y-item .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:6px;flex-shrink:0}
+.cs-footer{border-top:1px solid var(--border-w);padding:32px}
+.cs-footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.foot-nav{display:flex;gap:32px;align-items:center}
+.foot-link{font-family:var(--mono);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s;display:flex;align-items:center;gap:6px}
+.foot-link:hover{color:var(--teal)}
+.foot-link.teal{color:var(--teal)}
+.foot-back{font-family:var(--mono);font-size:10px;color:var(--t3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color .15s}
+.foot-back:hover{color:var(--teal)}
+@media(max-width:680px){
+  nav{padding:0 16px}.nav-role{display:none}
+  .cs-hero{padding:80px 20px 40px}.cs-hero h1{font-size:36px}
+  .metrics-inner{flex-direction:column;gap:1px}
+  .block-inner{padding:36px 20px}
+  .meta-row{grid-template-columns:1fr 1fr}
+  .grid-2{grid-template-columns:1fr}
+  .a11y-list{grid-template-columns:1fr}
+  .cs-footer{padding:24px 20px}
+  .cs-footer-inner{flex-direction:column;gap:16px;text-align:center}
+}
+@keyframes cs-fadein{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.cs-hero-inner{opacity:0;animation:cs-fadein .75s cubic-bezier(.16,1,.3,1) .1s forwards}
+.cs-eyebrow{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .05s forwards}
+.cs-hero h1{opacity:0;animation:cs-fadein .75s cubic-bezier(.16,1,.3,1) .18s forwards}
+.cs-xyz{opacity:0;animation:cs-fadein .65s cubic-bezier(.16,1,.3,1) .32s forwards}
+.meta-row{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .46s forwards}
+.block h2[data-scramble]{opacity:0;transition:opacity .01s}
+.block h2[data-scramble].scrambled{opacity:1}
+.block img,.slide img,.grid-2 img{max-width:100%;height:auto;display:block;cursor:zoom-in;border-radius:6px;transition:opacity .2s ease,transform .2s ease}
+.block img:hover,.slide img:hover,.grid-2 img:hover{opacity:.88;transform:scale(1.01)}
+dialog#img-modal{position:fixed;inset:0;width:100vw;height:100vh;max-width:100vw;max-height:100vh;margin:0;padding:0;border:none;background:transparent;overflow:hidden;z-index:9000;transition:opacity .25s ease}
+dialog#img-modal[open]{display:flex;align-items:center;justify-content:center}
+dialog#img-modal::backdrop{background:rgba(5,5,8,0);backdrop-filter:blur(0px);transition:background .3s ease,backdrop-filter .3s ease}
+dialog#img-modal.is-open::backdrop{background:rgba(5,5,8,.85);backdrop-filter:blur(8px)}
+#img-modal-inner{position:relative;display:flex;align-items:center;justify-content:center;max-width:90vw;max-height:90vh;transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .3s ease}
+#img-modal-inner img{max-width:88vw;max-height:88vh;width:auto;height:auto;border-radius:8px;box-shadow:0 32px 80px rgba(0,0,0,.7);cursor:default!important;transform:none!important;opacity:1!important;display:block}
+#img-modal-close{position:absolute;top:-14px;right:-14px;width:34px;height:34px;border-radius:50%;border:none;background:#fff;color:#111;font-size:18px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.4);z-index:1;transition:background .15s,transform .15s}
+#img-modal-close:hover{background:#eee;transform:scale(1.1)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focus-visible,[role="button"]:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
+.sticky-back{position:fixed;bottom:24px;left:24px;z-index:90;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--t2);text-decoration:none;padding:8px 16px;background:rgba(5,5,8,0.88);border:1px solid var(--border-w);border-radius:99px;backdrop-filter:blur(16px);transition:all .2s;opacity:0;animation:sb-in .4s ease 1.2s forwards}
+.sticky-back:hover{color:var(--teal);border-color:rgba(80,227,194,.3)}
+@keyframes sb-in{to{opacity:1}}
+</style>
+<meta name="description" content="Leading UX for a from-scratch rebuild of a legacy employee-benefits platform — the code-first, HTML-to-Figma workflow, the multinational team, and the design tokens and KPI framework behind it. WCAG 2.2 AA.">
+<meta name="author" content="Dario Espinosa">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://darioespinosa.design/benefits-platform.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://darioespinosa.design/benefits-platform.html">
+<meta property="og:title" content="Modernizing Benefits Software: A Multinational, AI-Assisted Design System · Dario Espinosa">
+<meta property="og:description" content="Leading UX for a from-scratch rebuild of a legacy employee-benefits platform — the code-first, HTML-to-Figma workflow, the multinational team, and the design tokens and KPI framework behind it.">
+<meta property="og:image" content="https://darioespinosa.design/og-image.png">
+<meta property="og:site_name" content="Dario Espinosa Portfolio">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@DataEP">
+<meta name="twitter:title" content="Modernizing Benefits Software: A Multinational, AI-Assisted Design System · Dario Espinosa">
+<meta name="twitter:description" content="Leading UX for a from-scratch rebuild of a legacy employee-benefits platform — the code-first, HTML-to-Figma workflow, the multinational team, and the design tokens and KPI framework behind it.">
+<meta name="twitter:image" content="https://darioespinosa.design/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Benefits Administration Platform Rebuild",
+  "creator": { "@type": "Person", "name": "Dario Espinosa", "url": "https://darioespinosa.design" },
+  "description": "Leading UX for a from-scratch rebuild of a legacy employee-benefits platform — code-first design, HTML-to-Figma workflow, multinational team, design tokens and KPI framework.",
+  "keywords": "enterprise UX, design systems, AI-assisted workflow, accessibility, WCAG, benefits administration",
+  "url": "https://darioespinosa.design/benefits-platform.html",
+  "inLanguage": "en"
+}
+</script>
+</head>
+<body>
+<a href="#main-content" style="position:absolute;left:-9999px;top:4px;z-index:9999;background:#50e3c2;color:#050508;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none" onfocus="this.style.left='4px'" onblur="this.style.left='-9999px'">Skip to main content</a>
+
+<nav>
+  <a class="nav-name" href="index.html">dario-espinosa</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-role">lead-experience-designer · chiapas-mx</span>
+  <div class="nav-right">
+    <a class="nav-link" href="about.html">about</a>
+    <a class="nav-link" href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener">linkedin</a>
+    <div class="nav-dot"></div>
+  </div>
+</nav>
+
+<main id="main-content">
+<header class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-eyebrow">Case Study 08 · Ongoing</div>
+    <div class="cs-tags" style="margin:8px 0 4px"><span class="tag tag-ind">enterprise-saas</span></div>
+    <h1>Rebuilding Benefits Software</h1>
+    <p class="cs-xyz">Leading UX for a from-scratch rebuild of a legacy employee-benefits platform used by employers of every size and members of every generation — and building the AI-assisted workflow that let a small, distributed team design, validate and hand off <strong>two full portals</strong> in a matter of weeks, not quarters.</p>
+    <div class="meta-row">
+      <div class="meta-cell"><div class="meta-label">period</div><div class="meta-val">2026 · Ongoing</div></div>
+      <div class="meta-cell"><div class="meta-label">context</div><div class="meta-val">Regulated · Enterprise</div></div>
+      <div class="meta-cell"><div class="meta-label">role</div><div class="meta-val">Lead UX Designer</div></div>
+      <div class="meta-cell"><div class="meta-label">tags</div><div class="meta-val"><span class="tag">Design Systems</span><span class="tag">AI Workflow</span></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="metrics-inner">
+    <div class="metric-box"><div class="metric-val">v1.3→v1.8</div><div class="metric-label">iterations shipped</div></div>
+    <div class="metric-box"><div class="metric-val">2</div><div class="metric-label">portals designed</div></div>
+    <div class="metric-box"><div class="metric-val">WCAG 2.2 AA</div><div class="metric-label">accessibility bar</div></div>
+    <div class="metric-box"><div class="metric-val">3</div><div class="metric-label">countries, one team</div></div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">How Might We</div>
+    <div class="hmw">
+      <div class="hmw-label">// hmw</div>
+      <q>replace a decades-old benefits administration system, used by employers of every size and members of every generation, without slowing down a live pilot that stakeholders were already watching closely?</q>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">The Problem</div>
+    <p>The existing platform had grown for years without a dedicated design function. The rules for enrollment, eligibility and rating lived scattered across documents and in the heads of a few long-tenured staff, not in the interface itself.</p>
+    <p>Roughly a third of the people who would use the new member experience are over 50, and the typical employer admin manages benefits as one responsibility among many, not as a specialist. None of that showed up anywhere in the old product, and it had to show up in the new one.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">Reality Check</div>
+    <h2 data-scramble aria-label="A Moving Target, Not a Clean Brief">A Moving Target, Not a Clean Brief</h2>
+    <p>None of this arrived as one settled brief. Requirements came in through several channels at once — written specs, recorded calls, live workshops — and they didn't always agree with each other. A rule confirmed in one conversation would get quietly complicated by a document from a different team two weeks later, and it was on us to notice before it reached a screen.</p>
+    <p>The people pulling on the work wanted different things, too. One senior stakeholder believed AI could handle the design work end to end and treated a design system as overhead. Rather than argue the point, we built the evidence instead: several AI-generated screens for the exact same decision, sitting side by side, all inconsistent with each other. That single comparison did more than any argument would have — it reframed the design system as what makes AI-assisted work land in one consistent place, not a constraint on it.</p>
+    <p>Other decisions genuinely shifted mid-stream, for good reasons: the accessibility bar got raised on day one once the real user base was understood, an assumed medical-coverage scope narrowed to a firmer dental-and-vision pilot once the actual boundary was confirmed, and more than one piece of member-facing wording got proposed, used, and reversed in the same week once it collided with how that term is actually used in US healthcare. None of that was a planning failure — it's the normal shape of discovery when several people are feeding it at once.</p>
+    <p>What made it manageable wasn't trying to freeze requirements early. It was accepting that they'd keep moving, and building a habit around that: decide, write it down in one place everyone could check, and move on, instead of relitigating the same question across five different threads.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">The Team</div>
+    <h2 data-scramble aria-label="Small, Distributed, Mixed Human and AI">Small, Distributed, Mixed Human and AI</h2>
+    <p>The design team was deliberately small and spread across three countries: a lead UX designer, a second product designer, and an incoming lead who took the reins partway through — working alongside two AI coding assistants that owned the actual front-end code, and a separate AI research assistant dedicated to writing, terminology and quality checks.</p>
+    <p>On the client side, product and business leadership reviewed and signed off on every phase. Rather than one large team in one room, this was a small, mixed group with clearly split responsibilities, which is what let it move fast without losing consistency as more hands touched the same files.</p>
+    <p>Keeping that many contributors from stepping on each other took an explicit working agreement, not just good intentions. Anything going in front of the client got a tone-and-clarity pass first. Any new word we introduced for what a member would actually read got checked against the official US healthcare glossary before we used it. And any decision that touched a real benefits rule, like waiting periods or eligibility windows, got sanity-checked against how those things actually work in the industry before it ever reached engineering.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">Design Workflow</div>
+    <h2 data-scramble aria-label="Code First, Then Figma">Code First, Then Figma</h2>
+    <p>Instead of the usual Figma-first process, the team designed in code first. Real, working screens got built in the browser using the same design tokens as the live product, tested with real interaction — and only then captured into Figma automatically, screen by screen.</p>
+    <p>That order matters: Figma never drifted into an idealized version of the product that didn't match what actually shipped. It stayed a living library of exactly what was built, not a mockup that quietly falls out of date. Designers still worked natively in Figma to compose new screens, but always by reusing real components bound to the same variables running in the product, never by redrawing shapes from scratch.</p>
+    <p>That flow ran in both directions, deliberately gated. Real screens got captured into Figma automatically so the library always mirrored what actually shipped. Separately, once a component in the Figma library was reviewed and explicitly marked ready, an automated pipeline could generate real front-end code straight from it, wired to the same color, spacing and type variables used in the live product. Nothing got built from a screen that hadn't been signed off as ready — that single checkpoint was what let automation move fast without ever building on work still in flux.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">Visual Reference · v1.8</div>
+    <div class="slide">
+      <img src="images/project-20-benefits-plan-details.png" alt="Admin portal — plan configuration form with eligible members, effective dates and plan rules" loading="lazy">
+      <div class="slide-caption">Client Admin portal — plan configuration, one of the two pilot flows</div>
+    </div>
+    <div class="grid-2">
+      <div><img src="images/project-20-benefits-admin-plans.png" alt="Admin portal — list of benefit plans with status, line of business and effective dates" loading="lazy"><div class="slide-caption" style="margin-top:6px">Admin — benefit plans list, dense data with clear status states</div></div>
+      <div><img src="images/project-20-benefits-member-home.png" alt="Member portal home screen — open enrollment banner and AI-assisted benefits search, orange accent" loading="lazy"><div class="slide-caption" style="margin-top:6px">Member portal — same design system, opposite accent color</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">Behind the Screens</div>
+    <h2 data-scramble aria-label="One Connected Source, Not Scattered Documents">One Connected Source, Not Scattered Documents</h2>
+    <p>Separately from the design pipeline, the wider team set up a shared knowledge system that connected requirements, architecture decisions and test plans to each other, instead of letting them live as disconnected documents the way they had for years.</p>
+    <p>When a business analyst changed a rule, the system immediately showed which diagrams or user stories that change touched, before anyone edited them. Developers picked up implementation work straight from that same connected source, so a feature always traced back to the exact requirement that justified it — and product, design and engineering stopped quietly drifting out of sync with each other, which is the failure mode that usually kills momentum on a project this size.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">System Map · D3</div>
+    <h2 data-scramble aria-label="How the Mess Actually Converged">How the Mess Actually Converged</h2>
+    <p>Force-directed graph of how scattered inputs, shifting stakeholder asks and a legacy system with no design function fed into a working agreement and a shared knowledge system — which converged into one design token system, then radiated out to both portals, the Figma library, the generated front-end code, and the pilot that finally got demoed. Drag any node.</p>
+    <div id="benefits-force" style="width:100%;margin-top:28px;position:relative"></div>
+    <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:14px">
+      <span style="font-family:var(--mono);font-size:11px;color:var(--t3);display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#ef4444;display:inline-block"></span>The mess</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--t3);display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#6b7280;display:inline-block"></span>How we absorbed it</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--t3);display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#38C6F4;display:inline-block"></span>The hub</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--t3);display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#50e3c2;display:inline-block"></span>Portals</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--t3);display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#005495;display:inline-block"></span>Platforms</span>
+      <span style="font-family:var(--mono);font-size:11px;color:var(--t3);display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#DAE24C;display:inline-block"></span>What shipped</span>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">Design Tokens</div>
+    <h2 data-scramble aria-label="One Component, Two Portals, Zero Duplication">One Component, Two Portals, Zero Duplication</h2>
+    <p>Every visual decision, color included, was built as a named token rather than a hardcoded value. That's what let the same button render periwinkle in the employer-facing admin portal and orange in the member portal without maintaining two separate components.</p>
+    <div class="token-block"><pre><span class="c1">/* 1. Primitive — the raw brand value */</span>
+<span class="c2">--brand-primary</span>: #5266EB;
+
+<span class="c1">/* 2. Semantic layer — theme-aware naming */</span>
+<span class="c2">--primary</span>: <span class="c3">var(--brand-primary)</span>;
+
+<span class="c1">/* 3. Component bridge — what buttons, inputs and cards actually consume */</span>
+<span class="c2">--ui-primary</span>: <span class="c3">var(--primary)</span>;
+.btn-primary { background: <span class="c3">var(--ui-primary)</span>; }
+
+<span class="c1">/* 4. Portal-scoped remap — same component, different accent, no duplication */</span>
+.member-portal {
+  <span class="c4">--ui-primary</span>: <span class="c4">var(--member-accent)</span>; <span class="c1">/* #E87722 */</span>
+}</pre></div>
+    <p>Four layers, one direction of truth: change the primitive once, and every button, badge and focus ring downstream updates with it — in code and in Figma alike.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">Accessibility</div>
+    <h2 data-scramble aria-label="Accessible by Default, Not by Afterthought">Accessible by Default, Not by Afterthought</h2>
+    <p>Accessibility was a day-one requirement, confirmed before a single wireframe existed, because of who actually uses this kind of software: a third of the member base is over 50, and most employer admins are generalists checking one thing between other tasks, not power users. The target was WCAG 2.2 Level AA across both portals.</p>
+    <div class="a11y-list">
+      <div class="a11y-item"><span class="dot"></span>Text contrast held to at least 4.5:1, interface elements to 3:1</div>
+      <div class="a11y-item"><span class="dot"></span>Every interactive element keeps a visible focus outline</div>
+      <div class="a11y-item"><span class="dot"></span>Touch targets stay at 44px or larger throughout</div>
+      <div class="a11y-item"><span class="dot"></span>Motion respects the reduced-motion preference</div>
+      <div class="a11y-item"><span class="dot"></span>Login avoids anything resembling a cognitive puzzle</div>
+      <div class="a11y-item"><span class="dot"></span>Plain-language copy over insurance jargon, member-side</div>
+    </div>
+    <p>None of that changes the visual language. It just means the design works just as well for the admin glancing at their phone between meetings as it does for someone reading every field carefully.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">Measuring Impact</div>
+    <h2 data-scramble aria-label="Proving It Helped, Not Just That It Looked Nicer">Proving It Helped, Not Just That It Looked Nicer</h2>
+    <p>Before proposing a redesign, the more useful question was whether we could actually prove it helped. A full year of real usage data, over eight million visits, gave a solid baseline for how people use the product today — but it could only say how long people stayed, not whether they succeeded at what they came to do.</p>
+    <p>So alongside the redesign, we proposed a second, smaller set of numbers worth tracking going forward: task success rate per flow, error rate on forms, time to complete a plan configuration, a short satisfaction question after each task, an accessibility conformance score, and a simple self-service-versus-support-call ratio that speaks directly to cost. The goal was never a single "UX score" — it was giving product and leadership an honest, specific way to see whether a change actually worked.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">Getting to v1.8</div>
+    <h2 data-scramble aria-label="Eight Versions to the One Stakeholders Saw">Eight Versions to the One Stakeholders Saw</h2>
+    <p>Decide, write it down, move on — that habit is exactly what the version history looks like from the outside. The pilot went through eight numbered iterations before it was frozen as the version stakeholders actually reviewed. Early versions established the basic screen flow and content structure. Later ones absorbed direct stakeholder feedback line by line, tightened a full dual-theme system across both portals, and replaced every remaining placeholder interaction with a real one.</p>
+    <p>Version 1.8 was the one presented to the client, and it landed well. A parallel version branched off immediately afterward to carry the next phase of scope, while 1.8 itself stayed frozen as the honest record of what was actually demoed — not quietly rewritten after the fact.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">Key Decision</div>
+    <div class="decision">
+      <div class="decision-label">// design-decision</div>
+      <p><strong>The pipeline and the knowledge system took time away from screens in the first two weeks.</strong> We chose to spend it anyway, betting that a small team without that scaffolding would drown in inconsistency the moment more than two people touched the same files. It paid for itself by the third round of stakeholder feedback, when a single rewritten business rule updated three connected documents automatically instead of by hand.</p>
+    </div>
+    <div class="reflection">
+      <div class="reflection-label">// reflection</div>
+      <p>The most counterintuitive lesson: the AI tools were most useful exactly where the work was most boring and easiest to get subtly wrong — keeping a glossary consistent, keeping the design library in sync with code, tracing a changed requirement to every place it mattered — not in the creative parts of the job. That's what freed the humans on the team to spend their time on the judgment calls that actually needed them.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var el=document.getElementById('benefits-force'); if(!el)return; var fired=false;
+  function loadScript(src,cb){var s=document.createElement('script');s.src=src;s.onload=cb;document.head.appendChild(s);}
+  var obs=new IntersectionObserver(function(en){if(en[0].isIntersecting&&!fired){fired=true;obs.disconnect();loadScript('https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js',build);}},{threshold:0.1});
+  obs.observe(el);
+  function build(){
+    var W=el.offsetWidth||700,H=440; el.style.height=H+'px';
+    var nodes=[
+      {id:0,name:"Scattered Requirements", g:"mess",  color:"#ef4444",r:22,tip:"Specs, recorded calls and live workshops all fed requirements at once — and they didn't always agree with each other."},
+      {id:1,name:"Shifting Stakeholder Asks",g:"mess",  color:"#ef4444",r:18,tip:"One senior stakeholder believed AI could handle design end to end. Scope and terminology got proposed, used, then reversed mid-stream more than once."},
+      {id:2,name:"Legacy System",         g:"mess",  color:"#ef4444",r:16,tip:"Rules for enrollment, eligibility and rating lived scattered across documents and in a few people's heads, not in the interface."},
+      {id:3,name:"Working Agreement",     g:"absorb",color:"#9ca3af",r:14,tip:"Automatic checkpoints by request type: stakeholder tone check, glossary check for new terms, business-rule sanity check before anything reached engineering."},
+      {id:4,name:"Shared Knowledge System",g:"absorb",color:"#9ca3af",r:14,tip:"Requirements, architecture and test plans linked to each other, so a changed rule surfaces every place it matters before anyone edits it."},
+      {id:5,name:"Code-First Workflow",   g:"absorb",color:"#9ca3af",r:14,tip:"Real, working screens built in the browser first, tested, then captured into Figma automatically — never the other way around."},
+      {id:6,name:"Design Token System",   g:"hub",   color:"#38C6F4",r:28,tip:"The single source of truth for color, spacing and type. This is the thing that turned the chaos into one consistent language, in code and in Figma alike."},
+      {id:7,name:"Admin Portal",          g:"screen",color:"#50e3c2",r:14,tip:"Client Admin — plan configuration, dense data tables, periwinkle accent."},
+      {id:8,name:"Member Portal",         g:"screen",color:"#50e3c2",r:14,tip:"Member portal — enrollment and coverage, orange accent, same underlying components."},
+      {id:9,name:"Figma Library",         g:"platform",color:"#005495",r:16,tip:"Kit components bound to the same variables as the live product — gated behind an explicit human 'ready' checkpoint."},
+      {id:10,name:"Generated Front-End",  g:"platform",color:"#005495",r:16,tip:"Production code generated straight from a Figma component once it was reviewed and marked ready — never from work still in flux."},
+      {id:11,name:"v1.8 Pilot Demo",      g:"shipped",color:"#DAE24C",r:18,tip:"The frozen, stakeholder-approved version — the proof that all of the above actually converged into one shippable thing."},
+      {id:12,name:"WCAG 2.2 AA",          g:"absorb",color:"#a78bfa",r:12,tip:"Accessibility confirmed as a hard requirement on day one, not bolted on later — feeds the token system directly."},
+    ];
+    var links=[
+      {source:0,target:3},{source:0,target:4},{source:1,target:3},{source:1,target:4},{source:2,target:5},
+      {source:3,target:6},{source:4,target:6},{source:5,target:6},{source:12,target:6},
+      {source:6,target:7},{source:6,target:8},{source:6,target:9},{source:6,target:10},
+      {source:9,target:10},{source:7,target:11},{source:8,target:11},{source:10,target:11},
+    ];
+    var svg=d3.select(el).append('svg').attr('width',W).attr('height',H).style('display','block');
+    var tip=d3.select(el).append('div')
+      .style('position','absolute').style('pointer-events','none').style('opacity',0).style('transition','opacity .15s')
+      .style('background','rgba(5,5,8,0.96)').style('border','1px solid rgba(255,255,255,0.1)')
+      .style('border-radius','6px').style('padding','9px 13px').style('font-family','"Geist Mono",monospace')
+      .style('font-size','11px').style('color','rgba(255,255,255,0.72)').style('max-width','230px').style('line-height','1.55').style('z-index','50');
+    function sT(ev,txt){var r=el.getBoundingClientRect();tip.style('opacity',1).html(txt).style('left',(ev.clientX-r.left+14)+'px').style('top',(ev.clientY-r.top-34)+'px');}
+    function mT(ev){var r=el.getBoundingClientRect();tip.style('left',(ev.clientX-r.left+14)+'px').style('top',(ev.clientY-r.top-34)+'px');}
+    var sim=d3.forceSimulation(nodes)
+      .force('link',d3.forceLink(links).id(function(d){return d.id;}).distance(function(d){return d.target.g==='hub'||d.source.g==='hub'?95:65;}).strength(0.6))
+      .force('charge',d3.forceManyBody().strength(-300))
+      .force('center',d3.forceCenter(W/2,H/2))
+      .force('collide',d3.forceCollide().radius(function(d){return d.r+16;}));
+    var lnk=svg.append('g').selectAll('line').data(links).join('line').attr('stroke','rgba(255,255,255,0.1)').attr('stroke-width',1.5);
+    var nd=svg.append('g').selectAll('g').data(nodes).join('g').style('cursor','pointer')
+      .call(d3.drag()
+        .on('start',function(ev,d){if(!ev.active)sim.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
+        .on('drag',function(ev,d){d.fx=ev.x;d.fy=ev.y;})
+        .on('end',function(ev,d){if(!ev.active)sim.alphaTarget(0);d.fx=null;d.fy=null;}))
+      .on('mouseenter',function(ev,d){
+        var conn=new Set();links.forEach(function(l){if(l.source.id===d.id||l.target.id===d.id){conn.add(l.source.id);conn.add(l.target.id);}});
+        nd.select('circle').attr('opacity',function(n){return conn.has(n.id)||n.id===d.id?0.95:0.12;});
+        lnk.attr('stroke',function(l){return l.source.id===d.id||l.target.id===d.id?d.color:'rgba(255,255,255,0.05)';}).attr('stroke-opacity',function(l){return l.source.id===d.id||l.target.id===d.id?0.75:0.2;});
+        sT(ev,d.tip);
+      }).on('mousemove',mT).on('mouseleave',function(){nd.select('circle').attr('opacity',0.85);lnk.attr('stroke','rgba(255,255,255,0.1)').attr('stroke-opacity',1);tip.style('opacity',0);});
+    nd.append('circle').attr('r',function(d){return d.r;}).attr('fill',function(d){return d.color;}).attr('opacity',0).style('mix-blend-mode','screen')
+      .transition().duration(800).delay(function(d,i){return i*55;}).attr('opacity',0.85);
+    nd.append('text').attr('dy','0.35em').attr('text-anchor','middle').attr('fill','rgba(5,5,8,0.88)')
+      .attr('font-family','"Geist Mono",monospace').attr('font-size',function(d){return d.r>20?'9px':'8px';}).attr('font-weight','700').attr('pointer-events','none')
+      .text(function(d){return d.name.split(' ')[0];});
+    nd.append('text').attr('dy',function(d){return d.r+13;}).attr('text-anchor','middle').attr('fill',function(d){return d.color;})
+      .attr('font-family','"Geist Mono",monospace').attr('font-size','9px').attr('pointer-events','none').text(function(d){return d.name;});
+    sim.on('tick',function(){
+      lnk.attr('x1',function(d){return d.source.x;}).attr('y1',function(d){return d.source.y;}).attr('x2',function(d){return d.target.x;}).attr('y2',function(d){return d.target.y;});
+      nd.attr('transform',function(d){d.x=Math.max(d.r+8,Math.min(W-d.r-8,d.x));d.y=Math.max(d.r+8,Math.min(H-d.r-8,d.y));return 'translate('+d.x+','+d.y+')';});
+    });
+  }
+})();
+</script>
+
+</main>
+<footer class="cs-footer">
+  <div class="cs-footer-inner">
+    <div class="foot-nav">
+      <a class="foot-link" href="takecommand.html">← Center of Excellence</a>
+      <a class="foot-link teal" href="procore.html">Construction UX Research →</a>
+    </div>
+    <a class="foot-back" href="index.html">↩ back to work</a>
+  </div>
+</footer>
+
+<a class="sticky-back" href="index.html">↩ index</a>
+
+<script>
+(function(){
+  var CHARS='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#&%!@^*~<>?|=+';
+  var TOTAL_MS=500, FRAME_MS=1000/60;
+  function extractSegments(el){
+    var segs=[];
+    el.childNodes.forEach(function(n){
+      if(n.nodeType===3) segs.push({type:'text',val:n.nodeValue});
+      else if(n.nodeName==='BR') segs.push({type:'br'});
+    });
+    return segs;
+  }
+  function scramble(el){
+    if(el._scrambling) return;
+    el._scrambling=true;
+    el.classList.add('scrambled');
+    var segs=extractSegments(el), chars=[];
+    segs.forEach(function(seg){
+      if(seg.type==='text') seg.val.split('').forEach(function(c){ chars.push({final:c,resolved:c===' '}); });
+    });
+    var total=chars.length, totalFrames=Math.round(TOTAL_MS/FRAME_MS), elapsed=0;
+    function render(){
+      var progress=Math.min(1,elapsed/totalFrames);
+      var eased=1-Math.pow(1-progress,2);
+      var resolvedCount=Math.floor(eased*total);
+      for(var i=0;i<total;i++) chars[i].resolved=chars[i].final===' '||i<resolvedCount;
+      var cursor=0,html='';
+      segs.forEach(function(seg){
+        if(seg.type==='br'){html+='<br>';return;}
+        for(var ci=0;ci<seg.val.length;ci++,cursor++){
+          var ch=chars[cursor];
+          if(ch.resolved){ html+=ch.final; }
+          else{ html+='<span style="color:var(--teal);opacity:0.6" aria-hidden="true">'+CHARS[Math.floor(Math.random()*CHARS.length)]+'</span>'; }
+        }
+      });
+      el.innerHTML=html; elapsed++;
+      if(resolvedCount<total){ setTimeout(render,FRAME_MS); }
+      else{
+        var clean=''; segs.forEach(function(s){ clean+=s.type==='br'?'<br>':s.val; });
+        el.innerHTML=clean; el._scrambling=false;
+      }
+    }
+    render();
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ scramble(e.target); obs.unobserve(e.target); } });
+  },{threshold:0.3});
+  document.querySelectorAll('.block h2[data-scramble]').forEach(function(el){ obs.observe(el); });
+})();
+</script>
+
+<dialog id="img-modal">
+  <div id="img-modal-inner">
+    <button id="img-modal-close" aria-label="Close">&#x2715;</button>
+    <img id="img-modal-img" src="" alt="" aria-hidden="true">
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var dlg = document.getElementById('img-modal');
+  var mImg = document.getElementById('img-modal-img');
+  var inner = document.getElementById('img-modal-inner');
+  var closeBtn = document.getElementById('img-modal-close');
+  if (!dlg) return;
+
+  function openModal(src, alt) {
+    mImg.src = src;
+    mImg.alt = alt || '';
+    dlg.style.opacity = '0';
+    inner.style.transform = 'scale(0.88)';
+    inner.style.opacity = '0';
+    dlg.showModal();
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        dlg.style.opacity = '1';
+        inner.style.transform = 'scale(1)';
+        inner.style.opacity = '1';
+        dlg.classList.add('is-open');
+      });
+    });
+  }
+
+  function closeModal() {
+    dlg.classList.remove('is-open');
+    dlg.style.opacity = '0';
+    inner.style.transform = 'scale(0.88)';
+    inner.style.opacity = '0';
+    setTimeout(function() {
+      dlg.close();
+      dlg.style.opacity = '';
+      inner.style.transform = '';
+      inner.style.opacity = '';
+      mImg.src = '';
+    }, 300);
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  dlg.addEventListener('click', function(e) {
+    if (e.target === dlg) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && dlg.open) { e.preventDefault(); closeModal(); }
+  });
+
+  document.querySelectorAll('.block img, .slide img, .grid-2 img').forEach(function(img) {
+    if (img.closest('#img-modal')) return;
+    img.addEventListener('click', function() {
+      openModal(img.src, img.alt);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
