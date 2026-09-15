@@ -520,7 +520,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <button class="filter-chip" data-filter="technology" onclick="filterCards(this)">Technology</button>
     <button class="filter-chip" data-filter="entertainment" onclick="filterCards(this)">Entertainment</button>
   </div>
-  <div class="cs-grid">
+  <div class="cs-grid" id="work-grid">
 
     <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='tetra.html'" onclick="location.href='tetra.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(56,198,244,0.28);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
       <div style="padding:12px;overflow:hidden;min-height:280px">
@@ -539,29 +539,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
           <div class="cs-metric"><span class="cs-mval">v7</span><span class="cs-mlabel">prototype iterations</span></div>
         </div>
         <div class="cs-foot"><span class="cs-meta">energy-services · TETRA Technologies · in progress</span><span class="cs-arrow">&#8594;</span></div>
-      </div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='virtu4l.html'" onclick="location.href='virtu4l.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(80,227,194,0.22);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
-      <div style="padding:12px;overflow:hidden;min-height:280px;background:rgba(0,0,0,0.3)">
-        <img src="https://www.realidadvirtu4l.com/assets/images/hero-index.jpg" alt="VIRTU4L — VR Center hero" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;filter:brightness(.82) saturate(.88);transition:transform .55s ease,filter .3s ease">
-      </div>
-      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
-        <div class="cs-head">
-          <div class="cs-tags"><span class="tag tc">brand-design</span><span class="tag">web-dev</span><span class="tag">marketing</span><span class="tag">ai-tools</span><span class="tag tag-ind">entertainment</span></div>
-          <span class="cs-num">✦ personal</span>
-        </div>
-        <div>
-          <div class="cs-company" style="color:var(--teal);font-family:var(--mono);font-size:11px;margin-bottom:6px">VIRTU4L · Personal Business · Tuxtla Gutiérrez MX</div>
-          <div class="cs-title">VIRTU4L — Brand, Website & AI-Powered VR Business</div>
-        </div>
-        <p class="cs-xyz">Founding and building Chiapas' first VR center from scratch — complete brand identity, multi-page website, online quoter wizard, digital marketing system, AI game assistant, and AI avatar creation.</p>
-        <div class="cs-metrics" style="margin-top:auto">
-          <div class="cs-metric"><span class="cs-mval">150+</span><span class="cs-mlabel">VR games</span></div>
-          <div class="cs-metric"><span class="cs-mval">5+</span><span class="cs-mlabel">site pages</span></div>
-          <div class="cs-metric"><span class="cs-mval">AI</span><span class="cs-mlabel">assistant built</span></div>
-        </div>
-        <div class="cs-foot"><span class="cs-meta">personal-business · founder · vibe-coded</span><span class="cs-arrow">&#8594;</span></div>
       </div>
     </div>
 
@@ -721,6 +698,91 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     </div>
 
 
+  </div>
+</section>
+
+<!-- FOUNDER MODE — personal business, own section (Session 12) -->
+<section id="founder-mode" style="max-width:var(--max);margin:0 auto;padding:60px 32px">
+  <div class="section-label">
+    <span class="section-label-text">&#8212;&#8212; founder mode</span>
+    <div class="section-label-line"></div>
+  </div>
+  <h2 class="section-title" data-scramble aria-label="When I'm the client">When I'm the client</h2>
+  <p class="section-sub" style="font-size:var(--fs-sm)">Outside client work — a business I run and internal tools I built because nobody else was going to.</p>
+  <div class="cs-grid">
+    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='virtu4l.html'" onclick="location.href='virtu4l.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(80,227,194,0.22);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
+      <div style="padding:12px;overflow:hidden;min-height:280px;background:rgba(0,0,0,0.3)">
+        <img src="https://www.realidadvirtu4l.com/assets/images/hero-index.jpg" alt="VIRTU4L — VR Center hero" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;filter:brightness(.82) saturate(.88);transition:transform .55s ease,filter .3s ease">
+      </div>
+      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
+        <div class="cs-head">
+          <div class="cs-tags"><span class="tag tc">brand-design</span><span class="tag">web-dev</span><span class="tag">marketing</span><span class="tag">ai-tools</span><span class="tag tag-ind">entertainment</span></div>
+          <span class="cs-num">✦ personal</span>
+        </div>
+        <div>
+          <div class="cs-company" style="color:var(--teal);font-family:var(--mono);font-size:11px;margin-bottom:6px">VIRTU4L · Personal Business · Tuxtla Gutiérrez MX</div>
+          <div class="cs-title">VIRTU4L — Brand, Website & AI-Powered VR Business</div>
+        </div>
+        <p class="cs-xyz">Founding and building Chiapas' first VR center from scratch — complete brand identity, multi-page website, online quoter wizard, digital marketing system, AI game assistant, and AI avatar creation.</p>
+        <div class="cs-metrics" style="margin-top:auto">
+          <div class="cs-metric"><span class="cs-mval">150+</span><span class="cs-mlabel">VR games</span></div>
+          <div class="cs-metric"><span class="cs-mval">5+</span><span class="cs-mlabel">site pages</span></div>
+          <div class="cs-metric"><span class="cs-mval">AI</span><span class="cs-mlabel">assistant built</span></div>
+        </div>
+        <div class="cs-foot"><span class="cs-meta">personal-business · founder · vibe-coded</span><span class="cs-arrow">&#8594;</span></div>
+      </div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='edga.html'" onclick="location.href='edga.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(80,227,194,0.22);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
+      <div style="padding:12px;overflow:hidden;min-height:280px;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center">
+        <div style="text-align:center">
+          <div style="font-family:var(--mono);font-size:52px;font-weight:800;color:var(--teal);opacity:.85;letter-spacing:-0.03em">EDGA</div>
+          <div style="font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;margin-top:10px">overseer → agents → knowledge base</div>
+        </div>
+      </div>
+      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
+        <div class="cs-head">
+          <div class="cs-tags"><span class="tag tc">ai-tools</span><span class="tag">multi-agent-systems</span><span class="tag">design-thinking</span><span class="tag tag-ind">internal-tools</span></div>
+          <span class="cs-num">✦ personal</span>
+        </div>
+        <div>
+          <div class="cs-company" style="color:var(--teal);font-family:var(--mono);font-size:11px;margin-bottom:6px">EDGA · Internal Tool · Claude Plugin</div>
+          <div class="cs-title">EDGA — A Multi-Agent Design Thinking Operating System</div>
+        </div>
+        <p class="cs-xyz">A self-built Claude plugin that runs the full Design Thinking process — Empathize through Deliver — as a phase-gated multi-agent system, with an Overseer, specialist sub-agents, and a continuously-updated knowledge base mirrored into Obsidian.</p>
+        <div class="cs-metrics" style="margin-top:auto">
+          <div class="cs-metric"><span class="cs-mval">v3.8</span><span class="cs-mlabel">current release</span></div>
+          <div class="cs-metric"><span class="cs-mval">12</span><span class="cs-mlabel">KB categories</span></div>
+          <div class="cs-metric"><span class="cs-mval">115+</span><span class="cs-mlabel">knowledge notes</span></div>
+        </div>
+        <div class="cs-foot"><span class="cs-meta">internal-tool · founder · multi-agent</span><span class="cs-arrow">&#8594;</span></div>
+      </div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='ascend-restyle.html'" onclick="location.href='ascend-restyle.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(80,227,194,0.22);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
+      <div style="padding:12px;overflow:hidden;min-height:280px;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center">
+        <div style="width:120px;height:120px;background:rgba(80,227,194,0.06);border:1px solid rgba(80,227,194,0.25);clip-path:polygon(22% 0,100% 0,100% 78%,78% 100%,0 100%,0 22%);display:flex;align-items:center;justify-content:center">
+          <span style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--teal);letter-spacing:0.04em">AOS</span>
+        </div>
+      </div>
+      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
+        <div class="cs-head">
+          <div class="cs-tags"><span class="tag tc">ai-tools</span><span class="tag">design-systems</span><span class="tag">automation</span><span class="tag tag-ind">internal-tools</span></div>
+          <span class="cs-num">✦ personal</span>
+        </div>
+        <div>
+          <div class="cs-company" style="color:var(--teal);font-family:var(--mono);font-size:11px;margin-bottom:6px">Ascend Restyle · Internal Tool · UX CoE</div>
+          <div class="cs-title">Ascend Restyle — A Skill That Redesigns Portfolio Decks</div>
+        </div>
+        <p class="cs-xyz">A Claude Agent Skill for SoftServe's UX Center of Excellence — restyles a designer's existing portfolio or bio deck into the Ascend OS design system, then hands back an annotatable HTML preview before exporting to PPTX or PDF.</p>
+        <div class="cs-metrics" style="margin-top:auto">
+          <div class="cs-metric"><span class="cs-mval">49</span><span class="cs-mlabel">pages restyled</span></div>
+          <div class="cs-metric"><span class="cs-mval">4</span><span class="cs-mlabel">layout archetypes</span></div>
+          <div class="cs-metric"><span class="cs-mval">7</span><span class="cs-mlabel">pipeline steps</span></div>
+        </div>
+        <div class="cs-foot"><span class="cs-meta">internal-tool · claude-skill · ux-coe</span><span class="cs-arrow">&#8594;</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1517,9 +1579,9 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     });
     btn.classList.add('active');
 
-    var grid = document.querySelector('.cs-grid');
+    var grid = document.getElementById('work-grid');
     var norm = function (s) { return s.toLowerCase().replace(/[^a-z0-9]/g, ''); };
-    var cards = document.querySelectorAll('.cs-card');
+    var cards = grid ? grid.querySelectorAll('.cs-card') : document.querySelectorAll('.cs-card');
 
     function apply() {
       cards.forEach(function (card) {

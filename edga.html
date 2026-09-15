@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDGA — A Multi-Agent Design Thinking OS · Dario Espinosa</title>
+<meta name="description" content="EDGA — Experience Designer Generalist Agent: a self-built Claude plugin that runs an end-to-end, phase-gated Design Thinking process with a coordinating Overseer, specialized sub-agents, and a continuously-updated knowledge base.">
+<meta name="author" content="Dario Espinosa">
+<link rel="canonical" href="https://darioespinosa.design/edga.html">
+<meta property="og:title" content="EDGA — A Multi-Agent Design Thinking OS · Dario Espinosa">
+<meta property="og:description" content="Building a multi-agent Claude plugin that runs the full Design Thinking process, with its own continuously-updated knowledge base.">
+<meta property="og:url" content="https://darioespinosa.design/edga.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="effects.css">
+<script>/* IO shim — immediate-fire fallback (Session 10c) */
+if(!('IntersectionObserver' in window)){window.IntersectionObserver=function(cb){this._cb=cb};IntersectionObserver.prototype.observe=function(el){var s=this;setTimeout(function(){s._cb([{isIntersecting:true,target:el}],s)},0)};IntersectionObserver.prototype.unobserve=function(){};IntersectionObserver.prototype.disconnect=function(){}}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050508;--bg2:#08080d;--surface:#0d0d14;--surface2:#111118;
+  --border:rgba(80,227,194,0.12);--border-v:rgba(167,139,250,0.12);--border-w:rgba(255,255,255,0.07);
+  --t1:#ffffff;--t2:rgba(255,255,255,0.65);--t3:rgba(255,255,255,0.44);--t4:rgba(255,255,255,0.07);
+  --teal:#50e3c2;--teal-dim:rgba(80,227,194,0.08);
+  --violet:#a78bfa;--violet-dim:rgba(167,139,250,0.08);
+  --red:#ef4444;--red-dim:rgba(239,68,68,0.08);
+  --font:'Geist','Inter',system-ui,sans-serif;
+  --mono:'Geist Mono','SF Mono',ui-monospace,monospace;
+  --max:820px;--r:6px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:var(--font);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1px solid var(--border-w);background:rgba(5,5,8,0.88);backdrop-filter:blur(24px) saturate(1.4);display:flex;align-items:center;padding:0 32px;gap:12px}
+.nav-name{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--t1);text-decoration:none;letter-spacing:0.02em}
+.nav-sep{color:var(--t4);font-size:14px}
+.nav-role{font-family:var(--mono);font-size:11px;color:var(--t3)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:22px}
+.nav-link{font-family:var(--mono);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s}
+.nav-link:hover{color:var(--teal)}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 10px var(--teal)}50%{opacity:0.35;box-shadow:0 0 3px var(--teal)}}
+
+/* HERO */
+header.cs-hero{padding:120px 32px 60px;border-bottom:1px solid var(--border-w)}
+.cs-hero-inner{max-width:var(--max);margin:0 auto}
+.cs-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:var(--teal);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.cs-eyebrow::before{content:'';width:24px;height:1px;background:var(--teal);opacity:0.5}
+.cs-hero h1{font-size:clamp(32px,5vw,54px);font-weight:800;letter-spacing:-0.05em;line-height:1.05;margin-bottom:20px;color:var(--t1)}
+.cs-hero h1 span{color:var(--teal)}
+.cs-xyz{font-size:16px;color:var(--t2);line-height:1.75;max-width:640px;margin-bottom:32px}
+.cs-xyz strong{color:var(--teal);font-weight:500}
+.meta-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border-w);border-radius:var(--r);overflow:hidden;max-width:640px}
+.meta-cell{padding:10px 14px;border-right:1px solid var(--border-w)}
+.meta-cell:last-child{border-right:none}
+.meta-label{font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px}
+.meta-val{font-family:var(--mono);font-size:11px;color:var(--t1)}
+
+/* METRICS BAR */
+.metrics{border-bottom:1px solid var(--border-w);padding:0}
+.metrics-inner{max-width:var(--max);margin:0 auto;padding:28px 32px;display:flex;gap:1px;background:var(--border-w)}
+.metric-box{flex:1;background:var(--bg);padding:20px 24px;display:flex;flex-direction:column;gap:6px}
+.metric-val{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--teal);letter-spacing:-0.04em;line-height:1}
+.metric-label{font-family:var(--mono);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:0.07em}
+
+/* CONTENT BLOCKS */
+.block{border-bottom:1px solid var(--border-w)}
+.block-inner{max-width:var(--max);margin:0 auto;padding:48px 32px}
+.block-label{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.block-label::after{content:'';flex:1;height:1px;background:var(--border-w)}
+.block h2{font-size:22px;font-weight:700;letter-spacing:-0.035em;color:var(--t1);margin-bottom:16px}
+.block p{font-size:14px;color:var(--t2);line-height:1.85;margin-bottom:14px}
+.block p:last-child{margin-bottom:0}
+.block p strong{color:var(--t1);font-weight:500}
+.decision{border-left:2px solid var(--teal);padding:18px 22px;background:var(--teal-dim);border-radius:0 var(--r) var(--r) 0;margin:8px 0}
+.decision-label{font-family:var(--mono);font-size:9px;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px}
+.decision p{font-size:14px;color:var(--t2);line-height:1.75;margin:0}
+.decision-v{border-left-color:var(--violet);background:var(--violet-dim)}
+.decision-v .decision-label{color:var(--violet)}
+.decision-r{border-left-color:var(--red);background:var(--red-dim)}
+.decision-r .decision-label{color:var(--red)}
+.ai-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--violet);background:var(--violet-dim);border:1px solid var(--border-v);padding:3px 10px;border-radius:3px;letter-spacing:0.04em;margin-bottom:18px}
+.ai-badge::before{content:'◆';font-size:8px}
+.founder-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--teal);background:var(--teal-dim);border:1px solid var(--border);padding:3px 10px;border-radius:3px;letter-spacing:0.04em;margin-bottom:18px}
+.founder-badge::before{content:'★';font-size:8px}
+.flow-row{display:flex;align-items:flex-start;gap:0;margin:20px 0;overflow:hidden;border-radius:var(--r);border:1px solid var(--border-w);flex-wrap:wrap}
+.flow-step{flex:1;min-width:110px;padding:14px 12px;background:var(--surface);border-right:1px solid var(--border-w);border-bottom:1px solid var(--border-w);position:relative}
+.flow-step:last-child{border-right:none}
+.flow-n{font-family:var(--mono);font-size:9px;color:var(--teal);letter-spacing:0.08em;margin-bottom:4px}
+.flow-title{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:3px}
+.flow-sub{font-size:11px;color:var(--t3)}
+.tag{font-family:var(--mono);font-size:10px;color:var(--t3);background:var(--t4);border:1px solid var(--border-w);padding:2px 7px;border-radius:3px;letter-spacing:0.02em;display:inline-block;margin-right:6px;margin-bottom:4px}
+.tag.tc{color:var(--teal);background:var(--teal-dim);border-color:rgba(80,227,194,0.18)}
+.tag.tv{color:var(--violet);background:var(--violet-dim);border-color:rgba(167,139,250,0.18)}
+.tag.tr{color:var(--red);background:var(--red-dim);border-color:rgba(239,68,68,0.18)}
+
+/* ARCHITECTURE DIAGRAM */
+.arch-wrap{border:1px solid var(--border-w);border-radius:var(--r);background:var(--surface);padding:24px;margin:20px 0;display:flex;flex-direction:column;align-items:center;gap:0}
+.arch-node{font-family:var(--mono);font-size:11px;color:var(--t1);background:var(--bg);border:1px solid var(--border-w);border-radius:4px;padding:10px 18px;text-align:center}
+.arch-node.core{border-color:var(--border);color:var(--teal);font-weight:600}
+.arch-arrow{font-family:var(--mono);color:var(--t3);font-size:12px;margin:6px 0}
+.arch-agents{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;margin:10px 0}
+.arch-agent{font-family:var(--mono);font-size:10px;color:var(--t2);background:var(--bg);border:1px solid var(--border-w);border-radius:4px;padding:8px 6px;text-align:center;line-height:1.4}
+
+/* KB GRID */
+.kb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.kb-card{background:var(--surface);border:1px solid var(--border-w);border-radius:var(--r);padding:14px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.kb-name{font-size:12px;font-weight:600;color:var(--t1);line-height:1.4}
+.kb-count{font-family:var(--mono);font-size:13px;color:var(--teal);font-weight:700;flex-shrink:0}
+
+/* KB UPDATE PROCESS */
+.proc-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border-w);border-radius:var(--r);overflow:hidden;margin:20px 0}
+.proc-item{display:flex;gap:16px;padding:14px 18px;background:var(--surface);border-bottom:1px solid var(--border-w)}
+.proc-item:last-child{border-bottom:none}
+.proc-n{font-family:var(--mono);font-size:11px;color:var(--teal);flex-shrink:0;padding-top:1px}
+.proc-body-title{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:2px}
+.proc-body-sub{font-size:11px;color:var(--t3);line-height:1.6}
+
+/* TECH STACK */
+.stack-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.stack-item{font-family:var(--mono);font-size:10px;color:var(--t2);background:var(--surface);border:1px solid var(--border-w);padding:6px 12px;border-radius:3px;letter-spacing:0.04em}
+
+/* CTA */
+.cta-block{border-bottom:1px solid var(--border-w)}
+.cta-inner{max-width:var(--max);margin:0 auto;padding:48px 32px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.cta-text h3{font-size:18px;font-weight:700;letter-spacing:-0.03em;margin-bottom:6px}
+.cta-text p{font-size:13px;color:var(--t3)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-decoration:none;padding:10px 20px;border-radius:var(--r);transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:var(--teal);color:#050508;font-weight:600}
+.btn-primary:hover{background:#6ef7d8;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--t2);border:1px solid var(--border-w)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.v{opacity:1;transform:translateY(0)}
+
+@media(max-width:600px){
+  .arch-agents{grid-template-columns:1fr 1fr}
+  .kb-grid{grid-template-columns:1fr}
+  .cta-inner{flex-direction:column;align-items:flex-start}
+  .cs-hero h1{font-size:clamp(26px,10vw,40px)}
+  .proc-item{flex-direction:column;gap:4px}
+}
+
+/* ── ACCESSIBILITY: FOCUS STYLES ── */
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
+</style>
+</head>
+<body>
+<a href="#main-content" style="position:absolute;left:-9999px;top:4px;z-index:9999;background:#50e3c2;color:#050508;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none" onfocus="this.style.left='4px'" onblur="this.style.left='-9999px'">Skip to main content</a>
+
+<nav>
+  <a href="index.html" class="nav-name">dario-espinosa</a>
+  <span class="nav-sep">·</span>
+  <span class="nav-role">lead-experience-designer</span>
+  <div class="nav-right">
+    <a href="index.html" class="nav-link">← work</a>
+    <a href="about.html" class="nav-link">about</a>
+    <a href="virtu4l.html" class="nav-link">virtu4l ↗</a>
+    <div class="nav-dot"></div>
+  </div>
+</nav>
+
+<header class="cs-hero" id="main-content">
+  <div class="cs-hero-inner">
+    <div class="cs-eyebrow">internal tool · founder · claude plugin</div>
+    <h1>EDGA — A Multi-Agent<br><span>Design Thinking</span> Operating System</h1>
+    <p class="cs-xyz">A self-built Claude Cowork / Claude Code plugin that runs the <strong>full Design Thinking process</strong> — Empathize through Deliver — as a phase-gated multi-agent system, with a coordinating Overseer, specialized sub-agents for each discipline, and its own continuously-updated knowledge base of UX frameworks and patterns.</p>
+    <div class="meta-row">
+      <div class="meta-cell"><div class="meta-label">context</div><div class="meta-val">Internal Tool · Founder</div></div>
+      <div class="meta-cell"><div class="meta-label">role</div><div class="meta-val">Creator · Architect</div></div>
+      <div class="meta-cell"><div class="meta-label">timeline</div><div class="meta-val">2025 – present</div></div>
+      <div class="meta-cell"><div class="meta-label">platform</div><div class="meta-val">Claude Cowork/Code</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="metrics-inner">
+    <div class="metric-box"><span class="metric-val">v3.8</span><span class="metric-label">current release</span></div>
+    <div class="metric-box"><span class="metric-val">12</span><span class="metric-label">KB categories</span></div>
+    <div class="metric-box"><span class="metric-val">115+</span><span class="metric-label">knowledge notes</span></div>
+    <div class="metric-box"><span class="metric-val">9</span><span class="metric-label">intake blocks</span></div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">01 — Overview</div>
+    <div class="founder-badge">Self-Initiated · Internal Tool</div>
+    <h2>Why I Built EDGA</h2>
+    <p><strong>EDGA — Experience Designer Generalist Agent</strong> — started from a simple frustration: every real design engagement runs through the same disciplines (research, strategy, systems, prototyping, testing, delivery), but a single chat with an AI assistant has no memory of which phase you're in, no gate to stop you from skipping straight to pixels before the problem is framed, and no persistent record of what was decided and why.</p>
+    <p>EDGA is my answer to that: a plugin that turns Claude into a small, disciplined studio. One <strong>Overseer</strong> agent keeps track of where a project is in the process and hands work to the right specialist; the specialists never freelance outside their phase; and every phase ends with a human decision gate, so nothing moves forward without my explicit sign-off.</p>
+  </div>
+</div>
+
+<!-- ARCHITECTURE -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">02 — Architecture</div>
+    <h2>An Overseer, and a Bench of Specialists</h2>
+    <p>The Overseer is the only agent that talks to me directly and the only one with the full project context. It reads intake data and session memory, decides which phase the project is in, injects the relevant context into a sub-agent, and enforces the human gate before advancing. Sub-agents never load project context on their own — they only work with what the Overseer hands them, which keeps each one focused and keeps token usage predictable on long engagements.</p>
+
+    <div class="arch-wrap">
+      <div class="arch-node core">Dario (human gate)</div>
+      <div class="arch-arrow">↕</div>
+      <div class="arch-node core">Overseer — phase routing, memory, context injection</div>
+      <div class="arch-arrow">↓ hands off, phase by phase</div>
+      <div class="arch-agents">
+        <div class="arch-agent">UX Researcher<br><span style="color:var(--t3)">Empathize/Ideate</span></div>
+        <div class="arch-agent">Product Strategist<br><span style="color:var(--t3)">Define/red-team</span></div>
+        <div class="arch-agent">Systems Designer<br><span style="color:var(--t3)">Design tokens</span></div>
+        <div class="arch-agent">Component Builder<br><span style="color:var(--t3)">Prototype code</span></div>
+        <div class="arch-agent">Figma Design Auditor<br><span style="color:var(--t3)">Token/handoff QA</span></div>
+        <div class="arch-agent">User Testing<br><span style="color:var(--t3)">Real sessions</span></div>
+        <div class="arch-agent">Quality Auditor<br><span style="color:var(--t3)">WCAG/perf audit</span></div>
+        <div class="arch-agent">Delivery Coordinator<br><span style="color:var(--t3)">Estimation, git, handoff</span></div>
+      </div>
+      <div class="arch-arrow">↕ (long engagements only)</div>
+      <div class="arch-node">Memory Coordinator — institutional memory, Obsidian export</div>
+    </div>
+
+    <p>Phases are gated: <strong>Empathize → Define → Ideate → Prototype → Test → Deliver</strong>, each with a documented "artifact contract" — a specific output the phase must produce before the gate opens. I approve or send back the work at every gate; the Overseer never advances a phase on its own judgment.</p>
+  </div>
+</div>
+
+<!-- HOW IT'S USED -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">03 — How It's Used</div>
+    <h2>Three Ways to Engage It</h2>
+    <p>EDGA isn't one-size-fits-all — a quick gut-check and a multi-month retainer need different amounts of ceremony. Onboarding starts with <code style="font-family:var(--mono);color:var(--teal);background:var(--teal-dim);padding:1px 5px;border-radius:3px;font-size:12px">/edga-new</code>, a structured intake across 9 blocks (goals, users, constraints, existing artifacts, timeline, and more) that scopes which mode fits.</p>
+
+    <div class="flow-row">
+      <div class="flow-step">
+        <div class="flow-n">MODE 1</div>
+        <div class="flow-title">Advisory</div>
+        <div class="flow-sub">Fast expert input, no full process</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-n">MODE 2</div>
+        <div class="flow-title">Discovery</div>
+        <div class="flow-sub">Research + framing only</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-n">MODE 3</div>
+        <div class="flow-title">Full Project</div>
+        <div class="flow-sub">All 6 phases, gated end-to-end</div>
+      </div>
+    </div>
+
+    <div class="decision-v decision">
+      <div class="decision-label">For long-running retainers</div>
+      <p>Projects running past ~3 months switch to a <strong>Cycle Model</strong>: the Memory Coordinator manages staleness checks and cycle transitions so institutional knowledge about the project doesn't silently rot between sessions — it also handles exporting that project memory to Obsidian for a durable, searchable record outside the chat.</p>
+    </div>
+  </div>
+</div>
+
+<!-- KNOWLEDGE BASE UPDATE PROCESS -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">04 — Knowledge Base</div>
+    <h2>How the Knowledge Base Stays Current</h2>
+    <p>EDGA's sub-agents reason from a generic knowledge base — UX frameworks, research methods, interaction patterns — that grows with every release. New material only gets absorbed through a deliberately slow, checked pipeline, because a design-thinking assistant is only as trustworthy as the sources it's quoting.</p>
+
+    <div class="proc-list">
+      <div class="proc-item">
+        <div class="proc-n">01</div>
+        <div><div class="proc-body-title">Deep-research round triggered</div><div class="proc-body-sub">Usually kicked off by me forwarding a new source, framework, or paper worth adding.</div></div>
+      </div>
+      <div class="proc-item">
+        <div class="proc-n">02</div>
+        <div><div class="proc-body-title">Primary sources read in full</div><div class="proc-body-sub">No summarizing a summary — the original paper, book chapter, or spec gets read directly.</div></div>
+      </div>
+      <div class="proc-item">
+        <div class="proc-n">03</div>
+        <div><div class="proc-body-title">Citations independently verified</div><div class="proc-body-sub">Claims and citations get a separate WebSearch verification pass before they're trusted.</div></div>
+      </div>
+      <div class="proc-item">
+        <div class="proc-n">04</div>
+        <div><div class="proc-body-title">Distilled into a capped module</div><div class="proc-body-sub">Condensed into a size-capped knowledge doc — never left as sprawling raw notes.</div></div>
+      </div>
+      <div class="proc-item">
+        <div class="proc-n">05</div>
+        <div><div class="proc-body-title">Confirmed before absorbing</div><div class="proc-body-sub">I get an explicit AskUserQuestion checkpoint before new material is folded into the KB.</div></div>
+      </div>
+      <div class="proc-item">
+        <div class="proc-n">06</div>
+        <div><div class="proc-body-title">Written with confidence tags</div><div class="proc-body-sub">Findings are marked by how certain they are, not presented as uniform fact.</div></div>
+      </div>
+      <div class="proc-item">
+        <div class="proc-n">07</div>
+        <div><div class="proc-body-title">Shipped as a versioned release</div><div class="proc-body-sub">Bundled into the next tagged <code style="font-family:var(--mono);font-size:10px">.plugin</code> release with a changelog entry.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OBSIDIAN MEMORY MAP -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">05 — Knowledge Base, Mapped</div>
+    <h2>What the Obsidian Memory Actually Looks Like</h2>
+    <p>Running <code style="font-family:var(--mono);color:var(--teal);background:var(--teal-dim);padding:1px 5px;border-radius:3px;font-size:12px">/edga-export-kb</code> mirrors the plugin's knowledge base into a real Obsidian vault — a <code style="font-family:var(--mono);font-size:12px">Home.md</code> note links out to 12 category Maps of Content (MOCs), each holding the notes for that discipline. The export is content-hash based: it only touches notes that actually changed, never overwrites a note I've hand-edited inside Obsidian, and flags anything orphaned.</p>
+
+    <div class="kb-grid">
+      <div class="kb-card"><span class="kb-name">Interaction &amp; Interfaces</span><span class="kb-count">24</span></div>
+      <div class="kb-card"><span class="kb-name">Psychology &amp; Research</span><span class="kb-count">20</span></div>
+      <div class="kb-card"><span class="kb-name">Product &amp; Strategy</span><span class="kb-count">18</span></div>
+      <div class="kb-card"><span class="kb-name">AI-First &amp; Agentic UX</span><span class="kb-count">17</span></div>
+      <div class="kb-card"><span class="kb-name">Process &amp; Governance</span><span class="kb-count">11</span></div>
+      <div class="kb-card"><span class="kb-name">Engineering &amp; Delivery</span><span class="kb-count">10</span></div>
+      <div class="kb-card"><span class="kb-name">Motion &amp; Prototyping</span><span class="kb-count">5</span></div>
+      <div class="kb-card"><span class="kb-name">Accessibility &amp; Inclusive Design</span><span class="kb-count">3</span></div>
+      <div class="kb-card"><span class="kb-name">Service &amp; Systemic Design</span><span class="kb-count">3</span></div>
+      <div class="kb-card"><span class="kb-name">UX Writing &amp; Content</span><span class="kb-count">2</span></div>
+      <div class="kb-card"><span class="kb-name">Spatial, XR &amp; AR</span><span class="kb-count">1</span></div>
+      <div class="kb-card"><span class="kb-name">Reference</span><span class="kb-count">1</span></div>
+    </div>
+
+    <div class="decision">
+      <div class="decision-label">Important distinction</div>
+      <p>This vault is <strong>the plugin's own generic knowledge</strong> — frameworks and patterns any project can draw on. It is not project memory: a client engagement's institutional memory is a separate export, kept scoped to that one project so nothing crosses between engagements.</p>
+    </div>
+  </div>
+</div>
+
+<!-- INTERNAL ENABLEMENT -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">06 — Beyond the Plugin</div>
+    <h2>Turning It Into Internal Enablement</h2>
+    <p>Building EDGA turned into a broader habit of pushing Claude adoption inside SoftServe. Alongside the plugin itself, I <strong>mentor other designers on using Claude</strong> day-to-day in their own workflows, and I've done the same for the <strong>internal HR department</strong> — helping non-technical teams find practical, low-risk ways to fold Claude into their existing process rather than bolting AI on as an afterthought.</p>
+  </div>
+</div>
+
+<!-- STACK -->
+<div class="block reveal">
+  <div class="block-inner">
+    <div class="block-label">07 — Stack &amp; Tags</div>
+    <h2>Built On</h2>
+    <div class="stack-row">
+      <div class="stack-item">Claude Cowork</div>
+      <div class="stack-item">Claude Code</div>
+      <div class="stack-item">Agent Skills</div>
+      <div class="stack-item">Multi-agent orchestration</div>
+      <div class="stack-item">Obsidian</div>
+      <div class="stack-item">Markdown / YAML frontmatter</div>
+      <div class="stack-item">Versioned .plugin releases</div>
+    </div>
+
+    <div style="margin-top:24px">
+      <span class="tag tc">ai-tools</span>
+      <span class="tag">multi-agent-systems</span>
+      <span class="tag">design-thinking</span>
+      <span class="tag tv">knowledge-management</span>
+      <span class="tag">plugin-architecture</span>
+      <span class="tag">internal-enablement</span>
+      <span class="tag tr">founder</span>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-block">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h3>A studio, distilled into a plugin</h3>
+      <p>EDGA is still evolving — every real engagement teaches it something new about where the gates should be.</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href="index.html#founder-mode" class="btn btn-primary">← Founder mode</a>
+      <a href="index.html" class="btn btn-ghost">All work</a>
+    </div>
+  </div>
+</div>
+
+<script src="effects.js"></script>
+<script>
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
