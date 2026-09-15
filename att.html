@@ -72,6 +72,47 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .slide img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
 .slide-caption{font-family:var(--mono);font-size:10px;color:var(--t3);margin-top:8px;letter-spacing:0.03em}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+/* Illustrative demo panel — generic, reused per NDA-flagged project (Session 12) */
+.demo-disclosure{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.02em;margin:0 0 16px;line-height:1.6}
+.demo-panel{border:1px solid var(--border-w);border-radius:10px;overflow:hidden;background:var(--surface2);box-shadow:0 20px 60px -30px rgba(0,0,0,.6)}
+.demo-chrome{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--border-w);background:rgba(255,255,255,0.02)}
+.demo-chrome-left{display:flex;align-items:center;gap:10px}
+.demo-mark{width:22px;height:22px;flex-shrink:0}
+.demo-appname{font-family:var(--mono);font-size:13px;color:var(--t1);letter-spacing:.01em}
+.demo-appname em{font-style:normal;color:var(--t3);margin-left:6px;font-size:11px}
+.demo-tabs{display:flex;gap:4px;flex-wrap:wrap}
+.demo-tab{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--t3);background:transparent;border:1px solid transparent;border-radius:6px;padding:6px 10px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
+.demo-tab:hover{color:var(--t1)}
+.demo-tab.is-active{color:var(--teal);background:var(--teal-dim);border-color:rgba(80,227,194,0.18)}
+.demo-tab:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.demo-body{padding:22px;min-height:200px;overflow-x:auto}
+.demo-table{min-width:420px}
+@media(max-width:680px){.demo-chrome{padding:12px 14px}.demo-body{padding:16px}}
+.demo-view{display:none;opacity:0;transform:translateY(4px);transition:opacity .25s ease,transform .25s ease}
+.demo-view.is-active{display:block;opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.demo-view{transition:none}}
+.demo-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.demo-label{font-family:var(--mono);font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.demo-select{font-family:var(--mono);font-size:11px;color:var(--t2);border:1px solid var(--border-w);border-radius:6px;padding:6px 12px;background:rgba(255,255,255,0.03)}
+.demo-btn{font-family:var(--mono);font-size:11px;color:var(--bg);background:var(--teal);border:none;border-radius:6px;padding:8px 14px;cursor:pointer;font-weight:600;transition:filter .15s}
+.demo-btn:hover{filter:brightness(1.1)}
+.demo-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.demo-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px;color:var(--t2)}
+.demo-table th{text-align:left;font-weight:500;color:var(--t3);padding:8px 10px;border-bottom:1px solid var(--border-w);text-transform:uppercase;font-size:9px;letter-spacing:.06em}
+.demo-table td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.demo-table tr.is-hl td{background:var(--teal-dim)}
+.demo-badge{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:10px;background:rgba(255,255,255,0.06);color:var(--t3)}
+.demo-badge.is-active{background:var(--teal-dim);color:var(--teal)}
+.demo-card{border:1px solid var(--border-w);border-radius:8px;padding:16px}
+.demo-pill{font-family:var(--mono);font-size:10px;color:var(--t3);padding-bottom:6px;border-bottom:2px solid transparent}
+.demo-pill.is-active{color:var(--t1);border-color:var(--teal)}
+.demo-stat{display:flex;flex-direction:column;gap:4px}
+.demo-stat-val{font-family:var(--mono);font-size:22px;color:var(--teal);font-weight:700}
+.demo-stat-lbl{font-family:var(--mono);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em}
+.demo-toggle{width:32px;height:18px;border-radius:10px;background:rgba(255,255,255,0.1);position:relative;cursor:pointer;border:none;padding:0;flex-shrink:0}
+.demo-toggle::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--t2);transition:transform .18s}
+.demo-toggle.is-on{background:var(--teal-dim)}
+.demo-toggle.is-on::after{transform:translateX(14px);background:var(--teal)}
 .grid-2 img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
 /* DECISION */
 .decision{border-left:2px solid var(--teal);padding:18px 22px;background:var(--teal-dim);border-radius:0 var(--r) var(--r) 0;margin:8px 0}
@@ -397,8 +438,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <section class="block">
   <div class="block-inner">
     <div class="block-label">Visual Context</div>
-    <div class="slide"><img src="images/inline/att-01.jpg" alt="Project screenshot 1" loading="lazy"><p class="slide-caption">// visual-01</p></div>
-<div class="slide"><img src="images/inline/att-02.jpg" alt="Project screenshot 2" loading="lazy"><p class="slide-caption">// visual-02</p></div>
+    <p class="demo-disclosure">The production storefront and internal UI-toolkit documents are client-confidential — the interactive recreation further down illustrates the resulting interface without any client-identifying detail.</p>
 
   </div>
 </section>
@@ -477,8 +517,89 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   </div>
 </section>
 
-<section class="block"><div class="block-inner">
-    <div class="grid-2"><div><img src="images/inline/att-03.jpg" alt="AT&T UI Toolkit — ALECK Buttons spec · viewport breakpoints, states, and icon variants (2017)" loading="lazy"><div class="slide-caption" style="margin-top:6px">AT&T UI Toolkit — ALECK Buttons spec · viewport breakpoints, states, and icon variants (2017)</div></div><div><img src="images/inline/att-04.jpg" alt="Flujo eCommerce — AT&T internal chat + order tracking process via Magento integration (2017)" loading="lazy"><div class="slide-caption" style="margin-top:6px">Flujo eCommerce — AT&T internal chat + order tracking process via Magento integration (2017)</div></div></div>
+<script>
+/* Generic demo-panel tabs — Session 12, reused per-page (inline, not shared) */
+(function(){
+  document.querySelectorAll('.demo-panel').forEach(function(panel){
+    var tabs=panel.querySelectorAll('.demo-tab'), views=panel.querySelectorAll('.demo-view');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        tabs.forEach(function(t){t.classList.remove('is-active');t.setAttribute('aria-selected','false');});
+        views.forEach(function(v){v.classList.remove('is-active');v.hidden=true;});
+        tab.classList.add('is-active'); tab.setAttribute('aria-selected','true');
+        var idx=tab.getAttribute('data-tab');
+        var view=panel.querySelector('[data-view="'+idx+'"]');
+        if(view){view.hidden=false; view.classList.add('is-active');}
+      });
+    });
+    panel.querySelectorAll('.demo-toggle').forEach(function(tg){
+      tg.addEventListener('click', function(){ tg.classList.toggle('is-on'); });
+    });
+    var runBtn=panel.querySelector('[data-demo-run]');
+    if(runBtn){
+      runBtn.addEventListener('click', function(){
+        panel.querySelectorAll('[data-demo-rand]').forEach(function(el){
+          var lo=parseFloat(el.getAttribute('data-lo')), hi=parseFloat(el.getAttribute('data-hi')), dec=parseInt(el.getAttribute('data-dec')||'0',10);
+          el.textContent=(Math.random()*(hi-lo)+lo).toFixed(dec);
+        });
+      });
+    }
+  });
+})();
+</script>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">Illustrative Recreation</div>
+    <h2 data-scramble aria-label="How the Storefront and Kit Felt to Use">How the Storefront and Kit Felt to Use</h2>
+    <p style="margin-bottom:18px;max-width:640px">The production storefront and internal component library are client-confidential. Below is an interactive recreation built for this portfolio — same interaction patterns, generic brand and fictional data.</p>
+    <p class="demo-disclosure">Illustrative recreation — interface rebuilt from memory in plain HTML/CSS/JS; product name, brand names and data are fictional.</p>
+
+    <div class="demo-panel" data-demo="telco">
+      <div class="demo-chrome">
+        <div class="demo-chrome-left">
+          <svg class="demo-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17a13 13 0 0 1 16 0" fill="none" stroke="var(--t2)" stroke-width="2" stroke-linecap="round"/><path d="M7.5 13.2a8 8 0 0 1 9 0" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="19" r="1.6" fill="var(--teal)"/></svg>
+          <span class="demo-appname">Connectify <em>Self-Service Portal</em></span>
+        </div>
+        <div class="demo-tabs" role="tablist" aria-label="Connectify demo views">
+          <button class="demo-tab is-active" data-tab="0" role="tab" aria-selected="true">Storefront</button>
+          <button class="demo-tab" data-tab="1" role="tab" aria-selected="false">Component Kit</button>
+          <button class="demo-tab" data-tab="2" role="tab" aria-selected="false">Support Flow</button>
+        </div>
+      </div>
+      <div class="demo-body">
+
+        <div class="demo-view is-active" data-view="0">
+          <div class="demo-card" style="background:linear-gradient(135deg,rgba(80,227,194,0.12),rgba(167,139,250,0.1));margin-bottom:16px">
+            <div style="font-family:var(--mono);font-size:15px;color:var(--t1);font-weight:600">Renew your plan — triple the data</div>
+            <div style="font-family:var(--mono);font-size:10px;color:var(--t3);margin-top:6px">0% interest for 9 months on compatible devices</div>
+          </div>
+          <div class="demo-row" style="gap:12px">
+            <div class="demo-card" style="flex:1;text-align:center"><div style="font-size:10px;color:var(--t3);font-family:var(--mono)">Phone A</div><div class="demo-stat-val" style="font-size:16px">$7,989</div></div>
+            <div class="demo-card" style="flex:1;text-align:center"><div style="font-size:10px;color:var(--t3);font-family:var(--mono)">Phone B</div><div class="demo-stat-val" style="font-size:16px">$4,999</div></div>
+            <div class="demo-card" style="flex:1;text-align:center"><div style="font-size:10px;color:var(--t3);font-family:var(--mono)">Phone C</div><div class="demo-stat-val" style="font-size:16px">$1,739</div></div>
+          </div>
+        </div>
+
+        <div class="demo-view" data-view="1" hidden>
+          <div class="demo-label">Buttons — states &amp; breakpoints</div>
+          <div class="demo-row" style="gap:8px;flex-wrap:wrap">
+            <button class="demo-btn">Default</button>
+            <button class="demo-btn" style="opacity:.5;cursor:default">Disabled</button>
+            <button class="demo-btn" style="background:transparent;border:1px solid var(--teal);color:var(--teal)">Outline</button>
+          </div>
+        </div>
+
+        <div class="demo-view" data-view="2" hidden>
+          <div class="demo-label">Chat support — decision flow</div>
+          <div style="font-family:var(--mono);font-size:11px;color:var(--t2);display:flex;flex-wrap:wrap;align-items:center;gap:8px">
+            <span class="demo-badge is-active">Start</span> → <span class="demo-badge">Identify request</span> → <span class="demo-badge">Route to queue</span> → <span class="demo-badge">Resolve</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </section>
 <script>
 (function(){
@@ -797,4 +918,3 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <script src="effects.js"></script>
 </body>
 </html>
-</div></section>

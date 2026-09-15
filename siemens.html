@@ -72,6 +72,47 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .slide img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
 .slide-caption{font-family:var(--mono);font-size:10px;color:var(--t3);margin-top:8px;letter-spacing:0.03em}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+/* Illustrative demo panel — generic, reused per NDA-flagged project (Session 12) */
+.demo-disclosure{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.02em;margin:0 0 16px;line-height:1.6}
+.demo-panel{border:1px solid var(--border-w);border-radius:10px;overflow:hidden;background:var(--surface2);box-shadow:0 20px 60px -30px rgba(0,0,0,.6)}
+.demo-chrome{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--border-w);background:rgba(255,255,255,0.02)}
+.demo-chrome-left{display:flex;align-items:center;gap:10px}
+.demo-mark{width:22px;height:22px;flex-shrink:0}
+.demo-appname{font-family:var(--mono);font-size:13px;color:var(--t1);letter-spacing:.01em}
+.demo-appname em{font-style:normal;color:var(--t3);margin-left:6px;font-size:11px}
+.demo-tabs{display:flex;gap:4px;flex-wrap:wrap}
+.demo-tab{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--t3);background:transparent;border:1px solid transparent;border-radius:6px;padding:6px 10px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
+.demo-tab:hover{color:var(--t1)}
+.demo-tab.is-active{color:var(--teal);background:var(--teal-dim);border-color:rgba(80,227,194,0.18)}
+.demo-tab:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.demo-body{padding:22px;min-height:200px;overflow-x:auto}
+.demo-table{min-width:420px}
+@media(max-width:680px){.demo-chrome{padding:12px 14px}.demo-body{padding:16px}}
+.demo-view{display:none;opacity:0;transform:translateY(4px);transition:opacity .25s ease,transform .25s ease}
+.demo-view.is-active{display:block;opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.demo-view{transition:none}}
+.demo-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.demo-label{font-family:var(--mono);font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.demo-select{font-family:var(--mono);font-size:11px;color:var(--t2);border:1px solid var(--border-w);border-radius:6px;padding:6px 12px;background:rgba(255,255,255,0.03)}
+.demo-btn{font-family:var(--mono);font-size:11px;color:var(--bg);background:var(--teal);border:none;border-radius:6px;padding:8px 14px;cursor:pointer;font-weight:600;transition:filter .15s}
+.demo-btn:hover{filter:brightness(1.1)}
+.demo-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.demo-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px;color:var(--t2)}
+.demo-table th{text-align:left;font-weight:500;color:var(--t3);padding:8px 10px;border-bottom:1px solid var(--border-w);text-transform:uppercase;font-size:9px;letter-spacing:.06em}
+.demo-table td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.demo-table tr.is-hl td{background:var(--teal-dim)}
+.demo-badge{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:10px;background:rgba(255,255,255,0.06);color:var(--t3)}
+.demo-badge.is-active{background:var(--teal-dim);color:var(--teal)}
+.demo-card{border:1px solid var(--border-w);border-radius:8px;padding:16px}
+.demo-pill{font-family:var(--mono);font-size:10px;color:var(--t3);padding-bottom:6px;border-bottom:2px solid transparent}
+.demo-pill.is-active{color:var(--t1);border-color:var(--teal)}
+.demo-stat{display:flex;flex-direction:column;gap:4px}
+.demo-stat-val{font-family:var(--mono);font-size:22px;color:var(--teal);font-weight:700}
+.demo-stat-lbl{font-family:var(--mono);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em}
+.demo-toggle{width:32px;height:18px;border-radius:10px;background:rgba(255,255,255,0.1);position:relative;cursor:pointer;border:none;padding:0;flex-shrink:0}
+.demo-toggle::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--t2);transition:transform .18s}
+.demo-toggle.is-on{background:var(--teal-dim)}
+.demo-toggle.is-on::after{transform:translateX(14px);background:var(--teal)}
 .grid-2 img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
 /* DECISION */
 .decision{border-left:2px solid var(--teal);padding:18px 22px;background:var(--teal-dim);border-radius:0 var(--r) var(--r) 0;margin:8px 0}
@@ -407,34 +448,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   <div class="block-inner">
     <div class="block-label">Visual Context</div>
 
-    <!-- Side-by-side: equal height, right image masked; click for full view -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start">
-
-      <!-- Left: Figma prototype map — natural height -->
-      <div style="border-radius:6px;overflow:hidden;cursor:zoom-in" class="vc-img-wrap">
-        <img src="images/inline/siemens-01.jpg" alt="BOS CSX screens — Figma prototype map" loading="lazy"
-          style="width:100%;height:100%;object-fit:cover;display:block;border-radius:6px;cursor:zoom-in;transition:opacity .2s,transform .2s">
-        <div class="slide-caption" style="margin-top:6px">BOS CSX — Figma prototype map · all screen connections</div>
-      </div>
-
-      <!-- Right: BOS Reliability Fundamentals — cropped to match left height, modal shows full -->
-      <div style="border-radius:6px;overflow:hidden;cursor:zoom-in;position:relative" class="vc-img-wrap">
-        <img src="images/inline/siemens-02.jpg" alt="BOS Reliability Fundamentals — full architecture document" loading="lazy"
-          style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;border-radius:6px;cursor:zoom-in;transition:opacity .2s,transform .2s">
-        <div style="position:absolute;bottom:0;left:0;right:0;height:48px;background:linear-gradient(transparent,var(--bg));pointer-events:none;border-radius:0 0 6px 6px"></div>
-        <div style="position:absolute;bottom:8px;right:10px;font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.4);pointer-events:none">click to expand ↗</div>
-        <div class="slide-caption" style="margin-top:6px">BOS Reliability Fundamentals — TCP/IP architecture, PMON, redundancy</div>
-      </div>
-
-    </div>
-
-    <!-- Detail: network topology diagram -->
-    <div style="margin-top:14px;border-radius:6px;overflow:hidden;max-width:480px">
-      <img src="images/inline/siemens-03.jpg" alt="BOS network topology — Data Flow and instance architecture" loading="lazy"
+    <!-- Design system reference — generic, no client branding, safe to show as-is -->
+    <div style="border-radius:6px;overflow:hidden;cursor:zoom-in;max-width:480px" class="vc-img-wrap">
+      <img src="images/inline/siemens-01.jpg" alt="Design system reference sheet — colors, UI elements, typography" loading="lazy"
         style="width:100%;height:auto;display:block;border-radius:6px;cursor:zoom-in;transition:opacity .2s,transform .2s">
-      <div class="slide-caption" style="margin-top:6px">Network topology — Data Flow, BOS instances, Event Manager</div>
+      <div class="slide-caption" style="margin-top:6px">Design system reference — colors, UI elements, typography scale</div>
     </div>
 
+    <p class="demo-disclosure" style="margin-top:14px">The underlying architecture documents and Figma prototype maps are client-confidential and withheld — the interactive recreation further down illustrates the resulting interface without any client-identifying detail.</p>
     </div>
 </section>
 
@@ -481,11 +502,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <div class="block-label">On Site Collab · POC for Expo</div>
     <h2 data-scramble aria-label="One Week, One MVP, One Global Stage">One Week, One MVP, One Global Stage</h2>
     <p style="max-width:680px;margin-bottom:28px">During a week-long on-site sprint, the team delivered a fully functional MVP for the <strong>C&amp;S Transportation Signals Expo 2021</strong>. The prototype ran live on both a wall-mounted display and a ruggedized tablet — drawing significant interest from railroad operators and sparking the broader vision of merging the BOS tablet capability with the existing desktop platform.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-<div class="slide"><img src="images/inline/siemens-04.jpg" alt="Product demo station — Trainguard PTC BOS on TV and tablet, C&S Expo 2021" loading="lazy"><div class="slide-caption" style="margin-top:6px">Product demo station — Trainguard PTC BOS on TV and tablet, C&S Expo 2021</div></div>
-      <div class="slide"><img src="images/inline/siemens-05.jpg" alt="Siemens booth — transparent display with live railroad track visualization" loading="lazy"><div class="slide-caption" style="margin-top:6px">Siemens booth — transparent display with live railroad track visualization</div></div>
-      <div class="slide"><img src="images/inline/siemens-06.jpg" alt="S-80 Smart Gate Mechanism — C&S Transportation Signals Expo 2021" loading="lazy"><div class="slide-caption" style="margin-top:6px">S-80 Smart Gate Mechanism — C&S Transportation Signals Expo 2021</div></div>
-    </div>
+    <p class="demo-disclosure">Event photography withheld — the on-site booth and demo stations were client-branded assets outside the scope of what can be shown publicly here.</p>
   </div>
 </section>
 
@@ -523,37 +540,100 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   </div>
 </section>
 
+<script>
+/* Generic demo-panel tabs — Session 12, reused per-page (inline, not shared) */
+(function(){
+  document.querySelectorAll('.demo-panel').forEach(function(panel){
+    var tabs=panel.querySelectorAll('.demo-tab'), views=panel.querySelectorAll('.demo-view');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        tabs.forEach(function(t){t.classList.remove('is-active');t.setAttribute('aria-selected','false');});
+        views.forEach(function(v){v.classList.remove('is-active');v.hidden=true;});
+        tab.classList.add('is-active'); tab.setAttribute('aria-selected','true');
+        var idx=tab.getAttribute('data-tab');
+        var view=panel.querySelector('[data-view="'+idx+'"]');
+        if(view){view.hidden=false; view.classList.add('is-active');}
+      });
+    });
+    panel.querySelectorAll('.demo-toggle').forEach(function(tg){
+      tg.addEventListener('click', function(){ tg.classList.toggle('is-on'); });
+    });
+    var runBtn=panel.querySelector('[data-demo-run]');
+    if(runBtn){
+      runBtn.addEventListener('click', function(){
+        panel.querySelectorAll('[data-demo-rand]').forEach(function(el){
+          var lo=parseFloat(el.getAttribute('data-lo')), hi=parseFloat(el.getAttribute('data-hi')), dec=parseInt(el.getAttribute('data-dec')||'0',10);
+          el.textContent=(Math.random()*(hi-lo)+lo).toFixed(dec);
+        });
+      });
+    }
+  });
+})();
+</script>
+
 <section class="block">
   <div class="block-inner">
-    <div class="block-label">Live Prototype</div>
-    <h2 data-scramble aria-label="Interactive BOS Tablet Prototype">Interactive BOS Tablet Prototype</h2>
-    <p style="margin-bottom:24px;max-width:640px">Full-fidelity interactive prototype of the Trainguard PTC BOS tablet interface. Navigate BOS nodes, explore the queue manager, and interact with the subdivision topology — exactly as operators would experience it in the field.</p>
-    <div style="position:relative;width:100%;padding-top:62.5%;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);background:#0a0a0f">
-      <iframe
-        style="position:absolute;top:0;left:0;width:100%;height:100%;border:none"
-        src="https://embed.figma.com/proto/HtRaVAK1khQ60OBJ2Dwnoq/Siemens-BOS-Tablet-Solution?node-id=2-1275&page-id=2%3A584&starting-point-node-id=2%3A1275&embed-host=share"
-        allowfullscreen
-        loading="lazy"
-        title="Siemens BOS Tablet Prototype"
-      ></iframe>
-    </div>
-    <div style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);margin-top:12px">
-      // Figma prototype — Trainguard PTC BOS · CSX · Tablet Solution · 2021
+    <div class="block-label">Illustrative Recreation</div>
+    <h2 data-scramble aria-label="How the Console Felt to Use">How the Console Felt to Use</h2>
+    <p style="margin-bottom:18px;max-width:640px">The real prototype and production screens are client-confidential. Below is an interactive recreation built for this portfolio — same interaction patterns and information density, generic labels and fictional data.</p>
+    <p class="demo-disclosure">Illustrative recreation — interface rebuilt from memory in plain HTML/CSS/JS; product name, org names and data are fictional.</p>
+
+    <div class="demo-panel" data-demo="rail">
+      <div class="demo-chrome">
+        <div class="demo-chrome-left">
+          <svg class="demo-mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="10.5" width="20" height="3" rx="1" fill="var(--teal)" opacity="0.85"/><rect x="4" y="4" width="2.4" height="16" rx="1" fill="var(--t2)"/><rect x="10.8" y="4" width="2.4" height="16" rx="1" fill="var(--t2)"/><rect x="17.6" y="4" width="2.4" height="16" rx="1" fill="var(--t2)"/></svg>
+          <span class="demo-appname">TrackWatch <em>Rail Ops Console</em></span>
+        </div>
+        <div class="demo-tabs" role="tablist" aria-label="TrackWatch demo views">
+          <button class="demo-tab is-active" data-tab="0" role="tab" aria-selected="true">Overview</button>
+          <button class="demo-tab" data-tab="1" role="tab" aria-selected="false">Field View</button>
+          <button class="demo-tab" data-tab="2" role="tab" aria-selected="false">Network Map</button>
+        </div>
+      </div>
+      <div class="demo-body">
+
+        <div class="demo-view is-active" data-view="0">
+          <div class="demo-row" style="justify-content:space-between;margin-bottom:14px">
+            <span class="demo-select">All Status ▾</span>
+            <button class="demo-btn">Request Ownership</button>
+          </div>
+          <div class="demo-label">Work Zone Bulletins</div>
+          <table class="demo-table">
+            <thead><tr><th></th><th>Bulletin</th><th>Subdivision</th><th>Track</th><th>Window</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>▤</td><td>2214</td><td>NORTH LINE</td><td>MAIN</td><td>08:00–16:00</td><td><span class="demo-badge">Unassigned</span></td></tr>
+              <tr class="is-hl"><td>▤</td><td>2231</td><td>RIVER JCT</td><td>MAIN</td><td>08:00–16:00</td><td><span class="demo-badge is-active">Assigned</span></td></tr>
+              <tr><td>▤</td><td>2258</td><td>NORTH LINE</td><td>SIDE-2</td><td>10:00–18:00</td><td><span class="demo-badge">Unassigned</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="demo-view" data-view="1" hidden>
+          <div class="demo-label">Field Terminal · dark</div>
+          <div class="demo-card" style="background:#0a0e12;border-color:rgba(80,227,194,0.18)">
+            <div class="demo-row" style="gap:18px;margin-bottom:12px">
+              <span class="demo-pill is-active">Summary</span><span class="demo-pill">Notifications</span><span class="demo-pill">Train Activity</span>
+            </div>
+            <div style="font-family:var(--mono);font-size:11px;color:var(--t2);line-height:1.9">
+              Engine RX-4471 &nbsp;·&nbsp; Bulletin 2231 &nbsp;·&nbsp; Milepost 19.2 &nbsp;·&nbsp; <span style="color:var(--teal)">On Board</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-view" data-view="2" hidden>
+          <div class="demo-label">Network Map · abstract</div>
+          <svg viewBox="0 0 400 140" style="width:100%;height:auto;display:block" aria-hidden="true">
+            <path d="M10 100 Q 100 20 200 70 T 390 40" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="2"/>
+            <circle cx="60" cy="82" r="5" fill="var(--teal)"/><circle cx="180" cy="55" r="5" fill="var(--teal)"/><circle cx="300" cy="58" r="5" fill="var(--violet)"/><circle cx="360" cy="42" r="5" fill="var(--teal)"/>
+            <text x="60" y="70" fill="var(--t3)" font-family="var(--mono)" font-size="8">RX-4471</text>
+            <text x="180" y="43" fill="var(--t3)" font-family="var(--mono)" font-size="8">RX-2209</text>
+            <text x="300" y="46" fill="var(--t3)" font-family="var(--mono)" font-size="8">RX-8834</text>
+          </svg>
+        </div>
+
+      </div>
     </div>
   </div>
-</section>
-
-
-
-<section class="block"><div class="block-inner">
-    <div class="slide">
-      <img src="images/inline/siemens-07.jpg" alt="BOS 8.1 Overview — Siemens PTC Back Office Server, queue management panel" loading="lazy">
-      <div class="slide-caption">BOS 8.1 Overview — Siemens PTC Back Office Server, queue management panel</div>
-    </div>
-    <div class="grid-2">
-      <div><img src="images/inline/siemens-08.jpg" alt="Employee In Charge — TRAINGUARD PTC EIC screen · dark mode · train bulletins + requests" loading="lazy"><div class="slide-caption" style="margin-top:6px">Employee In Charge — TRAINGUARD PTC EIC screen · dark mode · train bulletins + requests</div></div>
-      <div><img src="images/inline/siemens-09.jpg" alt="Map View — live railroad network with train positions across Eastern US" loading="lazy"><div class="slide-caption" style="margin-top:6px">Map View — live railroad network with train positions across Eastern US</div></div>
-    </div>
 </section>
 
 <section class="block"><div class="block-inner">
@@ -947,4 +1027,3 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <script src="effects.js"></script>
 </body>
 </html>
-</div></section>

@@ -1,0 +1,39 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t d">
+  <title id="t">Illustrative recreation — Connectify storefront</title>
+  <desc id="d">Generic recreation of a telecom self-service storefront — fictional product, no client branding.</desc>
+  <rect width="800" height="500" fill="#0d0d14"/>
+  <rect x="0" y="0" width="800" height="60" fill="#111118"/>
+  <path d="M40 40a26 26 0 0 1 32 0" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M46 32a17 17 0 0 1 20 0" fill="none" stroke="#50e3c2" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="56" cy="24" r="3.4" fill="#50e3c2"/>
+  <text x="90" y="36" font-family="Geist Mono, monospace" font-size="15" fill="rgba(255,255,255,0.85)">Connectify</text>
+
+  <rect x="40" y="96" width="720" height="150" rx="12" fill="url(#g1)"/>
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a2a3a"/><stop offset="1" stop-color="#0d0d14"/>
+    </linearGradient>
+  </defs>
+  <text x="70" y="150" font-family="Geist Mono, monospace" font-size="22" font-weight="700" fill="#fff">Renew your plan</text>
+  <text x="70" y="180" font-family="Geist Mono, monospace" font-size="13" fill="#50e3c2">Triple the data — 9 months at 0% interest</text>
+  <rect x="70" y="200" width="130" height="30" rx="6" fill="#50e3c2"/>
+  <text x="135" y="220" text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" fill="#050508">Renew now</text>
+
+  <g font-family="Geist Mono, monospace" font-size="11" fill="rgba(255,255,255,0.55)">
+    <rect x="40" y="270" width="225" height="170" rx="10" fill="#15151d" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="60" y="290" width="100" height="70" rx="6" fill="rgba(255,255,255,0.06)"/>
+    <text x="60" y="382" fill="rgba(255,255,255,0.4)">Phone A</text>
+    <text x="60" y="402" fill="#50e3c2" font-size="15">$7,989</text>
+
+    <rect x="288" y="270" width="225" height="170" rx="10" fill="#15151d" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="308" y="290" width="100" height="70" rx="6" fill="rgba(255,255,255,0.06)"/>
+    <text x="308" y="382" fill="rgba(255,255,255,0.4)">Phone B</text>
+    <text x="308" y="402" fill="#50e3c2" font-size="15">$4,999</text>
+
+    <rect x="536" y="270" width="225" height="170" rx="10" fill="#15151d" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="556" y="290" width="100" height="70" rx="6" fill="rgba(255,255,255,0.06)"/>
+    <text x="556" y="382" fill="rgba(255,255,255,0.4)">Phone C</text>
+    <text x="556" y="402" fill="#50e3c2" font-size="15">$1,739</text>
+  </g>
+  <text x="400" y="475" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="rgba(255,255,255,0.3)">Illustrative recreation — fictional product, generalized data</text>
+</svg>

@@ -66,6 +66,47 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .slide-caption{font-family:var(--mono);font-size:10px;color:var(--t3);margin-top:8px;letter-spacing:0.03em}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
 .grid-2 img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
+/* Illustrative demo panel — generic, reused per NDA-flagged project (Session 12) */
+.demo-disclosure{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.02em;margin:0 0 16px;line-height:1.6}
+.demo-panel{border:1px solid var(--border-w);border-radius:10px;overflow:hidden;background:var(--surface2);box-shadow:0 20px 60px -30px rgba(0,0,0,.6)}
+.demo-chrome{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--border-w);background:rgba(255,255,255,0.02)}
+.demo-chrome-left{display:flex;align-items:center;gap:10px}
+.demo-mark{width:22px;height:22px;flex-shrink:0}
+.demo-appname{font-family:var(--mono);font-size:13px;color:var(--t1);letter-spacing:.01em}
+.demo-appname em{font-style:normal;color:var(--t3);margin-left:6px;font-size:11px}
+.demo-tabs{display:flex;gap:4px;flex-wrap:wrap}
+.demo-tab{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--t3);background:transparent;border:1px solid transparent;border-radius:6px;padding:6px 10px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
+.demo-tab:hover{color:var(--t1)}
+.demo-tab.is-active{color:var(--teal);background:var(--teal-dim);border-color:rgba(80,227,194,0.18)}
+.demo-tab:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.demo-body{padding:22px;min-height:200px;overflow-x:auto}
+.demo-table{min-width:420px}
+@media(max-width:680px){.demo-chrome{padding:12px 14px}.demo-body{padding:16px}}
+.demo-view{display:none;opacity:0;transform:translateY(4px);transition:opacity .25s ease,transform .25s ease}
+.demo-view.is-active{display:block;opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.demo-view{transition:none}}
+.demo-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.demo-label{font-family:var(--mono);font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.demo-select{font-family:var(--mono);font-size:11px;color:var(--t2);border:1px solid var(--border-w);border-radius:6px;padding:6px 12px;background:rgba(255,255,255,0.03)}
+.demo-btn{font-family:var(--mono);font-size:11px;color:var(--bg);background:var(--teal);border:none;border-radius:6px;padding:8px 14px;cursor:pointer;font-weight:600;transition:filter .15s}
+.demo-btn:hover{filter:brightness(1.1)}
+.demo-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.demo-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px;color:var(--t2)}
+.demo-table th{text-align:left;font-weight:500;color:var(--t3);padding:8px 10px;border-bottom:1px solid var(--border-w);text-transform:uppercase;font-size:9px;letter-spacing:.06em}
+.demo-table td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.demo-table tr.is-hl td{background:var(--teal-dim)}
+.demo-badge{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:10px;background:rgba(255,255,255,0.06);color:var(--t3)}
+.demo-badge.is-active{background:var(--teal-dim);color:var(--teal)}
+.demo-card{border:1px solid var(--border-w);border-radius:8px;padding:16px}
+.demo-pill{font-family:var(--mono);font-size:10px;color:var(--t3);padding-bottom:6px;border-bottom:2px solid transparent}
+.demo-pill.is-active{color:var(--t1);border-color:var(--teal)}
+.demo-stat{display:flex;flex-direction:column;gap:4px}
+.demo-stat-val{font-family:var(--mono);font-size:22px;color:var(--teal);font-weight:700}
+.demo-stat-lbl{font-family:var(--mono);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em}
+.demo-toggle{width:32px;height:18px;border-radius:10px;background:rgba(255,255,255,0.1);position:relative;cursor:pointer;border:none;padding:0;flex-shrink:0}
+.demo-toggle::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--t2);transition:transform .18s}
+.demo-toggle.is-on{background:var(--teal-dim)}
+.demo-toggle.is-on::after{transform:translateX(14px);background:var(--teal)}
 .decision{border-left:2px solid var(--teal);padding:18px 22px;background:var(--teal-dim);border-radius:0 var(--r) var(--r) 0;margin:8px 0}
 .decision-label{font-family:var(--mono);font-size:9px;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px}
 .decision p{font-size:14px;color:var(--t2);line-height:1.75;margin:0}
@@ -322,7 +363,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "TETRA BlendSense — AI-Powered Blend Optimizer",
+    "name": "BlendOps — AI-Powered Blend Optimizer",
     "creator": {
       "@type": "Person",
       "name": "Dario Espinosa",
@@ -371,12 +412,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <h1>Blend Optimizer</h1>
     <p class="cs-xyz">Replacing a decades-old Excel-based blend planning workflow with an <strong>AI-powered web application</strong> — turning oil-well fluid optimization from a manual spreadsheet exercise into a fast, auditable, ML-driven process.</p>
     <div class="meta-row">
-      <div class="meta-cell"><div class="meta-label">client</div><div class="meta-val">TETRA Technologies</div></div>
+      <div class="meta-cell"><div class="meta-label">client</div><div class="meta-val">Energy Services (NDA)</div></div>
       <div class="meta-cell"><div class="meta-label">context</div><div class="meta-val">Energy Services</div></div>
       <div class="meta-cell"><div class="meta-label">role</div><div class="meta-val">UX Contributor</div></div>
       <div class="meta-cell"><div class="meta-label">stage</div><div class="meta-val">Phase 2 · MVP</div></div>
     </div>
-<div class="scroll-hero-wrap" data-src="images/tetra-options.png" data-alt="TETRA BlendSense — Options panel showing chemical pricing and unit settings"></div>
+<div class="scroll-hero-wrap" data-src="images/inline/demo-blendops-options.svg" data-alt="Illustrative recreation — BlendOps Options panel showing generic component pricing and unit settings"></div>
   </div>
 </header>
 
@@ -402,14 +443,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <section class="block">
   <div class="block-inner">
     <div class="block-label">Context</div>
-    <h2 data-scramble aria-label="The Problem with BlendMaster">The Problem with BlendMaster</h2>
-    <p>TETRA Technologies (NYSE: TTI) operates globally in completion fluids — the engineered salt brine solutions used to maintain pressure in oil and gas wells. Their existing blend optimization process ran through a proprietary Excel model called <em>BlendMaster</em>, where engineers manually input well parameters, cross-reference chemical inventories, and calculate optimal formulas for each job.</p>
-    <p>The model was powerful but brittle: only a few specialists could operate it correctly, results weren't trackable across runs, and every approval workflow ran through email threads and printed sheets. A TETRA Data Science team had already built a Machine Learning proof of concept that outperformed the manual approach. The challenge was turning that PoC into a production-ready tool their field ops teams would actually adopt.</p>
+    <h2 data-scramble aria-label="The Problem with the Legacy Spreadsheet">The Problem with the Legacy Spreadsheet</h2>
+    <p>The client, a global oil-field services company, operates in completion fluids — the engineered salt brine solutions used to maintain pressure in oil and gas wells. Their existing blend optimization process ran through a proprietary spreadsheet model, where engineers manually input well parameters, cross-reference chemical inventories, and calculate optimal formulas for each job.</p>
+    <p>The model was powerful but brittle: only a few specialists could operate it correctly, results weren't trackable across runs, and every approval workflow ran through email threads and printed sheets. The client's data science team had already built a Machine Learning proof of concept that outperformed the manual approach. The challenge was turning that PoC into a production-ready tool their field ops teams would actually adopt.</p>
 
-    <div class="slide" style="margin-top:28px">
-      <img src="images/inline/tetra-01.jpg" alt="TETRA BlendSense application — main job overview" loading="lazy">
-      <div class="slide-caption">BlendSense · Job overview screen — HSL-4356 / Terrebonne 74 · In Plant Blend · LAB COMPLETE status</div>
-    </div>
+    <p class="demo-disclosure" style="margin-top:28px">The production application is client-confidential — see the interactive recreation further down this page for an illustration of the resulting interface.</p>
   </div>
 </section>
 
@@ -417,11 +455,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   <div class="block-inner">
     <div class="block-label">My Role</div>
     <h2 data-scramble aria-label="UX Contributor on a Cross-Functional Team">UX Contributor on a Cross-Functional Team</h2>
-    <p>SoftServe was brought in to build the full-stack application — React + Next.js frontend, Python APIs, Azure infrastructure. My role as UX Contributor covered the interaction design and prototyping from discovery through Phase 2 MVP handoff, working alongside Hernán Salvatierra (Project Lead) and Yuri Paklikovskyi.</p>
+    <p>SoftServe was brought in to build the full-stack application — React + Next.js frontend, Python APIs, Azure infrastructure. My role as UX Contributor covered the interaction design and prototyping from discovery through Phase 2 MVP handoff, working alongside a cross-functional project team.</p>
 
     <div class="decision">
       <div class="decision-label">design approach</div>
-      <p>Four discovery sessions with TETRA's operations and data science teams established that the primary user — the <strong>Plant Operations Manager</strong> — needed a workflow anchored to Jira tickets (the existing job tracking system) and connected to BlueLinx, TETRA's internal plant monitoring API. Every design decision had to make sense within that mental model: jobs → pilots → blend results → approval → lab validation.</p>
+      <p>Four discovery sessions with the client's operations and data science teams established that the primary user — the <strong>Plant Operations Manager</strong> — needed a workflow anchored to Jira tickets (the existing job tracking system) and connected to the client's internal plant monitoring system. Every design decision had to make sense within that mental model: jobs → pilots → blend results → approval → lab validation.</p>
     </div>
   </div>
 </section>
@@ -432,12 +470,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <div class="ai-badge">AI-accelerated design</div>
     <h2 data-scramble aria-label="Prototyping with Claude">Prototyping with Claude</h2>
     <p>This project became an active experiment in AI-assisted UX work. Rather than produce static Figma screens, I used Claude (Anthropic) as a design collaborator — describing interaction patterns, iterating on component states, and generating functional HTML prototypes directly from conversation.</p>
-    <p>The approach compressed iteration cycles significantly: a full-fidelity interactive mockup could be reviewed by engineers and stakeholders within hours of a discovery session, rather than days. By v7, the prototype had accumulated TETRA's full brand token system, all major user flows, and was close enough to production quality that it directly informed the React implementation.</p>
+    <p>The approach compressed iteration cycles significantly: a full-fidelity interactive mockup could be reviewed by engineers and stakeholders within hours of a discovery session, rather than days. By v7, the prototype had accumulated the product's full brand token system, all major user flows, and was close enough to production quality that it directly informed the React implementation.</p>
 
     <div class="ai-process-wrap">
       <div class="ai-process-scroll" tabindex="0" role="group" aria-label="AI-assisted process and tools, scrollable table">
         <table class="ai-process">
-          <caption>TETRA BlendSense — AI-assisted process and tools by stage</caption>
+          <caption>BlendOps — AI-assisted process and tools by stage</caption>
           <thead>
             <tr>
               <th scope="col">Stage</th>
@@ -458,20 +496,20 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
             <tr>
               <th scope="row">Tools</th>
               <td>Claude</td>
-              <td>Claude, TETRA brand tokens</td>
+              <td>Claude, product brand tokens</td>
               <td>Claude, Figma (annotation only)</td>
               <td>Claude, React-ready component spec</td>
             </tr>
             <tr>
               <th scope="row">Process</th>
-              <td>4 workflow-mapping sessions with TETRA Ops + Data Science</td>
+              <td>4 workflow-mapping sessions with client Ops + Data Science</td>
               <td>Interaction patterns described in chat, working screens generated the same session</td>
               <td>Ops + Data Science review a working prototype, not slides</td>
               <td>Full token system + every flow consolidated into a dev-ready spec</td>
             </tr>
             <tr>
               <th scope="row">Key question</th>
-              <td>What does BlendMaster actually get wrong today?</td>
+              <td>What does the legacy spreadsheet model actually get wrong today?</td>
               <td>What should this look and feel like, fast enough to react to?</td>
               <td>Does this match how a blend actually gets approved?</td>
               <td>Is this literally buildable, not just believable?</td>
@@ -488,7 +526,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   <div class="block-inner">
     <div class="block-label">Process · D3 Visualization</div>
     <h2 data-scramble aria-label="How AI Compressed the Design Loop">How AI Compressed the Design Loop</h2>
-    <p>The diagram maps the real flow of inputs, AI-augmented work, and deliverables across the BlendSense engagement. Link weight reflects dependency intensity — TETRA domain knowledge was the bottleneck that unlocked AI quality. Hover any node or link for context.</p>
+    <p>The diagram maps the real flow of inputs, AI-augmented work, and deliverables across the BlendOps engagement. Link weight reflects dependency intensity — client domain knowledge was the bottleneck that unlocked AI quality. Hover any node or link for context.</p>
     <div id="tetra-sankey" style="width:100%;margin-top:32px;position:relative;min-height:420px"></div>
     <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:18px">
       <span style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3)"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#6b7280"></span>Inputs</span>
@@ -500,7 +538,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 </section>
 
 <script>
-/* ── TETRA SANKEY — AI-Assisted Design Flow (D3 v7 + d3-sankey) ──────── */
+/* ── BLENDOPS SANKEY — AI-Assisted Design Flow (D3 v7 + d3-sankey) ──────── */
 (function(){
   var container = document.getElementById('tetra-sankey');
   if (!container) return;
@@ -528,11 +566,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     // ── DATA — sourced exclusively from project content ──────────────────
     // 4 discovery sessions, 7 prototype iterations, v7 handoff milestone,
     // domain knowledge as the quality bottleneck (from reflection section),
-    // Claude as AI collaborator, Figma UI kit, React spec, TETRA review loops
+    // Claude as AI collaborator, Figma UI kit, React spec, client review loops
     var nodes = [
       { id:0, name:"Discovery · 4 sessions",  grp:"input",  color:"#6b7280",
-        tip:"4 sessions with TETRA ops + data science teams — workflow mapping" },
-      { id:1, name:"TETRA Domain Knowledge",  grp:"input",  color:"#9ca3af",
+        tip:"4 sessions with the client's ops + data science teams — workflow mapping" },
+      { id:1, name:"Client Domain Knowledge", grp:"input",  color:"#9ca3af",
         tip:"Chemical vocab (PPG, TCT, solubility) was the AI quality bottleneck — from project reflection" },
       { id:2, name:"Designer Craft",          grp:"input",  color:"#d1d5db",
         tip:"Interaction patterns, component states, mental model mapping" },
@@ -541,7 +579,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       { id:4, name:"Prompt Craft",            grp:"ai",     color:"#c4b5fd",
         tip:"Quality of domain framing — chemical vocab, workflow context — determined output quality across both Cursor and Claude" },
       { id:5, name:"Feedback & Iteration",    grp:"iter",   color:"#38C6F4",
-        tip:"TETRA ops + Data Science review loops — drove all prototype revisions" },
+        tip:"Client ops + data science review loops — drove all prototype revisions" },
       { id:6, name:"v7 Prototype",            grp:"output", color:"#DAE24C",
         tip:"v7 — full-fidelity interactive, all major user flows, React-ready quality" },
       { id:7, name:"React Handoff Spec",      grp:"output", color:"#38c6f4",
@@ -552,14 +590,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 
     var links = [
       { source:0, target:3, value:4,  tip:"4 discovery sessions → shaped Cursor + Claude Cowork prompts and collaboration direction" },
-      { source:0, target:5, value:2,  tip:"Discovery criteria defined what TETRA reviewed in each feedback loop" },
+      { source:0, target:5, value:2,  tip:"Discovery criteria defined what the client reviewed in each feedback loop" },
       { source:1, target:3, value:5,  tip:"Domain vocabulary (PPG, TCT) was the quality bottleneck for both Cursor generation and Claude conversation" },
       { source:1, target:4, value:3,  tip:"Chemical precision enabled accurate component descriptions to Claude" },
       { source:2, target:3, value:2,  tip:"Interaction patterns described via Claude Cowork conversation and Cursor inline edits" },
       { source:2, target:4, value:4,  tip:"Designer craft drove prompt structure and quality" },
       { source:3, target:5, value:8,  tip:"Cursor + Claude Cowork generated functional HTML across 7 prototype iterations" },
       { source:4, target:5, value:5,  tip:"Prompt precision drove iteration speed — hours not days per cycle" },
-      { source:5, target:6, value:7,  tip:"Review loops refined prototype from v1 scaffolding to v7 production quality" },
+      { source:5, target:6, value:7,  tip:"Client review loops refined prototype from v1 scaffolding to v7 production quality" },
       { source:5, target:7, value:5,  tip:"Feedback directly shaped component-level React spec" },
       { source:5, target:8, value:4,  tip:"Iterated component states became the token-driven Figma UI Kit" },
     ];
@@ -722,25 +760,86 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 })();
 </script>
 
+<script>
+/* Generic demo-panel tabs — Session 12, reused per-page (inline, not shared) */
+(function(){
+  document.querySelectorAll('.demo-panel').forEach(function(panel){
+    var tabs=panel.querySelectorAll('.demo-tab'), views=panel.querySelectorAll('.demo-view');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        tabs.forEach(function(t){t.classList.remove('is-active');t.setAttribute('aria-selected','false');});
+        views.forEach(function(v){v.classList.remove('is-active');v.hidden=true;});
+        tab.classList.add('is-active'); tab.setAttribute('aria-selected','true');
+        var idx=tab.getAttribute('data-tab');
+        var view=panel.querySelector('[data-view="'+idx+'"]');
+        if(view){view.hidden=false; view.classList.add('is-active');}
+      });
+    });
+    panel.querySelectorAll('.demo-toggle').forEach(function(tg){
+      tg.addEventListener('click', function(){ tg.classList.toggle('is-on'); });
+    });
+    var runBtn=panel.querySelector('[data-demo-run]');
+    if(runBtn){
+      runBtn.addEventListener('click', function(){
+        panel.querySelectorAll('[data-demo-rand]').forEach(function(el){
+          var lo=parseFloat(el.getAttribute('data-lo')), hi=parseFloat(el.getAttribute('data-hi')), dec=parseInt(el.getAttribute('data-dec')||'0',10);
+          el.textContent=(Math.random()*(hi-lo)+lo).toFixed(dec);
+        });
+      });
+    }
+  });
+})();
+</script>
+
 <section class="block">
   <div class="block-inner">
-    <div class="block-label">Key Screens</div>
-    <h2 data-scramble aria-label="From Jira Ticket to Approved Blend">From Jira Ticket to Approved Blend</h2>
-    <p>The core workflow follows a Project → Pilot → Run → Approve loop. Each project can hold up to three pilot blends; only one can be approved for production. The UI surfaces the ML result alongside a comparison against the legacy BlendMaster output — giving operations managers confidence in the recommendation before committing to a run.</p>
+    <div class="block-label">Illustrative Recreation</div>
+    <h2 data-scramble aria-label="From Ticket to Approved Blend">From Ticket to Approved Blend</h2>
+    <p style="margin-bottom:18px">The core workflow follows a Project → Pilot → Run → Approve loop. Each project can hold up to three pilot blends; only one can be approved for production. The production application is client-confidential — below is an interactive recreation with generic labels and fictional data illustrating the same interaction pattern.</p>
+    <p class="demo-disclosure">Illustrative recreation — interface rebuilt from memory in plain HTML/CSS/JS; product name, org names and data are fictional.</p>
 
-    <div class="slide" style="margin-top:28px">
-      <img src="images/inline/tetra-02.jpg" alt="BlendSense project view with pilot blend tabs" loading="lazy">
-      <div class="slide-caption">Project context · Pilot Blend One / Two / Three tabs · Available Fluid Batches · JIRA HSL integration · Run Optimizer CTA</div>
-    </div>
-
-    <div class="grid-2" style="margin-top:16px">
-      <div>
-        <img src="images/inline/tetra-03.jpg" alt="Component Constraints panel" loading="lazy">
-        <div class="slide-caption" style="margin-top:6px">Component Constraints — marking each brine salt as Component or Contaminant, with live solubility saturation %</div>
+    <div class="demo-panel" data-demo="blendops">
+      <div class="demo-chrome">
+        <div class="demo-chrome-left">
+          <svg class="demo-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6v4.2l4.4 8.4a3 3 0 0 1-2.66 4.4H7.26A3 3 0 0 1 4.6 14.6L9 6.2V2z" fill="none" stroke="var(--t2)" stroke-width="1.6"/><path d="M6.6 15h10.8" stroke="var(--teal)" stroke-width="1.6"/></svg>
+          <span class="demo-appname">BlendOps <em>Fluid Blend Optimizer</em></span>
+        </div>
+        <div class="demo-tabs" role="tablist" aria-label="BlendOps demo views">
+          <button class="demo-tab is-active" data-tab="0" role="tab" aria-selected="true">Project Context</button>
+          <button class="demo-tab" data-tab="1" role="tab" aria-selected="false">Pilot Blend</button>
+          <button class="demo-tab" data-tab="2" role="tab" aria-selected="false">Submit</button>
+        </div>
       </div>
-      <div>
-        <img src="images/inline/tetra-04.jpg" alt="Submit for Approval form" loading="lazy">
-        <div class="slide-caption" style="margin-top:6px">Submit for Approval — structured review with blend composition summary before sending to Technical Manager</div>
+      <div class="demo-body">
+
+        <div class="demo-view is-active" data-view="0">
+          <div class="demo-label">Available Batches</div>
+          <table class="demo-table">
+            <thead><tr><th>Ticket</th><th>Location</th><th>Type</th><th>Cost/bbl</th><th>Avail</th></tr></thead>
+            <tbody>
+              <tr><td>BX-2201</td><td>Site A · Tank 4</td><td>CI/B</td><td>$206.95</td><td>1,000</td></tr>
+              <tr><td>BX-2214</td><td>Site A · Tank 2</td><td>CI/B</td><td>$143.85</td><td>1,000</td></tr>
+              <tr><td>BX-2255</td><td>Site B · Yard</td><td>CI</td><td>$34.29</td><td>2,400</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="demo-view" data-view="1" hidden>
+          <div class="demo-row" style="gap:28px;margin-bottom:16px;flex-wrap:wrap">
+            <div class="demo-stat"><span class="demo-stat-val" data-demo-rand data-lo="14.8" data-hi="16.2" data-dec="2">15.71</span><span class="demo-stat-lbl">Density (ppg)</span></div>
+            <div class="demo-stat"><span class="demo-stat-val" data-demo-rand data-lo="55" data-hi="63" data-dec="1">59.1</span><span class="demo-stat-lbl">Temp (°F)</span></div>
+            <div class="demo-stat"><span class="demo-stat-val" data-demo-rand data-lo="340" data-hi="430" data-dec="0">389</span><span class="demo-stat-lbl">Cost ($/bbl)</span></div>
+          </div>
+          <button class="demo-btn" data-demo-run>Run Optimizer</button>
+        </div>
+
+        <div class="demo-view" data-view="2" hidden>
+          <div class="demo-label">Submit for Approval</div>
+          <div class="demo-row" style="justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--t2);margin-bottom:6px"><span>Job</span><span>BX-4356 — Site A</span></div>
+          <div class="demo-row" style="justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--t2);margin-bottom:14px"><span>Status</span><span class="demo-badge">Draft</span></div>
+          <button class="demo-btn">Submit for Approval</button>
+        </div>
+
       </div>
     </div>
   </div>
@@ -749,15 +848,15 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <section class="block">
   <div class="block-inner">
     <div class="block-label">Component Library</div>
-    <h2 data-scramble aria-label="Building the TETRA UI Kit">Building the TETRA UI Kit</h2>
+    <h2 data-scramble aria-label="Building the BlendOps UI Kit">Building the BlendOps UI Kit</h2>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:8px">
 
       <!-- Left: text explanation -->
       <div>
-        <p>Alongside the prototype work, a dedicated <strong>Figma component library</strong> was built to give the engineering team a clear, token-driven reference for every UI surface in TETRA BlendSense.</p>
+        <p>Alongside the prototype work, a dedicated <strong>Figma component library</strong> was built to give the engineering team a clear, token-driven reference for every UI surface in BlendOps.</p>
         <p>The kit covers <strong>form controls</strong> (dropdowns, number inputs, inline validation), <strong>data table patterns</strong> (sortable columns, status chips, inline edits), <strong>modal flows</strong> (confirmation dialogs, optimizer progress, approval submission), and the <strong>three-panel shell</strong> itself.</p>
-        <p>Design tokens follow the TETRA brand palette directly — primary blue for structural authority, cyan for interactive accents, and citron reserved exclusively for commit actions. All components carry accessibility annotations, contrast ratios, and keyboard interaction specs ready for developer handoff.</p>
+        <p>Design tokens follow the product's brand palette directly — primary blue for structural authority, cyan for interactive accents, and citron reserved exclusively for commit actions. All components carry accessibility annotations, contrast ratios, and keyboard interaction specs ready for developer handoff.</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:20px">
           <span class="tag" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(80,227,194,0.18)">Figma Variables</span>
           <span class="tag">Shadcn/ui base</span>
@@ -768,7 +867,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
         </div>
       </div>
 
-      <!-- Right: animated TETRA color swatch reorder -->
+      <!-- Right: animated product color swatch reorder -->
       <div>
         <div style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px">// drag to reorder</div>
         <div id="tetra-swatches" style="display:flex;flex-direction:column;gap:8px;user-select:none">
@@ -782,7 +881,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 </section>
 
 <script>
-/* ── TETRA COLOR SWATCH REORDER ─────────────────────────────────────── */
+/* ── PRODUCT COLOR SWATCH REORDER ─────────────────────────────────────── */
 (function(){
   var swatches = [
     { hex:'#005495', name:'Primary Blue',  role:'Navigation · Authority · Structure',   token:'--color-primary' },
@@ -921,12 +1020,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 
     <div class="decision">
       <div class="decision-label">component library</div>
-      <p>Used <strong>Shadcn/ui + Tailwind</strong> as the component base, building on top of Radix primitives. The data-dense nature of the interface — dense tables, inline chemical formulas, multi-state status chips — needed a system that could scale without visual debt. Shadcn's unstyled base let us apply TETRA tokens cleanly.</p>
+      <p>Used <strong>Shadcn/ui + Tailwind</strong> as the component base, building on top of Radix primitives. The data-dense nature of the interface — dense tables, inline chemical formulas, multi-state status chips — needed a system that could scale without visual debt. Shadcn's unstyled base let us apply the product's tokens cleanly.</p>
     </div>
 
     <div class="decision" style="margin-top:12px">
       <div class="decision-label">brand tokens</div>
-      <p>TETRA's brand palette maps naturally to information hierarchy: <strong>#005495 primary blue</strong> for authority and nav, <strong>#38C6F4 cyan</strong> for accent and topbar stripe, and <strong>#DAE24C citron</strong> reserved exclusively for primary CTAs — Run Optimizer, Save to Jira, Submit for Approval. The citron stands out against both dark and light backgrounds and signals "this commits to action."</p>
+      <p>The product's brand palette maps naturally to information hierarchy: <strong>#005495 primary blue</strong> for authority and nav, <strong>#38C6F4 cyan</strong> for accent and topbar stripe, and <strong>#DAE24C citron</strong> reserved exclusively for primary CTAs — Run Optimizer, Save to Jira, Submit for Approval. The citron stands out against both dark and light backgrounds and signals "this commits to action."</p>
     </div>
 
     <div class="decision decision-v" style="margin-top:12px">
@@ -945,10 +1044,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   <div class="block-inner">
     <div class="block-label">Stack &amp; Integration</div>
     <h2 data-scramble aria-label="Technical Context">Technical Context</h2>
-    <p>BlendSense is a standalone Azure-hosted web application. The frontend is React + Next.js; Python APIs handle ML orchestration, Jira sync, and BlueLinx data retrieval. From a UX perspective, the architecture meant designing around API latency: the optimizer takes 1–2 minutes to return results, requiring explicit loading state design and a clear "run in progress" pattern that doesn't lock the interface.</p>
+    <p>BlendOps is a standalone Azure-hosted web application. The frontend is React + Next.js; Python APIs handle ML orchestration, Jira sync, and plant-monitoring data retrieval. From a UX perspective, the architecture meant designing around API latency: the optimizer takes 1–2 minutes to return results, requiring explicit loading state design and a clear "run in progress" pattern that doesn't lock the interface.</p>
 
     <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px">
-      <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Shadcn/ui</span><span class="tag">Tailwind</span><span class="tag">Python APIs</span><span class="tag">Azure</span><span class="tag">Jira API</span><span class="tag">BlueLinx API</span><span class="tag">ML Model</span><span class="tag">Montserrat</span><span class="tag">IBM Plex Mono</span>
+      <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Shadcn/ui</span><span class="tag">Tailwind</span><span class="tag">Python APIs</span><span class="tag">Azure</span><span class="tag">Jira API</span><span class="tag">Plant Monitoring API</span><span class="tag">ML Model</span><span class="tag">Montserrat</span><span class="tag">IBM Plex Mono</span>
     </div>
 
     <div class="reflection" style="margin-top:36px">
@@ -1102,7 +1201,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 (function () {
   var MORPH_TIME = 1.5;
   var COOLDOWN   = 0.5;
-  var texts = ["Blend Optimizer", "The Problem with BlendMaster", "Prototyping with Claude", "How AI Compressed the Design Loop"];
+  var texts = ["Blend Optimizer", "The Problem with the Legacy Spreadsheet", "Prototyping with Claude", "How AI Compressed the Design Loop"];
 
   var h1 = document.querySelector('h1');
   if (!h1) return;

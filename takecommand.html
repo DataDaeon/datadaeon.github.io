@@ -72,6 +72,47 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .slide img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
 .slide-caption{font-family:var(--mono);font-size:10px;color:var(--t3);margin-top:8px;letter-spacing:0.03em}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+/* Illustrative demo panel — generic, reused per NDA-flagged project (Session 12) */
+.demo-disclosure{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.02em;margin:0 0 16px;line-height:1.6}
+.demo-panel{border:1px solid var(--border-w);border-radius:10px;overflow:hidden;background:var(--surface2);box-shadow:0 20px 60px -30px rgba(0,0,0,.6)}
+.demo-chrome{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--border-w);background:rgba(255,255,255,0.02)}
+.demo-chrome-left{display:flex;align-items:center;gap:10px}
+.demo-mark{width:22px;height:22px;flex-shrink:0}
+.demo-appname{font-family:var(--mono);font-size:13px;color:var(--t1);letter-spacing:.01em}
+.demo-appname em{font-style:normal;color:var(--t3);margin-left:6px;font-size:11px}
+.demo-tabs{display:flex;gap:4px;flex-wrap:wrap}
+.demo-tab{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--t3);background:transparent;border:1px solid transparent;border-radius:6px;padding:6px 10px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
+.demo-tab:hover{color:var(--t1)}
+.demo-tab.is-active{color:var(--teal);background:var(--teal-dim);border-color:rgba(80,227,194,0.18)}
+.demo-tab:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.demo-body{padding:22px;min-height:200px;overflow-x:auto}
+.demo-table{min-width:420px}
+@media(max-width:680px){.demo-chrome{padding:12px 14px}.demo-body{padding:16px}}
+.demo-view{display:none;opacity:0;transform:translateY(4px);transition:opacity .25s ease,transform .25s ease}
+.demo-view.is-active{display:block;opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.demo-view{transition:none}}
+.demo-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.demo-label{font-family:var(--mono);font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.demo-select{font-family:var(--mono);font-size:11px;color:var(--t2);border:1px solid var(--border-w);border-radius:6px;padding:6px 12px;background:rgba(255,255,255,0.03)}
+.demo-btn{font-family:var(--mono);font-size:11px;color:var(--bg);background:var(--teal);border:none;border-radius:6px;padding:8px 14px;cursor:pointer;font-weight:600;transition:filter .15s}
+.demo-btn:hover{filter:brightness(1.1)}
+.demo-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.demo-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px;color:var(--t2)}
+.demo-table th{text-align:left;font-weight:500;color:var(--t3);padding:8px 10px;border-bottom:1px solid var(--border-w);text-transform:uppercase;font-size:9px;letter-spacing:.06em}
+.demo-table td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.demo-table tr.is-hl td{background:var(--teal-dim)}
+.demo-badge{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:10px;background:rgba(255,255,255,0.06);color:var(--t3)}
+.demo-badge.is-active{background:var(--teal-dim);color:var(--teal)}
+.demo-card{border:1px solid var(--border-w);border-radius:8px;padding:16px}
+.demo-pill{font-family:var(--mono);font-size:10px;color:var(--t3);padding-bottom:6px;border-bottom:2px solid transparent}
+.demo-pill.is-active{color:var(--t1);border-color:var(--teal)}
+.demo-stat{display:flex;flex-direction:column;gap:4px}
+.demo-stat-val{font-family:var(--mono);font-size:22px;color:var(--teal);font-weight:700}
+.demo-stat-lbl{font-family:var(--mono);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em}
+.demo-toggle{width:32px;height:18px;border-radius:10px;background:rgba(255,255,255,0.1);position:relative;cursor:pointer;border:none;padding:0;flex-shrink:0}
+.demo-toggle::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--t2);transition:transform .18s}
+.demo-toggle.is-on{background:var(--teal-dim)}
+.demo-toggle.is-on::after{transform:translateX(14px);background:var(--teal)}
 .grid-2 img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
 /* DECISION */
 .decision{border-left:2px solid var(--teal);padding:18px 22px;background:var(--teal-dim);border-radius:0 var(--r) var(--r) 0;margin:8px 0}
@@ -394,11 +435,81 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   </div>
 </section>
 
+<script>
+/* Generic demo-panel tabs — Session 12, reused per-page (inline, not shared) */
+(function(){
+  document.querySelectorAll('.demo-panel').forEach(function(panel){
+    var tabs=panel.querySelectorAll('.demo-tab'), views=panel.querySelectorAll('.demo-view');
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        tabs.forEach(function(t){t.classList.remove('is-active');t.setAttribute('aria-selected','false');});
+        views.forEach(function(v){v.classList.remove('is-active');v.hidden=true;});
+        tab.classList.add('is-active'); tab.setAttribute('aria-selected','true');
+        var idx=tab.getAttribute('data-tab');
+        var view=panel.querySelector('[data-view="'+idx+'"]');
+        if(view){view.hidden=false; view.classList.add('is-active');}
+      });
+    });
+    panel.querySelectorAll('.demo-toggle').forEach(function(tg){
+      tg.addEventListener('click', function(){ tg.classList.toggle('is-on'); });
+    });
+    var runBtn=panel.querySelector('[data-demo-run]');
+    if(runBtn){
+      runBtn.addEventListener('click', function(){
+        panel.querySelectorAll('[data-demo-rand]').forEach(function(el){
+          var lo=parseFloat(el.getAttribute('data-lo')), hi=parseFloat(el.getAttribute('data-hi')), dec=parseInt(el.getAttribute('data-dec')||'0',10);
+          el.textContent=(Math.random()*(hi-lo)+lo).toFixed(dec);
+        });
+      });
+    }
+  });
+})();
+</script>
+
 <section class="block">
   <div class="block-inner">
-    <div class="block-label">Visual Context</div>
-    <div class="slide"><img src="images/inline/takecommand-01.jpg" alt="Project screenshot 1" loading="lazy"><p class="slide-caption">// visual-01</p></div>
+    <div class="block-label">Illustrative Recreation</div>
+    <h2 data-scramble aria-label="How the Component Library Felt to Use">How the Component Library Felt to Use</h2>
+    <p style="margin-bottom:18px;max-width:640px">The production member and admin portals are client-confidential. Below is an interactive recreation built for this portfolio — same interaction pattern, generic product name and fictional data.</p>
+    <p class="demo-disclosure">Illustrative recreation — interface rebuilt from memory in plain HTML/CSS/JS; product name, brand names and data are fictional.</p>
 
+    <div class="demo-panel" data-demo="benefitbridge">
+      <div class="demo-chrome">
+        <div class="demo-chrome-left">
+          <svg class="demo-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z" fill="none" stroke="var(--t2)" stroke-width="1.6"/><path d="M9 12h6M12 9v6" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span class="demo-appname">BenefitBridge <em>Employee Health Hub</em></span>
+        </div>
+        <div class="demo-tabs" role="tablist" aria-label="BenefitBridge demo views">
+          <button class="demo-tab is-active" data-tab="0" role="tab" aria-selected="true">Member Home</button>
+          <button class="demo-tab" data-tab="1" role="tab" aria-selected="false">Admin Plans</button>
+        </div>
+      </div>
+      <div class="demo-body">
+
+        <div class="demo-view is-active" data-view="0">
+          <div class="demo-row" style="gap:28px;margin-bottom:16px;flex-wrap:wrap">
+            <div class="demo-stat"><span class="demo-stat-val">$1,240</span><span class="demo-stat-lbl">Plan balance</span></div>
+            <div class="demo-stat"><span class="demo-stat-val">2</span><span class="demo-stat-lbl">Open claims</span></div>
+          </div>
+          <div class="demo-card" style="background:linear-gradient(135deg,rgba(80,227,194,0.12),rgba(167,139,250,0.1))">
+            <div style="font-family:var(--mono);font-size:12px;color:var(--t1)">Open enrollment closes in 12 days</div>
+          </div>
+        </div>
+
+        <div class="demo-view" data-view="1" hidden>
+          <div class="demo-label">Benefit Plans</div>
+          <table class="demo-table">
+            <thead><tr><th>Plan</th><th>Members</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Plan A — Medical</td><td>412</td><td><button class="demo-toggle is-on" aria-label="Toggle Plan A"></button></td></tr>
+              <tr><td>Plan B — Dental</td><td>288</td><td><button class="demo-toggle is-on" aria-label="Toggle Plan B"></button></td></tr>
+              <tr><td>Plan C — Vision</td><td>150</td><td><button class="demo-toggle" aria-label="Toggle Plan C"></button></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
   </div>
 </section>
 

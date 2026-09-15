@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t d">
+  <title id="t">Illustrative recreation — BlendOps Options panel</title>
+  <desc id="d">Generic recreation of a fluid-blend optimizer settings screen — fictional product, no client branding.</desc>
+  <rect width="800" height="500" fill="#111118"/>
+  <rect x="0" y="0" width="800" height="54" fill="#0d0d14"/>
+  <rect x="24" y="16" width="108" height="24" rx="6" fill="#1a1a22"/>
+  <text x="78" y="32" text-anchor="middle" font-family="Geist Mono, monospace" font-size="12" fill="rgba(255,255,255,0.55)">Calculations</text>
+  <rect x="140" y="16" width="80" height="24" rx="6" fill="rgba(80,227,194,0.14)"/>
+  <text x="180" y="32" text-anchor="middle" font-family="Geist Mono, monospace" font-size="12" fill="#50e3c2">Options</text>
+  <text x="776" y="32" text-anchor="end" font-family="Geist Mono, monospace" font-size="11" fill="rgba(255,255,255,0.35)">Logout</text>
+
+  <rect x="24" y="76" width="752" height="90" rx="10" fill="#15151d" stroke="rgba(255,255,255,0.07)"/>
+  <text x="48" y="108" font-family="Geist Mono, monospace" font-size="12" fill="rgba(255,255,255,0.65)">Temperature</text>
+  <rect x="180" y="92" width="40" height="26" rx="6" fill="#50e3c2"/>
+  <text x="200" y="109" text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" fill="#050508">°F</text>
+  <rect x="224" y="92" width="40" height="26" rx="6" fill="rgba(255,255,255,0.06)"/>
+  <text x="244" y="109" text-anchor="middle" font-family="Geist Mono, monospace" font-size="11" fill="rgba(255,255,255,0.5)">°C</text>
+
+  <text x="48" y="146" font-family="Geist Mono, monospace" font-size="12" fill="rgba(255,255,255,0.65)">Density</text>
+  <rect x="180" y="130" width="46" height="26" rx="6" fill="#50e3c2"/>
+  <text x="203" y="147" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#050508">ppg</text>
+  <rect x="230" y="130" width="58" height="26" rx="6" fill="rgba(255,255,255,0.06)"/>
+  <text x="259" y="147" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="rgba(255,255,255,0.5)">kg/m³</text>
+  <rect x="292" y="130" width="58" height="26" rx="6" fill="rgba(255,255,255,0.06)"/>
+  <text x="321" y="147" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="rgba(255,255,255,0.5)">g/cm³</text>
+
+  <rect x="24" y="186" width="752" height="230" rx="10" fill="#15151d" stroke="rgba(255,255,255,0.07)"/>
+  <text x="400" y="216" text-anchor="middle" font-family="Geist Mono, monospace" font-size="13" fill="rgba(255,255,255,0.85)">Price per unit ($/lb)</text>
+
+  <g font-family="Geist Mono, monospace" font-size="12">
+    <text x="300" y="252" text-anchor="end" fill="rgba(255,255,255,0.55)">Component A</text>
+    <rect x="316" y="236" width="90" height="24" rx="5" fill="#0d0d14" stroke="rgba(255,255,255,0.1)"/>
+    <text x="326" y="252" fill="rgba(255,255,255,0.8)">0.182</text>
+
+    <text x="300" y="286" text-anchor="end" fill="rgba(255,255,255,0.55)">Component B</text>
+    <rect x="316" y="270" width="90" height="24" rx="5" fill="#0d0d14" stroke="rgba(255,255,255,0.1)"/>
+    <text x="326" y="286" fill="rgba(255,255,255,0.8)">1.140</text>
+
+    <text x="300" y="320" text-anchor="end" fill="rgba(255,255,255,0.55)">Component C</text>
+    <rect x="316" y="304" width="90" height="24" rx="5" fill="#0d0d14" stroke="rgba(255,255,255,0.1)"/>
+    <text x="326" y="320" fill="rgba(255,255,255,0.8)">1.530</text>
+
+    <text x="300" y="354" text-anchor="end" fill="rgba(255,255,255,0.55)">Component D</text>
+    <rect x="316" y="338" width="90" height="24" rx="5" fill="#0d0d14" stroke="rgba(255,255,255,0.1)"/>
+    <text x="326" y="354" fill="rgba(255,255,255,0.8)">0.160</text>
+  </g>
+
+  <rect x="330" y="378" width="140" height="30" rx="6" fill="rgba(255,255,255,0.08)"/>
+  <text x="400" y="398" text-anchor="middle" font-family="Geist Mono, monospace" font-size="12" fill="rgba(255,255,255,0.6)">Save</text>
+
+  <text x="400" y="480" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="rgba(255,255,255,0.3)">Illustrative recreation — fictional product, generalized data</text>
+</svg>
