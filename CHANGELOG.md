@@ -341,3 +341,22 @@ All inline in `index.html`; everything gated on `prefers-reduced-motion`.
 - Still open: 4 images hotlink `realidadvirtu4l.com` (Logo, hero-index, hero-juegos, hero-cotizador) + the index.html VIRTU4L card thumb — could not be downloaded in this environment; user should save local copies to `images/` and update srcs. Image modal also still absent on this page.
 
 **Verification**: jsdom sweep across all 18 pages — 0 runtime errors; all extracted image paths verified on disk; 0 residual base64.
+
+---
+
+### Session 11 (September 2026) — AI Process & Tools tables + career timeline enrichment
+Adopted `origin/main` as base (previously-unrelated git history from a manual push) — local now continuous with remote. Restored `.gitignore` (remote had none) and cleaned macOS junk.
+
+**New: "Process and Tools" table — semantic `<table>`, not divs**
+Added to the three projects that document a real AI-assisted *workflow* (not just an AI-flavored product): `tetra.html`, `virtu4lslacksagent.html` (VOS), `benefits-platform.html`. Deliberately skipped `daily-bot.html` and `procore.html` — their "AI" mentions describe the product/a passing SEO blurb, not a documented design process, so a process table there would overstate what's in the copy.
+
+- Real `<table>` markup (caption, `<th scope="col">` stage headers, `<th scope="row">` attribute headers) instead of a div grid — chosen over the originally-discussed stacked-card approach because this is genuinely 2D tabular data (stage × attribute); a table + horizontal-scroll wrapper preserves screen-reader row/column semantics at every viewport, where reflowing to divs would have discarded them.
+- Rows: AI role / Tools / Process / Key question. Content is stage-specific per project, not a generic copy of any reference template — e.g. TETRA's 4 stages replace its old simple `.flow-row` (removed, along with its now-dead CSS); VOS and Benefits get 5 new stages each, grounded only in facts already stated elsewhere on their own pages.
+- Mobile: `.ai-process-scroll` (horizontal scroll, `tabindex="0"`, `role="group"`) with `position:sticky;left:0` on row headers so the attribute label stays visible while swiping. Swipe hint shown under 900px. No breakpoint hides content — same info at every width.
+- Shared `.ai-badge` pill (already existed in tetra.html) now also defined in virtu4lslacksagent.html and benefits-platform.html for the section label.
+
+**Career timeline (index.html)** — added a one-line "learned to…" takeaway + a `Tools —` line to all 9 `.career-entry` items, inspired by a pattern seen on javiera-pellizzari.com. Content grounded in facts already established elsewhere on the site (AT&T accessibility award, AEM, design systems work); the two pre-2015 entries use deliberately generic tool descriptions since no specific tool is evidenced anywhere else on the site for that period — flagged for Dario to sanity-check before it goes live.
+
+**Explicitly not done this session** (discussed, declined): bilingual EN/ES toggle, a second "process type" filter chip row on index.html, and touching the site's motion/visual language to resemble javiera-pellizzari.com's quieter style — all considered and intentionally skipped per conversation.
+
+**Verification**: jsdom sweep on all 4 changed files — 0 runtime errors; table structure confirmed (correct column/row counts, row headers, captions present); all 9 career entries confirmed to carry the new fields.

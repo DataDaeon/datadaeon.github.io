@@ -191,6 +191,25 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 .sticky-back:hover { color: var(--teal); border-color: rgba(80,227,194,.3); }
 @keyframes sb-in { to { opacity: 1; } }
 /* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── AI BADGE + PROCESS & TOOLS TABLE (Session 11) ───────────────────────── */
+.ai-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--violet);background:var(--violet-dim);border:1px solid var(--border-v);padding:3px 10px;border-radius:3px;letter-spacing:0.04em;margin-bottom:18px}
+.ai-badge::before{content:'◆';font-size:8px}
+.ai-process-wrap{max-width:1100px;margin:0 auto}
+.ai-process-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border-w);border-radius:var(--r)}
+.ai-process{border-collapse:collapse;width:100%;min-width:820px}
+.ai-process caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ai-process th,.ai-process td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border-w);border-right:1px solid var(--border-w)}
+.ai-process th:last-child,.ai-process td:last-child{border-right:none}
+.ai-process tr:last-child th,.ai-process tr:last-child td{border-bottom:none}
+.ai-process thead th{background:var(--teal-dim);font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:.06em;text-transform:uppercase}
+.ai-process thead th:first-child{background:var(--surface2);color:var(--t3)}
+.ai-process tbody th{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;background:var(--surface2);position:sticky;left:0}
+.ai-process tbody td{font-size:12px;color:var(--t2);line-height:1.55;background:var(--surface);min-width:160px}
+.ai-process tbody td strong{color:var(--t1);font-weight:600}
+.ai-process-hint{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;text-align:center;margin-top:10px;display:none}
+@media(max-width:899px){.ai-process-hint{display:block}}
+/* ────────────────────────────────────────────────────────────────────────── */
 </style>
   <meta name="description" content="Slack-native AI operations system for a VR venue. Daily checklists, reservations, sales tracking, and Dasha — a locally-hosted AI agent. 293 tests, 4 channels, 0 public URLs.">
   <meta name="author" content="Dario Espinosa">
@@ -471,6 +490,68 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
         <div class="card-title"># marketing-virtu4l</div>
         <p>MKT-COACH advisory powered by Ollama. Content planning tied to real venue data — trending games, session signals, and seasonal context for Tuxtla Gutiérrez.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">AI-Assisted Workflow</div>
+    <div class="ai-badge">Solo build · Claude Code + Cursor</div>
+    <h2 data-scramble aria-label="Building VOS with Claude Code and Cursor">Building VOS with Claude Code and Cursor</h2>
+    <p>VOS was built solo, end to end, with AI as an active build partner rather than a code-completion tool. The interesting design work wasn't the Slack integration — it was deciding what Dasha is allowed to state as fact versus offer as a suggestion, and gating every write behind DashaGuard before it touches a real calendar, sale, or financial record.</p>
+
+    <div class="ai-process-wrap">
+      <div class="ai-process-scroll" tabindex="0" role="group" aria-label="AI-assisted process and tools, scrollable table">
+        <table class="ai-process">
+          <caption>VOS — AI-assisted process and tools by stage</caption>
+          <thead>
+            <tr>
+              <th scope="col">Stage</th>
+              <th scope="col">01 · Frame</th>
+              <th scope="col">02 · Architect</th>
+              <th scope="col">03 · Build</th>
+              <th scope="col">04 · Guardrail</th>
+              <th scope="col">05 · Ship</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">AI role</th>
+              <td>None yet — human problem framing</td>
+              <td>Sounding board for architecture tradeoffs</td>
+              <td>Pair-programs the actual implementation</td>
+              <td>Subject of the design problem, not just the tool</td>
+              <td>Runs the live system</td>
+            </tr>
+            <tr>
+              <th scope="row">Tools</th>
+              <td>—</td>
+              <td>Claude</td>
+              <td>Claude Code, Cursor</td>
+              <td>Ollama (gemma3:4b), deterministic logic for high-risk commands</td>
+              <td>pm2, Mac mini, outbound WebSocket</td>
+            </tr>
+            <tr>
+              <th scope="row">Process</th>
+              <td>Mapped how ops actually ran on WhatsApp and memory, channel by channel</td>
+              <td>Chose Slack Bolt Socket Mode over a web panel; defined DashaGuard's checkpoints</td>
+              <td>Four Slack channels, DashaGuard, and Ollama advisory agents built end to end by one developer</td>
+              <td>Drew the line between what Dasha can suggest versus what needs a verified fact or human sign-off</td>
+              <td>Live in production for the actual VR center team, on a real Mac mini</td>
+            </tr>
+            <tr>
+              <th scope="row">Key question</th>
+              <td>Where does this actually break today?</td>
+              <td>Why Slack, and what has to be gated before it ships?</td>
+              <td>Can one person actually ship this alone?</td>
+              <td>How does Dasha know the difference between a guess and a fact?</td>
+              <td>Does the team actually use it on a real shift?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ai-process-hint">← swipe to see every stage →</div>
     </div>
   </div>
 </section>

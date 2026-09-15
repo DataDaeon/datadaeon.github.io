@@ -74,12 +74,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .decision-v .decision-label{color:var(--violet)}
 .ai-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--violet);background:var(--violet-dim);border:1px solid var(--border-v);padding:3px 10px;border-radius:3px;letter-spacing:0.04em;margin-bottom:18px}
 .ai-badge::before{content:'◆';font-size:8px}
-.flow-row{display:flex;align-items:flex-start;gap:0;margin:20px 0;overflow:hidden;border-radius:var(--r);border:1px solid var(--border-w)}
-.flow-step{flex:1;padding:14px 12px;background:var(--surface);border-right:1px solid var(--border-w);position:relative}
-.flow-step:last-child{border-right:none}
-.flow-n{font-family:var(--mono);font-size:9px;color:var(--teal);letter-spacing:0.08em;margin-bottom:4px}
-.flow-title{font-size:12px;font-weight:600;color:var(--t1);margin-bottom:3px}
-.flow-sub{font-size:11px;color:var(--t3)}
 .tag{font-family:var(--mono);font-size:10px;color:var(--t3);background:var(--t4);border:1px solid var(--border-w);padding:2px 7px;border-radius:3px;letter-spacing:0.02em;display:inline-block;margin-right:6px;margin-bottom:4px}
 .reflection{border-top:1px solid var(--border);padding-top:28px;margin-top:4px}
 .reflection-label{font-family:var(--mono);font-size:10px;color:var(--violet);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
@@ -101,9 +95,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
   .block-inner{padding:36px 20px}
   .meta-row{grid-template-columns:1fr 1fr}
   .grid-2{grid-template-columns:1fr}
-  .flow-row{flex-direction:column}
-  .flow-step{border-right:none;border-bottom:1px solid var(--border-w)}
-  .flow-step:last-child{border-bottom:none}
   .cs-footer{padding:24px 20px}
   .cs-footer-inner{flex-direction:column;gap:16px;text-align:center}
 }
@@ -287,6 +278,23 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 .sticky-back:hover { color: var(--teal); border-color: rgba(80,227,194,.3); }
 @keyframes sb-in { to { opacity: 1; } }
 /* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── AI PROCESS & TOOLS TABLE (Session 11) ───────────────────────────────── */
+.ai-process-wrap{max-width:1100px;margin:0 auto}
+.ai-process-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border-w);border-radius:var(--r)}
+.ai-process{border-collapse:collapse;width:100%;min-width:720px}
+.ai-process caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ai-process th,.ai-process td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border-w);border-right:1px solid var(--border-w)}
+.ai-process th:last-child,.ai-process td:last-child{border-right:none}
+.ai-process tr:last-child th,.ai-process tr:last-child td{border-bottom:none}
+.ai-process thead th{background:var(--teal-dim);font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:.06em;text-transform:uppercase}
+.ai-process thead th:first-child{background:var(--surface2);color:var(--t3)}
+.ai-process tbody th{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;background:var(--surface2);position:sticky;left:0}
+.ai-process tbody td{font-size:12px;color:var(--t2);line-height:1.55;background:var(--surface);min-width:170px}
+.ai-process tbody td strong{color:var(--t1);font-weight:600}
+.ai-process-hint{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;text-align:center;margin-top:10px;display:none}
+@media(max-width:899px){.ai-process-hint{display:block}}
+/* ────────────────────────────────────────────────────────────────────────── */
 </style>
   <meta name="description" content="Replacing a decades-old Excel model with an ML-driven web app for oil-well fluid optimization. AI-assisted design process using Claude. 7 prototype iterations to React-ready fidelity.">
   <meta name="author" content="Dario Espinosa">
@@ -426,27 +434,52 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <p>This project became an active experiment in AI-assisted UX work. Rather than produce static Figma screens, I used Claude (Anthropic) as a design collaborator — describing interaction patterns, iterating on component states, and generating functional HTML prototypes directly from conversation.</p>
     <p>The approach compressed iteration cycles significantly: a full-fidelity interactive mockup could be reviewed by engineers and stakeholders within hours of a discovery session, rather than days. By v7, the prototype had accumulated TETRA's full brand token system, all major user flows, and was close enough to production quality that it directly informed the React implementation.</p>
 
-    <div class="flow-row">
-      <div class="flow-step">
-        <div class="flow-n">01</div>
-        <div class="flow-title">Discovery</div>
-        <div class="flow-sub">4 sessions · workflow mapping</div>
+    <div class="ai-process-wrap">
+      <div class="ai-process-scroll" tabindex="0" role="group" aria-label="AI-assisted process and tools, scrollable table">
+        <table class="ai-process">
+          <caption>TETRA BlendSense — AI-assisted process and tools by stage</caption>
+          <thead>
+            <tr>
+              <th scope="col">Stage</th>
+              <th scope="col">01 · Discovery</th>
+              <th scope="col">02 · Prototype v1–v3</th>
+              <th scope="col">03 · Feedback loops</th>
+              <th scope="col">04 · v7 Handoff</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">AI role</th>
+              <td>Session-note synthesis</td>
+              <td>Design collaborator — generates working HTML from conversation</td>
+              <td>Iterates screens live against reviewer notes</td>
+              <td>Produces near-production, React-ready markup</td>
+            </tr>
+            <tr>
+              <th scope="row">Tools</th>
+              <td>Claude</td>
+              <td>Claude, TETRA brand tokens</td>
+              <td>Claude, Figma (annotation only)</td>
+              <td>Claude, React-ready component spec</td>
+            </tr>
+            <tr>
+              <th scope="row">Process</th>
+              <td>4 workflow-mapping sessions with TETRA Ops + Data Science</td>
+              <td>Interaction patterns described in chat, working screens generated the same session</td>
+              <td>Ops + Data Science review a working prototype, not slides</td>
+              <td>Full token system + every flow consolidated into a dev-ready spec</td>
+            </tr>
+            <tr>
+              <th scope="row">Key question</th>
+              <td>What does BlendMaster actually get wrong today?</td>
+              <td>What should this look and feel like, fast enough to react to?</td>
+              <td>Does this match how a blend actually gets approved?</td>
+              <td>Is this literally buildable, not just believable?</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="flow-step">
-        <div class="flow-n">02</div>
-        <div class="flow-title">Prototype v1–v3</div>
-        <div class="flow-sub">AI-generated scaffolding + token system</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-n">03</div>
-        <div class="flow-title">Feedback loops</div>
-        <div class="flow-sub">TETRA ops + Data Science review</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-n">04</div>
-        <div class="flow-title">v7 Handoff</div>
-        <div class="flow-sub">React-ready spec + design system</div>
-      </div>
+      <div class="ai-process-hint">← swipe to see every stage →</div>
     </div>
   </div>
 </section>

@@ -126,6 +126,25 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
 .sticky-back{position:fixed;bottom:24px;left:24px;z-index:90;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--t2);text-decoration:none;padding:8px 16px;background:rgba(5,5,8,0.88);border:1px solid var(--border-w);border-radius:99px;backdrop-filter:blur(16px);transition:all .2s;opacity:0;animation:sb-in .4s ease 1.2s forwards}
 .sticky-back:hover{color:var(--teal);border-color:rgba(80,227,194,.3)}
 @keyframes sb-in{to{opacity:1}}
+
+/* ── AI BADGE + PROCESS & TOOLS TABLE (Session 11) ───────────────────────── */
+.ai-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--violet);background:var(--violet-dim);border:1px solid var(--border-v);padding:3px 10px;border-radius:3px;letter-spacing:0.04em;margin-bottom:18px}
+.ai-badge::before{content:'◆';font-size:8px}
+.ai-process-wrap{max-width:1100px;margin:0 auto}
+.ai-process-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border-w);border-radius:var(--r)}
+.ai-process{border-collapse:collapse;width:100%;min-width:860px}
+.ai-process caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ai-process th,.ai-process td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border-w);border-right:1px solid var(--border-w)}
+.ai-process th:last-child,.ai-process td:last-child{border-right:none}
+.ai-process tr:last-child th,.ai-process tr:last-child td{border-bottom:none}
+.ai-process thead th{background:var(--teal-dim);font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:.06em;text-transform:uppercase}
+.ai-process thead th:first-child{background:var(--surface2);color:var(--t3)}
+.ai-process tbody th{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;background:var(--surface2);position:sticky;left:0}
+.ai-process tbody td{font-size:12px;color:var(--t2);line-height:1.55;background:var(--surface);min-width:160px}
+.ai-process tbody td strong{color:var(--t1);font-weight:600}
+.ai-process-hint{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;text-align:center;margin-top:10px;display:none}
+@media(max-width:899px){.ai-process-hint{display:block}}
+/* ────────────────────────────────────────────────────────────────────────── */
 </style>
 <meta name="description" content="Leading UX for a from-scratch rebuild of a legacy employee-benefits platform — the code-first, HTML-to-Figma workflow, the multinational team, and the design tokens and KPI framework behind it. WCAG 2.2 AA.">
 <meta name="author" content="Dario Espinosa">
@@ -241,6 +260,68 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
     <p>Instead of the usual Figma-first process, the team designed in code first. Real, working screens got built in the browser using the same design tokens as the live product, tested with real interaction — and only then captured into Figma automatically, screen by screen.</p>
     <p>That order matters: Figma never drifted into an idealized version of the product that didn't match what actually shipped. It stayed a living library of exactly what was built, not a mockup that quietly falls out of date. Designers still worked natively in Figma to compose new screens, but always by reusing real components bound to the same variables running in the product, never by redrawing shapes from scratch.</p>
     <p>That flow ran in both directions, deliberately gated. Real screens got captured into Figma automatically so the library always mirrored what actually shipped. Separately, once a component in the Figma library was reviewed and explicitly marked ready, an automated pipeline could generate real front-end code straight from it, wired to the same color, spacing and type variables used in the live product. Nothing got built from a screen that hadn't been signed off as ready — that single checkpoint was what let automation move fast without ever building on work still in flux.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">AI-Assisted Workflow</div>
+    <div class="ai-badge">Mixed human + AI team</div>
+    <h2 data-scramble aria-label="Process and Tools, Stage by Stage">Process and Tools, Stage by Stage</h2>
+    <p>Two coding agents owned the front-end code, a dedicated AI research assistant owned writing and terminology, and every one of them worked inside the same gate: nothing shipped that hadn't been explicitly signed off by a human first.</p>
+
+    <div class="ai-process-wrap">
+      <div class="ai-process-scroll" tabindex="0" role="group" aria-label="AI-assisted process and tools, scrollable table">
+        <table class="ai-process">
+          <caption>Benefits Platform — AI-assisted process and tools by stage</caption>
+          <thead>
+            <tr>
+              <th scope="col">Stage</th>
+              <th scope="col">01 · Frame</th>
+              <th scope="col">02 · Explore</th>
+              <th scope="col">03 · Build (code-first)</th>
+              <th scope="col">04 · Validate</th>
+              <th scope="col">05 · Ship</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">AI role</th>
+              <td>Drafts problem-framing options for stakeholder debate</td>
+              <td>Generates side-by-side option comparisons</td>
+              <td>Two coding agents own the actual front-end code</td>
+              <td>Research assistant checks terminology, tone, and copy against the US healthcare glossary</td>
+              <td>Generates production code from signed-off Figma components</td>
+            </tr>
+            <tr>
+              <th scope="row">Tools</th>
+              <td>AI research assistant</td>
+              <td>Claude, coding agents</td>
+              <td>Coding agents, shared design tokens</td>
+              <td>AI research assistant, Figma (auto-captured)</td>
+              <td>Automated Figma-to-code pipeline, shared token system</td>
+            </tr>
+            <tr>
+              <th scope="row">Process</th>
+              <td>Surfaced the how-might-we against a legacy platform, and a stakeholder betting AI could skip design entirely</td>
+              <td>Several AI-generated screens for the same decision, compared side by side — became the evidence for why a design system mattered</td>
+              <td>Real, working screens built in the browser first, tested with real interaction, before any Figma existed</td>
+              <td>Built screens synced automatically into Figma; wording and business rules sanity-checked before reaching engineering</td>
+              <td>Only components explicitly marked ready could trigger code generation — one gate, two portals shipped in weeks</td>
+            </tr>
+            <tr>
+              <th scope="row">Key question</th>
+              <td>What are we solving, and who still needs convincing?</td>
+              <td>What does each direction actually cost, and does it stay consistent?</td>
+              <td>What shape does this take once it's actually running?</td>
+              <td>Does this hold up against real accessibility and industry-rule constraints?</td>
+              <td>Is this ready to trace back to a signed-off decision?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ai-process-hint">← swipe to see every stage →</div>
+    </div>
   </div>
 </section>
 
