@@ -168,7 +168,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   <div class="cs-hero-inner">
     <div class="cs-eyebrow">internal tool · founder · claude plugin</div>
     <h1>EDGA — A Multi-Agent<br><span>Design Thinking</span> Operating System</h1>
-    <p class="cs-xyz">A self-built Claude Cowork / Claude Code plugin that runs the <strong>full Design Thinking process</strong> — Empathize through Deliver — as a phase-gated multi-agent system, with a coordinating Overseer, specialized sub-agents for each discipline, and its own continuously-updated knowledge base of UX frameworks and patterns.</p>
+    <p class="cs-xyz">A self-built Claude Cowork / Claude Code plugin that runs the <strong>full Design Thinking process</strong> (Empathize through Deliver) as a phase-gated multi-agent system, with a coordinating Overseer, specialized sub-agents for each discipline, and its own continuously-updated knowledge base of UX frameworks and patterns.</p>
     <div class="meta-row">
       <div class="meta-cell"><div class="meta-label">context</div><div class="meta-val">Internal Tool · Founder</div></div>
       <div class="meta-cell"><div class="meta-label">role</div><div class="meta-val">Creator · Architect</div></div>
@@ -193,7 +193,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
     <div class="block-label">01 — Overview</div>
     <div class="founder-badge">Self-Initiated · Internal Tool</div>
     <h2>Why I Built EDGA</h2>
-    <p><strong>EDGA — Experience Designer Generalist Agent</strong> — started from a simple frustration: every real design engagement runs through the same disciplines (research, strategy, systems, prototyping, testing, delivery), but a single chat with an AI assistant has no memory of which phase you're in, no gate to stop you from skipping straight to pixels before the problem is framed, and no persistent record of what was decided and why.</p>
+    <p><strong>EDGA — Experience Designer Generalist Agent</strong> started from a simple frustration: every real design engagement runs through the same disciplines (research, strategy, systems, prototyping, testing, delivery), but a single chat with an AI assistant has no memory of which phase you're in, no gate to stop you from skipping straight to pixels before the problem is framed, and no persistent record of what was decided and why.</p>
     <p>EDGA is my answer to that: a plugin that turns Claude into a small, disciplined studio. One <strong>Overseer</strong> agent keeps track of where a project is in the process and hands work to the right specialist; the specialists never freelance outside their phase; and every phase ends with a human decision gate, so nothing moves forward without my explicit sign-off.</p>
   </div>
 </div>
@@ -203,7 +203,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   <div class="block-inner">
     <div class="block-label">02 — Architecture</div>
     <h2>An Overseer, and a Bench of Specialists</h2>
-    <p>The Overseer is the only agent that talks to me directly and the only one with the full project context. It reads intake data and session memory, decides which phase the project is in, injects the relevant context into a sub-agent, and enforces the human gate before advancing. Sub-agents never load project context on their own — they only work with what the Overseer hands them, which keeps each one focused and keeps token usage predictable on long engagements.</p>
+    <p>The Overseer is the only agent that talks to me directly and the only one with the full project context. It reads intake data and session memory, decides which phase the project is in, injects the relevant context into a sub-agent, and enforces the human gate before advancing. Sub-agents never load project context on their own. They only work with what the Overseer hands them, which keeps each one focused and keeps token usage predictable on long engagements.</p>
 
     <div class="arch-wrap">
       <div class="arch-node core">Dario (human gate)</div>
@@ -224,7 +224,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
       <div class="arch-node">Memory Coordinator — institutional memory, Obsidian export</div>
     </div>
 
-    <p>Phases are gated: <strong>Empathize → Define → Ideate → Prototype → Test → Deliver</strong>, each with a documented "artifact contract" — a specific output the phase must produce before the gate opens. I approve or send back the work at every gate; the Overseer never advances a phase on its own judgment.</p>
+    <p>Phases are gated: <strong>Empathize → Define → Ideate → Prototype → Test → Deliver</strong>, each with a documented "artifact contract," a specific output the phase must produce before the gate opens. I approve or send back the work at every gate; the Overseer never advances a phase on its own judgment.</p>
   </div>
 </div>
 
@@ -255,7 +255,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 
     <div class="decision-v decision">
       <div class="decision-label">For long-running retainers</div>
-      <p>Projects running past ~3 months switch to a <strong>Cycle Model</strong>: the Memory Coordinator manages staleness checks and cycle transitions so institutional knowledge about the project doesn't silently rot between sessions — it also handles exporting that project memory to Obsidian for a durable, searchable record outside the chat.</p>
+      <p>Projects running past ~3 months switch to a <strong>Cycle Model</strong>: the Memory Coordinator manages staleness checks and cycle transitions so institutional knowledge about the project doesn't silently rot between sessions. It also handles exporting that project memory to Obsidian for a durable, searchable record outside the chat.</p>
     </div>
   </div>
 </div>
@@ -265,7 +265,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   <div class="block-inner">
     <div class="block-label">04 — Knowledge Base</div>
     <h2>How the Knowledge Base Stays Current</h2>
-    <p>EDGA's sub-agents reason from a generic knowledge base — UX frameworks, research methods, interaction patterns — that grows with every release. New material only gets absorbed through a deliberately slow, checked pipeline, because a design-thinking assistant is only as trustworthy as the sources it's quoting.</p>
+    <p>EDGA's sub-agents reason from a generic knowledge base (UX frameworks, research methods, interaction patterns) that grows with every release. New material only gets absorbed through a deliberately slow, checked pipeline, because a design-thinking assistant is only as trustworthy as the sources it's quoting.</p>
 
     <div class="proc-list">
       <div class="proc-item">
@@ -274,7 +274,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
       </div>
       <div class="proc-item">
         <div class="proc-n">02</div>
-        <div><div class="proc-body-title">Primary sources read in full</div><div class="proc-body-sub">No summarizing a summary — the original paper, book chapter, or spec gets read directly.</div></div>
+        <div><div class="proc-body-title">Primary sources read in full</div><div class="proc-body-sub">No summarizing a summary. The original paper, book chapter, or spec gets read directly.</div></div>
       </div>
       <div class="proc-item">
         <div class="proc-n">03</div>
@@ -305,7 +305,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   <div class="block-inner">
     <div class="block-label">05 — Knowledge Base, Mapped</div>
     <h2>What the Obsidian Memory Actually Looks Like</h2>
-    <p>Running <code style="font-family:var(--mono);color:var(--teal);background:var(--teal-dim);padding:1px 5px;border-radius:3px;font-size:12px">/edga-export-kb</code> mirrors the plugin's knowledge base into a real Obsidian vault — a <code style="font-family:var(--mono);font-size:12px">Home.md</code> note links out to 12 category Maps of Content (MOCs), each holding the notes for that discipline. The export is content-hash based: it only touches notes that actually changed, never overwrites a note I've hand-edited inside Obsidian, and flags anything orphaned.</p>
+    <p>Running <code style="font-family:var(--mono);color:var(--teal);background:var(--teal-dim);padding:1px 5px;border-radius:3px;font-size:12px">/edga-export-kb</code> mirrors the plugin's knowledge base into a real Obsidian vault. A <code style="font-family:var(--mono);font-size:12px">Home.md</code> note links out to 12 category Maps of Content (MOCs), each holding the notes for that discipline. The export is content-hash based: it only touches notes that actually changed, never overwrites a note I've hand-edited inside Obsidian, and flags anything orphaned.</p>
 
     <div class="kb-grid">
       <div class="kb-card"><span class="kb-name">Interaction &amp; Interfaces</span><span class="kb-count">24</span></div>
@@ -324,24 +324,15 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 
     <div class="decision">
       <div class="decision-label">Important distinction</div>
-      <p>This vault is <strong>the plugin's own generic knowledge</strong> — frameworks and patterns any project can draw on. It is not project memory: a client engagement's institutional memory is a separate export, kept scoped to that one project so nothing crosses between engagements.</p>
+      <p>This vault is <strong>the plugin's own generic knowledge</strong>: frameworks and patterns any project can draw on. It is not project memory: a client engagement's institutional memory is a separate export, kept scoped to that one project so nothing crosses between engagements.</p>
     </div>
-  </div>
-</div>
-
-<!-- INTERNAL ENABLEMENT -->
-<div class="block reveal">
-  <div class="block-inner">
-    <div class="block-label">06 — Beyond the Plugin</div>
-    <h2>Turning It Into Internal Enablement</h2>
-    <p>Building EDGA turned into a broader habit of pushing Claude adoption inside SoftServe. Alongside the plugin itself, I <strong>mentor other designers on using Claude</strong> day-to-day in their own workflows, and I've done the same for the <strong>internal HR department</strong> — helping non-technical teams find practical, low-risk ways to fold Claude into their existing process rather than bolting AI on as an afterthought.</p>
   </div>
 </div>
 
 <!-- STACK -->
 <div class="block reveal">
   <div class="block-inner">
-    <div class="block-label">07 — Stack &amp; Tags</div>
+    <div class="block-label">06 — Stack &amp; Tags</div>
     <h2>Built On</h2>
     <div class="stack-row">
       <div class="stack-item">Claude Cowork</div>
@@ -370,7 +361,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   <div class="cta-inner">
     <div class="cta-text">
       <h3>A studio, distilled into a plugin</h3>
-      <p>EDGA is still evolving — every real engagement teaches it something new about where the gates should be.</p>
+      <p>EDGA is still evolving. Every real engagement teaches it something new about where the gates should be.</p>
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
       <a href="index.html#founder-mode" class="btn btn-primary">← Founder mode</a>

@@ -285,7 +285,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <div class="cs-tags" style="margin:8px 0 4px"><span class="tag tag-ind">entertainment</span></div>
     <h1>VOS — VIRTU4L<br>Operations System<br>with Local AI</h1>
     <p class="cs-xyz">
-      A <strong>Slack-native operations brain</strong> for a real-world VR venue — where the team already works. One operator can run a full day independently. The director keeps full visibility. <strong>Dasha</strong>, the AI assistant, handles what the team would otherwise forget.
+      A <strong>Slack-native operations brain</strong> for a real-world VR venue, built where the team already works. One operator can run a full day independently. The director keeps full visibility. <strong>Dasha</strong>, the AI assistant, handles what the team would otherwise forget.
     </p>
     <div class="meta-row">
       <div class="meta-cell">
@@ -350,7 +350,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <section class="block">
   <div class="block-inner">
     <div class="block-label">How Might We</div>
-    <p style="font-size:clamp(18px,2.5vw,24px);font-weight:600;color:var(--t1);line-height:1.5;max-width:640px">How might we give a solo VR venue operator full operational control — without building a custom admin panel, adding new logins, or switching tools during the workday?</p>
+    <p style="font-size:clamp(18px,2.5vw,24px);font-weight:600;color:var(--t1);line-height:1.5;max-width:640px">How might we give a solo VR venue operator full operational control, without building a custom admin panel, adding new logins, or switching tools during the workday?</p>
   </div>
 </section>
 
@@ -358,12 +358,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   <div class="block-inner">
     <div class="block-label">The Problem</div>
     <h2 data-scramble aria-label="Operations Running on WhatsApp and Memory">Operations Running on WhatsApp and Memory</h2>
-    <p><strong>VIRTU4L</strong> is an independent VR entertainment venue in Tuxtla Gutiérrez, Chiapas — sessions are short, guided, and high-turnover. One operator runs the floor: welcoming guests, managing headsets, processing sales, tracking reservations, and coordinating events.</p>
-    <p>Most small venues survive on a mix of <strong>WhatsApp groups, spreadsheets, and memory</strong>. That works until it doesn't — a double-booking, a missed opening checklist, an event nobody confirmed, a headset nobody cleaned. There was no single place to run the day, no visibility for the director, and no structured path for operators to grow.</p>
+    <p><strong>VIRTU4L</strong> is an independent VR entertainment venue in Tuxtla Gutiérrez, Chiapas. Sessions are short, guided, and high-turnover. One operator runs the floor: welcoming guests, managing headsets, processing sales, tracking reservations, and coordinating events.</p>
+    <p>Most small venues survive on a mix of <strong>WhatsApp groups, spreadsheets, and memory</strong>. That works until it doesn't: a double-booking, a missed opening checklist, an event nobody confirmed, a headset nobody cleaned. There was no single place to run the day, no visibility for the director, and no structured path for operators to grow.</p>
     <div class="cols-2" style="margin-top:28px">
       <div class="card">
         <div class="card-title">// Pain · Operator</div>
-        <p>No structured workflow. Opening and closing tasks lived in a WhatsApp thread. Reservations were manual. Sales reconciliation happened at end of shift — if at all.</p>
+        <p>No structured workflow. Opening and closing tasks lived in a WhatsApp thread. Reservations were manual. Sales reconciliation happened at end of shift, if at all.</p>
       </div>
       <div class="card">
         <div class="card-title">// Pain · Director</div>
@@ -377,7 +377,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   <div class="block-inner">
     <div class="block-label">Visual Context · Slack Interface</div>
     <h2 data-scramble aria-label="Dasha in Action">Dasha in Action</h2>
-    <p style="margin-bottom:20px;max-width:580px">VOS meets the team inside Slack — the tool they already use. Each channel has a dedicated workflow. Below is a typical start-of-shift interaction in <code style="font-family:var(--mono);background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:3px;font-size:12px">#operaciones-local</code>.</p>
+    <p style="margin-bottom:20px;max-width:580px">VOS meets the team inside Slack, the tool they already use. Each channel has a dedicated workflow. Below is a typical start-of-shift interaction in <code style="font-family:var(--mono);background:rgba(255,255,255,0.07);padding:2px 6px;border-radius:3px;font-size:12px">#operaciones-local</code>.</p>
 
     <div class="slack-mockup">
       <div class="slack-header">
@@ -470,8 +470,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   <div class="block-inner">
     <div class="block-label">The Solution</div>
     <h2 data-scramble aria-label="One Slack Layer, Four Dedicated Channels">One Slack Layer, Four Dedicated Channels</h2>
-    <p>VOS is not a website and not a mobile app. It is an <strong>operations layer inside Slack</strong> — where the team already communicates. Bolt SDK Socket Mode means no public URL and no inbound ports; the bot initiates an outbound WebSocket to Slack and stays live on a Mac mini running pm2.</p>
-    <p>The architecture separates concerns by channel: operations, learning, marketing, and director oversight each get a dedicated agent with specific commands and guardrails. <strong>DashaGuard</strong> sits in front of every write operation — calendar events, sales records, financial actions — enforcing double-booking checks, price tolerance windows, and director authentication on high-risk commands.</p>
+    <p>VOS is not a website and not a mobile app. It is an <strong>operations layer inside Slack</strong>, built where the team already communicates. Bolt SDK Socket Mode means no public URL and no inbound ports; the bot initiates an outbound WebSocket to Slack and stays live on a Mac mini running pm2.</p>
+    <p>The architecture separates concerns by channel: operations, learning, marketing, and director oversight each get a dedicated agent with specific commands and guardrails. <strong>DashaGuard</strong> sits in front of every write operation, whether that's a calendar event, a sales record, or a financial action, enforcing double-booking checks, price tolerance windows, and director authentication on high-risk commands.</p>
 
     <div class="cols-2" style="margin-top:28px">
       <div class="card">
@@ -488,7 +488,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       </div>
       <div class="card">
         <div class="card-title"># marketing-virtu4l</div>
-        <p>MKT-COACH advisory powered by Ollama. Content planning tied to real venue data — trending games, session signals, and seasonal context for Tuxtla Gutiérrez.</p>
+        <p>MKT-COACH advisory powered by Ollama. Content planning tied to real venue data: trending games, session signals, and seasonal context for Tuxtla Gutiérrez.</p>
       </div>
     </div>
   </div>
@@ -499,7 +499,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <div class="block-label">AI-Assisted Workflow</div>
     <div class="ai-badge">Solo build · Claude Code + Cursor</div>
     <h2 data-scramble aria-label="Building VOS with Claude Code and Cursor">Building VOS with Claude Code and Cursor</h2>
-    <p>VOS was built solo, end to end, with AI as an active build partner rather than a code-completion tool. The interesting design work wasn't the Slack integration — it was deciding what Dasha is allowed to state as fact versus offer as a suggestion, and gating every write behind DashaGuard before it touches a real calendar, sale, or financial record.</p>
+    <p>VOS was built solo, end to end, with AI as an active build partner rather than a code-completion tool. The interesting design work wasn't the Slack integration. It was deciding what Dasha is allowed to state as fact versus offer as a suggestion, and gating every write behind DashaGuard before it touches a real calendar, sale, or financial record.</p>
 
     <div class="ai-process-wrap">
       <div class="ai-process-scroll" tabindex="0" role="group" aria-label="AI-assisted process and tools, scrollable table">
@@ -518,7 +518,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
           <tbody>
             <tr>
               <th scope="row">AI role</th>
-              <td>None yet — human problem framing</td>
+              <td>None yet, human problem framing</td>
               <td>Sounding board for architecture tradeoffs</td>
               <td>Pair-programs the actual implementation</td>
               <td>Subject of the design problem, not just the tool</td>
@@ -570,11 +570,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <div class="block-label">Key Decision</div>
     <div class="decision">
       <div class="decision-label">// design-decision</div>
-      <p><strong>Why Slack and not a web panel?</strong> The team already lives in Slack. A custom admin panel means a new URL to bookmark, a new login to forget, and a screen nobody opens unless they're told to. VOS meets people where they work — no onboarding friction, no context-switching mid-shift. The AI assistant feels like a colleague in the thread, not a form to fill out.</p>
+      <p><strong>Why Slack and not a web panel?</strong> The team already lives in Slack. A custom admin panel means a new URL to bookmark, a new login to forget, and a screen nobody opens unless they're told to. VOS meets people where they work, with no onboarding friction and no context-switching mid-shift. The AI assistant feels like a colleague in the thread, not a form to fill out.</p>
     </div>
     <div class="decision">
       <div class="decision-label">// design-decision</div>
-      <p><strong>Local LLM (Ollama) over cloud API for advisory agents.</strong> Marketing coaching and career conversations don't need GPT-4. Ollama's gemma3:4b runs locally — no per-token cost, no data leaving the machine, no latency spike. For operational commands (checklist, sales, calendar) the bot uses deterministic business logic, not LLM inference, for reliability and auditability.</p>
+      <p><strong>Local LLM (Ollama) over cloud API for advisory agents.</strong> Marketing coaching and career conversations don't need GPT-4. Ollama's gemma3:4b runs locally, so there's no per-token cost, no data leaving the machine, and no latency spike. For operational commands (checklist, sales, calendar) the bot uses deterministic business logic, not LLM inference, for reliability and auditability.</p>
     </div>
   </div>
 </section>
@@ -582,7 +582,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <section class="block">
   <div class="block-inner">
     <div class="block-label">Reflection</div>
-    <p style="font-style:italic;color:var(--t2);font-size:var(--fs-base);line-height:1.75;max-width:680px;border-left:2px solid var(--violet);padding-left:20px">"Building this entirely with Claude Code and Cursor showed me how fast a solo developer can move when the AI partner understands the domain. The hardest part wasn't the code — it was designing Dasha's behavioral rules so she never invents data and always knows the difference between a suggestion and a verified fact. Getting that boundary right is a design problem, not an engineering one."</p>
+    <p style="font-style:italic;color:var(--t2);font-size:var(--fs-base);line-height:1.75;max-width:680px;border-left:2px solid var(--violet);padding-left:20px">"Building this entirely with Claude Code and Cursor showed me how fast a solo developer can move when the AI partner understands the domain. The hardest part wasn't the code. It was designing Dasha's behavioral rules so she never invents data and always knows the difference between a suggestion and a verified fact. Getting that boundary right is a design problem, not an engineering one."</p>
     <div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap">
       <a href="https://github.com/DaeonCreative/Virtu4lSlackSagent" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:var(--fs-xs);color:var(--violet);text-decoration:none;background:var(--violet-dim);border:1px solid rgba(167,139,250,0.2);border-radius:4px;padding:6px 14px;transition:opacity .15s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">View on GitHub ↗</a>
       <a href="https://www.realidadvirtu4l.com" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:var(--fs-xs);color:var(--t3);text-decoration:none;background:var(--surface2);border:1px solid var(--border-w);border-radius:4px;padding:6px 14px;transition:opacity .15s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">VIRTU4L Website ↗</a>

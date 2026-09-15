@@ -195,7 +195,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
     <div class="cs-eyebrow">Case Study 08 · Ongoing</div>
     <div class="cs-tags" style="margin:8px 0 4px"><span class="tag tag-ind">enterprise-saas</span></div>
     <h1>Rebuilding Benefits Software</h1>
-    <p class="cs-xyz">Leading UX for a from-scratch rebuild of a legacy employee-benefits platform used by employers of every size and members of every generation — and building the AI-assisted workflow that let a small, distributed team design, validate and hand off <strong>two full portals</strong> in a matter of weeks, not quarters.</p>
+    <p class="cs-xyz">Leading UX for a from-scratch rebuild of a legacy employee-benefits platform used by employers of every size and members of every generation, and building the AI-assisted workflow that let a small, distributed team design, validate and hand off <strong>two full portals</strong> in a matter of weeks, not quarters.</p>
     <div class="meta-row">
       <div class="meta-cell"><div class="meta-label">period</div><div class="meta-val">2026 · Ongoing</div></div>
       <div class="meta-cell"><div class="meta-label">context</div><div class="meta-val">Regulated · Enterprise</div></div>
@@ -236,9 +236,9 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
   <div class="block-inner">
     <div class="block-label">Reality Check</div>
     <h2 data-scramble aria-label="A Moving Target, Not a Clean Brief">A Moving Target, Not a Clean Brief</h2>
-    <p>None of this arrived as one settled brief. Requirements came in through several channels at once — written specs, recorded calls, live workshops — and they didn't always agree with each other. A rule confirmed in one conversation would get quietly complicated by a document from a different team two weeks later, and it was on us to notice before it reached a screen.</p>
-    <p>The people pulling on the work wanted different things, too. One senior stakeholder believed AI could handle the design work end to end and treated a design system as overhead. Rather than argue the point, we built the evidence instead: several AI-generated screens for the exact same decision, sitting side by side, all inconsistent with each other. That single comparison did more than any argument would have — it reframed the design system as what makes AI-assisted work land in one consistent place, not a constraint on it.</p>
-    <p>Other decisions genuinely shifted mid-stream, for good reasons: the accessibility bar got raised on day one once the real user base was understood, an assumed medical-coverage scope narrowed to a firmer dental-and-vision pilot once the actual boundary was confirmed, and more than one piece of member-facing wording got proposed, used, and reversed in the same week once it collided with how that term is actually used in US healthcare. None of that was a planning failure — it's the normal shape of discovery when several people are feeding it at once.</p>
+    <p>None of this arrived as one settled brief. Requirements came in through several channels at once: written specs, recorded calls, live workshops. They didn't always agree with each other, either. A rule confirmed in one conversation would get quietly complicated by a document from a different team two weeks later, and it was on us to notice before it reached a screen.</p>
+    <p>The people pulling on the work wanted different things, too. One senior stakeholder believed AI could handle the design work end to end and treated a design system as overhead. Rather than argue the point, we built the evidence instead: several AI-generated screens for the exact same decision, sitting side by side, all inconsistent with each other. That single comparison did more than any argument would have. It reframed the design system as what makes AI-assisted work land in one consistent place, not a constraint on it.</p>
+    <p>Other decisions genuinely shifted mid-stream, for good reasons. The accessibility bar got raised on day one once the real user base was understood, an assumed medical-coverage scope narrowed to a firmer dental-and-vision pilot once the actual boundary was confirmed, and more than one piece of member-facing wording got proposed, used, and reversed in the same week once it collided with how that term is actually used in US healthcare. None of that was a planning failure. It's the normal shape of discovery when several people are feeding it at once.</p>
     <p>What made it manageable wasn't trying to freeze requirements early. It was accepting that they'd keep moving, and building a habit around that: decide, write it down in one place everyone could check, and move on, instead of relitigating the same question across five different threads.</p>
   </div>
 </section>
@@ -247,7 +247,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
   <div class="block-inner">
     <div class="block-label">The Team</div>
     <h2 data-scramble aria-label="Small, Distributed, Mixed Human and AI">Small, Distributed, Mixed Human and AI</h2>
-    <p>The design team was deliberately small and spread across three countries: a lead UX designer, a second product designer, and an incoming lead who took the reins partway through — working alongside two AI coding assistants that owned the actual front-end code, and a separate AI research assistant dedicated to writing, terminology and quality checks.</p>
+    <p>The design team was deliberately small and spread across three countries: a lead UX designer, a second product designer, and an incoming lead who took the reins partway through. They worked alongside two AI coding assistants that owned the actual front-end code, plus a separate AI research assistant dedicated to writing, terminology and quality checks.</p>
     <p>On the client side, product and business leadership reviewed and signed off on every phase. Rather than one large team in one room, this was a small, mixed group with clearly split responsibilities, which is what let it move fast without losing consistency as more hands touched the same files.</p>
     <p>Keeping that many contributors from stepping on each other took an explicit working agreement, not just good intentions. Anything going in front of the client got a tone-and-clarity pass first. Any new word we introduced for what a member would actually read got checked against the official US healthcare glossary before we used it. And any decision that touched a real benefits rule, like waiting periods or eligibility windows, got sanity-checked against how those things actually work in the industry before it ever reached engineering.</p>
   </div>
@@ -257,9 +257,9 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
   <div class="block-inner">
     <div class="block-label">Design Workflow</div>
     <h2 data-scramble aria-label="Code First, Then Figma">Code First, Then Figma</h2>
-    <p>Instead of the usual Figma-first process, the team designed in code first. Real, working screens got built in the browser using the same design tokens as the live product, tested with real interaction — and only then captured into Figma automatically, screen by screen.</p>
+    <p>Instead of the usual Figma-first process, the team designed in code first. Real, working screens got built in the browser using the same design tokens as the live product, tested with real interaction, and only then captured into Figma automatically, screen by screen.</p>
     <p>That order matters: Figma never drifted into an idealized version of the product that didn't match what actually shipped. It stayed a living library of exactly what was built, not a mockup that quietly falls out of date. Designers still worked natively in Figma to compose new screens, but always by reusing real components bound to the same variables running in the product, never by redrawing shapes from scratch.</p>
-    <p>That flow ran in both directions, deliberately gated. Real screens got captured into Figma automatically so the library always mirrored what actually shipped. Separately, once a component in the Figma library was reviewed and explicitly marked ready, an automated pipeline could generate real front-end code straight from it, wired to the same color, spacing and type variables used in the live product. Nothing got built from a screen that hadn't been signed off as ready — that single checkpoint was what let automation move fast without ever building on work still in flux.</p>
+    <p>That flow ran in both directions, deliberately gated. Real screens got captured into Figma automatically so the library always mirrored what actually shipped. Separately, once a component in the Figma library was reviewed and explicitly marked ready, an automated pipeline could generate real front-end code straight from it, wired to the same color, spacing and type variables used in the live product. Nothing got built from a screen that hadn't been signed off as ready. That single checkpoint was what let automation move fast without ever building on work still in flux.</p>
   </div>
 </section>
 
@@ -273,7 +273,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
     <div class="ai-process-wrap">
       <div class="ai-process-scroll" tabindex="0" role="group" aria-label="AI-assisted process and tools, scrollable table">
         <table class="ai-process">
-          <caption>Benefits Platform — AI-assisted process and tools by stage</caption>
+          <caption>Benefits Platform: AI-assisted process and tools by stage</caption>
           <thead>
             <tr>
               <th scope="col">Stage</th>
@@ -304,10 +304,10 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
             <tr>
               <th scope="row">Process</th>
               <td>Surfaced the how-might-we against a legacy platform, and a stakeholder betting AI could skip design entirely</td>
-              <td>Several AI-generated screens for the same decision, compared side by side — became the evidence for why a design system mattered</td>
+              <td>Several AI-generated screens for the same decision, compared side by side, became the evidence for why a design system mattered</td>
               <td>Real, working screens built in the browser first, tested with real interaction, before any Figma existed</td>
               <td>Built screens synced automatically into Figma; wording and business rules sanity-checked before reaching engineering</td>
-              <td>Only components explicitly marked ready could trigger code generation — one gate, two portals shipped in weeks</td>
+              <td>Only components explicitly marked ready could trigger code generation: one gate, two portals shipped in weeks</td>
             </tr>
             <tr>
               <th scope="row">Key question</th>
@@ -344,7 +344,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
     <div class="block-label">Behind the Screens</div>
     <h2 data-scramble aria-label="One Connected Source, Not Scattered Documents">One Connected Source, Not Scattered Documents</h2>
     <p>Separately from the design pipeline, the wider team set up a shared knowledge system that connected requirements, architecture decisions and test plans to each other, instead of letting them live as disconnected documents the way they had for years.</p>
-    <p>When a business analyst changed a rule, the system immediately showed which diagrams or user stories that change touched, before anyone edited them. Developers picked up implementation work straight from that same connected source, so a feature always traced back to the exact requirement that justified it — and product, design and engineering stopped quietly drifting out of sync with each other, which is the failure mode that usually kills momentum on a project this size.</p>
+    <p>When a business analyst changed a rule, the system immediately showed which diagrams or user stories that change touched, before anyone edited them. Developers picked up implementation work straight from that same connected source, so a feature always traced back to the exact requirement that justified it. Product, design and engineering stopped quietly drifting out of sync with each other, which is the failure mode that usually kills momentum on a project this size.</p>
   </div>
 </section>
 
@@ -352,7 +352,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
   <div class="block-inner">
     <div class="block-label">System Map · D3</div>
     <h2 data-scramble aria-label="How the Mess Actually Converged">How the Mess Actually Converged</h2>
-    <p>Force-directed graph of how scattered inputs, shifting stakeholder asks and a legacy system with no design function fed into a working agreement and a shared knowledge system — which converged into one design token system, then radiated out to both portals, the Figma library, the generated front-end code, and the pilot that finally got demoed. Drag any node.</p>
+    <p>Force-directed graph of how scattered inputs, shifting stakeholder asks and a legacy system with no design function fed into a working agreement and a shared knowledge system, which converged into one design token system, then radiated out to both portals, the Figma library, the generated front-end code, and the pilot that finally got demoed. Drag any node.</p>
     <div id="benefits-force" style="width:100%;margin-top:28px;position:relative"></div>
     <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:14px">
       <span style="font-family:var(--mono);font-size:11px;color:var(--t3);display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#ef4444;display:inline-block"></span>The mess</span>
@@ -384,7 +384,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
 .member-portal {
   <span class="c4">--ui-primary</span>: <span class="c4">var(--member-accent)</span>; <span class="c1">/* #E87722 */</span>
 }</pre></div>
-    <p>Four layers, one direction of truth: change the primitive once, and every button, badge and focus ring downstream updates with it — in code and in Figma alike.</p>
+    <p>Four layers, one direction of truth: change the primitive once, and every button, badge and focus ring downstream updates with it, in code and in Figma alike.</p>
   </div>
 </section>
 
@@ -409,8 +409,8 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
   <div class="block-inner">
     <div class="block-label">Measuring Impact</div>
     <h2 data-scramble aria-label="Proving It Helped, Not Just That It Looked Nicer">Proving It Helped, Not Just That It Looked Nicer</h2>
-    <p>Before proposing a redesign, the more useful question was whether we could actually prove it helped. A full year of real usage data, over eight million visits, gave a solid baseline for how people use the product today — but it could only say how long people stayed, not whether they succeeded at what they came to do.</p>
-    <p>So alongside the redesign, we proposed a second, smaller set of numbers worth tracking going forward: task success rate per flow, error rate on forms, time to complete a plan configuration, a short satisfaction question after each task, an accessibility conformance score, and a simple self-service-versus-support-call ratio that speaks directly to cost. The goal was never a single "UX score" — it was giving product and leadership an honest, specific way to see whether a change actually worked.</p>
+    <p>Before proposing a redesign, the more useful question was whether we could actually prove it helped. A full year of real usage data, over eight million visits, gave a solid baseline for how people use the product today, but it could only say how long people stayed, not whether they succeeded at what they came to do.</p>
+    <p>So alongside the redesign, we proposed a second, smaller set of numbers worth tracking going forward: task success rate per flow, error rate on forms, time to complete a plan configuration, a short satisfaction question after each task, an accessibility conformance score, and a simple self-service-versus-support-call ratio that speaks directly to cost. The goal was never a single "UX score." It was giving product and leadership an honest, specific way to see whether a change actually worked.</p>
   </div>
 </section>
 
@@ -418,8 +418,8 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
   <div class="block-inner">
     <div class="block-label">Getting to v1.8</div>
     <h2 data-scramble aria-label="Eight Versions to the One Stakeholders Saw">Eight Versions to the One Stakeholders Saw</h2>
-    <p>Decide, write it down, move on — that habit is exactly what the version history looks like from the outside. The pilot went through eight numbered iterations before it was frozen as the version stakeholders actually reviewed. Early versions established the basic screen flow and content structure. Later ones absorbed direct stakeholder feedback line by line, tightened a full dual-theme system across both portals, and replaced every remaining placeholder interaction with a real one.</p>
-    <p>Version 1.8 was the one presented to the client, and it landed well. A parallel version branched off immediately afterward to carry the next phase of scope, while 1.8 itself stayed frozen as the honest record of what was actually demoed — not quietly rewritten after the fact.</p>
+    <p>Decide, write it down, move on. That habit is exactly what the version history looks like from the outside. The pilot went through eight numbered iterations before it was frozen as the version stakeholders actually reviewed. Early versions established the basic screen flow and content structure. Later ones absorbed direct stakeholder feedback line by line, tightened a full dual-theme system across both portals, and replaced every remaining placeholder interaction with a real one.</p>
+    <p>Version 1.8 was the one presented to the client, and it landed well. A parallel version branched off immediately afterward to carry the next phase of scope, while 1.8 itself stayed frozen as the honest record of what was actually demoed, not quietly rewritten after the fact.</p>
   </div>
 </section>
 
@@ -432,7 +432,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
     </div>
     <div class="reflection">
       <div class="reflection-label">// reflection</div>
-      <p>The most counterintuitive lesson: the AI tools were most useful exactly where the work was most boring and easiest to get subtly wrong — keeping a glossary consistent, keeping the design library in sync with code, tracing a changed requirement to every place it mattered — not in the creative parts of the job. That's what freed the humans on the team to spend their time on the judgment calls that actually needed them.</p>
+      <p>The most counterintuitive lesson: the AI tools were most useful exactly where the work was most boring and easiest to get subtly wrong. Keeping a glossary consistent, keeping the design library in sync with code, tracing a changed requirement to every place it mattered, not the creative parts of the job. That's what freed the humans on the team to spend their time on the judgment calls that actually needed them.</p>
     </div>
   </div>
 </section>
