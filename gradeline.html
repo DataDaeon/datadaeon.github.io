@@ -136,6 +136,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .swatch-chip{width:56px;height:36px;border-radius:6px;border:1px solid rgba(255,255,255,0.1)}
 .swatch-name{font-family:var(--mono);font-size:9px;color:var(--t3)}
 
+/* ── PROCESS & TOOLS TABLE — page-specific, Session 18 ───────────────── */
+.pt-wrap{margin-top:8px;overflow-x:auto}
+.pt-grid{display:grid;grid-template-columns:110px repeat(5,minmax(150px,1fr));min-width:900px;column-gap:0;row-gap:0}
+.pt-cell{padding:14px 10px;border-bottom:1px solid var(--border-w);font-size:11.5px;color:var(--t2);line-height:1.6}
+.pt-rowlabel{font-family:var(--mono);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;padding-top:18px;border-bottom:1px solid var(--border-w)}
+.pt-head{grid-column:span 1;font-family:var(--mono);font-size:10.5px;font-weight:700;color:var(--t1);text-align:center;letter-spacing:.04em;text-transform:uppercase;padding:0 8px 14px;border-bottom:1px solid var(--border-w)}
+.pt-head-blank{border-bottom:1px solid var(--border-w)}
+.pt-role-row{position:relative;padding:16px 10px;border-bottom:1px solid var(--border-w)}
+.pt-role-row::before{content:'';position:absolute;top:50%;left:-6px;right:-6px;height:1px;background:var(--border-w);z-index:0}
+.pt-role-box{position:relative;z-index:1;background:var(--surface2);border:1px solid var(--border-w);border-radius:10px;padding:14px 6px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.pt-role-icon{width:22px;height:22px;color:var(--teal)}
+.pt-role-name{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--t1)}
+.pt-tools{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:14px 8px;border-bottom:1px solid var(--border-w)}
+.pt-tool-tag{font-family:var(--mono);font-size:9.5px;color:var(--teal);background:var(--teal-dim);border:1px solid rgba(80,227,194,.2);border-radius:5px;padding:3px 7px;white-space:nowrap}
+.pt-text{text-align:left}
+.pt-answer{color:var(--teal);font-weight:600}
+@media(max-width:680px){.pt-grid{min-width:760px}}
+
 @media(max-width:680px){
   nav{padding:0 16px}.nav-role{display:none}
   .cs-hero{padding:80px 20px 40px}.cs-hero h1{font-size:32px}
@@ -302,6 +320,84 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
     <div class="block-label">The Solution</div>
     <p>Instead of one prototype that got overwritten every time a decision changed, each meaningful direction became its own <strong>full fork</strong> of the same React/Tailwind codebase — a complete, independent build, not a feature flag. All forks deployed together as one static, multi-app site, so any version was a public link, not a local checkout.</p>
     <p>Underneath every fork sat one <strong>living component catalog</strong>: the same button, input, badge, and list-row primitives, reused across every version and every persona's screens. That's what kept 17 diverging prototypes from turning into 17 different-looking products.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">AI-Assisted Design</div>
+    <h2 data-scramble aria-label="Process and Tools">Process and Tools</h2>
+    <p style="margin-bottom:22px">The same five-stage arc repeated for every version fork, but the AI's role and the tools in hand shifted at each stage — from synthesizing on-site research to shipping a versioned, accessible prototype.</p>
+
+    <div class="pt-wrap">
+      <div class="pt-grid" role="table" aria-label="GradeLine AI-assisted design process and tools by stage">
+
+        <div class="pt-head-blank" role="presentation"></div>
+        <div class="pt-head" role="columnheader">Frame the Problem</div>
+        <div class="pt-head" role="columnheader">Explore Directions</div>
+        <div class="pt-head" role="columnheader">Materialize</div>
+        <div class="pt-head" role="columnheader">Prototype the Experience</div>
+        <div class="pt-head" role="columnheader">Specify and Ship</div>
+
+        <div class="pt-cell pt-rowlabel">AI Role</div>
+        <div class="pt-role-row"><div class="pt-role-box">
+          <svg class="pt-role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5"/><path d="M4 4l6 6"/><path d="M15 4h5v5"/><path d="M20 4l-6 6"/><path d="M20 15v5h-5"/><path d="M20 20l-6-6"/><path d="M9 20H4v-5"/><path d="M4 20l6-6"/></svg>
+          <span class="pt-role-name">Expand</span>
+        </div></div>
+        <div class="pt-role-row"><div class="pt-role-box">
+          <svg class="pt-role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 7v10"/><path d="M6 12h6"/><path d="M14 12h2"/></svg>
+          <span class="pt-role-name">Diverge</span>
+        </div></div>
+        <div class="pt-role-row"><div class="pt-role-box">
+          <svg class="pt-role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l11-11"/><path d="M15 9l3-3"/><path d="M19 6l-2-2"/><path d="M5 4l1.4 1.4"/><path d="M4 8l1 1"/><path d="M9 3l1 1"/></svg>
+          <span class="pt-role-name">Draft</span>
+        </div></div>
+        <div class="pt-role-row"><div class="pt-role-box">
+          <svg class="pt-role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4L3 12l5 8"/><path d="M16 4l5 8-5 8"/></svg>
+          <span class="pt-role-name">Build</span>
+        </div></div>
+        <div class="pt-role-row"><div class="pt-role-box">
+          <svg class="pt-role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 3v18"/><path d="M4 7.5l8 4.5 8-4.5"/></svg>
+          <span class="pt-role-name">Deliver</span>
+        </div></div>
+
+        <div class="pt-cell pt-rowlabel">Tools</div>
+        <div class="pt-tools"><span class="pt-tool-tag">Claude</span><span class="pt-tool-tag">On-site notes</span></div>
+        <div class="pt-tools"><span class="pt-tool-tag">Claude</span></div>
+        <div class="pt-tools"><span class="pt-tool-tag">Figma</span><span class="pt-tool-tag">Claude</span><span class="pt-tool-tag">Catalog</span></div>
+        <div class="pt-tools"><span class="pt-tool-tag">Cursor</span><span class="pt-tool-tag">Claude Code</span><span class="pt-tool-tag">GitHub</span></div>
+        <div class="pt-tools"><span class="pt-tool-tag">Claude Code</span><span class="pt-tool-tag">Cursor</span><span class="pt-tool-tag">GitHub</span></div>
+
+        <div class="pt-cell pt-rowlabel">Process</div>
+        <div class="pt-cell pt-text">Synthesizing on-site findings across three personas into one shared problem framing</div>
+        <div class="pt-cell pt-text">Sketching persona-specific directions before committing any of them to a real build</div>
+        <div class="pt-cell pt-text">Turning directions into real screens against the shared token set and the 63-primitive catalog</div>
+        <div class="pt-cell pt-text">Forking a full, live version per direction, deployed together as one static multi-app build</div>
+        <div class="pt-cell pt-text">Hardening for accessibility and token cost, documenting the version lineage and every state</div>
+
+        <div class="pt-cell pt-rowlabel">Artifact</div>
+        <div class="pt-cell pt-text">Problem statement (the HMW)</div>
+        <div class="pt-cell pt-text">Alternative directions with tradeoffs</div>
+        <div class="pt-cell pt-text">Screen variants across three device contexts</div>
+        <div class="pt-cell pt-text">A clickable, versioned prototype — the lobby</div>
+        <div class="pt-cell pt-text">Versioned catalog, handoff notes, token-efficiency plan</div>
+
+        <div class="pt-cell pt-rowlabel">Answers</div>
+        <div class="pt-cell pt-text pt-answer">What are we solving, and for which persona?</div>
+        <div class="pt-cell pt-text pt-answer">What does each direction cost to build and review?</div>
+        <div class="pt-cell pt-text pt-answer">What shape should the field app take?</div>
+        <div class="pt-cell pt-text pt-answer">How does it actually feel on a phone, in the field?</div>
+        <div class="pt-cell pt-text pt-answer">What are all the states, personas, and edge cases?</div>
+
+        <div class="pt-cell pt-rowlabel" style="border-bottom:none">Audience</div>
+        <div class="pt-cell pt-text" style="border-bottom:none">Founder, stakeholders</div>
+        <div class="pt-cell pt-text" style="border-bottom:none">Team</div>
+        <div class="pt-cell pt-text" style="border-bottom:none">Team</div>
+        <div class="pt-cell pt-text" style="border-bottom:none">Founder, client counterpart, team</div>
+        <div class="pt-cell pt-text" style="border-bottom:none">Team, engineering</div>
+
+      </div>
+    </div>
   </div>
 </section>
 
