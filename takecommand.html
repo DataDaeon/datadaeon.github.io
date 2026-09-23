@@ -113,6 +113,33 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .demo-toggle::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--t2);transition:transform .18s}
 .demo-toggle.is-on{background:var(--teal-dim)}
 .demo-toggle.is-on::after{transform:translateX(14px);background:var(--teal)}
+/* COMPONENT LIBRARY SPECIMEN GRID — Session 16, page-specific per house rule 2 */
+.lib-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.lib-specimen{border:1px solid var(--border-w);border-radius:8px;padding:16px;background:rgba(255,255,255,0.02);display:flex;flex-direction:column;gap:12px}
+.lib-specimen-label{font-family:var(--mono);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.lib-a11y{font-family:var(--mono);font-size:8px;color:var(--teal);background:var(--teal-dim);border:1px solid rgba(80,227,194,.2);padding:1px 6px;border-radius:8px;letter-spacing:.03em;white-space:nowrap}
+.lib-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.lib-btn{font-family:var(--mono);font-size:11px;border-radius:6px;padding:7px 13px;cursor:pointer;font-weight:600;letter-spacing:.02em;transition:filter .15s,transform .15s;border:1px solid transparent}
+.lib-btn.primary{background:var(--teal);color:#050508}
+.lib-btn.secondary{background:rgba(167,139,250,.14);color:var(--violet);border-color:rgba(167,139,250,.3)}
+.lib-btn.outline{background:transparent;color:var(--t2);border-color:var(--border-w)}
+.lib-btn.disabled{background:rgba(255,255,255,.04);color:var(--t3);cursor:not-allowed}
+.lib-btn:hover:not(.disabled){filter:brightness(1.08);transform:translateY(-1px)}
+.lib-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.lib-input-wrap{display:flex;flex-direction:column;gap:6px}
+.lib-input-label{font-family:var(--mono);font-size:9px;color:var(--t3)}
+.lib-input{font-family:var(--font);font-size:12px;color:var(--t1);background:rgba(255,255,255,.03);border:1px solid var(--border-w);border-radius:6px;padding:8px 10px;width:100%}
+.lib-input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-dim)}
+.lib-input.err{border-color:#ef4444}
+.lib-input-err-msg{font-family:var(--mono);font-size:9px;color:#ef4444}
+.lib-check-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--t2)}
+.lib-check{width:16px;height:16px;border:1px solid var(--border-w);border-radius:4px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.03);font-size:10px;font-weight:700}
+.lib-check.on{background:var(--teal);border-color:var(--teal);color:#050508}
+.lib-radio{width:16px;height:16px;border:1px solid var(--border-w);border-radius:50%;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.03)}
+.lib-radio.on::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.lib-type-row{display:flex;align-items:baseline;gap:10px}
+.lib-type-meta{font-family:var(--mono);font-size:9px;color:var(--t3)}
+@media(max-width:680px){.lib-grid{grid-template-columns:1fr}}
 .grid-2 img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
 /* DECISION */
 .decision{border-left:2px solid var(--teal);padding:18px 22px;background:var(--teal-dim);border-radius:0 var(--r) var(--r) 0;margin:8px 0}
@@ -477,16 +504,74 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       <div class="demo-chrome">
         <div class="demo-chrome-left">
           <svg class="demo-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z" fill="none" stroke="var(--t2)" stroke-width="1.6"/><path d="M9 12h6M12 9v6" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <span class="demo-appname">BenefitBridge <em>Employee Health Hub</em></span>
+          <span class="demo-appname">BenefitBridge <em>Component Library</em></span>
         </div>
         <div class="demo-tabs" role="tablist" aria-label="BenefitBridge demo views">
-          <button class="demo-tab is-active" data-tab="0" role="tab" aria-selected="true">Member Home</button>
-          <button class="demo-tab" data-tab="1" role="tab" aria-selected="false">Admin Plans</button>
+          <button class="demo-tab is-active" data-tab="0" role="tab" aria-selected="true">Component Library</button>
+          <button class="demo-tab" data-tab="1" role="tab" aria-selected="false">Member Home</button>
+          <button class="demo-tab" data-tab="2" role="tab" aria-selected="false">Admin Plans</button>
         </div>
       </div>
       <div class="demo-body">
 
         <div class="demo-view is-active" data-view="0">
+          <div class="lib-grid">
+            <div class="lib-specimen">
+              <div class="lib-specimen-label">Button <span class="lib-a11y">AA 4.6:1</span></div>
+              <div class="lib-row">
+                <button class="lib-btn primary">Save changes</button>
+                <button class="lib-btn secondary">Learn more</button>
+                <button class="lib-btn outline">Cancel</button>
+                <button class="lib-btn disabled" disabled>Locked</button>
+              </div>
+            </div>
+            <div class="lib-specimen">
+              <div class="lib-specimen-label">Text Input <span class="lib-a11y">AA 4.6:1</span></div>
+              <div class="lib-input-wrap">
+                <label class="lib-input-label" for="lib-demo-email">Email address</label>
+                <input class="lib-input" id="lib-demo-email" type="text" placeholder="you@company.com">
+              </div>
+              <div class="lib-input-wrap">
+                <label class="lib-input-label" for="lib-demo-plan">Plan ID</label>
+                <input class="lib-input err" id="lib-demo-plan" type="text" value="PL-04X">
+                <span class="lib-input-err-msg">Plan ID must be 6 characters</span>
+              </div>
+            </div>
+            <div class="lib-specimen">
+              <div class="lib-specimen-label">Selection Controls</div>
+              <div class="lib-check-row"><span class="lib-check on">&#10003;</span> Email me claim updates</div>
+              <div class="lib-check-row"><span class="lib-check"></span> Share data with employer</div>
+              <div class="lib-check-row"><span class="lib-radio on"></span> Individual plan</div>
+              <div class="lib-check-row"><span class="lib-radio"></span> Family plan</div>
+            </div>
+            <div class="lib-specimen">
+              <div class="lib-specimen-label">Status Badges <span class="lib-a11y">text + icon</span></div>
+              <div class="lib-row">
+                <span class="demo-badge" style="background:var(--teal-dim);color:var(--teal)">&#9679; Active</span>
+                <span class="demo-badge" style="background:rgba(245,158,11,.12);color:#f59e0b">&#9679; Pending</span>
+                <span class="demo-badge" style="background:rgba(239,68,68,.12);color:#ef4444">&#9679; Expired</span>
+                <span class="demo-badge">&#9679; Draft</span>
+              </div>
+            </div>
+            <div class="lib-specimen">
+              <div class="lib-specimen-label">Toggle</div>
+              <div class="lib-row" style="gap:16px">
+                <div style="display:flex;align-items:center;gap:8px"><button class="demo-toggle is-on" aria-label="Notifications on"></button><span style="font-size:11px;color:var(--t2)">Notifications on</span></div>
+                <div style="display:flex;align-items:center;gap:8px"><button class="demo-toggle" aria-label="Auto-renew off"></button><span style="font-size:11px;color:var(--t3)">Auto-renew off</span></div>
+              </div>
+            </div>
+            <div class="lib-specimen">
+              <div class="lib-specimen-label">Type Scale</div>
+              <div class="lib-type-row"><span style="font-size:20px;font-weight:700;color:var(--t1)">Aa</span><span class="lib-type-meta">H2 &middot; 20/700</span></div>
+              <div class="lib-type-row"><span style="font-size:15px;font-weight:600;color:var(--t1)">Aa</span><span class="lib-type-meta">H3 &middot; 15/600</span></div>
+              <div class="lib-type-row"><span style="font-size:13px;color:var(--t2)">Aa</span><span class="lib-type-meta">Body &middot; 13/400</span></div>
+              <div class="lib-type-row"><span style="font-size:10px;font-family:var(--mono);color:var(--t3)">Aa</span><span class="lib-type-meta">Caption &middot; mono 10</span></div>
+            </div>
+          </div>
+          <p style="margin-top:14px;font-size:11px;color:var(--t3);font-family:var(--mono);line-height:1.6">Every specimen shipped with a documented focus ring, a minimum 4.5:1 contrast ratio, and a written usage rule — the same three checks any component had to clear before it entered the library.</p>
+        </div>
+
+        <div class="demo-view" data-view="1" hidden>
           <div class="demo-row" style="gap:28px;margin-bottom:16px;flex-wrap:wrap">
             <div class="demo-stat"><span class="demo-stat-val">$1,240</span><span class="demo-stat-lbl">Plan balance</span></div>
             <div class="demo-stat"><span class="demo-stat-val">2</span><span class="demo-stat-lbl">Open claims</span></div>
@@ -496,7 +581,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
           </div>
         </div>
 
-        <div class="demo-view" data-view="1" hidden>
+        <div class="demo-view" data-view="2" hidden>
           <div class="demo-label">Benefit Plans</div>
           <table class="demo-table">
             <thead><tr><th>Plan</th><th>Members</th><th>Status</th></tr></thead>
