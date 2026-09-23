@@ -400,6 +400,46 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 }
 /* ────────────────────────────────────────────────────────────────────────── */
 
+/* ── GIFT TRIGGER + MODAL — Session 19, page-specific per house rule 2 ──── */
+.gift-trigger{margin-top:16px;border:1px dashed rgba(167,139,250,0.35);border-radius:8px;padding:16px 18px;display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap;background:rgba(167,139,250,0.04)}
+.gift-trigger-text{display:flex;align-items:center;gap:10px}
+.gift-trigger-emoji{font-size:20px;line-height:1}
+.gift-trigger-copy{font-size:12.5px;color:var(--t2);line-height:1.5}
+.gift-trigger-copy strong{color:var(--t1);display:block;font-size:13px;margin-bottom:2px}
+.gift-trigger-btn{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--violet);background:var(--violet-dim);border:1px solid rgba(167,139,250,0.3);border-radius:7px;padding:9px 16px;cursor:pointer;letter-spacing:.02em;white-space:nowrap;transition:background .15s,transform .15s}
+.gift-trigger-btn:hover{background:rgba(167,139,250,0.16);transform:translateY(-1px)}
+.gift-trigger-btn:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+
+dialog#gift-modal{position:fixed;inset:0;width:100vw;height:100vh;max-width:100vw;max-height:100vh;margin:0;padding:0;border:none;background:transparent;overflow:hidden;z-index:9000;transition:opacity .25s ease}
+dialog#gift-modal[open]{display:flex;align-items:center;justify-content:center}
+dialog#gift-modal::backdrop{background:rgba(5,5,8,0);backdrop-filter:blur(0px);transition:background .3s ease,backdrop-filter .3s ease}
+dialog#gift-modal.is-open::backdrop{background:rgba(5,5,8,.82);backdrop-filter:blur(8px)}
+.gift-modal-card{position:relative;width:min(480px,92vw);max-height:86vh;overflow-y:auto;background:var(--surface2);border:1px solid rgba(167,139,250,0.25);border-radius:14px;padding:32px 30px 28px;box-shadow:0 32px 80px rgba(0,0,0,.7);transform:scale(0.92);opacity:0;transition:transform .3s cubic-bezier(.16,1,.3,1),opacity .25s ease}
+dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
+.gift-modal-eyebrow{font-family:var(--mono);font-size:10px;color:var(--violet);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.gift-modal-card h3{font-size:22px;font-weight:800;letter-spacing:-0.03em;color:var(--t1);margin-bottom:14px;line-height:1.2}
+.gift-modal-card p{font-size:13.5px;color:var(--t2);line-height:1.75;margin-bottom:14px}
+.gift-modal-card ul{margin:0 0 18px 18px;padding:0}
+.gift-modal-card li{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:6px}
+.gift-modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.gift-modal-btn{font-family:var(--mono);font-size:12px;font-weight:600;border-radius:8px;padding:11px 18px;text-decoration:none;letter-spacing:.02em;text-align:center;transition:filter .15s,transform .15s;cursor:pointer;border:1px solid transparent}
+.gift-modal-btn.primary{background:var(--violet);color:#050508}
+.gift-modal-btn.primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.gift-modal-btn.secondary{background:transparent;color:var(--t2);border-color:var(--border-w)}
+.gift-modal-btn.secondary:hover{color:var(--t1);border-color:rgba(255,255,255,0.2)}
+.gift-modal-btn:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+.gift-modal-close{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,0.06);color:var(--t2);font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s}
+.gift-modal-close:hover{background:rgba(255,255,255,0.12);color:var(--t1)}
+.gift-modal-close:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){
+  dialog#gift-modal, dialog#gift-modal::backdrop, .gift-modal-card{transition:none}
+}
+@media(max-width:680px){
+  .gift-trigger{flex-direction:column;align-items:flex-start}
+  .gift-modal-card{padding:26px 22px 22px}
+}
+/* ────────────────────────────────────────────────────────────────────────── */
+
 </style>
   <meta name="description" content="Lead Experience Designer at SoftServe with 15+ years building digital products across telecom, healthcare, energy, and spatial computing. Portfolio of UX case studies 2017–2026.">
   <meta name="author" content="Dario Espinosa">
@@ -808,6 +848,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   <div style="margin-top:24px;border-left:2px solid var(--teal);padding:18px 22px;background:var(--teal-dim);border-radius:0 6px 6px 0">
     <div style="font-family:var(--mono);font-size:9px;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px">Also: internal enablement</div>
     <p style="font-size:13px;color:var(--t2);line-height:1.75;margin:0">Building EDGA turned into a habit: I mentor other designers on using Claude day-to-day in their own workflows, and I've done the same for the internal HR department, helping non-technical teams fold Claude into their existing process instead of bolting AI on as an afterthought.</p>
+  </div>
+
+  <div class="gift-trigger">
+    <div class="gift-trigger-text">
+      <span class="gift-trigger-emoji" aria-hidden="true">🎁</span>
+      <div class="gift-trigger-copy"><strong>A token of gratitude</strong>Free guide: stopping AI agents from burning your tokens</div>
+    </div>
+    <button type="button" class="gift-trigger-btn" onclick="window.openGiftModal && window.openGiftModal()">Open the gift</button>
   </div>
 </section>
 
@@ -1670,6 +1718,86 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 /* Canvas portrait replaced with me.jpg — no JS needed */
 /* ────────────────────────────────────────────────────────────────────────── */
 </script>
+
+<!-- Gift modal — "wait, before you go" token of gratitude (Session 19) -->
+<dialog id="gift-modal" aria-labelledby="gift-modal-title">
+  <div class="gift-modal-card">
+    <button type="button" class="gift-modal-close" id="gift-modal-close" aria-label="Close">&#x2715;</button>
+    <div class="gift-modal-eyebrow">Wait — before you go 👋</div>
+    <h3 id="gift-modal-title">A token of gratitude</h3>
+    <p>Thanks for spending time on my portfolio. As a small thank-you, here's something I actually use day to day: a free, practical guide on keeping AI coding agents (Cursor, Claude, or similar) from quietly wasting your tokens and losing the thread on long sessions. No email required, nothing to sign up for.</p>
+    <ul>
+      <li>Fewer runaway sessions that burn budget without anyone noticing</li>
+      <li>Less time re-explaining a decision the agent already made ten minutes ago</li>
+      <li>Fewer "regenerate the whole thing from scratch" cycles once a long session degrades</li>
+    </ul>
+    <div class="gift-modal-actions">
+      <a class="gift-modal-btn primary" href="gift-token-habits.html">Read the guide</a>
+      <a class="gift-modal-btn secondary" href="ai-agent-token-habits.md" download>Download .md</a>
+      <button type="button" class="gift-modal-btn secondary" id="gift-modal-later">Maybe later</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* ── GIFT MODAL — open/close, exit-intent, once-per-tab-session (Session 19) */
+(function(){
+  var dlg = document.getElementById('gift-modal');
+  if (!dlg) return;
+  var closeBtn = document.getElementById('gift-modal-close');
+  var laterBtn = document.getElementById('gift-modal-later');
+  var lastFocused = null;
+  var SEEN_KEY = 'giftModalSeen';
+
+  function openModal(fromExitIntent){
+    if (dlg.open) return;
+    lastFocused = document.activeElement;
+    dlg.style.opacity = '0';
+    dlg.showModal();
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        dlg.style.opacity = '1';
+        dlg.classList.add('is-open');
+        closeBtn.focus();
+      });
+    });
+    try { if (fromExitIntent) sessionStorage.setItem(SEEN_KEY, '1'); } catch(e){}
+  }
+
+  function closeModal(){
+    if (!dlg.open) return;
+    dlg.classList.remove('is-open');
+    dlg.style.opacity = '0';
+    setTimeout(function(){
+      dlg.close();
+      dlg.style.opacity = '';
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }, 260);
+  }
+
+  window.openGiftModal = function(){ openModal(false); };
+
+  closeBtn.addEventListener('click', closeModal);
+  laterBtn.addEventListener('click', closeModal);
+  dlg.addEventListener('click', function(e){ if (e.target === dlg) closeModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && dlg.open) { e.preventDefault(); closeModal(); } });
+
+  /* Exit-intent: mouse leaves via the top of the viewport — once per tab session,
+     and only after the visitor has actually scrolled (avoids firing on a bounce). */
+  var hasScrolled = false;
+  window.addEventListener('scroll', function(){ hasScrolled = true; }, { passive: true, once: true });
+
+  document.addEventListener('mouseout', function(e){
+    if (e.clientY > 0) return;
+    if (!hasScrolled) return;
+    var seen = false;
+    try { seen = sessionStorage.getItem(SEEN_KEY) === '1'; } catch(err){ seen = false; }
+    if (seen || dlg.open) return;
+    openModal(true);
+  });
+})();
+</script>
+
 <script src="effects.js"></script>
 </body>
 </html>

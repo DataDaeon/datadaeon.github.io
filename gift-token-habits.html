@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Token of Gratitude: Token &amp; Session-Burnout Habits for AI Agents · Dario Espinosa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="effects.css">
+<script>/* IO shim — immediate-fire fallback (Session 10c) */
+if(!('IntersectionObserver' in window)){window.IntersectionObserver=function(cb){this._cb=cb};IntersectionObserver.prototype.observe=function(el){var s=this;setTimeout(function(){s._cb([{isIntersecting:true,target:el}],s)},0)};IntersectionObserver.prototype.unobserve=function(){};IntersectionObserver.prototype.disconnect=function(){}}
+</script>
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050508;--bg2:#08080d;--surface:#0d0d14;--surface2:#111118;
+  --border:rgba(80,227,194,0.12);--border-v:rgba(167,139,250,0.12);--border-w:rgba(255,255,255,0.07);
+  --t1:#ffffff;--t2:rgba(255,255,255,0.65);--t3:rgba(255,255,255,0.44);--t4:rgba(255,255,255,0.07);
+  --teal:#50e3c2;--teal-dim:rgba(80,227,194,0.08);
+  --violet:#a78bfa;--violet-dim:rgba(167,139,250,0.08);
+  --font:'Geist','Inter',system-ui,sans-serif;
+  --mono:'Geist Mono','SF Mono',ui-monospace,monospace;
+  --max:760px;--r:6px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:var(--font);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1px solid var(--border-w);background:rgba(5,5,8,0.88);backdrop-filter:blur(24px) saturate(1.4);display:flex;align-items:center;padding:0 32px;gap:12px}
+.nav-name{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--t1);text-decoration:none;letter-spacing:0.02em}
+.nav-sep{color:var(--t4);font-size:14px}
+.nav-role{font-family:var(--mono);font-size:11px;color:var(--t3)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:22px}
+.nav-link{font-family:var(--mono);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s}
+.nav-link:hover{color:var(--teal)}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 10px var(--teal)}50%{opacity:0.35;box-shadow:0 0 3px var(--teal)}}
+@media (prefers-reduced-motion:reduce){.nav-dot{animation:none}}
+.cs-hero{padding:120px 32px 48px;border-bottom:1px solid var(--border-w)}
+.cs-hero-inner{max-width:var(--max);margin:0 auto}
+.cs-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:var(--teal);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.cs-eyebrow::before{content:'';width:24px;height:1px;background:var(--teal);opacity:0.5}
+.cs-hero h1{font-size:clamp(32px,5vw,48px);font-weight:800;letter-spacing:-0.05em;line-height:1.1;margin-bottom:18px;color:var(--t1)}
+.cs-xyz{font-size:15px;color:var(--t2);line-height:1.8;max-width:620px;margin-bottom:28px}
+.cs-xyz strong{color:var(--teal);font-weight:500}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px}
+.meta-pill{font-family:var(--mono);font-size:10.5px;color:var(--t2);border:1px solid var(--border-w);border-radius:99px;padding:6px 13px;letter-spacing:.02em}
+.gift-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:600;color:#050508;background:var(--teal);border:none;border-radius:8px;padding:11px 20px;text-decoration:none;letter-spacing:.02em;margin-top:22px;transition:filter .15s,transform .15s}
+.gift-cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.gift-cta:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.block{border-bottom:1px solid var(--border-w)}
+.block-inner{max-width:var(--max);margin:0 auto;padding:40px 32px}
+.block-label{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.block-label::after{content:'';flex:1;height:1px;background:var(--border-w)}
+.block h2{font-size:19px;font-weight:700;letter-spacing:-0.03em;color:var(--t1);margin-bottom:14px}
+.block p{font-size:14px;color:var(--t2);line-height:1.85;margin-bottom:14px}
+.block p:last-child{margin-bottom:0}
+.block ul{margin:0 0 14px 20px;padding:0}
+.block li{font-size:14px;color:var(--t2);line-height:1.8;margin-bottom:8px}
+.block li:last-child{margin-bottom:0}
+.block li strong{color:var(--t1)}
+.block p strong{color:var(--t1)}
+.block code{font-family:var(--mono);font-size:12.5px;color:var(--teal);background:var(--teal-dim);padding:1px 5px;border-radius:3px}
+.gift-table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:13px}
+.gift-table th{text-align:left;font-family:var(--mono);font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;padding:8px 12px;border-bottom:1px solid var(--border-w)}
+.gift-table td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--t2);vertical-align:top}
+.gift-table td:first-child{font-family:var(--mono);color:var(--teal);white-space:nowrap;font-weight:600}
+.block h2[data-scramble]{opacity:0;transition:opacity .01s}
+.block h2[data-scramble].scrambled{opacity:1}
+.gratitude{border-left:2px solid var(--violet);padding:20px 24px;background:var(--violet-dim);border-radius:0 var(--r) var(--r) 0;margin:0}
+.gratitude p{color:var(--t2);font-style:italic}
+.gratitude-sign{font-family:var(--mono);font-size:12px;color:var(--violet);margin-top:10px;font-style:normal}
+.cs-footer{border-top:1px solid var(--border-w);padding:32px}
+.cs-footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.foot-link{font-family:var(--mono);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s}
+.foot-link:hover{color:var(--teal)}
+.foot-back{font-family:var(--mono);font-size:10px;color:var(--t3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color .15s}
+.foot-back:hover{color:var(--teal)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
+@keyframes cs-fadein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.cs-hero-inner{opacity:0;animation:cs-fadein .7s cubic-bezier(.16,1,.3,1) .1s forwards}
+@media (prefers-reduced-motion:reduce){.cs-hero-inner{animation:none;opacity:1}}
+@media(max-width:680px){
+  nav{padding:0 16px}.nav-role{display:none}
+  .cs-hero{padding:80px 20px 36px}
+  .block-inner{padding:32px 20px}
+  .cs-footer{padding:24px 20px}
+  .gift-table{font-size:12px}
+}
+</style>
+<meta name="description" content="A free, portable guide to token and session-hygiene habits for AI code agents — checkpoint discipline, layered memory, and anti-patterns that keep long agent sessions from degrading. Shared as a thank-you for visiting the portfolio.">
+<meta name="author" content="Dario Espinosa">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://darioespinosa.design/gift-token-habits.html">
+</head>
+<body>
+<a href="#main-content" style="position:absolute;left:-9999px;top:4px;z-index:9999;background:#50e3c2;color:#050508;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none" onfocus="this.style.left='4px'" onblur="this.style.left='-9999px'">Skip to main content</a>
+
+<nav>
+  <a class="nav-name" href="index.html">dario-espinosa</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-role">lead-experience-designer · chiapas-mx</span>
+  <div class="nav-right">
+    <a class="nav-link" href="about.html">about</a>
+    <a class="nav-link" href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener">linkedin</a>
+    <div class="nav-dot"></div>
+  </div>
+</nav>
+
+<main id="main-content">
+<header class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-eyebrow">A Token of Gratitude</div>
+    <h1>Token &amp; Session-Burnout Habits for AI Code Agents</h1>
+    <p class="cs-xyz">Thanks for making it this far into my portfolio — as a small thank-you, here's something I actually use day to day: a free, practical set of habits for keeping AI coding agents (Cursor, Claude, or similar) from quietly wasting your tokens and losing the thread on long sessions. No email required, nothing to sign up for.</p>
+    <p class="cs-xyz" style="margin-bottom:8px"><strong>What it saves you:</strong> fewer runaway sessions that burn budget without anyone noticing, less time re-explaining a decision the agent already made ten minutes ago, and fewer "regenerate the whole thing from scratch" cycles once a long session has quietly degraded.</p>
+    <div class="meta-row">
+      <span class="meta-pill">~6 min read</span>
+      <span class="meta-pill">Markdown, portable to any project</span>
+      <span class="meta-pill">Free — no attribution required</span>
+    </div>
+    <a class="gift-cta" href="ai-agent-token-habits.md" download>⬇ Download the .md file</a>
+  </div>
+</header>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">01 · What This Solves</div>
+    <h2 data-scramble aria-label="What Problem This Solves">What Problem This Solves</h2>
+    <p>Three concrete symptoms, not an abstract fear of "spending tokens":</p>
+    <ul>
+      <li><strong>Session-memory files grow without limit.</strong> If you keep project state in a file like <code>CLAUDE.md</code>/<code>CONTEXT.md</code>/<code>NOTES.md</code>, reading it in full at the start of every session burns context budget before you've even touched the real problem.</li>
+      <li><strong>The tool's auto-compact fires late</strong> (around 95% of the window). By then the tool decides what to drop, and it systematically keeps mundane output while discarding the reasoning that actually mattered.</li>
+      <li><strong>Long sessions re-derive decisions</strong> already made in the same conversation, lose track of what was decided ten minutes ago, or drift from the original request. That's context-budget degradation, not "the model got lazy."</li>
+    </ul>
+    <p>This guide attacks the two levers that are actually controllable: tokens per task (well-scoped context) and unnecessary tasks (the Restart Rule, one chat = one task) — not the price per token or the number of users.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">02 · Layered Memory</div>
+    <h2 data-scramble aria-label="L0 / L1 / L2 Habits">L0 / L1 / L2 Habits (Abstract-First)</h2>
+    <p>Load information in layers, from less to more detail, and only go deeper once something actually matched the current task.</p>
+    <table class="gift-table">
+      <thead><tr><th>Level</th><th>What it is</th><th>When it loads</th></tr></thead>
+      <tbody>
+        <tr><td>L0</td><td>The title / first bold line of a state entry, or a doc's title + first paragraph</td><td>Always — this is what gets scanned to decide relevance</td></tr>
+        <tr><td>L1</td><td>A status log's full entry, a doc's headings, a "where to look" table</td><td>Only if the L0 matched the current task</td></tr>
+        <tr><td>L2</td><td>The full document, source code, meeting notes, extensive research</td><td>Only when the task genuinely needs that specific content</td></tr>
+      </tbody>
+    </table>
+    <p>Writing rule: every new entry in a state/memory file starts with a <strong>bold L0</strong> — one sentence a future session can rank without reading the body. Never open an L2 file because "the name sounds relevant": check its L0/L1 first.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">03 · Checkpoint Timing</div>
+    <h2 data-scramble aria-label="Checkpoint at ~60%, Not ~95%">Checkpoint at ~60%, Not ~95%</h2>
+    <p>Most agent tools' auto-compact fires around 95% of capacity — by then the tool decides what to drop, keeping mundane output and discarding the reasoning. Intervene earlier, while the agent still has control:</p>
+    <ul>
+      <li>At <strong>~60%</strong> of the session's practical budget (a "this is getting heavy" signal, not an exact token counter).</li>
+      <li>Stop at a clean point, not mid-edit.</li>
+      <li>Write the state to a file: what was done, what's left, what decision is pending. That's the real checkpoint, not the chat's own memory.</li>
+      <li>If a logical unit of work is finished and the code passes its quality gate, commit.</li>
+      <li>Say it explicitly: "I recommend a fresh chat from here — the state is saved in [file]/git log."</li>
+    </ul>
+    <p><strong>Explicit handoff:</strong> for large or multi-stage work, write the checkpoint as a clearly marked block ("HANDOFF" or similar) with the reference plan, what's done, what's left, and what human confirmation is pending.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">04 · The Restart Rule</div>
+    <h2 data-scramble aria-label="Stop Arguing, Respec Instead">Stop Arguing, Respec Instead</h2>
+    <p>If the agent is stuck, produces output that doesn't work, or you find yourself arguing the same point twice — stop arguing. Rewrite the spec (what's being asked, what constraints, what acceptance criteria) and regenerate cleanly. Arguing spends tokens re-deriving; a clean respec spends tokens moving forward.</p>
+    <p>Corollary: if you correct the same thing twice, that's the signal to write it <strong>once</strong> as a permanent rule, not to keep correcting it by hand every time.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">05 · Memory Writes</div>
+    <h2 data-scramble aria-label="Summary Only, Never the Transcript">Summary Only, Never the Transcript</h2>
+    <p>Don't paste chat transcripts into durable state/memory files. Writes are summary-level: rationale + outcome, never the full conversation. Every new entry carries its bold L0 and, below it, the minimum needed for another session to understand what happened and why, without reading the original chat.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">06 · When to Interrupt</div>
+    <h2 data-scramble aria-label="Escalate on Anomaly, Not on Schedule">Escalate on Anomaly, Not on Schedule</h2>
+    <p>Default: autonomous — the agent keeps working and commits without asking permission at every step. Interrupt the human only on a concrete signal:</p>
+    <ul>
+      <li>the same file rewritten more than ~5 times in a row,</li>
+      <li>the build/typecheck fails 3+ times consecutively,</li>
+      <li>the tool-call count is roughly 2x the expected baseline for that kind of task.</li>
+    </ul>
+    <p>Don't add a "should I continue?" checkpoint at a fixed number of turns regardless of session health — the goal is for the flow to run mostly unattended, and for an interruption to signal something real.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">07 · Scaffolding</div>
+    <h2 data-scramble aria-label="Mechanical Work Is a Script, Not a Session">Mechanical Work Is a Script, Not a Session</h2>
+    <p>Creating a new copy/variant of a project (duplicating a folder, renaming identifiers, registering paths across several files) is mechanical work. It's better handled with a shell script than as open-ended, turn-by-turn agentic editing. Only the real design/logic changes inside the new copy need a reasoning model's attention.</p>
+    <p><strong>Intent note:</strong> the moment work starts on a new fork or scoped derivative, write a short note (~5 lines): what changes this round, what stays untouched, and one line answering "fork on disk, or a git branch?" — a full fork only if it needs to run live alongside another version or be published separately; otherwise a branch, deleted once the learning is extracted.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">08 · Commit Discipline</div>
+    <h2 data-scramble aria-label="Checkpoint Gated on Build/Typecheck">Checkpoint Gated on Build/Typecheck</h2>
+    <p>Commit at the end of the scaffold step, before starting feature edits, and at every natural subtask boundary — but only if the current state passes the project's build/typecheck/tests. If it doesn't pass, commit to a working branch, never to main with broken state.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">09 · Plan-First</div>
+    <h2 data-scramble aria-label="Only for Large Work">Only for Large Work</h2>
+    <p>Write a short plan and get a one-line approval before scaffolding a new variant, preparing a reduced-scope clone, or any refactor touching multiple files. Skip this ceremony for single-file tweaks — it isn't worth it below roughly ~15 expected tool calls.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">10 · Indexing</div>
+    <h2 data-scramble aria-label="Soft-Exclude Large, Superseded Trees">Soft-Exclude Large, Superseded Trees</h2>
+    <p>Distinguish two levels of exclusion: <strong>hard</strong> (the agent can't read it even with an explicit mention — binaries, installed dependencies, build artifacts) and <strong>soft</strong> (out of search by default, but reachable with an explicit mention — superseded versions still useful as historical reference). When something becomes formally superseded, move it to soft exclusion in the same session, instead of leaving it competing for search space indefinitely.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">11 · Durable Notes</div>
+    <h2 data-scramble aria-label="A Manual Export Bridge, Never a Database">A Manual Export Bridge, Never a Database</h2>
+    <p>If a project needs a knowledge layer outside the repo (an Obsidian-style note, a wiki), treat it as a manual, on-request bridge only — never automatic sync, never a source of truth. Export only when explicitly asked, carry minimal metadata, and keep it hand-curated: no relationship queries unless a real index structure exists. The repo's own state files and git history remain the source of truth.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">12 · Anti-Patterns</div>
+    <h2 data-scramble aria-label="What Not To Do">What Not to Do</h2>
+    <ul>
+      <li>Don't open every file "just in case" — use a "where to look" routing map if one exists.</li>
+      <li>Don't paste chat transcripts into durable memory files.</li>
+      <li>Don't silently archive a large state file — flag the recommendation and wait for confirmation.</li>
+      <li>Don't use broad git commands (<code>checkout</code>/<code>reset</code>) on shared work to fix a wrong turn — restore only the agent's own last edit with a targeted patch.</li>
+      <li>Don't treat an Obsidian/wiki-style export as a database or source of truth.</li>
+      <li>Don't add a "should I continue?" checkpoint at a fixed number of turns.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">Install</div>
+    <h2 data-scramble aria-label="How to Install This in Another Project">How to Install This in Another Project</h2>
+    <ul>
+      <li>Copy the <a href="ai-agent-token-habits.md" download style="color:var(--teal)">Markdown file</a> into the new repo (e.g., <code>docs/token-burnout-optimization.md</code>).</li>
+      <li>If the agent supports "always-apply" per-file rules, create a summarized 20–30 line version that points to this doc for detail — don't duplicate the full content there.</li>
+      <li>If the agent supports "skills" or longer on-demand documents, move the full detail there and leave only the summary in the always-apply rule.</li>
+      <li>Adapt the session-memory filenames to the project's actual scheme — none of this requires a particular filename.</li>
+      <li>If multiple agents/tools work on the same repo, point all of them at the same doc instead of each keeping its own abbreviated version.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="gratitude">
+      <p>Shared as a small thank-you for visiting my portfolio. No email required, no strings attached — just a set of habits I actually use, written down so they're portable to whatever agent or repo you're working in. If it saves you one runaway session, it's done its job.</p>
+      <div class="gratitude-sign">— Dario Espinosa</div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="cs-footer">
+  <div class="cs-footer-inner">
+    <a class="gift-cta" href="ai-agent-token-habits.md" download style="margin-top:0">⬇ Download the .md file</a>
+    <a class="foot-back" href="index.html">↩ back to portfolio</a>
+  </div>
+</footer>
+
+<script>
+/* ── SCRAMBLE TEXT — reused pattern from case-study pages ─────────────── */
+(function(){
+  var CHARS='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#&%!@^*~<>?|=+';
+  var TOTAL_MS=500, FRAME_MS=1000/60;
+  function extractSegments(el){
+    var segs=[];
+    el.childNodes.forEach(function(n){
+      if(n.nodeType===3) segs.push({type:'text',val:n.nodeValue});
+      else if(n.nodeName==='BR') segs.push({type:'br'});
+    });
+    return segs;
+  }
+  function scramble(el){
+    if(el._scrambling) return;
+    el._scrambling=true;
+    el.classList.add('scrambled');
+    var segs=extractSegments(el), chars=[];
+    segs.forEach(function(seg){
+      if(seg.type==='text') seg.val.split('').forEach(function(c){ chars.push({final:c,resolved:c===' '}); });
+    });
+    var total=chars.length, totalFrames=Math.round(TOTAL_MS/FRAME_MS), elapsed=0;
+    function render(){
+      var progress=Math.min(1,elapsed/totalFrames);
+      var eased=1-Math.pow(1-progress,2);
+      var resolvedCount=Math.floor(eased*total);
+      for(var i=0;i<total;i++) chars[i].resolved=chars[i].final===' '||i<resolvedCount;
+      var cursor=0,html='';
+      segs.forEach(function(seg){
+        if(seg.type==='br'){html+='<br>';return;}
+        for(var ci=0;ci<seg.val.length;ci++,cursor++){
+          var ch=chars[cursor];
+          if(ch.resolved){ html+=ch.final; }
+          else{ html+='<span style="color:var(--teal);opacity:0.6" aria-hidden="true">'+CHARS[Math.floor(Math.random()*CHARS.length)]+'</span>'; }
+        }
+      });
+      el.innerHTML=html; elapsed++;
+      if(resolvedCount<total){ setTimeout(render,FRAME_MS); }
+      else{
+        var clean=''; segs.forEach(function(s){ clean+=s.type==='br'?'<br>':s.val; });
+        el.innerHTML=clean; el._scrambling=false;
+      }
+    }
+    render();
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ scramble(e.target); obs.unobserve(e.target); } });
+  },{threshold:0.3});
+  document.querySelectorAll('.block h2[data-scramble]').forEach(function(el){ obs.observe(el); });
+})();
+</script>
+<script src="effects.js"></script>
+</body>
+</html>
