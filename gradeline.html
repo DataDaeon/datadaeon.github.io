@@ -206,6 +206,10 @@ dialog#img-modal.is-open::backdrop{background:rgba(5,5,8,.85);backdrop-filter:bl
 /* ── ACCESSIBILITY: FOCUS STYLES ────────────────────────────────────────── */
 :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
 a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px}
+
+/* ── VISUAL CONTEXT GALLERY — Session 22 ─────────────────────────────── */
+.vc-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:640px){.vc-gallery{grid-template-columns:1fr}}
 </style>
   <meta name="description" content="Designing GradeLine, a mobile-first field platform for a national paving contractor — the sales bid, the dispatcher's desk, and the crew foreman's phone, built through a forked, versioned prototyping pipeline a founder could click through without touching code.">
   <meta name="author" content="Dario Espinosa">
@@ -307,11 +311,26 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
 <section class="block">
   <div class="block-inner">
     <div class="block-label">Visual Context</div>
-    <div style="border-radius:6px;overflow:hidden;cursor:zoom-in;max-width:480px" class="vc-img-wrap">
-      <img src="images/inline/demo-gradeline-mobile.svg" alt="Illustrative recreation — GradeLine mobile sign-in, role picker screen" loading="lazy" style="width:100%;height:auto;display:block;border-radius:6px;cursor:zoom-in;transition:opacity .2s,transform .2s">
-      <div class="slide-caption" style="margin-top:6px">Illustrative recreation — mobile sign-in and role picker</div>
+    <p style="margin-bottom:20px">Four screens from across the app — sign-in, dispatch, and the two live-AR surfaces the field crew actually leans on (lot measurement and before/after site verification).</p>
+    <div class="vc-gallery">
+      <div style="border-radius:6px;overflow:hidden;cursor:zoom-in" class="vc-img-wrap">
+        <img src="images/inline/demo-gradeline-mobile.svg" alt="Illustrative recreation — GradeLine mobile sign-in, role picker screen" loading="lazy" style="width:100%;height:auto;display:block;border-radius:6px;cursor:zoom-in;transition:opacity .2s,transform .2s">
+        <div class="slide-caption" style="margin-top:6px">Mobile sign-in &amp; role picker</div>
+      </div>
+      <div style="border-radius:6px;overflow:hidden;cursor:zoom-in" class="vc-img-wrap">
+        <img src="images/inline/demo-gradeline-route.svg" alt="Illustrative recreation — GradeLine live route and dispatch map" loading="lazy" style="width:100%;height:auto;display:block;border-radius:6px;cursor:zoom-in;transition:opacity .2s,transform .2s">
+        <div class="slide-caption" style="margin-top:6px">Live route &amp; dispatch map</div>
+      </div>
+      <div style="border-radius:6px;overflow:hidden;cursor:zoom-in" class="vc-img-wrap">
+        <img src="images/inline/demo-gradeline-ar-measure.svg" alt="Illustrative recreation — GradeLine live AR lot measurement" loading="lazy" style="width:100%;height:auto;display:block;border-radius:6px;cursor:zoom-in;transition:opacity .2s,transform .2s">
+        <div class="slide-caption" style="margin-top:6px">Live AR &#8212; auto lot measurement</div>
+      </div>
+      <div style="border-radius:6px;overflow:hidden;cursor:zoom-in" class="vc-img-wrap">
+        <img src="images/inline/demo-gradeline-ar-compare.svg" alt="Illustrative recreation — GradeLine AR ghost-overlay site verification" loading="lazy" style="width:100%;height:auto;display:block;border-radius:6px;cursor:zoom-in;transition:opacity .2s,transform .2s">
+        <div class="slide-caption" style="margin-top:6px">AR ghost-overlay site verification</div>
+      </div>
     </div>
-    <p class="demo-disclosure" style="margin-top:14px">The production prototypes, Figma libraries, and stakeholder-facing screens are client-confidential and withheld. Everything below is rebuilt for this portfolio with a fictional product name, fictional personas, and generalized data — grounded in the real mobile layout and the real design-system tokens, but with no client branding, real names, or real screens reproduced.</p>
+    <p class="demo-disclosure" style="margin-top:14px">The production prototypes, Figma libraries, and stakeholder-facing screens are client-confidential and withheld. Everything above is rebuilt for this portfolio with a fictional product name, fictional personas, and generalized data — grounded in the real mobile layouts and the real design-system tokens, but with no client branding, real names, or real screens reproduced.</p>
   </div>
 </section>
 

@@ -1,0 +1,93 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3 d3">
+  <title id="t3">Illustrative recreation — GradeLine live route &amp; dispatch map</title>
+  <desc id="d3">Generic recreation of a crew-lead's live route screen with map controls and a stop list — fictional product, fictional data, no client branding.</desc>
+
+  <defs>
+    <linearGradient id="bezel3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c1c26"/>
+      <stop offset="100%" stop-color="#101016"/>
+    </linearGradient>
+    <linearGradient id="mapbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef2e8"/>
+      <stop offset="100%" stop-color="#e3e9dd"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="#0d0d14"/>
+  <text x="400" y="30" text-anchor="middle" font-family="monospace" font-size="12" letter-spacing="1" fill="#50e3c2" opacity="0.7">GRADELINE · LIVE ROUTE · ILLUSTRATIVE</text>
+
+  <g transform="translate(275,46)">
+    <rect x="-6" y="-6" width="262" height="440" rx="34" fill="url(#bezel3)" stroke="#2c2c38" stroke-width="1.5"/>
+    <rect x="0" y="0" width="250" height="428" rx="28" fill="#ffffff"/>
+    <clipPath id="screenclip3"><rect x="0" y="0" width="250" height="428" rx="28"/></clipPath>
+    <g clip-path="url(#screenclip3)">
+
+      <!-- top bar -->
+      <rect x="0" y="0" width="250" height="46" fill="#ffffff"/>
+      <circle cx="22" cy="23" r="11" fill="#eef6fd" stroke="#0693e3" stroke-width="1.2"/>
+      <path d="M18 27 L22 15 L26 27 M19.5 23 L24.5 23" stroke="#0e2a47" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <text x="40" y="19" font-family="sans-serif" font-size="8" font-weight="700" fill="#101016">MON 6:50 AM</text>
+      <rect x="40" y="23" width="54" height="10" rx="5" fill="#eef6fd"/>
+      <text x="45" y="31" font-family="sans-serif" font-size="6.5" fill="#0693e3">Live route · 4 stops</text>
+      <circle cx="222" cy="23" r="9" fill="#f5f5f7"/>
+      <path d="M222 17 a5 5 0 0 1 5 5 v3 l1.4 2.2 h-12.8 L217 25 v-3 a5 5 0 0 1 5-5z" fill="#5b6670"/>
+
+      <!-- map area -->
+      <rect x="0" y="46" width="250" height="180" fill="url(#mapbg)"/>
+      <path d="M10 140 Q60 110 120 130 T240 100" stroke="#c7cdbb" stroke-width="3" fill="none"/>
+      <path d="M0 190 Q90 160 180 185 T250 170" stroke="#c7cdbb" stroke-width="3" fill="none"/>
+      <circle cx="60" cy="150" r="5" fill="#0693e3" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="130" cy="120" r="5" fill="#2e7d32" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="190" cy="160" r="6" fill="#0e2a47" stroke="#fff" stroke-width="2"/>
+      <path d="M62 148 Q95 128 128 122" stroke="#0e2a47" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+      <rect x="196" y="56" width="22" height="22" rx="6" fill="#ffffff" stroke="#d8dbe0"/>
+      <text x="207" y="71" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#5b6670">+</text>
+      <rect x="196" y="82" width="22" height="22" rx="6" fill="#ffffff" stroke="#d8dbe0"/>
+      <text x="207" y="97" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#5b6670">&#8211;</text>
+
+      <!-- sheet -->
+      <rect x="0" y="222" width="250" height="206" fill="#ffffff"/>
+      <rect x="16" y="234" width="76" height="16" rx="8" fill="#ffffff" stroke="#e4e6ea"/>
+      <text x="54" y="245" text-anchor="middle" font-family="sans-serif" font-size="6.5" fill="#5b6670">Route · T1</text>
+      <text x="16" y="268" font-family="sans-serif" font-size="12" font-weight="800" fill="#101016">My day &#183; sequenced</text>
+      <text x="16" y="280" font-family="sans-serif" font-size="6.5" fill="#9aa0ab">Monday 6:50 AM &#183; 4 stops &#183; 18 mi</text>
+
+      <rect x="16" y="290" width="90" height="16" rx="8" fill="#eafaf0" stroke="#bfe8cf"/>
+      <text x="61" y="301" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#2e7d32">Access OK</text>
+      <rect x="112" y="290" width="78" height="16" rx="8" fill="#fdf3e3" stroke="#f3dba8"/>
+      <text x="151" y="301" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#9a6a0c">Weather 1/5</text>
+
+      <rect x="16" y="314" width="218" height="26" rx="8" fill="#ffffff" stroke="#d8dbe0"/>
+      <text x="125" y="331" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#101016">Open in Maps</text>
+
+      <rect x="16" y="350" width="218" height="34" rx="6" fill="#eef6fd"/>
+      <text x="24" y="363" font-family="sans-serif" font-size="6.5" fill="#0e2a47">Office sequenced the day &#8212;</text>
+      <text x="24" y="373" font-family="sans-serif" font-size="6.5" fill="#0e2a47">clock in from the active stop.</text>
+
+      <text x="16" y="398" font-family="sans-serif" font-size="7" font-weight="700" fill="#101016">Stop 1 &#183; ETA 6:45 AM</text>
+      <rect x="140" y="390" width="34" height="12" rx="6" fill="#eafaf0" stroke="#bfe8cf"/>
+      <text x="157" y="399" text-anchor="middle" font-family="sans-serif" font-size="5.5" fill="#2e7d32">Done</text>
+      <text x="16" y="410" font-family="sans-serif" font-size="6" fill="#9aa0ab">Site A &#183; North Lot</text>
+
+      <!-- bottom tabs -->
+      <rect x="0" y="400" width="250" height="28" fill="#ffffff" stroke="#eceef1"/>
+    </g>
+    <rect x="0" y="400" width="250" height="28" fill="#ffffff"/>
+    <g font-family="sans-serif" font-size="6" fill="#9aa0ab" text-anchor="middle">
+      <text x="30" y="420">Home</text>
+      <text x="80" y="420">Calendar</text>
+      <text x="130" y="420" fill="#0693e3" font-weight="700">Route</text>
+      <text x="175" y="420">Arrive</text>
+      <text x="215" y="420">Daily</text>
+    </g>
+  </g>
+
+  <g opacity="0.55" font-family="monospace" font-size="12" fill="#9aa0ab">
+    <rect x="46" y="150" width="150" height="40" rx="10" fill="#141420" stroke="#262634"/>
+    <circle cx="68" cy="170" r="5" fill="#2e7d32"/>
+    <text x="84" y="174">Stop done</text>
+    <rect x="600" y="250" width="150" height="40" rx="10" fill="#141420" stroke="#262634"/>
+    <circle cx="622" cy="270" r="5" fill="#f4a11e"/>
+    <text x="638" y="274">Weather flag</text>
+  </g>
+</svg>

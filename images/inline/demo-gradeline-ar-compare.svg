@@ -1,0 +1,67 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t5 d5">
+  <title id="t5">Illustrative recreation — GradeLine AR ghost-overlay site verification</title>
+  <desc id="d5">Generic recreation of an AR "ghost overlay" screen that lines up a live camera view with a prior site photo to verify a flagged spot — fictional product, fictional persona, no client branding.</desc>
+
+  <defs>
+    <linearGradient id="arbg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#171c2e"/>
+      <stop offset="100%" stop-color="#0a0f1a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="#0d0d14"/>
+  <text x="400" y="30" text-anchor="middle" font-family="monospace" font-size="12" letter-spacing="1" fill="#50e3c2" opacity="0.7">GRADELINE · AR GHOST COMPARE · ILLUSTRATIVE</text>
+
+  <g transform="translate(140,54)">
+    <rect x="-8" y="-8" width="536" height="400" rx="20" fill="#1c1c26" stroke="#2c2c38" stroke-width="1.5"/>
+    <rect x="0" y="0" width="520" height="384" rx="14" fill="url(#arbg2)"/>
+    <clipPath id="arclip2"><rect x="0" y="0" width="520" height="384" rx="14"/></clipPath>
+    <g clip-path="url(#arclip2)">
+
+      <!-- top controls -->
+      <rect x="18" y="14" width="108" height="30" rx="9" fill="#182235"/>
+      <circle cx="33" cy="29" r="9" fill="#232d42"/>
+      <path d="M29 25 L37 33 M37 25 L29 33" stroke="#c7ccd4" stroke-width="1.6" stroke-linecap="round"/>
+      <text x="50" y="33" font-family="sans-serif" font-size="9.5" font-weight="700" fill="#ffffff">Ghost 40%</text>
+
+      <rect x="134" y="14" width="86" height="30" rx="9" fill="#232d42" opacity="0.7"/>
+      <text x="177" y="33" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#9fb3cf">&#8596; Lined up</text>
+
+      <rect x="396" y="14" width="110" height="30" rx="9" fill="#123424" stroke="#1f5a3b"/>
+      <circle cx="410" cy="29" r="4" fill="#4fbf7a"/>
+      <text x="421" y="33" font-family="sans-serif" font-size="9" font-weight="700" fill="#aef0c6">PINNED</text>
+
+      <!-- dashed registration frame -->
+      <rect x="20" y="58" width="480" height="236" rx="10" fill="none" stroke="#3a7a4f" stroke-width="2" stroke-dasharray="7 5"/>
+      <rect x="30" y="68" width="150" height="20" rx="6" fill="#0d1420" opacity="0.7"/>
+      <text x="38" y="82" font-family="sans-serif" font-size="8.5" fill="#9fb3cf" letter-spacing="0.5">MARISOL &#183; SITE VISIT</text>
+
+      <!-- ghost plane -->
+      <polygon points="160,160 340,140 356,220 176,246" fill="#8ea3cc" opacity="0.35" stroke="#c6d3ec" stroke-width="1.3"/>
+      <ellipse cx="128" cy="185" rx="42" ry="60" fill="#5b6eab" opacity="0.18" stroke="#8ea3cc" stroke-dasharray="3 3"/>
+      <ellipse cx="392" cy="175" rx="42" ry="60" fill="#5b6eab" opacity="0.18" stroke="#8ea3cc" stroke-dasharray="3 3"/>
+
+      <rect x="30" y="94" width="196" height="40" rx="9" fill="#2a2450" opacity="0.85" stroke="#5a4aa8"/>
+      <text x="40" y="110" font-family="sans-serif" font-size="9.5" fill="#e3ddff">Ghost &#183; drainage pipe +</text>
+      <text x="40" y="123" font-family="sans-serif" font-size="9.5" fill="#e3ddff">curb stain</text>
+
+      <rect x="30" y="138" width="170" height="22" rx="8" fill="#13203a" stroke="#255a8f"/>
+      <text x="40" y="153" font-family="sans-serif" font-size="8.5" fill="#9fcaff">Live &#183; north curb &#183; lot 12</text>
+
+      <rect x="342" y="94" width="150" height="26" rx="8" fill="#123424" stroke="#1f5a3b"/>
+      <text x="354" y="111" font-family="sans-serif" font-size="8.5" fill="#aef0c6">Registration looks good</text>
+
+      <text x="260" y="316" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#aef0c6">Spot pinned &#183; matches Marisol&#8217;s photo</text>
+      <text x="260" y="340" text-anchor="middle" font-family="sans-serif" font-size="8.5" fill="#8f97a8">&#9635; Can&#8217;t see overlay? Switch to photos</text>
+    </g>
+  </g>
+
+  <g opacity="0.55" font-family="monospace" font-size="12" fill="#9aa0ab">
+    <rect x="30" y="70" width="150" height="40" rx="10" fill="#141420" stroke="#262634"/>
+    <circle cx="52" cy="90" r="5" fill="#a78bfa"/>
+    <text x="68" y="94">Before/after</text>
+    <rect x="620" y="390" width="150" height="40" rx="10" fill="#141420" stroke="#262634"/>
+    <circle cx="642" cy="410" r="5" fill="#2e7d32"/>
+    <text x="658" y="414">Verified on-site</text>
+  </g>
+</svg>
