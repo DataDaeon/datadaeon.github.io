@@ -20,20 +20,30 @@
   --mono:'Geist Mono','SF Mono',ui-monospace,monospace;
   --max:920px;--r:6px;
   --fs-2xs:0.6875rem;--fs-xs:0.75rem;--fs-sm:0.875rem;--fs-base:1rem;--fs-lg:1.25rem;--fs-xl:1.5rem;--fs-2xl:1.625rem;
+  /* ── GLASS / VENGEANCE-INSPIRED TOKENS (Session 20) ───────────────────── */
+  --glass-bg:rgba(255,255,255,0.035);--glass-bg-hi:rgba(255,255,255,0.07);
+  --glass-border:rgba(255,255,255,0.11);--glass-border-hi:rgba(255,255,255,0.22);
+  --glass-blur:blur(22px) saturate(1.5);
+  --glow-teal:0 0 1px rgba(80,227,194,0.9),0 0 24px rgba(80,227,194,0.22);
+  --glow-violet:0 0 1px rgba(167,139,250,0.9),0 0 24px rgba(167,139,250,0.22);
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{background:var(--bg);color:var(--t1);font-family:var(--font);font-size:var(--fs-base);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1px solid var(--border-w);background:rgba(5,5,8,0.88);backdrop-filter:blur(24px) saturate(1.4);display:flex;align-items:center;padding:0 32px;gap:12px}
+/* NAV — floating glass dock (Session 20) */
+.nav-dock-wrap{position:fixed;top:14px;left:0;right:0;z-index:100;display:flex;justify-content:center;pointer-events:none;transition:top .3s cubic-bezier(.16,1,.3,1)}
+nav{pointer-events:auto;width:min(760px,92vw);height:52px;border-radius:999px;border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:var(--glass-blur);box-shadow:0 10px 36px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.05);display:flex;align-items:center;padding:0 10px 0 22px;gap:12px;transition:background .3s ease,border-color .3s ease,box-shadow .3s ease,transform .3s cubic-bezier(.16,1,.3,1)}
+.nav-dock-wrap.scrolled{top:10px}
+.nav-dock-wrap.scrolled nav{background:var(--glass-bg-hi);border-color:var(--glass-border-hi);box-shadow:0 14px 44px rgba(0,0,0,0.5),0 0 0 1px rgba(80,227,194,0.08),inset 0 1px 0 rgba(255,255,255,0.07)}
 .nav-name{font-family:var(--mono);font-size:var(--fs-xs);font-weight:600;color:var(--t1);text-decoration:none;letter-spacing:0.02em}
 .nav-sep{color:var(--t4);font-size:var(--fs-sm)}
 .nav-role{font-family:var(--mono);font-size:var(--fs-xs);color:var(--t3)}
-.nav-right{margin-left:auto;display:flex;align-items:center;gap:22px}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:18px;background:rgba(255,255,255,0.03);border:1px solid var(--border-w);border-radius:999px;padding:7px 8px 7px 16px}
 .nav-link{font-family:var(--mono);font-size:var(--fs-xs);color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s}
 .nav-link:hover{color:var(--teal)}
 .nav-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:pulse 2.4s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 10px var(--teal)}50%{opacity:0.35;box-shadow:0 0 3px var(--teal)}}
+@media(max-width:720px){.nav-dock-wrap{top:0}nav{width:100%;border-radius:0;border-left:none;border-right:none;border-top:none}.nav-dock-wrap.scrolled{top:0}}
 
 /* HERO */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
@@ -46,7 +56,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .ring:nth-child(4){width:1080px;height:1080px;animation:rb 9s ease-in-out -7s infinite}
 @keyframes rb{0%,100%{opacity:.4;transform:translateY(-50%) scale(1)}50%{opacity:.75;transform:translateY(-50%) scale(1.015)}}
 
-.hero-content{position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 360px;align-items:center;gap:56px;width:100%;padding-top:56px}
+.hero-content{position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 360px;align-items:center;gap:56px;width:100%;padding-top:92px}
 .hero-left{display:flex;flex-direction:column}
 .hero-eyebrow{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:0.14em;color:rgba(80,227,194,0.65);margin-bottom:22px;display:flex;align-items:center;gap:12px;text-transform:uppercase}
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:rgba(80,227,194,0.5)}
@@ -321,7 +331,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 
 /* 1. Scroll progress bar (under nav) */
 #scroll-progress {
-  position: fixed; top: 48px; left: 0; height: 2px; width: 0%;
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
   background: linear-gradient(to right, var(--teal), var(--violet));
   box-shadow: 0 0 8px rgba(80,227,194,0.45);
   z-index: 101; pointer-events: none;
@@ -440,6 +450,46 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
 }
 /* ────────────────────────────────────────────────────────────────────────── */
 
+/* ── AMBIENT BACKGROUND RAYS — Vengeance-inspired, Session 20 ───────────
+   Fixed, full-viewport, behind all content (z-index -1). Three slow-drifting
+   radial blobs (teal / violet / dim) rendered with blur, giving the whole
+   page a cinematic glass-over-light-field backdrop instead of flat black.
+   Frozen under prefers-reduced-motion (still visible, just static). ────── */
+.ambient-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.ambient-bg .ray{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.55;will-change:transform}
+.ambient-bg .ray1{width:52vw;height:52vw;max-width:720px;max-height:720px;top:-16vw;left:-10vw;background:radial-gradient(circle,rgba(80,227,194,0.16),transparent 70%);animation:ray-drift-1 26s ease-in-out infinite}
+.ambient-bg .ray2{width:46vw;height:46vw;max-width:640px;max-height:640px;bottom:-14vw;right:-8vw;background:radial-gradient(circle,rgba(167,139,250,0.14),transparent 70%);animation:ray-drift-2 32s ease-in-out infinite}
+.ambient-bg .ray3{width:34vw;height:34vw;max-width:480px;max-height:480px;top:38vh;left:52vw;background:radial-gradient(circle,rgba(80,227,194,0.08),transparent 72%);animation:ray-drift-3 22s ease-in-out infinite}
+.ambient-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(5,5,8,0.4) 100%)}
+@keyframes ray-drift-1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(4vw,3vw) scale(1.08)}}
+@keyframes ray-drift-2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3vw,-4vw) scale(1.1)}}
+@keyframes ray-drift-3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-2vw,3vw) scale(0.94)}}
+@media(prefers-reduced-motion:reduce){.ambient-bg .ray{animation:none}}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── GLASS SURFACES — hero stats, about bio, career timeline, contact,
+   work cards. Applies translucent/blur treatment on top of existing layout,
+   no DOM changes required. Session 20. ─────────────────────────────────── */
+.hero-stats{border:1px solid var(--glass-border);border-radius:14px;background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
+.stat{border-right:1px solid var(--glass-border)}
+.cs-card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid transparent;transition:opacity .5s ease,transform .5s ease,background .25s ease,box-shadow .3s ease,border-color .3s ease}
+.cs-card:hover{background:var(--glass-bg-hi);border-color:rgba(80,227,194,0.28);box-shadow:var(--glow-teal)}
+#founder-mode .cs-card:hover{border-color:rgba(80,227,194,0.28);box-shadow:var(--glow-teal)}
+.cs-grid{background:var(--glass-border)}
+.cs-thumb img{filter:brightness(.86) saturate(.92)}
+.about-grid{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:var(--glass-blur);border-radius:16px;padding:36px}
+.career-timeline{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:var(--glass-blur);border-radius:16px;padding:36px;margin-top:52px;border-top:1px solid var(--glass-border)}
+.contact-strip{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border)}
+.gift-trigger{background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
+@media(max-width:720px){.about-grid,.career-timeline{padding:24px;border-radius:12px}}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── COMPETENCE PILLARS + STACK LINE — about section, Session 20 ────────── */
+.pillar-row{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 18px}
+.pillar-chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--teal);background:var(--teal-dim);border:1px solid rgba(80,227,194,0.22);border-radius:999px;padding:6px 13px;white-space:nowrap}
+.about-stack{font-size:12px !important;color:var(--t3) !important;line-height:1.7 !important;font-family:var(--mono);letter-spacing:.01em;border-top:1px solid var(--border-w);padding-top:16px;margin-top:4px}
+/* ────────────────────────────────────────────────────────────────────────── */
+
 </style>
   <meta name="description" content="Lead Experience Designer at SoftServe with 15+ years building digital products across telecom, healthcare, energy, and spatial computing. Portfolio of UX case studies 2017–2026.">
   <meta name="author" content="Dario Espinosa">
@@ -492,6 +542,13 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
 <body>
 <a href="#main-content" style="position:absolute;left:-9999px;top:4px;z-index:9999;background:#50e3c2;color:#050508;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none" onfocus="this.style.left='4px'" onblur="this.style.left='-9999px'">Skip to main content</a>
 
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ray ray1"></div>
+  <div class="ray ray2"></div>
+  <div class="ray ray3"></div>
+</div>
+
+<div class="nav-dock-wrap" id="nav-dock-wrap">
 <nav>
   <a class="nav-name" href="#">dario-espinosa</a>
   <span class="nav-sep">/</span>
@@ -502,6 +559,7 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
     <div class="nav-dot" title="Available for new opportunities"></div>
   </div>
 </nav>
+</div>
 
 <main id="main-content">
 <div class="hero" id="hero">
@@ -578,7 +636,7 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
           <div class="cs-metric"><span class="cs-mval">1–2m</span><span class="cs-mlabel">ML response</span></div>
           <div class="cs-metric"><span class="cs-mval">v7</span><span class="cs-mlabel">prototype iterations</span></div>
         </div>
-        <div class="cs-foot"><span class="cs-meta">energy-services · TETRA Technologies · in progress</span><span class="cs-arrow">&#8594;</span></div>
+        <div class="cs-foot"><span class="cs-meta">energy-services · oil-field services company · in progress</span><span class="cs-arrow">&#8594;</span></div>
       </div>
     </div>
 
@@ -668,7 +726,7 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
         <span class="cs-num">03 / 08</span>
       </div>
       <div class="cs-title">Modernizing Railway Systems: Back Office Overhaul</div>
-      <p class="cs-xyz">Redesigned a safety-critical legacy C++ system with a component-driven Figma + Flutter design system, cutting operator task time by <strong>40%</strong> and onboarding time by 60%.</p>
+      <p class="cs-xyz">After a fatal collision exposed a decades-old dispatcher tool, I led the full redesign solo &mdash; research, workflow restructuring, and a component-driven Figma + Flutter UI &mdash; with a direct line to the Product Director and no design committee in between. Operator task time dropped <strong>40%</strong>, onboarding time 60%.</p>
       <div class="cs-metrics">
         <div class="cs-metric"><span class="cs-mval">&minus;40%</span><span class="cs-mlabel">task time</span></div>
         <div class="cs-metric"><span class="cs-mval">&minus;60%</span><span class="cs-mlabel">onboarding</span></div>
@@ -684,7 +742,7 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
         <span class="cs-num">04 / 08</span>
       </div>
       <div class="cs-title">Digital Transformation: AEM & eCommerce Evolution</div>
-      <p class="cs-xyz">Led AT&amp;T M&eacute;xico&rsquo;s 15-year digital transformation through AEM and a complete eCommerce redesign, boosting online sales by <strong>500%</strong> and reaching 96% accessibility compliance.</p>
+      <p class="cs-xyz">Led AT&amp;T M&eacute;xico&rsquo;s 15-year digital transformation across the flagship site, eCommerce platform, and dozens of microsites &mdash; including a <strong>2021 AEM design system</strong> that moved seven teams from Photoshop into one shared Figma component library. Online sales rose <strong>500%</strong>, with 96% accessibility compliance.</p>
       <div class="cs-metrics">
         <div class="cs-metric"><span class="cs-mval">+500%</span><span class="cs-mlabel">online sales</span></div>
         <div class="cs-metric"><span class="cs-mval">96%</span><span class="cs-mlabel">accessibility</span></div>
@@ -700,7 +758,7 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
         <span class="cs-num">05 / 08</span>
       </div>
       <div class="cs-title">From Philosophy to Digital Engagement: Life Coaching Platform</div>
-      <p class="cs-xyz">Turned a philosophy book into a mobile-first platform during a COVID-driven pivot, in under 5 months. User retention rose <strong>40%</strong>, engagement 55%.</p>
+      <p class="cs-xyz">Turned a bestselling self-help book into a product people would actually open daily &mdash; not preachy, more like a coach than a checklist. ~50 interviews shaped the IA and gamification framework behind a COVID-era pivot, in under 5 months. Retention rose <strong>40%</strong>, engagement 55%.</p>
       <div class="cs-metrics">
         <div class="cs-metric"><span class="cs-mval">+40%</span><span class="cs-mlabel">retention</span></div>
         <div class="cs-metric"><span class="cs-mval">+55%</span><span class="cs-mlabel">engagement</span></div>
@@ -716,13 +774,13 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
         <span class="cs-num">06 / 08</span>
       </div>
       <div class="cs-title">Building a UX Powerhouse: Center of Excellence</div>
-      <p class="cs-xyz">Built a complete UX Center of Excellence from scratch in a regulated healthcare environment. Design-to-dev efficiency improved <strong>50%</strong>; user adoption, 80%.</p>
+      <p class="cs-xyz">First designer hired at a live healthcare SaaS platform with no design function. Built the UX practice and the product at the same time &mdash; the rebuilt admin flow now ships under one promise: <strong>&ldquo;Manage benefits in under an hour per month.&rdquo;</strong></p>
       <div class="cs-metrics">
         <div class="cs-metric"><span class="cs-mval">+50%</span><span class="cs-mlabel">dev efficiency</span></div>
         <div class="cs-metric"><span class="cs-mval">+80%</span><span class="cs-mlabel">user adoption</span></div>
-        <div class="cs-metric"><span class="cs-mval">0&rarr;CoE</span><span class="cs-mlabel">built from zero</span></div>
+        <div class="cs-metric"><span class="cs-mval">&minus;70%</span><span class="cs-mlabel">a11y complaints</span></div>
       </div>
-      <div class="cs-foot"><span class="cs-meta">healthcare-saas &middot; regulated env</span><span class="cs-arrow">&#8594;</span></div>
+      <div class="cs-foot"><span class="cs-meta">healthcare-saas &middot; 0&rarr;CoE &middot; regulated env</span><span class="cs-arrow">&#8594;</span></div>
     </div>
 
     <div class="cs-card reveal" role="link" tabindex="0" aria-label="Exploring the Future: Metaverse Experience — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='metaverse.html'" onclick="location.href='metaverse.html'" style="transition-delay:.35s;cursor:pointer">
@@ -924,9 +982,16 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
   <h2 class="section-title" data-scramble aria-label="Turning system complexity into human clarity">Turning system complexity<br>into human clarity</h2>
   <div class="about-grid">
     <div class="about-bio">
-      <p>Multidisciplinary Experience Designer with <strong>18+ years</strong> leading UX strategy, product design, and design systems for enterprise-scale digital products, from startups to Fortune 500 companies.</p>
-      <p>My work blends <strong>user research</strong>, <strong>business strategy</strong>, and <strong>technical execution</strong>. I like taking a complex legacy system apart and turning it into something people can actually use, in ways that show up in the numbers.</p>
-      <p>Based in <strong>Chiapas, MX</strong>. Recognized with the <strong>2020 AT&T Accessibility in Action Award</strong> for inclusive design at national scale. Currently at SoftServe spanning healthcare, construction SaaS, analytics, and emerging tech (XR / Metaverse).</p>
+      <p>Multidisciplinary Experience Designer with <strong>18+ years</strong> shipping across field operations, industrial software, enterprise platforms, and healthcare products &mdash; from startups to Fortune 500 companies.</p>
+      <p>I prototype in code using <strong>Claude and coding agents</strong>, which means stakeholders see a working interface, not a static mockup, from the first review. Research-grounded, systems-minded &mdash; I like taking a complex legacy system apart and turning it into something people can actually use, in ways that show up in the numbers.</p>
+      <p>Based in <strong>Chiapas, MX</strong>. Recognized with the <strong>2020 AT&amp;T International Accessibility in Action Award</strong> for inclusive design at national scale. Currently at SoftServe spanning healthcare, construction SaaS, analytics, and emerging tech (XR / Metaverse).</p>
+      <div class="pillar-row" role="list" aria-label="Competence focus">
+        <span class="pillar-chip" role="listitem">IA &amp; Design Systems</span>
+        <span class="pillar-chip" role="listitem">Accessibility</span>
+        <span class="pillar-chip" role="listitem">Product Design</span>
+        <span class="pillar-chip" role="listitem">AI-Native Prototyping</span>
+      </div>
+      <p class="about-stack">Design &amp; prototyping: Figma, Affinity, Sketch, Adobe CC, AEM, Penpot. AI agents &amp; dev: Claude, Cursor, local LLMs. Research: Miro, Maze, UserTesting, HotJar.</p>
     </div>
     <div>
       <div class="skills-list">
@@ -1476,6 +1541,21 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
       if (!ticking) { requestAnimationFrame(update); ticking = true; }
     }, { passive: true });
     update();
+  })();
+
+  /* ── 1b. NAV DOCK — toggle .scrolled once page scrolls past hero top ── */
+  (function () {
+    var wrap = document.getElementById('nav-dock-wrap');
+    if (!wrap) return;
+    var ticking2 = false;
+    function updateDock() {
+      wrap.classList.toggle('scrolled', window.scrollY > 24);
+      ticking2 = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking2) { requestAnimationFrame(updateDock); ticking2 = true; }
+    }, { passive: true });
+    updateDock();
   })();
 
   /* ── 2. HERO STAT COUNT-UPS ("18+", "80%", "1.5k") ─────────────────── */
