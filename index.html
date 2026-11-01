@@ -56,7 +56,7 @@ nav{pointer-events:auto;width:min(760px,92vw);height:52px;border-radius:999px;bo
 .ring:nth-child(4){width:1080px;height:1080px;animation:rb 9s ease-in-out -7s infinite}
 @keyframes rb{0%,100%{opacity:.4;transform:translateY(-50%) scale(1)}50%{opacity:.75;transform:translateY(-50%) scale(1.015)}}
 
-.hero-content{position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 360px;align-items:center;gap:56px;width:100%;padding-top:92px}
+.hero-content{position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr;align-items:center;gap:56px;width:100%;padding-top:92px}
 .hero-left{display:flex;flex-direction:column}
 .hero-eyebrow{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:0.14em;color:rgba(80,227,194,0.65);margin-bottom:22px;display:flex;align-items:center;gap:12px;text-transform:uppercase}
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:rgba(80,227,194,0.5)}
@@ -72,21 +72,6 @@ h1.hero-name{font-size:clamp(56px,7.5vw,88px);font-weight:800;letter-spacing:-0.
 .stat:last-child{border-right:none}
 .stat-val{font-family:var(--mono);font-size:var(--fs-lg);font-weight:700;color:var(--teal);letter-spacing:-0.04em;line-height:1}
 .stat-label{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.07em;text-transform:uppercase}
-
-/* PORTRAIT */
-.hero-portrait{position:relative;flex-shrink:0}
-
-/* PORTRAIT */
-.portrait-img-main {
-  width: 100%;
-  display: block;
-  border-radius: 12px;
-  mask-image: radial-gradient(ellipse 90% 88% at 50% 42%, black 42%, transparent 78%);
-  -webkit-mask-image: radial-gradient(ellipse 90% 88% at 50% 42%, black 42%, transparent 78%);
-  animation: pin .7s ease both;
-}
-@keyframes pin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.portrait-label{text-align:center;margin-top:10px;font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.06em}
 
 /* SCROLL CUE */
 .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2}
@@ -188,7 +173,6 @@ footer{max-width:var(--max);margin:0 auto;padding:22px 32px;display:flex;justify
 /* RESPONSIVE */
 @media(max-width:720px){
   .hero-content{grid-template-columns:1fr;gap:40px;padding:0 20px;padding-top:64px}
-  .hero-portrait{max-width:280px;margin:0 auto}
   .cs-grid{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr}
   .contact-inner{flex-direction:column;text-align:center}
@@ -573,7 +557,7 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
   <div class="hero-content">
     <div class="hero-left">
       <div class="hero-eyebrow">Portfolio &middot; 2025</div>
-      <h1 class="hero-name" id="hero-name" aria-label="Dario Espinosa"></h1>
+      <h1 class="hero-name" id="hero-name" aria-label="Dario Espinosa, Lead Experience Designer"></h1>
       <p class="hero-tagline">
         18+ years turning <em>complex systems</em> into clear experiences.
         I work across Enterprise UX, DesignOps, Accessibility &amp; AI-augmented product.
@@ -584,11 +568,6 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
         <div class="stat"><span class="stat-val">70%</span><span class="stat-label">a11y reduction</span></div>
         <div class="stat"><span class="stat-val">1.5k</span><span class="stat-label">metaverse visitors</span></div>
       </div>
-    </div>
-    <div class="hero-portrait">
-      <!-- dead hidden portrait removed (Session 10c) -->
-      <img src="images/me.jpg" alt="Dario Espinosa" class="portrait-img-main">
-      <div class="portrait-label">// dario-espinosa &middot; san-cristobal-mx</div>
     </div>
   </div>
   <div class="scroll-cue" aria-hidden="true">
@@ -1149,9 +1128,12 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
 (function(){
   var el = document.getElementById('hero-name');
   var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  // "Dario Espinosa" now lives in the hero canvas background wordmark
+  // (see the PIXEL HERO BACKGROUND block below), so this headline shows the
+  // role by default and reveals the name on hover instead of repeating it.
   var words = [
-    { letters: 'DARIO',    hover: 'EXPERIENCE', id: 'gw1' },
-    { letters: 'ESPINOSA', hover: 'DESIGNER',   id: 'gw2' },
+    { letters: 'EXPERIENCE', hover: 'DARIO',    id: 'gw1' },
+    { letters: 'DESIGNER',   hover: 'ESPINOSA', id: 'gw2' },
   ];
 
   // Build HTML: each word in its own glitch container
@@ -1207,14 +1189,19 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
 // Omarchy-style (omarchy.org) glitch-pixel wordmark: a canvas-based pixel
 // grid spells "DARIO ESPINOSA" in a blocky 5×7 dot-matrix font (violet→teal
 // vertical gradient), surrounded by a sparse scattered-dot field weighted
-// toward the corners. On load, every "on" cell gets a randomized delay and
-// eases in (same staggered-reveal idea as the scramble-text effect
-// elsewhere on this page, applied at pixel-block granularity instead of
-// letter granularity), then settles into a slow per-cell twinkle. Matches
-// Omarchy's own hero background: confirmed via direct inspection that its
-// canvas effect is a one-time load-in reveal + ambient twinkle, not a
-// mouse- or scroll-reactive effect, so this mirrors that same behavior
-// rather than adding pointer-tracking that the reference site doesn't have.
+// toward the corners. This is now the one place on the page the full name
+// is spelled out — the hero-left headline above shows the role instead and
+// reveals the name on hover, to avoid repeating it.
+// On load, every "on" cell gets a randomized delay and eases in (same
+// staggered-reveal idea as the scramble-text effect elsewhere on this page,
+// applied at pixel-block granularity instead of letter granularity), then
+// continues indefinitely as a slow per-cell twinkle — it does not settle
+// into a static image. Deliberately not pointer- or scroll-reactive, which
+// matches Omarchy's own hero background per a rigorous reverse-engineering
+// pass (instrumented draw-call counting + pixel-hash hover testing; see
+// research/omarchy-hero-reverse-engineering.md for the full writeup and its
+// OBSERVED/INFERRED/UNKNOWN findings) — so this mirrors that same restraint
+// rather than adding pointer-tracking the reference site doesn't have.
 // Entirely vanilla canvas — no dependency, replacing the old Three.js CDN
 // particle field (removed) with something both more on-brand and lighter.
 (function(){
