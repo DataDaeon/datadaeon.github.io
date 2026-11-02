@@ -127,8 +127,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .foot-link.teal{color:var(--teal)}
 .foot-back{font-family:var(--mono);font-size:10px;color:var(--t3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color .15s}
 .foot-back:hover{color:var(--teal)}
-/* Tetra accent strip */
-.tetra-strip{height:3px;background:linear-gradient(90deg,#005495,#38C6F4,#DAE24C);opacity:0.8}
+/* BlendOps accent strip */
+.blendops-strip{height:3px;background:linear-gradient(90deg,#005495,#38C6F4,#DAE24C);opacity:0.8}
 @media(max-width:680px){
   nav{padding:0 16px}.nav-role{display:none}
   .cs-hero{padding:80px 20px 40px}.cs-hero h1{font-size:36px}
@@ -340,11 +340,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   <meta name="description" content="Replacing a decades-old Excel model with an ML-driven web app for oil-well fluid optimization. AI-assisted design process using Claude. 7 prototype iterations to React-ready fidelity.">
   <meta name="author" content="Dario Espinosa">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-  <link rel="canonical" href="https://darioespinosa.design/tetra.html">
+  <link rel="canonical" href="https://darioespinosa.design/blendops.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://darioespinosa.design/tetra.html">
+  <meta property="og:url" content="https://darioespinosa.design/blendops.html">
   <meta property="og:title" content="Replacing Legacy Tools: AI-Powered Blend Optimizer · Dario Espinosa">
   <meta property="og:description" content="Replacing a decades-old Excel model with an ML-driven web app for oil-well fluid optimization. AI-assisted design process using Claude. 7 prototype iterations to React-ready fidelity.">
   <meta property="og:image" content="https://darioespinosa.design/og-image.png">
@@ -371,7 +371,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     },
     "description": "Replacing a decades-old Excel model with an ML-driven web app for oil-well fluid optimization. AI-assisted design process using Claude. 7 prototype iterations to React-ready fidelity.",
     "keywords": "UX design, AI, machine learning, product design, energy sector, React, Figma",
-    "url": "https://darioespinosa.design/tetra.html",
+    "url": "https://darioespinosa.design/blendops.html",
     "inLanguage": "en"
   }
   </script>
@@ -391,7 +391,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   </defs>
 </svg>
 
-<div class="tetra-strip"></div>
+<div class="blendops-strip"></div>
 
 <nav>
   <a class="nav-name" href="index.html">dario-espinosa</a>
@@ -527,7 +527,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <div class="block-label">Process · D3 Visualization</div>
     <h2 data-scramble aria-label="How AI Compressed the Design Loop">How AI Compressed the Design Loop</h2>
     <p>The diagram maps the real flow of inputs, AI-augmented work, and deliverables across the BlendOps engagement. Link weight reflects dependency intensity: client domain knowledge was the bottleneck that determined AI quality. Hover any node or link for context.</p>
-    <div id="tetra-sankey" style="width:100%;margin-top:32px;position:relative;min-height:420px"></div>
+    <div id="blendops-sankey" style="width:100%;margin-top:32px;position:relative;min-height:420px"></div>
     <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:18px">
       <span style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3)"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#6b7280"></span>Inputs</span>
       <span style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3)"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#a78bfa"></span>AI-augmented</span>
@@ -540,7 +540,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <script>
 /* ── BLENDOPS SANKEY — AI-Assisted Design Flow (D3 v7 + d3-sankey) ──────── */
 (function(){
-  var container = document.getElementById('tetra-sankey');
+  var container = document.getElementById('blendops-sankey');
   if (!container) return;
   var fired = false;
 
@@ -870,7 +870,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       <!-- Right: animated product color swatch reorder -->
       <div>
         <div style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px">// drag to reorder</div>
-        <div id="tetra-swatches" style="display:flex;flex-direction:column;gap:8px;user-select:none">
+        <div id="blendops-swatches" style="display:flex;flex-direction:column;gap:8px;user-select:none">
         </div>
         <div style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);margin-top:14px;line-height:1.6">
           Token hierarchy drives every decision: structural → interactive → commit action.
@@ -892,7 +892,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     { hex:'#FF6B6B', name:'Error / Alert', role:'Validation failures · Critical states',token:'--color-error'   },
   ];
 
-  var container = document.getElementById('tetra-swatches');
+  var container = document.getElementById('blendops-swatches');
   if (!container) return;
 
   var items = [];
@@ -1062,8 +1062,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   <div class="cs-footer-inner">
     <a class="foot-back" href="index.html">← back to portfolio</a>
     <div class="foot-nav">
-      <a class="foot-link" href="nielseniq.html">Analytics Dashboard ↗</a>
-      <a class="foot-link" href="siemens.html">Railway Back Office ↗</a>
+      <a class="foot-link" href="nielseniq.html">NielsenIQ ↗</a>
+      <a class="foot-link" href="siemens.html">Siemens ↗</a>
       <a class="foot-link teal" href="index.html#work">all work ↗</a>
     </div>
   </div>

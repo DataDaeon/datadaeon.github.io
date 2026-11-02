@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Building a UX Powerhouse: UX Center of Excellence · Dario Espinosa</title>
+<title>Optimizing User Research at Scale · Dario Espinosa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -72,74 +72,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .slide img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
 .slide-caption{font-family:var(--mono);font-size:10px;color:var(--t3);margin-top:8px;letter-spacing:0.03em}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
-/* Illustrative demo panel — generic, reused per NDA-flagged project (Session 12) */
-.demo-disclosure{font-family:var(--mono);font-size:11px;color:var(--t3);letter-spacing:.02em;margin:0 0 16px;line-height:1.6}
-.demo-panel{border:1px solid var(--border-w);border-radius:10px;overflow:hidden;background:var(--surface2);box-shadow:0 20px 60px -30px rgba(0,0,0,.6)}
-.demo-chrome{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--border-w);background:rgba(255,255,255,0.02)}
-.demo-chrome-left{display:flex;align-items:center;gap:10px}
-.demo-mark{width:22px;height:22px;flex-shrink:0}
-.demo-appname{font-family:var(--mono);font-size:13px;color:var(--t1);letter-spacing:.01em}
-.demo-appname em{font-style:normal;color:var(--t3);margin-left:6px;font-size:11px}
-.demo-tabs{display:flex;gap:4px;flex-wrap:wrap}
-.demo-tab{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--t3);background:transparent;border:1px solid transparent;border-radius:6px;padding:6px 10px;cursor:pointer;transition:color .2s,background .2s,border-color .2s}
-.demo-tab:hover{color:var(--t1)}
-.demo-tab.is-active{color:var(--teal);background:var(--teal-dim);border-color:rgba(80,227,194,0.18)}
-.demo-tab:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
-.demo-body{padding:22px;min-height:200px;overflow-x:auto}
-.demo-table{min-width:420px}
-@media(max-width:680px){.demo-chrome{padding:12px 14px}.demo-body{padding:16px}}
-.demo-view{display:none;opacity:0;transform:translateY(4px);transition:opacity .25s ease,transform .25s ease}
-.demo-view.is-active{display:block;opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.demo-view{transition:none}}
-.demo-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.demo-label{font-family:var(--mono);font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
-.demo-select{font-family:var(--mono);font-size:11px;color:var(--t2);border:1px solid var(--border-w);border-radius:6px;padding:6px 12px;background:rgba(255,255,255,0.03)}
-.demo-btn{font-family:var(--mono);font-size:11px;color:var(--bg);background:var(--teal);border:none;border-radius:6px;padding:8px 14px;cursor:pointer;font-weight:600;transition:filter .15s}
-.demo-btn:hover{filter:brightness(1.1)}
-.demo-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
-.demo-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11px;color:var(--t2)}
-.demo-table th{text-align:left;font-weight:500;color:var(--t3);padding:8px 10px;border-bottom:1px solid var(--border-w);text-transform:uppercase;font-size:9px;letter-spacing:.06em}
-.demo-table td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,0.04)}
-.demo-table tr.is-hl td{background:var(--teal-dim)}
-.demo-badge{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:10px;background:rgba(255,255,255,0.06);color:var(--t3)}
-.demo-badge.is-active{background:var(--teal-dim);color:var(--teal)}
-.demo-card{border:1px solid var(--border-w);border-radius:8px;padding:16px}
-.demo-pill{font-family:var(--mono);font-size:10px;color:var(--t3);padding-bottom:6px;border-bottom:2px solid transparent}
-.demo-pill.is-active{color:var(--t1);border-color:var(--teal)}
-.demo-stat{display:flex;flex-direction:column;gap:4px}
-.demo-stat-val{font-family:var(--mono);font-size:22px;color:var(--teal);font-weight:700}
-.demo-stat-lbl{font-family:var(--mono);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.06em}
-.demo-toggle{width:32px;height:18px;border-radius:10px;background:rgba(255,255,255,0.1);position:relative;cursor:pointer;border:none;padding:0;flex-shrink:0}
-.demo-toggle::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--t2);transition:transform .18s}
-.demo-toggle.is-on{background:var(--teal-dim)}
-.demo-toggle.is-on::after{transform:translateX(14px);background:var(--teal)}
-/* COMPONENT LIBRARY SPECIMEN GRID — Session 16, page-specific per house rule 2 */
-.lib-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.lib-specimen{border:1px solid var(--border-w);border-radius:8px;padding:16px;background:rgba(255,255,255,0.02);display:flex;flex-direction:column;gap:12px}
-.lib-specimen-label{font-family:var(--mono);font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.lib-a11y{font-family:var(--mono);font-size:8px;color:var(--teal);background:var(--teal-dim);border:1px solid rgba(80,227,194,.2);padding:1px 6px;border-radius:8px;letter-spacing:.03em;white-space:nowrap}
-.lib-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.lib-btn{font-family:var(--mono);font-size:11px;border-radius:6px;padding:7px 13px;cursor:pointer;font-weight:600;letter-spacing:.02em;transition:filter .15s,transform .15s;border:1px solid transparent}
-.lib-btn.primary{background:var(--teal);color:#050508}
-.lib-btn.secondary{background:rgba(167,139,250,.14);color:var(--violet);border-color:rgba(167,139,250,.3)}
-.lib-btn.outline{background:transparent;color:var(--t2);border-color:var(--border-w)}
-.lib-btn.disabled{background:rgba(255,255,255,.04);color:var(--t3);cursor:not-allowed}
-.lib-btn:hover:not(.disabled){filter:brightness(1.08);transform:translateY(-1px)}
-.lib-btn:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
-.lib-input-wrap{display:flex;flex-direction:column;gap:6px}
-.lib-input-label{font-family:var(--mono);font-size:9px;color:var(--t3)}
-.lib-input{font-family:var(--font);font-size:12px;color:var(--t1);background:rgba(255,255,255,.03);border:1px solid var(--border-w);border-radius:6px;padding:8px 10px;width:100%}
-.lib-input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-dim)}
-.lib-input.err{border-color:#ef4444}
-.lib-input-err-msg{font-family:var(--mono);font-size:9px;color:#ef4444}
-.lib-check-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--t2)}
-.lib-check{width:16px;height:16px;border:1px solid var(--border-w);border-radius:4px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.03);font-size:10px;font-weight:700}
-.lib-check.on{background:var(--teal);border-color:var(--teal);color:#050508}
-.lib-radio{width:16px;height:16px;border:1px solid var(--border-w);border-radius:50%;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.03)}
-.lib-radio.on::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--teal)}
-.lib-type-row{display:flex;align-items:baseline;gap:10px}
-.lib-type-meta{font-family:var(--mono);font-size:9px;color:var(--t3)}
-@media(max-width:680px){.lib-grid{grid-template-columns:1fr}}
 .grid-2 img{width:100%;display:block;border-radius:var(--r);border:1px solid var(--border-w)}
 /* DECISION */
 .decision{border-left:2px solid var(--teal);padding:18px 22px;background:var(--teal-dim);border-radius:0 var(--r) var(--r) 0;margin:8px 0}
@@ -353,16 +285,16 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 @keyframes sb-in { to { opacity: 1; } }
 /* ────────────────────────────────────────────────────────────────────────── */
 </style>
-  <meta name="description" content="Built a UX Center of Excellence from zero in a regulated healthcare environment. It improved design-to-dev efficiency by 50% and lifted user adoption to 80%.">
+  <meta name="description" content="Cut research turnaround by 50% and drove cross-team adoption of UX methodology, by building scalable research guidelines and AI-assisted synthesis workflows across construction SaaS product verticals.">
   <meta name="author" content="Dario Espinosa">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-  <link rel="canonical" href="https://darioespinosa.design/takecommand.html">
+  <link rel="canonical" href="https://darioespinosa.design/research-at-scale.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://darioespinosa.design/takecommand.html">
-  <meta property="og:title" content="Building a UX Powerhouse: UX Center of Excellence · Dario Espinosa">
-  <meta property="og:description" content="Built a UX Center of Excellence from zero in a regulated healthcare environment. It improved design-to-dev efficiency by 50% and lifted user adoption to 80%.">
+  <meta property="og:url" content="https://darioespinosa.design/research-at-scale.html">
+  <meta property="og:title" content="Optimizing User Research at Scale · Dario Espinosa">
+  <meta property="og:description" content="Cut research turnaround by 50% and drove cross-team adoption of UX methodology, by building scalable research guidelines and AI-assisted synthesis workflows across construction SaaS product verticals.">
   <meta property="og:image" content="https://darioespinosa.design/og-image.png">
   <meta property="og:site_name" content="Dario Espinosa Portfolio">
   <meta property="og:locale" content="en_US">
@@ -370,8 +302,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@DataEP">
-  <meta name="twitter:title" content="Building a UX Powerhouse: UX Center of Excellence · Dario Espinosa">
-  <meta name="twitter:description" content="Built a UX Center of Excellence from zero in a regulated healthcare environment. It improved design-to-dev efficiency by 50% and lifted user adoption to 80%.">
+  <meta name="twitter:title" content="Optimizing User Research at Scale · Dario Espinosa">
+  <meta name="twitter:description" content="Cut research turnaround by 50% and drove cross-team adoption of UX methodology, by building scalable research guidelines and AI-assisted synthesis workflows across construction SaaS product verticals.">
   <meta name="twitter:image" content="https://darioespinosa.design/og-image.png">
 
   <!-- Structured Data — Creative Work -->
@@ -379,15 +311,15 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "Healthcare SaaS — UX Center of Excellence",
+    "name": "UX Research at Scale",
     "creator": {
       "@type": "Person",
       "name": "Dario Espinosa",
       "url": "https://darioespinosa.design"
     },
-    "description": "Built a UX Center of Excellence from zero in a regulated healthcare environment — improving design-to-dev efficiency by 50% and user adoption by 80%.",
-    "keywords": "healthcare UX, UX CoE, design operations, accessibility, HIPAA, design system",
-    "url": "https://darioespinosa.design/takecommand.html",
+    "description": "Cut research turnaround by 50% and drove cross-team adoption of UX methodology — building scalable research guidelines and AI-assisted synthesis workflows across construction SaaS product verticals.",
+    "keywords": "UX research, research operations, AI synthesis, construction SaaS, research guidelines",
+    "url": "https://darioespinosa.design/research-at-scale.html",
     "inLanguage": "en"
   }
   </script>
@@ -421,15 +353,15 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <main id="main-content">
 <header class="cs-hero">
   <div class="cs-hero-inner">
-    <div class="cs-eyebrow">Case Study 05</div>
-    <div class="cs-tags" style="margin:8px 0 4px"><span class="tag tag-ind">healthcare</span></div>
-    <h1>UX Center of Excellence</h1>
-    <p class="cs-xyz">Built a UX Center of Excellence from zero. It delivered <strong>80% user adoption</strong> and cut accessibility issues by 70%, inside a WCAG/ADA-regulated healthcare environment.</p>
+    <div class="cs-eyebrow">Case Study 07</div>
+    <div class="cs-tags" style="margin:8px 0 4px"><span class="tag tag-ind">construction</span></div>
+    <h1>Research at Scale</h1>
+    <p class="cs-xyz">Cut UX research turnaround by <strong>50%</strong>. I did it by building research guidelines and AI-integrated synthesis workflows for a construction-SaaS platform's cross-functional product teams.</p>
     <div class="meta-row">
-      <div class="meta-cell"><div class="meta-label">period</div><div class="meta-val">Healthcare SaaS</div></div>
-      <div class="meta-cell"><div class="meta-label">context</div><div class="meta-val">WCAG / ADA</div></div>
-      <div class="meta-cell"><div class="meta-label">role</div><div class="meta-val">UX Lead</div></div>
-      <div class="meta-cell"><div class="meta-label">tags</div><div class="meta-val"><span class="tag">Healthcare</span><span class="tag">Design System</span><span class="tag">Accessibility</span></div></div>
+      <div class="meta-cell"><div class="meta-label">period</div><div class="meta-val">Construction SaaS</div></div>
+      <div class="meta-cell"><div class="meta-label">context</div><div class="meta-val">Multi-vertical</div></div>
+      <div class="meta-cell"><div class="meta-label">role</div><div class="meta-val">Research Lead</div></div>
+      <div class="meta-cell"><div class="meta-label">tags</div><div class="meta-val"><span class="tag">UX Research</span><span class="tag">AI Integration</span><span class="tag">DesignOps</span></div></div>
     </div>
 <div class="scroll-hero-wrap" data-auto></div>
   </div>
@@ -437,10 +369,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 
 <div class="metrics">
   <div class="metrics-inner">
-<div class="metric-box"><div class="metric-val">80%</div><div class="metric-label">user adoption</div></div>
-<div class="metric-box"><div class="metric-val">−70%</div><div class="metric-label">a11y issues</div></div>
-<div class="metric-box"><div class="metric-val">50%</div><div class="metric-label">faster dev cycles</div></div>
-<div class="metric-box"><div class="metric-val">0→1</div><div class="metric-label">design system</div></div>
+<div class="metric-box"><div class="metric-val">50%</div><div class="metric-label">faster research</div></div>
+<div class="metric-box"><div class="metric-val">AI</div><div class="metric-label">synthesis integration</div></div>
+<div class="metric-box"><div class="metric-val">x-func</div><div class="metric-label">adoption</div></div>
+<div class="metric-box"><div class="metric-val">multi</div><div class="metric-label">verticals</div></div>
   </div>
 </div>
 
@@ -449,7 +381,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <div class="block-label">How Might We</div>
     <div class="hmw">
       <div class="hmw-label">// hmw</div>
-      <q>build a scalable, accessible, and consistent design system from zero, in a regulated healthcare environment, without disrupting ongoing product development?</q>
+      <q>make rigorous UX research accessible and actionable for designers and PMs who don't have a research background, across multiple product verticals at once?</q>
     </div>
   </div>
 </section>
@@ -457,152 +389,33 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <section class="block">
   <div class="block-inner">
     <div class="block-label">The Problem</div>
-    <p>There was no design system, no component library, no naming conventions in Figma. Accessibility complaints were surfacing in production, and in healthcare, compliance failure has legal consequences, not just UX ones.</p>
-<p>There were no documented design principles. PMs were making product decisions without research backing. The design function existed but lacked the infrastructure to scale or defend its decisions.</p>
+    <p>Research was siloed inside the research department. Designers and PMs either waited weeks for research outputs or made decisions without them. The bottleneck wasn't data collection. It was the gap between sessions and actionable insight.</p>
+<p>AI tools were available across the organization but unused in any structured research workflow. There were no standardized guidelines enabling designers or PMs to self-serve research at a quality bar the team could trust.</p>
   </div>
 </section>
 
-<script>
-/* Generic demo-panel tabs — Session 12, reused per-page (inline, not shared) */
-(function(){
-  document.querySelectorAll('.demo-panel').forEach(function(panel){
-    var tabs=panel.querySelectorAll('.demo-tab'), views=panel.querySelectorAll('.demo-view');
-    tabs.forEach(function(tab){
-      tab.addEventListener('click', function(){
-        tabs.forEach(function(t){t.classList.remove('is-active');t.setAttribute('aria-selected','false');});
-        views.forEach(function(v){v.classList.remove('is-active');v.hidden=true;});
-        tab.classList.add('is-active'); tab.setAttribute('aria-selected','true');
-        var idx=tab.getAttribute('data-tab');
-        var view=panel.querySelector('[data-view="'+idx+'"]');
-        if(view){view.hidden=false; view.classList.add('is-active');}
-      });
-    });
-    panel.querySelectorAll('.demo-toggle').forEach(function(tg){
-      tg.addEventListener('click', function(){ tg.classList.toggle('is-on'); });
-    });
-    var runBtn=panel.querySelector('[data-demo-run]');
-    if(runBtn){
-      runBtn.addEventListener('click', function(){
-        panel.querySelectorAll('[data-demo-rand]').forEach(function(el){
-          var lo=parseFloat(el.getAttribute('data-lo')), hi=parseFloat(el.getAttribute('data-hi')), dec=parseInt(el.getAttribute('data-dec')||'0',10);
-          el.textContent=(Math.random()*(hi-lo)+lo).toFixed(dec);
-        });
-      });
-    }
-  });
-})();
-</script>
-
 <section class="block">
   <div class="block-inner">
-    <div class="block-label">Illustrative Recreation</div>
-    <h2 data-scramble aria-label="How the Component Library Felt to Use">How the Component Library Felt to Use</h2>
-    <p style="margin-bottom:18px;max-width:640px">The production member and admin portals are client-confidential. Below is an interactive recreation built for this portfolio, using the same interaction pattern with a generic product name and fictional data.</p>
-    <p class="demo-disclosure">Illustrative recreation: interface rebuilt from memory in plain HTML/CSS/JS. Product name, brand names, and data are all fictional.</p>
-
-    <div class="demo-panel" data-demo="benefitbridge">
-      <div class="demo-chrome">
-        <div class="demo-chrome-left">
-          <svg class="demo-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z" fill="none" stroke="var(--t2)" stroke-width="1.6"/><path d="M9 12h6M12 9v6" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <span class="demo-appname">BenefitBridge <em>Component Library</em></span>
-        </div>
-        <div class="demo-tabs" role="tablist" aria-label="BenefitBridge demo views">
-          <button class="demo-tab is-active" data-tab="0" role="tab" aria-selected="true">Component Library</button>
-          <button class="demo-tab" data-tab="1" role="tab" aria-selected="false">Member Home</button>
-          <button class="demo-tab" data-tab="2" role="tab" aria-selected="false">Admin Plans</button>
-        </div>
-      </div>
-      <div class="demo-body">
-
-        <div class="demo-view is-active" data-view="0">
-          <div class="lib-grid">
-            <div class="lib-specimen">
-              <div class="lib-specimen-label">Button <span class="lib-a11y">AA 4.6:1</span></div>
-              <div class="lib-row">
-                <button class="lib-btn primary">Save changes</button>
-                <button class="lib-btn secondary">Learn more</button>
-                <button class="lib-btn outline">Cancel</button>
-                <button class="lib-btn disabled" disabled>Locked</button>
-              </div>
-            </div>
-            <div class="lib-specimen">
-              <div class="lib-specimen-label">Text Input <span class="lib-a11y">AA 4.6:1</span></div>
-              <div class="lib-input-wrap">
-                <label class="lib-input-label" for="lib-demo-email">Email address</label>
-                <input class="lib-input" id="lib-demo-email" type="text" placeholder="you@company.com">
-              </div>
-              <div class="lib-input-wrap">
-                <label class="lib-input-label" for="lib-demo-plan">Plan ID</label>
-                <input class="lib-input err" id="lib-demo-plan" type="text" value="PL-04X">
-                <span class="lib-input-err-msg">Plan ID must be 6 characters</span>
-              </div>
-            </div>
-            <div class="lib-specimen">
-              <div class="lib-specimen-label">Selection Controls</div>
-              <div class="lib-check-row"><span class="lib-check on">&#10003;</span> Email me claim updates</div>
-              <div class="lib-check-row"><span class="lib-check"></span> Share data with employer</div>
-              <div class="lib-check-row"><span class="lib-radio on"></span> Individual plan</div>
-              <div class="lib-check-row"><span class="lib-radio"></span> Family plan</div>
-            </div>
-            <div class="lib-specimen">
-              <div class="lib-specimen-label">Status Badges <span class="lib-a11y">text + icon</span></div>
-              <div class="lib-row">
-                <span class="demo-badge" style="background:var(--teal-dim);color:var(--teal)">&#9679; Active</span>
-                <span class="demo-badge" style="background:rgba(245,158,11,.12);color:#f59e0b">&#9679; Pending</span>
-                <span class="demo-badge" style="background:rgba(239,68,68,.12);color:#ef4444">&#9679; Expired</span>
-                <span class="demo-badge">&#9679; Draft</span>
-              </div>
-            </div>
-            <div class="lib-specimen">
-              <div class="lib-specimen-label">Toggle</div>
-              <div class="lib-row" style="gap:16px">
-                <div style="display:flex;align-items:center;gap:8px"><button class="demo-toggle is-on" aria-label="Notifications on"></button><span style="font-size:11px;color:var(--t2)">Notifications on</span></div>
-                <div style="display:flex;align-items:center;gap:8px"><button class="demo-toggle" aria-label="Auto-renew off"></button><span style="font-size:11px;color:var(--t3)">Auto-renew off</span></div>
-              </div>
-            </div>
-            <div class="lib-specimen">
-              <div class="lib-specimen-label">Type Scale</div>
-              <div class="lib-type-row"><span style="font-size:20px;font-weight:700;color:var(--t1)">Aa</span><span class="lib-type-meta">H2 &middot; 20/700</span></div>
-              <div class="lib-type-row"><span style="font-size:15px;font-weight:600;color:var(--t1)">Aa</span><span class="lib-type-meta">H3 &middot; 15/600</span></div>
-              <div class="lib-type-row"><span style="font-size:13px;color:var(--t2)">Aa</span><span class="lib-type-meta">Body &middot; 13/400</span></div>
-              <div class="lib-type-row"><span style="font-size:10px;font-family:var(--mono);color:var(--t3)">Aa</span><span class="lib-type-meta">Caption &middot; mono 10</span></div>
-            </div>
-          </div>
-          <p style="margin-top:14px;font-size:11px;color:var(--t3);font-family:var(--mono);line-height:1.6">Every specimen shipped with a documented focus ring, a minimum 4.5:1 contrast ratio, and a written usage rule — the same three checks any component had to clear before it entered the library.</p>
-        </div>
-
-        <div class="demo-view" data-view="1" hidden>
-          <div class="demo-row" style="gap:28px;margin-bottom:16px;flex-wrap:wrap">
-            <div class="demo-stat"><span class="demo-stat-val">$1,240</span><span class="demo-stat-lbl">Plan balance</span></div>
-            <div class="demo-stat"><span class="demo-stat-val">2</span><span class="demo-stat-lbl">Open claims</span></div>
-          </div>
-          <div class="demo-card" style="background:linear-gradient(135deg,rgba(80,227,194,0.12),rgba(167,139,250,0.1))">
-            <div style="font-family:var(--mono);font-size:12px;color:var(--t1)">Open enrollment closes in 12 days</div>
-          </div>
-        </div>
-
-        <div class="demo-view" data-view="2" hidden>
-          <div class="demo-label">Benefit Plans</div>
-          <table class="demo-table">
-            <thead><tr><th>Plan</th><th>Members</th><th>Status</th></tr></thead>
-            <tbody>
-              <tr><td>Plan A — Medical</td><td>412</td><td><button class="demo-toggle is-on" aria-label="Toggle Plan A"></button></td></tr>
-              <tr><td>Plan B — Dental</td><td>288</td><td><button class="demo-toggle is-on" aria-label="Toggle Plan B"></button></td></tr>
-              <tr><td>Plan C — Vision</td><td>150</td><td><button class="demo-toggle" aria-label="Toggle Plan C"></button></td></tr>
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-    </div>
+    <div class="block-label">Visual Context</div>
+    <div class="slide"><img src="images/inline/research-02.jpg" alt="Generic research-process template board" loading="lazy"><p class="slide-caption">Generic research-process template board</p></div>
+    <p class="demo-disclosure">Actual usability-testing session recordings, transcripts, and participant feedback are client-confidential and withheld.</p>
   </div>
 </section>
 
 <section class="block">
   <div class="block-inner">
     <div class="block-label">The Solution</div>
-    <p>Built a <strong>WCAG/ADA-aligned component library</strong> in Figma from zero, prioritizing accessibility-first components over visual refinement. I framed the design system as a risk-reduction tool to get cross-functional buy-in.</p>
-<p>Established a <strong>design-to-dev handoff process</strong> and trained PMs and stakeholders on design system usage. Redesigned the shopping experience flow, which became the flagship proof of adoption: 80% of the product now runs through the system.</p>
+    <p>Built <strong>research guidelines</strong> enabling designers and PMs to self-serve qualitative research without a research background. They cover study design, recruitment via Ethnio, session facilitation with UserTesting.com, and synthesis standards.</p>
+<p>Introduced <strong>AI-assisted synthesis</strong> to close the gap between raw sessions and insight delivery. Established cross-functional feedback loops so research findings moved into product decisions in days, not weeks. Deployed across multiple verticals simultaneously.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="block-inner">
+    <div class="block-label">Research Framework · D3</div>
+    <h2 data-scramble aria-label="Research Process: Definition to Insight">Research Process: Definition to Insight</h2>
+    <p>Four-phase research framework built to enable designers and PMs to self-serve UX research without a research background. AI synthesis closed the gap between sessions and actionable insight. Hover each phase.</p>
+    <div id="research-flow" style="width:100%;margin-top:28px;position:relative"></div>
   </div>
 </section>
 
@@ -611,21 +424,94 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <div class="block-label">Key Decision</div>
     <div class="decision">
       <div class="decision-label">// design-decision</div>
-      <p><strong>I prioritized accessibility-first components over visual refinement.</strong> In healthcare, compliance failure has legal consequences. Framing the design system as a risk-reduction tool, not a design preference, is what got buy-in from legal, engineering, and product at the same time.</p>
+      <p><strong>I introduced AI-assisted synthesis</strong> because the bottleneck wasn't data collection. It was the time between sessions and actionable insight. AI cut that gap without reducing quality, as long as it was paired with human judgment at the interpretation layer. Speed without shortcuts.</p>
     </div>
     <div class="reflection">
       <div class="reflection-label">// reflection</div>
-      <p>Building from zero is different from inheriting a system. The hardest part isn't the design. It's getting cross-functional buy-in before there's anything visible to show. The first deliverable that mattered wasn't a component either. It was a shared vocabulary.</p>
+      <p>The best outcome wasn't the speed improvement. It was the cultural shift. When designers started asking 'what does the research say?' before writing a user story, the work had done what it was meant to do. Process adoption is the real design deliverable.</p>
     </div>
   </div>
 </section>
 
+<section class="block"><div class="block-inner">
+    <div class="slide">
+      <img src="images/inline/research-03.jpg" alt="UX Research Process Flow: Definition → Recruiting → Testing → Reporting · meetings, activities, and artifacts per phase" loading="lazy">
+      <div class="slide-caption">UX Research Process Flow: Definition → Recruiting → Testing → Reporting · meetings, activities, and artifacts per phase</div>
+    </div>
+</section>
+<script>
+(function(){
+  var el=document.getElementById('research-flow'); if(!el)return; var fired=false;
+  function loadScript(src,cb){var s=document.createElement('script');s.src=src;s.onload=cb;document.head.appendChild(s);}
+  var obs=new IntersectionObserver(function(en){if(en[0].isIntersecting&&!fired){fired=true;obs.disconnect();loadScript('https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js',build);}},{threshold:0.1});
+  obs.observe(el);
+  function build(){
+    var W=el.offsetWidth||700, H=260;
+    el.style.height=H+'px';
+    var stages=[
+      {name:'Definition',  tool:'Research guidelines',   artifact:'Study design',       color:'#6b7280', tip:'Built guidelines enabling designers + PMs to self-serve qualitative research — study design, screeners, facilitation scripts'},
+      {name:'Recruiting',  tool:'Ethnio',                artifact:'Participant pool',    color:'#a78bfa', tip:'Ethnio-powered recruitment built into the guidelines — no research background required to recruit quality participants'},
+      {name:'Testing',     tool:'UserTesting.com',       artifact:'Session recordings',  color:'#38C6F4', tip:'UserTesting.com for facilitated sessions across multiple product verticals simultaneously'},
+      {name:'Reporting',   tool:'AI synthesis',          artifact:'Actionable insights', color:'#DAE24C', tip:'AI-assisted synthesis closed the gap between raw sessions and product decisions — days not weeks. Speed without shortcuts — human judgment at the interpretation layer.'},
+    ];
+    var n=stages.length, pad=40, bw=Math.floor((W-pad*2-30*(n-1))/n), bh=140, by=(H-bh)/2;
+    var svg=d3.select(el).append('svg').attr('width',W).attr('height',H).style('display','block');
+    var tip=d3.select(el).append('div')
+      .style('position','absolute').style('pointer-events','none').style('opacity',0).style('transition','opacity .15s')
+      .style('background','rgba(5,5,8,0.96)').style('border','1px solid rgba(255,255,255,0.1)')
+      .style('border-radius','6px').style('padding','9px 13px').style('font-family','"Geist Mono",monospace')
+      .style('font-size','11px').style('color','rgba(255,255,255,0.72)').style('max-width','240px').style('line-height','1.55').style('z-index','50');
+    function sT(ev,txt){var r=el.getBoundingClientRect();tip.style('opacity',1).html(txt).style('left',(ev.clientX-r.left+14)+'px').style('top',(ev.clientY-r.top-34)+'px');}
+    function mT(ev){var r=el.getBoundingClientRect();tip.style('left',(ev.clientX-r.left+14)+'px').style('top',(ev.clientY-r.top-34)+'px');}
+    // Connectors first
+    stages.forEach(function(s,i){
+      if(i===n-1) return;
+      var x1=pad+i*(bw+30)+bw, x2=x1+30, my=H/2;
+      svg.append('line').attr('x1',x1).attr('y1',my).attr('x2',x2).attr('y2',my)
+        .attr('stroke','rgba(255,255,255,0.15)').attr('stroke-width',1.5);
+      svg.append('polygon').attr('points',(x2-1)+','+(my-5)+' '+(x2+8)+','+my+' '+(x2-1)+','+(my+5))
+        .attr('fill','rgba(255,255,255,0.2)');
+    });
+    // Blocks
+    stages.forEach(function(s,i){
+      var x=pad+i*(bw+30);
+      var g=svg.append('g').style('cursor','pointer')
+        .on('mouseenter',function(ev){d3.select(this).select('rect').attr('opacity',0.18);sT(ev,'<strong style="color:'+s.color+'">'+s.name+'</strong><br>'+s.tip);})
+        .on('mousemove',mT).on('mouseleave',function(){d3.select(this).select('rect').attr('opacity',0.07);tip.style('opacity',0);});
+      g.append('rect').attr('x',x).attr('y',by).attr('width',bw).attr('height',bh)
+        .attr('fill',s.color).attr('opacity',0).attr('rx',6)
+        .transition().duration(700).delay(i*120).attr('opacity',0.07);
+      g.append('rect').attr('x',x).attr('y',by).attr('width',bw).attr('height',3)
+        .attr('fill',s.color).attr('rx',2).attr('opacity',0)
+        .transition().duration(700).delay(i*120).attr('opacity',0.9);
+      // Phase number
+      g.append('text').attr('x',x+12).attr('y',by+22).attr('fill',s.color)
+        .attr('font-family','"Geist Mono",monospace').attr('font-size','10px').attr('letter-spacing','0.1em')
+        .text('0'+(i+1));
+      // Phase name
+      g.append('text').attr('x',x+12).attr('y',by+40).attr('fill','#fff')
+        .attr('font-family','"Geist Mono",monospace').attr('font-size','13px').attr('font-weight','700')
+        .text(s.name);
+      // Tool
+      g.append('text').attr('x',x+12).attr('y',by+60).attr('fill',s.color)
+        .attr('font-family','"Geist Mono",monospace').attr('font-size','10px').text(s.tool);
+      // Artifact
+      g.append('text').attr('x',x+12).attr('y',by+80).attr('fill','rgba(255,255,255,0.45)')
+        .attr('font-family','"Geist Mono",monospace').attr('font-size','9px').text('→ '+s.artifact);
+    });
+    // 50% faster callout
+    svg.append('text').attr('x',W-8).attr('y',H-12).attr('text-anchor','end')
+      .attr('fill','rgba(218,226,76,0.7)').attr('font-family','"Geist Mono",monospace').attr('font-size','11px')
+      .text('Result: 50% faster research turnaround');
+  }
+})();
+</script>
 </main>
 <footer class="cs-footer">
   <div class="cs-footer-inner">
     <div class="foot-nav">
-      <a class="foot-link" href="oolalife.html">← OolaLife</a>
-      <a class="foot-link teal" href="metaverse.html">Metaverse →</a>
+      <a class="foot-link" href="metaverse.html">← Metaverse</a>
+      <span></span>
     </div>
     <a class="foot-back" href="index.html">↩ back to work</a>
   </div>
@@ -763,7 +649,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 (function () {
   var MORPH_TIME = 1.5;
   var COOLDOWN   = 0.5;
-  var texts = ["UX Center of Excellence", "How Might We", "The Problem", "The Solution"];
+  var texts = ["Research at Scale", "Research Process", "Definition to Insight"];
 
   var h1 = document.querySelector('h1');
   if (!h1) return;
