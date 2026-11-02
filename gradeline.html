@@ -283,7 +283,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
 
 <div class="metrics">
   <div class="metrics-inner">
-    <div class="metric-box"><div class="metric-val">17</div><div class="metric-label">forked versions shipped</div></div>
+    <div class="metric-box"><div class="metric-val">8</div><div class="metric-label">forked versions shipped</div></div>
     <div class="metric-box"><div class="metric-val">63</div><div class="metric-label">catalog components</div></div>
     <div class="metric-box"><div class="metric-val">3</div><div class="metric-label">devices, one system</div></div>
     <div class="metric-box"><div class="metric-val">~90%</div><div class="metric-label">agent cost is input tokens</div></div>
@@ -338,7 +338,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
   <div class="block-inner">
     <div class="block-label">The Solution</div>
     <p>Instead of one prototype that got overwritten every time a decision changed, each meaningful direction became its own <strong>full fork</strong> of the same React/Tailwind codebase — a complete, independent build, not a feature flag. All forks deployed together as one static, multi-app site, so any version was a public link, not a local checkout.</p>
-    <p>Underneath every fork sat one <strong>living component catalog</strong>: the same button, input, badge, and list-row primitives, reused across every version and every persona's screens. That's what kept 17 diverging prototypes from turning into 17 different-looking products.</p>
+    <p>Underneath every fork sat one <strong>living component catalog</strong>: the same button, input, badge, and list-row primitives, reused across every version and every persona's screens. That's what kept 8 diverging prototypes from turning into 8 different-looking products.</p>
   </div>
 </section>
 
@@ -497,7 +497,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
     <div class="block-label">Research &amp; Reflection</div>
     <h2 data-scramble aria-label="What the Field Told Us, and Where It Broke">What the Field Told Us, and Where It Broke</h2>
     <p>On-site research surfaced device-shaped gaps, not just screen-shaped ones. A dispatcher at a desk needed the reasoning behind a schedule, not just the result — "why this stop, why now" mattered as much as the assignment itself. A crew foreman's phone, in direct sun, on a schedule, got almost no patience for reading — copy had to be terse and voice-first by default. A sales screen was the one surface a client might actually read, so it was the one place the copy earned the right to be a full, persuasive sentence instead of a fragment. Seven separate on-site findings each traced forward into a specific interface decision this way, rather than sitting in a research deck nobody opened again.</p>
-    <p>Two honest weak points worth naming rather than hiding: a secondary visual theme prototyped in parallel didn't yet persist a reviewer's style choice across sessions, a known gap flagged for the next milestone rather than a shipped inconsistency. And the fork-per-version model that made stakeholder review painless started to cost real build time once the lineage passed a dozen versions — every fork was a fully separate application, so the convenience had a compounding price.</p>
+    <p>Two honest weak points worth naming rather than hiding: a secondary visual theme prototyped in parallel didn't yet persist a reviewer's style choice across sessions, a known gap flagged for the next milestone rather than a shipped inconsistency. And the fork-per-version model that made stakeholder review painless started to cost real build time once the lineage passed half a dozen versions — every fork was a fully separate application, so the convenience had a compounding price.</p>
     <p>None of this ran on one tool. Design reasoning and long-running project memory lived in one AI-agent runtime, implementation happened inside a second, and a separate component-generation workflow used by another teammate ran a third — coordinated through a shared, versioned memory file instead of ad hoc chat threads. On the human side: an engineering counterpart on the client's team, a second frontend developer, and the client's own product approver all worked off the same versioned prototypes and the same catalog, so nobody was ever reacting to a stale screenshot.</p>
     <div class="decision">
       <div class="decision-label">// design-decision</div>
