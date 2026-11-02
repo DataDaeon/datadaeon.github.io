@@ -1,0 +1,69 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t d">
+  <title id="t">Illustrative recreation — Harborview Benefits admin portal</title>
+  <desc id="d">Generic recreation of an employer-benefits admin plan list screen — fictional product, generic plan names, no client branding.</desc>
+  <rect width="800" height="500" fill="#0d0d14"/>
+  <rect x="0" y="0" width="800" height="56" fill="#111118"/>
+  <circle cx="40" cy="28" r="12" fill="#3B5BDB"/>
+  <text x="62" y="33" font-family="Geist Mono, monospace" font-size="14" fill="rgba(255,255,255,0.85)">Harborview Benefits</text>
+  <rect x="660" y="14" width="100" height="28" rx="14" fill="rgba(59,91,219,0.18)" stroke="rgba(59,91,219,0.4)"/>
+  <text x="680" y="32" font-family="Geist Mono, monospace" font-size="10" fill="#8ea0f0">+ Add plan</text>
+
+  <text x="40" y="96" font-family="Geist Mono, monospace" font-size="18" font-weight="700" fill="#fff">Benefit plans</text>
+  <rect x="40" y="114" width="300" height="30" rx="8" fill="#15151d" stroke="rgba(255,255,255,0.08)"/>
+  <text x="56" y="134" font-family="Geist Mono, monospace" font-size="10" fill="rgba(255,255,255,0.35)">Search plans…</text>
+  <rect x="356" y="114" width="90" height="30" rx="14" fill="#15151d" stroke="rgba(255,255,255,0.08)"/>
+  <text x="372" y="134" font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.45)">Filter</text>
+
+  <g font-family="Geist Mono, monospace" font-size="9" fill="rgba(255,255,255,0.35)">
+    <text x="56" y="178">PLAN NAME</text>
+    <text x="400" y="178">LINE OF BUSINESS</text>
+    <text x="560" y="178">ELIGIBLE</text>
+    <text x="680" y="178">EFFECTIVE</text>
+  </g>
+  <line x1="40" y1="190" x2="760" y2="190" stroke="rgba(255,255,255,0.08)"/>
+
+  <g font-family="Geist Mono, monospace" font-size="11">
+    <rect x="40" y="200" width="46" height="18" rx="4" fill="rgba(255,255,255,0.08)"/>
+    <text x="48" y="213" font-size="8" fill="rgba(255,255,255,0.5)">DRAFT</text>
+    <text x="100" y="213" fill="rgba(255,255,255,0.8)">Core Medical — 2026</text>
+    <rect x="400" y="203" width="56" height="16" rx="8" fill="rgba(59,91,219,0.15)"/><text x="410" y="215" font-size="8" fill="#8ea0f0">MEDICAL</text>
+    <text x="560" y="213" fill="rgba(255,255,255,0.45)">Employee+</text>
+    <text x="680" y="213" fill="rgba(255,255,255,0.45)">01/01/26</text>
+  </g>
+  <line x1="40" y1="228" x2="760" y2="228" stroke="rgba(255,255,255,0.05)"/>
+
+  <g font-family="Geist Mono, monospace" font-size="11">
+    <rect x="40" y="238" width="52" height="18" rx="4" fill="rgba(80,227,194,0.15)"/>
+    <text x="48" y="251" font-size="8" fill="#50e3c2">ACTIVE</text>
+    <text x="100" y="251" fill="rgba(255,255,255,0.8)">Standard Dental — 2026</text>
+    <rect x="400" y="241" width="48" height="16" rx="8" fill="rgba(217,119,6,0.15)"/><text x="408" y="253" font-size="8" fill="#e8a33d">DENTAL</text>
+    <text x="560" y="251" fill="rgba(255,255,255,0.45)">Family</text>
+    <text x="680" y="251" fill="rgba(255,255,255,0.45)">01/01/26</text>
+  </g>
+  <line x1="40" y1="266" x2="760" y2="266" stroke="rgba(255,255,255,0.05)"/>
+
+  <g font-family="Geist Mono, monospace" font-size="11">
+    <rect x="40" y="276" width="52" height="18" rx="4" fill="rgba(80,227,194,0.15)"/>
+    <text x="48" y="289" font-size="8" fill="#50e3c2">ACTIVE</text>
+    <text x="100" y="289" fill="rgba(255,255,255,0.8)">Vision Basic — 2026</text>
+    <rect x="400" y="279" width="48" height="16" rx="8" fill="rgba(167,139,250,0.15)"/><text x="408" y="291" font-size="8" fill="#a78bfa">VISION</text>
+    <text x="560" y="289" fill="rgba(255,255,255,0.45)">Employee+</text>
+    <text x="680" y="289" fill="rgba(255,255,255,0.45)">07/01/26</text>
+  </g>
+  <line x1="40" y1="304" x2="760" y2="304" stroke="rgba(255,255,255,0.05)"/>
+
+  <g font-family="Geist Mono, monospace" font-size="11">
+    <rect x="40" y="314" width="46" height="18" rx="4" fill="rgba(255,255,255,0.08)"/>
+    <text x="48" y="327" font-size="8" fill="rgba(255,255,255,0.5)">DRAFT</text>
+    <text x="100" y="327" fill="rgba(255,255,255,0.8)">Core Medical — 2027 renewal</text>
+    <rect x="400" y="317" width="56" height="16" rx="8" fill="rgba(59,91,219,0.15)"/><text x="410" y="329" font-size="8" fill="#8ea0f0">MEDICAL</text>
+    <text x="560" y="327" fill="rgba(255,255,255,0.45)">Employee+</text>
+    <text x="680" y="327" fill="rgba(255,255,255,0.45)">01/01/27</text>
+  </g>
+
+  <rect x="40" y="360" width="720" height="92" rx="10" fill="rgba(59,91,219,0.08)" stroke="rgba(59,91,219,0.2)"/>
+  <text x="64" y="392" font-family="Geist Mono, monospace" font-size="12" fill="#fff">Plan configuration — eligible members, effective dates, plan rules</text>
+  <text x="64" y="416" font-family="Geist Mono, monospace" font-size="10" fill="rgba(255,255,255,0.45)">Dense data, clear status states, same token system as the member portal</text>
+
+  <text x="400" y="480" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="rgba(255,255,255,0.3)">Illustrative recreation — fictional product, generic plan names, generalized data</text>
+</svg>

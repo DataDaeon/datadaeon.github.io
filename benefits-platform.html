@@ -247,7 +247,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
   <div class="block-inner">
     <div class="block-label">The Team</div>
     <h2 data-scramble aria-label="Small, Distributed, Mixed Human and AI">Small, Distributed, Mixed Human and AI</h2>
-    <p>The design team was deliberately small and spread across three countries: a lead UX designer, a second product designer, and an incoming lead who took the reins partway through. They worked alongside two AI coding assistants that owned the actual front-end code, plus a separate AI research assistant dedicated to writing, terminology and quality checks.</p>
+    <p>The design team was deliberately small and spread across three countries: a lead UX designer and a second product designer. They worked alongside two AI coding assistants that owned the actual front-end code, plus a separate AI research assistant dedicated to writing, terminology and quality checks.</p>
     <p>On the client side, product and business leadership reviewed and signed off on every phase. Rather than one large team in one room, this was a small, mixed group with clearly split responsibilities, which is what let it move fast without losing consistency as more hands touched the same files.</p>
     <p>Keeping that many contributors from stepping on each other took an explicit working agreement, not just good intentions. Anything going in front of the client got a tone-and-clarity pass first. Any new word we introduced for what a member would actually read got checked against the official US healthcare glossary before we used it. And any decision that touched a real benefits rule, like waiting periods or eligibility windows, got sanity-checked against how those things actually work in the industry before it ever reached engineering.</p>
   </div>
@@ -327,15 +327,12 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
 
 <section class="block">
   <div class="block-inner">
-    <div class="block-label">Visual Reference · v1.8</div>
+    <div class="block-label">Visual Reference</div>
     <div class="slide">
-      <img src="images/project-20-benefits-plan-details.png" alt="Admin portal — plan configuration form with eligible members, effective dates and plan rules" loading="lazy">
-      <div class="slide-caption">Client Admin portal — plan configuration, one of the two pilot flows</div>
+      <img src="images/inline/demo-harborview-admin-thumb.svg" alt="Illustrative recreation — Harborview Benefits admin portal, benefit plans list with generic plan names" loading="lazy">
+      <div class="slide-caption">Illustrative recreation — admin portal, benefit plans list, dense data with clear status states</div>
     </div>
-    <div class="grid-2">
-      <div><img src="images/project-20-benefits-admin-plans.png" alt="Admin portal — list of benefit plans with status, line of business and effective dates" loading="lazy"><div class="slide-caption" style="margin-top:6px">Admin — benefit plans list, dense data with clear status states</div></div>
-      <div><img src="images/project-20-benefits-member-home.png" alt="Member portal home screen — open enrollment banner and AI-assisted benefits search, orange accent" loading="lazy"><div class="slide-caption" style="margin-top:6px">Member portal — same design system, opposite accent color</div></div>
-    </div>
+    <p class="demo-disclosure" style="margin-top:14px">The production admin and member portals are client-confidential and withheld. Above is an interactive recreation built for this portfolio, using a fictional product name ("Harborview Benefits"), generic plan names, and generalized data — illustrating the same interaction pattern and design-token architecture described below, with no client branding, real names, or real screens reproduced.</p>
   </div>
 </section>
 
@@ -369,9 +366,9 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
   <div class="block-inner">
     <div class="block-label">Design Tokens</div>
     <h2 data-scramble aria-label="One Component, Two Portals, Zero Duplication">One Component, Two Portals, Zero Duplication</h2>
-    <p>Every visual decision, color included, was built as a named token rather than a hardcoded value. That's what let the same button render periwinkle in the employer-facing admin portal and orange in the member portal without maintaining two separate components.</p>
-    <div class="token-block"><pre><span class="c1">/* 1. Primitive — the raw brand value */</span>
-<span class="c2">--brand-primary</span>: #5266EB;
+    <p>Every visual decision, color included, was built as a named token rather than a hardcoded value. That's what let the same button render one accent color in the employer-facing admin portal and a different accent in the member portal without maintaining two separate components.</p>
+    <div class="token-block"><pre><span class="c1">/* 1. Primitive — the raw brand value (illustrative; not the real client value) */</span>
+<span class="c2">--brand-primary</span>: #3B5BDB;
 
 <span class="c1">/* 2. Semantic layer — theme-aware naming */</span>
 <span class="c2">--primary</span>: <span class="c3">var(--brand-primary)</span>;
@@ -382,7 +379,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
 
 <span class="c1">/* 4. Portal-scoped remap — same component, different accent, no duplication */</span>
 .member-portal {
-  <span class="c4">--ui-primary</span>: <span class="c4">var(--member-accent)</span>; <span class="c1">/* #E87722 */</span>
+  <span class="c4">--ui-primary</span>: <span class="c4">var(--member-accent)</span>; <span class="c1">/* #D97706, illustrative */</span>
 }</pre></div>
     <p>Four layers, one direction of truth: change the primitive once, and every button, badge and focus ring downstream updates with it, in code and in Figma alike.</p>
   </div>
@@ -409,7 +406,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible,[role="link"]:focu
   <div class="block-inner">
     <div class="block-label">Measuring Impact</div>
     <h2 data-scramble aria-label="Proving It Helped, Not Just That It Looked Nicer">Proving It Helped, Not Just That It Looked Nicer</h2>
-    <p>Before proposing a redesign, the more useful question was whether we could actually prove it helped. A full year of real usage data, over eight million visits, gave a solid baseline for how people use the product today, but it could only say how long people stayed, not whether they succeeded at what they came to do.</p>
+    <p>Before proposing a redesign, the more useful question was whether we could actually prove it helped. A full year of real usage data gave a solid baseline for how people use the product today, but it could only say how long people stayed, not whether they succeeded at what they came to do.</p>
     <p>So alongside the redesign, we proposed a second, smaller set of numbers worth tracking going forward: task success rate per flow, error rate on forms, time to complete a plan configuration, a short satisfaction question after each task, an accessibility conformance score, and a simple self-service-versus-support-call ratio that speaks directly to cost. The goal was never a single "UX score." It was giving product and leadership an honest, specific way to see whether a change actually worked.</p>
   </div>
 </section>
