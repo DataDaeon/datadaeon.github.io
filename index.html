@@ -118,6 +118,9 @@ h1.hero-name{font-size:clamp(56px,7.5vw,88px);font-weight:800;letter-spacing:-0.
 .music-seek::-webkit-slider-thumb{-webkit-appearance:none;width:1px;height:1px;opacity:0}
 .music-seek::-moz-range-thumb{width:1px;height:1px;opacity:0;border:none}
 .music-seek:disabled{cursor:not-allowed}
+.music-next{flex-shrink:0;width:28px;border:none;border-left:1px solid var(--glass-border);background:rgba(255,255,255,0.03);color:var(--t3);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color .15s ease}
+.music-next svg{width:13px;height:13px}
+.music-next:hover,.music-next:focus-visible{color:var(--teal)}
 @media(max-width:720px){.music-widget{display:none}}
 @media(prefers-reduced-motion:reduce){.music-widget.is-playing .eq-bar{animation:none;height:6px}}
 
@@ -1154,8 +1157,9 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
 </footer>
 
 <!-- Omarchy-style floating now-playing widget (see MUSIC WIDGET script below).
-     Ships inert/disabled until a real audio file is added at music/track.mp3 —
-     see CHANGELOG Session 24 for exactly what to drop in and where. -->
+     Two-track playlist: Pixel Adventure (plays by default), Brisk Arcade
+     Groove (via the next-track button) — see TRACKS in the script. Ships
+     inert until music/Pixel Adventure.mp3 actually loads. -->
 <div class="music-widget" id="music-widget" aria-label="Background music">
   <button type="button" class="music-toggle" id="music-toggle" aria-pressed="false" aria-label="Turn the sound on" title="Sound on">
     <span class="music-ring" aria-hidden="true"></span>
@@ -1167,7 +1171,7 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
     </span>
   </button>
   <div class="music-meta">
-    <span class="music-title" id="music-title">Add your track</span>
+    <span class="music-title" id="music-title">Pixel Adventure</span>
     <span class="music-sub">
       <span class="music-artist" id="music-artist">Dario Espinosa</span>
       <span class="music-time" id="music-time" aria-hidden="true">0:00 / 0:00</span>
@@ -1180,6 +1184,9 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
     <span class="music-progress-fill" id="music-progress-fill" aria-hidden="true"></span>
     <input type="range" id="music-seek" class="music-seek" min="0" max="1000" step="1" value="0" aria-label="Position in the track" disabled>
   </div>
+  <button type="button" class="music-next" id="music-next" aria-label="Next track" title="Next track">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M7 6L14 12L7 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 6V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
 </div>
 
 <script>
@@ -1675,21 +1682,30 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
 // The equalizer bars only animate once actually audible, matching the
 // reference site's observed static-while-muted behavior.
 //
-// To wire up your own track: drop an audio file at music/track.mp3 (site
-// root, alongside images/) and this widget activates itself automatically
-// — nothing else to change here. Edit the #music-title / #music-artist
-// text in the HTML directly for the real title/artist. Until that file
-// exists, the widget stays hidden/inert (CSS keeps it at opacity:0 until
-// .is-ready is added) rather than showing a broken control to visitors.
+// Two-track playlist, advanced with the »| button to the right of the seek
+// bar: "Pixel Adventure" (music/Level1-1.mp3) plays by default, "Brisk
+// Arcade Groove" is one click away. Add/replace tracks by editing TRACKS
+// below — each entry just needs a file under music/ plus a title/artist to
+// display. The widget stays hidden/inert until the current track's audio
+// actually loads, and if a file goes missing it degrades the same way
+// rather than showing a broken control to visitors.
 (function(){
   var widget = document.getElementById('music-widget');
   var toggle = document.getElementById('music-toggle');
+  var next = document.getElementById('music-next');
   var seek = document.getElementById('music-seek');
   var fill = document.getElementById('music-progress-fill');
   var timeEl = document.getElementById('music-time');
+  var titleEl = document.getElementById('music-title');
+  var artistEl = document.getElementById('music-artist');
   if (!widget || !toggle || !seek) return;
 
-  var SRC = 'music/track.mp3';
+  var TRACKS = [
+    { file: 'Level1-1.mp3', title: 'Pixel Adventure', artist: 'Dario Espinosa' },
+    { file: 'Brisk Arcade Groove.mp3', title: 'Brisk Arcade Groove', artist: 'Dario Espinosa' }
+  ];
+  var trackIndex = 0; // Pixel Adventure plays by default, per Dario's request
+
   var audio = new Audio();
   audio.preload = 'metadata';
   audio.loop = true;
@@ -1722,16 +1738,27 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
     toggle.title = on ? 'Mute' : 'Sound on';
   }
 
+  function loadTrack(i) {
+    trackIndex = (i + TRACKS.length) % TRACKS.length;
+    var t = TRACKS[trackIndex];
+    if (titleEl) titleEl.textContent = t.title;
+    if (artistEl) artistEl.textContent = t.artist;
+    widget.classList.remove('is-ready'); // re-armed once the new file's metadata loads
+    seek.disabled = true;
+    audio.src = encodeURI('music/' + t.file); // encodeURI handles the space in "Brisk Arcade Groove.mp3"
+  }
+
   audio.addEventListener('loadedmetadata', function() {
     widget.classList.add('is-ready');
     seek.disabled = false;
     updateTime();
-    safePlay();
+    safePlay(); // resumes muted ambient playback, or audible playback if already unmuted from a prior track
   });
   audio.addEventListener('timeupdate', updateTime);
   audio.addEventListener('error', function() {
-    // No file at SRC yet (expected until a real track is added) — leave
-    // the widget hidden/inert rather than surfacing a broken control.
+    // No file at this track's path (expected until a real file is added,
+    // or if a filename was typo'd) — leave the widget hidden/inert rather
+    // than surfacing a broken control.
     widget.classList.remove('is-ready');
   });
 
@@ -1742,12 +1769,16 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
     setPlaying(!audio.muted);
   });
 
+  if (next) {
+    next.addEventListener('click', function() { loadTrack(trackIndex + 1); });
+  }
+
   seek.addEventListener('input', function() {
     if (!audio.duration) return;
     audio.currentTime = (seek.value / 1000) * audio.duration;
   });
 
-  audio.src = SRC;
+  loadTrack(0);
 })();
 </script>
 
