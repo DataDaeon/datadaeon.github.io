@@ -1207,12 +1207,14 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
 (function(){
   var el = document.getElementById('hero-name');
   var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  // "Dario Espinosa" now lives in the hero canvas background wordmark
-  // (see the PIXEL HERO BACKGROUND block below), so this headline shows the
-  // role by default and reveals the name on hover instead of repeating it.
+  // The name lives here, as a real foreground element in .hero-content —
+  // matching how omarchy.org's own wordmark is foreground content, not
+  // baked into the background canvas (see the PIXEL HERO BACKGROUND block
+  // below, which now draws ambient dust only). Hovering each word reveals
+  // the role instead.
   var words = [
-    { letters: 'EXPERIENCE', hover: 'DARIO',    id: 'gw1' },
-    { letters: 'DESIGNER',   hover: 'ESPINOSA', id: 'gw2' },
+    { letters: 'DARIO',    hover: 'EXPERIENCE', id: 'gw1' },
+    { letters: 'ESPINOSA', hover: 'DESIGNER',   id: 'gw2' },
   ];
 
   // Build HTML: each word in its own glitch container
@@ -1265,31 +1267,22 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
 })();
 
 // ── 2. PIXEL HERO BACKGROUND ──────────────────────────────────────────────
-// Omarchy-style (omarchy.org) glitch-pixel hero, rebuilt to match the
-// reference site's actual rendering rather than a loose approximation:
-//   - The wordmark itself is a big, bold pixel-grid rendering of the real
-//     canvas text engine (ctx.font + fillText, sampled into a grid mask),
-//     not a hand-built 5×7 bitmap font — so any text stays legible and
-//     well-formed at any size. Filled with a discrete 5-band teal→violet
-//     gradient (this site's own accent colors, not Omarchy's indigo/
-//     lavender) to match the banded-gradient look confirmed on the
-//     reference site. This is now the one place on the page the full name
-//     is spelled out — the hero-left headline above shows the role instead
-//     and reveals the name on hover, to avoid repeating it.
-//   - A sparse field of small dots, denser toward the hero's corners,
-//     twinkles continuously and indefinitely around the wordmark.
+// Omarchy-style (omarchy.org) ambient dust field — pure background texture,
+// no wordmark baked into it. On the reference site the "OMARCHY" wordmark
+// is foreground hero content, not part of the animated background layer;
+// "DARIO ESPINOSA" here lives the same way, as the real #hero-name element
+// above (see the NAME REVEAL block), not drawn into this canvas. This
+// canvas now only draws the sparse, corner-weighted scattered dots that
+// twinkle continuously and indefinitely behind the hero content.
 //
 // Reverse-engineered directly from omarchy.org (full OBSERVED / INFERRED /
 // UNKNOWN writeup in research/omarchy-hero-reverse-engineering.md):
-// comparing two zoomed screenshots of the same letter region seconds apart
-// showed them pixel-identical — the wordmark there is STATIC, not
-// per-cell-twinkling as an earlier pass here had assumed. Comparing two
-// zoomed screenshots of the same background corner seconds apart showed
-// visibly different dots lit each time, confirming only the surrounding
-// dust field actually animates — corroborated separately by a draw-call
+// comparing two zoomed screenshots of the same background corner seconds
+// apart showed visibly different dots lit each time, confirming the dust
+// field animates continuously — corroborated separately by a draw-call
 // instrumentation pass showing a continuous, never-stopping fillRect loop.
-// Neither layer is pointer- or scroll-reactive on the reference site, so
-// this doesn't add pointer-tracking either.
+// It is not pointer- or scroll-reactive on the reference site, so this
+// doesn't add pointer-tracking either.
 // Entirely vanilla canvas — no dependency, replacing the old Three.js CDN
 // particle field (removed in Session 23) with something both more
 // on-brand and lighter.
@@ -1300,66 +1293,7 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
   if (!ctx) return; // canvas 2d unsupported — background stays plain
   var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var LINES = ['DARIO', 'ESPINOSA'];
-  var FONT_STACK = '"Geist Mono","SF Mono",ui-monospace,monospace';
   var state = {};
-
-  // Render the wordmark with the real canvas text engine onto an offscreen
-  // canvas, then hand back its pixel alpha (sampled per grid cell below)
-  // plus the vertical span to drive the banded gradient — this is what
-  // keeps the letterforms legible at any size, instead of a fixed
-  // hand-built bitmap font.
-  function buildTextMask(w, h) {
-    var off = document.createElement('canvas');
-    off.width = w; off.height = h;
-    var octx = off.getContext('2d');
-    if (!octx) return null;
-    octx.fillStyle = '#fff';
-    octx.textAlign = 'center';
-    octx.textBaseline = 'alphabetic';
-
-    var targetW = w * 0.86;
-    var REF = 100;
-    octx.font = '700 ' + REF + 'px ' + FONT_STACK;
-    var maxW = Math.max.apply(null, LINES.map(function(l) { return octx.measureText(l).width || 1; }));
-    var fontSize = Math.max(10, REF * (targetW / maxW));
-    var lineH = fontSize * 0.78;
-    var lineGap = fontSize * 0.22;
-    var totalH = lineH * LINES.length + lineGap * (LINES.length - 1);
-
-    var maxH = h * 0.56; // keep the block from overflowing a short/mobile hero
-    if (totalH > maxH) {
-      var k = maxH / totalH;
-      fontSize *= k; lineH *= k; lineGap *= k; totalH = maxH;
-    }
-
-    var top = h * 0.46 - totalH / 2;
-    octx.font = '700 ' + fontSize + 'px ' + FONT_STACK;
-    var y = top;
-    LINES.forEach(function(line) {
-      y += lineH;
-      octx.fillText(line, w / 2, y);
-      y += lineGap;
-    });
-
-    return { data: octx.getImageData(0, 0, w, h).data, top: top, bottom: y - lineGap };
-  }
-
-  // Discrete 5-stop teal→violet band, matching the reference site's
-  // visibly-banded (not smoothly-interpolated) gradient fill.
-  function bandColor(t) {
-    var stops = [[80, 227, 194], [115, 195, 207], [140, 168, 216], [167, 139, 250]];
-    var bands = 5;
-    var bt = Math.floor(Math.max(0, Math.min(0.999, t)) * bands) / (bands - 1);
-    var seg = bt * (stops.length - 1);
-    var i0 = Math.floor(seg), i1 = Math.min(stops.length - 1, i0 + 1), f = seg - i0;
-    var c0 = stops[i0], c1 = stops[i1];
-    return [
-      Math.round(c0[0] + (c1[0] - c0[0]) * f),
-      Math.round(c0[1] + (c1[1] - c0[1]) * f),
-      Math.round(c0[2] + (c1[2] - c0[2]) * f)
-    ];
-  }
 
   function layout() {
     var hero = document.getElementById('hero');
@@ -1372,29 +1306,17 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
     var cell = Math.max(6, Math.min(14, Math.round(w / 100)));
-    var mask = buildTextMask(w, h);
     var gridCols = Math.ceil(w / cell), gridRows = Math.ceil(h / cell);
     var cells = [];
 
     for (var gy = 0; gy < gridRows; gy++) {
       for (var gx = 0; gx < gridCols; gx++) {
         var x = gx * cell, y = gy * cell;
-        var isText = false;
-        if (mask) {
-          var px = Math.min(w - 1, Math.max(0, Math.floor(x + cell / 2)));
-          var py = Math.min(h - 1, Math.max(0, Math.floor(y + cell / 2)));
-          isText = mask.data[(py * w + px) * 4 + 3] > 120;
-        }
-        if (isText) {
-          var t = (y - mask.top) / Math.max(1, mask.bottom - mask.top);
-          cells.push({ x: x, y: y, text: true, rgb: bandColor(t) });
-        } else {
-          var nx = x / w, ny = y / h;
-          var cornerDist = Math.min(Math.hypot(nx, ny), Math.hypot(1 - nx, ny), Math.hypot(nx, 1 - ny), Math.hypot(1 - nx, 1 - ny));
-          var prob = Math.max(0, 0.38 - cornerDist * 1.9); // sparse, corner-weighted — matches the reference site's dust density
-          if (Math.random() < prob) {
-            cells.push({ x: x, y: y, text: false, phase: Math.random() * Math.PI * 2, freq: 0.15 + Math.random() * 0.35, pulse: 4 + Math.random() * 4 });
-          }
+        var nx = x / w, ny = y / h;
+        var cornerDist = Math.min(Math.hypot(nx, ny), Math.hypot(1 - nx, ny), Math.hypot(nx, 1 - ny), Math.hypot(1 - nx, 1 - ny));
+        var prob = Math.max(0, 0.38 - cornerDist * 1.9); // sparse, corner-weighted — matches the reference site's dust density
+        if (Math.random() < prob) {
+          cells.push({ x: x, y: y, phase: Math.random() * Math.PI * 2, freq: 0.15 + Math.random() * 0.35, pulse: 4 + Math.random() * 4 });
         }
       }
     }
@@ -1406,36 +1328,23 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
     var tMs = RM ? 0 : ts - state.startT;
     ctx.clearRect(0, 0, state.w, state.h);
     state.cells.forEach(function(c) {
-      if (c.text) {
-        // Static — the reference wordmark doesn't flicker, only its
-        // surrounding dust does.
-        var size = state.cell - 1;
-        ctx.fillStyle = 'rgba(' + c.rgb[0] + ',' + c.rgb[1] + ',' + c.rgb[2] + ',0.92)';
-        ctx.fillRect(c.x, c.y, size, size);
-      } else {
-        // Sharp, infrequent twinkle spikes (not a smooth sine fade) —
-        // matches the "mostly dim, occasional bright glint" look observed
-        // in the reference site's dust field.
-        var s = RM ? 0 : Math.max(0, Math.sin((tMs / 1000) * c.freq + c.phase));
-        var spike = Math.pow(s, c.pulse);
-        var alpha = 0.08 + 0.55 * spike;
-        var size = Math.max(2, (state.cell - 1) * 0.5);
-        var off = (state.cell - size) / 2;
-        ctx.fillStyle = 'rgba(167,139,250,' + alpha + ')';
-        ctx.fillRect(c.x + off, c.y + off, size, size);
-      }
+      // Sharp, infrequent twinkle spikes (not a smooth sine fade) —
+      // matches the "mostly dim, occasional bright glint" look observed
+      // in the reference site's dust field.
+      var s = RM ? 0 : Math.max(0, Math.sin((tMs / 1000) * c.freq + c.phase));
+      var spike = Math.pow(s, c.pulse);
+      var alpha = 0.08 + 0.55 * spike;
+      var size = Math.max(2, (state.cell - 1) * 0.5);
+      var off = (state.cell - size) / 2;
+      ctx.fillStyle = 'rgba(167,139,250,' + alpha + ')';
+      ctx.fillRect(c.x + off, c.y + off, size, size);
     });
     if (!RM) requestAnimationFrame(render); // runs indefinitely — never settles to static
   }
 
-  function start() {
-    layout();
-    if (RM) render(performance.now());
-    else requestAnimationFrame(render);
-  }
-  // Wait for Geist Mono to be ready so the mask is measured against the
-  // real font metrics, not a fallback that then swaps underneath it.
-  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(start); } else { start(); }
+  layout();
+  if (RM) render(performance.now());
+  else requestAnimationFrame(render);
 
   var resizeTimer;
   window.addEventListener('resize', function() {
