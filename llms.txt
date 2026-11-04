@@ -32,6 +32,8 @@ Working across multiple enterprise client engagements including a global oil-fie
 
 ## Portfolio Case Studies
 
+Full filterable case-study index: https://darioespinosa.design/work.html
+
 ### BlendOps — AI-Powered Blend Optimizer (current)
 Replacing a decades-old Excel model with an ML-driven web app for oil-well fluid optimization at a global oil-field services company. Designed using an AI-assisted prototyping workflow with Claude, reaching React-ready fidelity at v7 prototype.
 URL: https://darioespinosa.design/blendops.html
@@ -68,7 +70,13 @@ URL: https://darioespinosa.design/metaverse.html
 Cut research turnaround by 50% and drove cross-team adoption of UX methodology — building scalable research guidelines and AI-assisted synthesis workflows across construction SaaS product verticals.
 URL: https://darioespinosa.design/research-at-scale.html
 
+## Outside Client Work
+
+Personal ventures and internal tools built outside SoftServe client engagements: https://darioespinosa.design/founder-mode.html
+
 ## Archive Work (2017–2021)
+
+Full archive index: https://darioespinosa.design/archive.html
 
 - **Porsche Taycan Landing Page Concept** — Mobile-first Figma prototype with multi-step pre-order flow. Visceral and behavioral level design. → /tycan.html
 - **YAIWA Smartphone Brand & Packaging** — Complete brand identity and unboxing experience for Spirit Asian Company. Extended to IBERIA and Spirit Credit Card. → /yaiwa.html

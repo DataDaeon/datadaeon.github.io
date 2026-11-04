@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selected Work — Dario Espinosa · Lead Experience Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="effects.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050508;--bg2:#08080d;--surface:#0d0d14;--surface2:#111118;
+  --border:rgba(80,227,194,0.12);--border-v:rgba(167,139,250,0.12);--border-w:rgba(255,255,255,0.07);
+  --t1:#ffffff;--t2:rgba(255,255,255,0.65);--t3:rgba(255,255,255,0.44);--t4:rgba(255,255,255,0.07);
+  --teal:#50e3c2;--teal-dim:rgba(80,227,194,0.08);--teal-glow:rgba(80,227,194,0.18);
+  --violet:#a78bfa;--violet-dim:rgba(167,139,250,0.08);
+  --font:'Geist','Inter',system-ui,sans-serif;
+  --mono:'Geist Mono','SF Mono',ui-monospace,monospace;
+  --max:920px;--r:6px;
+  --fs-2xs:0.6875rem;--fs-xs:0.75rem;--fs-sm:0.875rem;--fs-base:1rem;--fs-lg:1.25rem;--fs-xl:1.5rem;--fs-2xl:1.625rem;
+  /* ── GLASS / VENGEANCE-INSPIRED TOKENS (Session 20) ───────────────────── */
+  --glass-bg:rgba(255,255,255,0.035);--glass-bg-hi:rgba(255,255,255,0.07);
+  --glass-border:rgba(255,255,255,0.11);--glass-border-hi:rgba(255,255,255,0.22);
+  --glass-blur:blur(22px) saturate(1.5);
+  --glow-teal:0 0 1px rgba(80,227,194,0.9),0 0 24px rgba(80,227,194,0.22);
+  --glow-violet:0 0 1px rgba(167,139,250,0.9),0 0 24px rgba(167,139,250,0.22);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--t1);font-family:var(--font);font-size:var(--fs-base);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* NAV — floating glass dock (Session 20) */
+.nav-dock-wrap{position:fixed;top:14px;left:0;right:0;z-index:100;display:flex;justify-content:center;pointer-events:none;transition:top .3s cubic-bezier(.16,1,.3,1)}
+nav{pointer-events:auto;width:min(760px,92vw);height:52px;border-radius:999px;border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:var(--glass-blur);box-shadow:0 10px 36px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.05);display:flex;align-items:center;padding:0 10px 0 22px;gap:12px;transition:background .3s ease,border-color .3s ease,box-shadow .3s ease,transform .3s cubic-bezier(.16,1,.3,1)}
+.nav-dock-wrap.scrolled{top:10px}
+.nav-dock-wrap.scrolled nav{background:var(--glass-bg-hi);border-color:var(--glass-border-hi);box-shadow:0 14px 44px rgba(0,0,0,0.5),0 0 0 1px rgba(80,227,194,0.08),inset 0 1px 0 rgba(255,255,255,0.07)}
+.nav-name{font-family:var(--mono);font-size:var(--fs-xs);font-weight:600;color:var(--t1);text-decoration:none;letter-spacing:0.02em}
+.nav-sep{color:var(--t4);font-size:var(--fs-sm)}
+.nav-role{font-family:var(--mono);font-size:var(--fs-xs);color:var(--t3)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:18px;background:rgba(255,255,255,0.03);border:1px solid var(--border-w);border-radius:999px;padding:7px 8px 7px 16px}
+.nav-link{font-family:var(--mono);font-size:var(--fs-xs);color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s}
+.nav-link:hover{color:var(--teal)}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 10px var(--teal)}50%{opacity:0.35;box-shadow:0 0 3px var(--teal)}}
+@media(max-width:720px){.nav-dock-wrap{top:0}nav{width:100%;border-radius:0;border-left:none;border-right:none;border-top:none}.nav-dock-wrap.scrolled{top:0}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;animation:hero-canvas-fade .9s ease-out both}
+@keyframes hero-canvas-fade{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){#hero-canvas{animation:none}}
+.hero-rings{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.ring{position:absolute;border-radius:50%;border:1px solid var(--border);right:-8vw;top:50%;transform:translateY(-50%)}
+.ring:nth-child(1){width:420px;height:420px;animation:rb 9s ease-in-out infinite}
+.ring:nth-child(2){width:640px;height:640px;animation:rb 9s ease-in-out -2.5s infinite}
+.ring:nth-child(3){width:860px;height:860px;animation:rb 9s ease-in-out -5s infinite}
+.ring:nth-child(4){width:1080px;height:1080px;animation:rb 9s ease-in-out -7s infinite}
+@keyframes rb{0%,100%{opacity:.4;transform:translateY(-50%) scale(1)}50%{opacity:.75;transform:translateY(-50%) scale(1.015)}}
+
+.hero-content{position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr;align-items:center;gap:56px;width:100%;padding-top:92px}
+.hero-left{display:flex;flex-direction:column}
+.hero-eyebrow{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:0.14em;color:rgba(80,227,194,0.65);margin-bottom:22px;display:flex;align-items:center;gap:12px;text-transform:uppercase}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:rgba(80,227,194,0.5)}
+h1.hero-name{font-size:clamp(56px,7.5vw,88px);font-weight:800;letter-spacing:-0.055em;line-height:0.88;margin-bottom:26px}
+.char{display:inline-block;opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease}
+.char.v{opacity:1;transform:translateY(0)}
+.char.teal{color:var(--teal)}
+.newline{display:block}
+.hero-tagline{font-size:var(--fs-base);color:var(--t2);line-height:1.75;max-width:400px;margin-bottom:36px;font-weight:300}
+.hero-tagline em{font-style:normal;color:var(--teal)}
+.hero-stats{display:flex;border:1px solid var(--border);border-radius:10px;overflow:hidden;max-width:400px}
+.stat{flex:1;padding:16px 12px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:4px}
+.stat:last-child{border-right:none}
+.stat-val{font-family:var(--mono);font-size:var(--fs-lg);font-weight:700;color:var(--teal);letter-spacing:-0.04em;line-height:1}
+.stat-label{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.07em;text-transform:uppercase}
+
+/* SCROLL CUE */
+.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2}
+.scroll-cue-text{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.12em;text-transform:uppercase}
+.scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--teal),transparent);animation:sd 2s ease-in-out infinite}
+@keyframes sd{0%{opacity:0;transform:scaleY(0);transform-origin:top}55%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(1) translateY(10px)}}
+
+/* MUSIC WIDGET — Omarchy-style floating now-playing control, fixed bottom-left.
+   Ships disabled (dim, inert toggle) until music/track.mp3 exists — see the
+   MUSIC WIDGET script for exactly how it turns itself on once that file loads. */
+.music-widget{position:fixed;left:20px;bottom:20px;z-index:40;display:flex;align-items:stretch;height:46px;border:1px solid var(--glass-border);border-radius:10px;background:var(--glass-bg);backdrop-filter:var(--glass-blur);overflow:hidden;opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
+.music-widget.is-ready{opacity:1;transform:translateY(0)}
+.music-toggle{position:relative;flex-shrink:0;width:44px;border:none;border-right:1px solid var(--glass-border);background:rgba(255,255,255,0.03);color:var(--t1);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.music-toggle:disabled{cursor:not-allowed;color:var(--t3)}
+.music-ring{position:absolute;inset:-1px;border:1px solid transparent;border-radius:0;pointer-events:none;transition:border-color .15s ease}
+.music-toggle:focus-visible .music-ring{border-color:var(--teal)}
+.music-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s ease}
+.music-icon svg{width:17px;height:17px}
+.music-icon-muted{opacity:1}
+.music-widget.is-playing .music-icon-muted{opacity:0}
+.music-widget.is-playing .music-icon-on{opacity:1}
+.music-meta{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:0 14px;min-width:0}
+.music-title,.music-artist,.music-time{font-family:var(--mono);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.music-title{color:var(--t1);font-weight:600}
+.music-sub{position:relative;display:block;height:13px}
+.music-artist,.music-time{position:absolute;inset:0;color:var(--t3);transition:opacity .15s ease}
+.music-time{opacity:0}
+.music-widget:hover .music-artist,.music-widget:focus-within .music-artist{opacity:0}
+.music-widget:hover .music-time,.music-widget:focus-within .music-time{opacity:1}
+.music-eq{display:flex;align-items:flex-end;gap:2px;width:16px;height:12px;margin-right:12px;flex-shrink:0}
+.eq-bar{display:block;width:3px;flex-shrink:0;background:var(--teal);height:3px;border-radius:1px}
+.music-widget.is-playing .eq-bar{animation:eq-bounce 0.9s ease-in-out infinite}
+.music-widget.is-playing .eq-bar:nth-child(1){animation-delay:-0.6s}
+.music-widget.is-playing .eq-bar:nth-child(2){animation-delay:-0.3s}
+.music-widget.is-playing .eq-bar:nth-child(3){animation-delay:-0.75s}
+.music-widget.is-playing .eq-bar:nth-child(4){animation-delay:-0.15s}
+@keyframes eq-bounce{0%,100%{height:3px}50%{height:12px}}
+.music-progress-wrap{position:relative;flex:1;min-width:60px;max-width:90px}
+.music-progress-fill{position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--teal);transform-origin:left;transform:scaleX(0);transition:height .15s ease}
+.music-widget:hover .music-progress-fill,.music-widget:focus-within .music-progress-fill{height:4px}
+.music-seek{position:absolute;inset:auto 0 -6px 0;width:100%;height:14px;margin:0;cursor:pointer;-webkit-appearance:none;appearance:none;background:transparent}
+.music-seek::-webkit-slider-thumb{-webkit-appearance:none;width:1px;height:1px;opacity:0}
+.music-seek::-moz-range-thumb{width:1px;height:1px;opacity:0;border:none}
+.music-seek:disabled{cursor:not-allowed}
+.music-next{flex-shrink:0;width:28px;border:none;border-left:1px solid var(--glass-border);background:rgba(255,255,255,0.03);color:var(--t3);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color .15s ease}
+.music-next svg{width:13px;height:13px}
+.music-next:hover,.music-next:focus-visible{color:var(--teal)}
+@media(max-width:720px){.music-widget{display:none}}
+@media(prefers-reduced-motion:reduce){.music-widget.is-playing .eq-bar{animation:none;height:6px}}
+
+/* SECTIONS */
+section{max-width:var(--max);margin:0 auto;padding:80px 32px}
+.section-label{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.section-label-text{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap}
+.section-label-line{flex:1;height:1px;background:linear-gradient(to right,var(--border-w),transparent)}
+h2.section-title{font-size:var(--fs-2xl);font-weight:700;letter-spacing:-0.04em;color:var(--t1);margin-bottom:8px;line-height:1.15}
+p.section-sub{font-size:var(--fs-sm);color:var(--t2);margin-bottom:38px;max-width:500px;line-height:1.75}
+.divider{max-width:var(--max);margin:0 auto;padding:0 32px;height:1px;background:linear-gradient(to right,transparent,var(--border-w),transparent)}
+
+/* CASE STUDY GRID */
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-w);border:1px solid var(--border-w);border-radius:12px;overflow:hidden}
+.cs-card{background:var(--surface);padding:28px 24px;display:flex;flex-direction:column;gap:14px;cursor:pointer;position:relative;overflow:hidden;opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease,background .2s ease}
+.cs-card.v{opacity:1;transform:translateY(0)}
+.cs-card:hover{background:var(--surface2)}
+.cs-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--teal),transparent);opacity:0;transition:opacity .3s}
+.cs-card:hover::before{opacity:.55}
+.cs-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.cs-num{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.05em;white-space:nowrap}
+.cs-tags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);background:var(--t4);border:1px solid var(--border-w);padding:2px 7px;border-radius:3px;letter-spacing:0.02em}
+.tag.tc{color:var(--teal);background:var(--teal-dim);border-color:rgba(80,227,194,0.18)}
+.tag.tv{color:var(--violet);background:var(--violet-dim);border-color:rgba(167,139,250,0.18)}
+.cs-title{font-size:var(--fs-base);font-weight:600;color:var(--t1);letter-spacing:-0.02em;line-height:1.3}
+.cs-xyz{font-size:var(--fs-sm);color:var(--t2);line-height:1.7}
+.cs-xyz strong{color:var(--teal);font-weight:500}
+.cs-metrics{display:flex;gap:20px;padding-top:12px;border-top:1px solid var(--border-w);margin-top:auto}
+.cs-metric{display:flex;flex-direction:column;gap:3px}
+.cs-mval{font-family:var(--mono);font-size:var(--fs-sm);font-weight:700;color:var(--teal);letter-spacing:-0.03em}
+.cs-mlabel{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);text-transform:uppercase;letter-spacing:0.05em}
+.cs-foot{display:flex;justify-content:space-between;align-items:center}
+.cs-meta{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3)}
+.cs-arrow{font-size:var(--fs-sm);color:#FFFF02;transition:color .2s,transform .2s}
+.cs-card:hover .cs-arrow{color:#fff;transform:translateX(5px)}
+
+/* CARD THUMBNAILS */
+.cs-thumb{margin:0;padding:12px 12px 0;width:100%;box-sizing:border-box;height:226px;overflow:hidden;flex-shrink:0;position:relative}
+.cs-thumb img{width:100%;height:100%;object-fit:cover;display:block;border-radius:6px;transition:transform .55s ease,filter .3s ease;filter:brightness(.82) saturate(.88)}
+.cs-card:hover .cs-thumb img{transform:scale(1.04);filter:brightness(.96) saturate(1.08)}
+.cs-thumb::after{content:'';position:absolute;inset:auto 12px 0;height:72px;border-radius:0 0 6px 6px;background:linear-gradient(to bottom,transparent,var(--surface));pointer-events:none;z-index:1}
+.cs-card:hover .cs-thumb::after{background:linear-gradient(to bottom,transparent,var(--surface2))}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.about-bio{font-size:var(--fs-sm);color:var(--t2);line-height:1.85}
+.about-bio p{margin-bottom:16px}
+.about-bio strong{color:var(--t1);font-weight:500}
+.skills-list{display:flex;flex-direction:column;gap:12px}
+.skill-row{display:flex;align-items:center;gap:12px}
+.skill-name{font-family:var(--mono);font-size:var(--fs-xs);color:var(--t3);min-width:148px}
+.skill-bar{flex:1;height:1px;background:var(--border-w);position:relative}
+.skill-fill{position:absolute;top:0;left:0;height:1px;background:linear-gradient(to right,var(--teal),rgba(80,227,194,0.3));transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.skill-fill.v{transform:scaleX(1)}
+.skill-pct{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);min-width:24px;text-align:right}
+
+/* CAREER TIMELINE */
+.career-timeline{margin-top:52px;padding-top:40px;border-top:1px solid var(--border-w)}
+.career-label{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px}
+.career-entries{display:flex;flex-direction:column;gap:0}
+.career-entry{display:grid;grid-template-columns:88px 1px 1fr;gap:0 20px;padding-bottom:32px;position:relative}
+.career-entry:last-child{padding-bottom:0}
+.career-year{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);padding-top:3px;text-align:right;line-height:1.4}
+.career-line{position:relative;display:flex;flex-direction:column;align-items:center}
+.career-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px rgba(80,227,194,0.5);flex-shrink:0;margin-top:4px}
+.career-dot-dim{width:5px;height:5px;border-radius:50%;background:var(--border-w);flex-shrink:0;margin-top:4px}
+.career-vline{flex:1;width:1px;background:linear-gradient(to bottom,var(--border-w),transparent);margin-top:6px}
+.career-entry:last-child .career-vline{display:none}
+.career-body{padding-bottom:4px}
+.career-company{font-size:var(--fs-sm);font-weight:600;color:var(--t1);letter-spacing:-0.01em}
+.career-role{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--teal);letter-spacing:0.03em;margin-top:2px}
+.career-period{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);margin-top:1px}
+.career-takeaway{font-size:var(--fs-xs);color:var(--t2);font-style:italic;line-height:1.6;margin-top:8px;max-width:480px}
+.career-tools{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.02em;margin-top:6px}
+.career-tools span{color:var(--teal)}
+
+/* CONTACT STRIP */
+.contact-strip{background:var(--surface);border-top:1px solid var(--border-w);border-bottom:1px solid var(--border-w)}
+.contact-inner{max-width:var(--max);margin:0 auto;padding:52px 32px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.contact-headline{font-size:var(--fs-xl);font-weight:700;letter-spacing:-0.035em;line-height:1.2}
+.contact-headline span{color:var(--teal)}
+.contact-kicker{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px}
+.contact-links{display:flex;gap:10px;flex-shrink:0}
+.btn{font-family:var(--mono);font-size:var(--fs-xs);padding:9px 18px;border-radius:7px;text-decoration:none;letter-spacing:0.04em;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:var(--teal);color:#050508;font-weight:700}
+.btn-primary:hover{background:#7ef5e0}
+.btn-secondary{border:1px solid var(--border);color:var(--t2)}
+.btn-secondary:hover{border-color:var(--teal);color:var(--teal)}
+
+/* FOOTER */
+footer{max-width:var(--max);margin:0 auto;padding:22px 32px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-w)}
+.foot-l,.foot-r{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.04em}
+
+/* RESPONSIVE */
+@media(max-width:720px){
+  .hero-content{grid-template-columns:1fr;gap:40px;padding:0 20px;padding-top:64px}
+  .cs-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .contact-inner{flex-direction:column;text-align:center}
+  nav{padding:0 16px}
+  .nav-role{display:none}
+  section{padding:60px 20px}
+}
+
+/* ── MAGNETIC CURSOR (Work section only) ─────────────────────────────────
+   Custom cursor dot that follows mouse with lerp smoothing.
+   Expands + shifts color when hovering a .cs-card (magnetic target).
+   Cursor is only visible while mouse is inside #work section.
+   ──────────────────────────────────────────────────────────────────────── */
+#mag-cursor{
+  position:fixed;top:0;left:0;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--teal);
+  mix-blend-mode:screen;
+  pointer-events:none;
+  z-index:9999;
+  opacity:0;
+  transition:opacity .25s ease, width .2s ease, height .2s ease,
+             background .2s ease, box-shadow .2s ease;
+  will-change:transform;
+  box-shadow:0 0 14px var(--teal),0 0 5px var(--teal);
+}
+#mag-cursor.active{opacity:1}
+#mag-cursor.on-card{
+  width:38px;height:38px;
+  background:var(--violet);
+  box-shadow:0 0 22px var(--violet),0 0 8px var(--violet);
+}
+/* Hide system cursor over cards while in Work section */
+#work .cs-card{cursor:none}
+
+
+
+/* ── INDUSTRY TAG ─────────────────────────────────────────────────────────── */
+.tag-ind {
+  color: #f59e0b;
+  background: rgba(245,158,11,0.1);
+  border-color: rgba(245,158,11,0.25);
+}
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+
+/* ── HERO NAME GLITCH — two words ───────────────────────────────────────── */
+.hero-glitch-word {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+  line-height: inherit;
+}
+.hero-glitch-word::before {
+  content: attr(data-hover);
+  display: block;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  font: inherit;
+  letter-spacing: inherit;
+  white-space: nowrap;
+}
+.hero-glitch-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  color: #050508;
+  background: #FFFF02;
+  clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+  transition: clip-path 0.45s cubic-bezier(0.77,0,0.175,1);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.hero-glitch-word:hover .hero-glitch-overlay {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── ACCESSIBILITY: FOCUS STYLES ────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
+[role="link"]:focus-visible, [role="button"]:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── PROJECT FILTER ──────────────────────────────────────────────────────── */
+.filter-bar { display:flex; flex-wrap:nowrap; gap:8px; margin-bottom:32px; overflow-x:auto; padding-bottom:4px; scrollbar-width:none; }
+.filter-bar::-webkit-scrollbar { display:none; }
+.filter-chip {
+  font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase;
+  padding:6px 14px; border-radius:99px; cursor:pointer; border:1px solid var(--border-w);
+  background:var(--surface); color:var(--t3); transition:all .2s; user-select:none;
+}
+.filter-chip:hover { color:var(--t1); border-color:rgba(255,255,255,.2); }
+.filter-chip.active { color:var(--bg); background:var(--teal); border-color:var(--teal); }
+.cs-card[data-hidden="true"] { display:none; }
+.cs-grid.filtered .cs-card { grid-column:1/-1 !important; }
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── HOVER HINT ──────────────────────────────────────────────────────────── */
+.hero-glitch-wrap + .hero-glitch-wrap::after,
+.hero-glitch-wrap:last-of-type::after {
+  content: '— hover';
+  display: block;
+  font-family: var(--mono); font-size: 9px;
+  color: var(--t3); letter-spacing: 0.14em;
+  margin-top: 12px; text-align: right;
+  opacity: 0; animation: hint-in 1s ease 3.5s forwards;
+}
+@keyframes hint-in { to { opacity: 1; } }
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── PORTRAIT — pixelate-in canvas ───────────────────────────────────────── */
+.portrait-img  { display:none !important; }
+/* ascii-portrait removed */
+#ftr-portrait {
+  width:100%; display:block; border-radius:10px;
+  image-rendering: pixelated; /* keeps pixel blocks crisp during animation */
+  mask-image: radial-gradient(ellipse 94% 90% at 50% 44%, black 42%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 94% 90% at 50% 44%, black 42%, transparent 78%);
+}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── SESSION 10 — VISUAL UPGRADES ───────────────────────────────────────── */
+
+/* 1. Scroll progress bar (under nav) */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  background: linear-gradient(to right, var(--teal), var(--violet));
+  box-shadow: 0 0 8px rgba(80,227,194,0.45);
+  z-index: 101; pointer-events: none;
+}
+
+/* 2. Spotlight hover on work cards (pointer-tracked radial glow) */
+.cs-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(320px circle at var(--mx,50%) var(--my,50%),
+              rgba(80,227,194,0.10), transparent 62%);
+  opacity: 0; transition: opacity .35s ease;
+  pointer-events: none; z-index: 1;
+}
+.cs-card:hover::after { opacity: 1; }
+
+/* 3. Image zoom for full-width feature cards (inline-styled imgs) */
+.cs-card:hover > div > img {
+  transform: scale(1.05);
+  filter: brightness(.96) saturate(1.08) !important;
+}
+
+/* 4. Filter transitions — fade/scale instead of instant reflow */
+.cs-card.f-out {
+  opacity: 0 !important;
+  transform: scale(.97) translateY(8px) !important;
+}
+
+/* 5. Career timeline — draw vline + pop dots on scroll */
+.career-line .career-vline {
+  transform: scaleY(0); transform-origin: top;
+  transition: transform .8s cubic-bezier(.22,1,.36,1) .1s;
+}
+.career-entry.lit .career-vline { transform: scaleY(1); }
+.career-line .career-dot,
+.career-line .career-dot-dim {
+  transform: scale(0);
+  transition: transform .5s cubic-bezier(.34,1.56,.64,1);
+}
+.career-entry.lit .career-dot,
+.career-entry.lit .career-dot-dim { transform: scale(1); }
+
+/* 6. Marquee divider (verticals ticker between work & archive) */
+.marquee-divider {
+  overflow: hidden; padding: 26px 0;
+  border-top: 1px solid var(--border-w);
+  border-bottom: 1px solid var(--border-w);
+  max-width: 100%;
+}
+.marquee-track {
+  display: inline-flex; width: max-content;
+  animation: marquee 36s linear infinite;
+}
+.marquee-divider:hover .marquee-track { animation-play-state: paused; }
+.marquee-item {
+  display: inline-flex; align-items: center;
+  font-family: var(--mono); font-size: var(--fs-xs);
+  color: var(--t3); padding: 0 26px;
+  letter-spacing: .08em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.marquee-item span { color: var(--teal); margin-right: 10px; font-size: 9px; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* 7. Tabular numerals for count-ups */
+.stat-val, .skill-pct, .cs-mval { font-variant-numeric: tabular-nums; }
+
+/* 8. Reduced motion — kill all session-10 motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .career-line .career-vline,
+  .career-line .career-dot,
+  .career-line .career-dot-dim { transform: none; transition: none; }
+  .cs-card.f-out { opacity: 1 !important; transform: none !important; }
+  .cs-card { transition: background .2s ease; opacity: 1; transform: none; }
+  .scroll-line, .nav-dot { animation: none; }
+}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── GIFT TRIGGER + MODAL — Session 19, page-specific per house rule 2 ──── */
+.gift-trigger{margin-top:16px;border:1px dashed rgba(167,139,250,0.35);border-radius:8px;padding:16px 18px;display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap;background:rgba(167,139,250,0.04)}
+.gift-trigger-text{display:flex;align-items:center;gap:10px}
+.gift-trigger-emoji{font-size:20px;line-height:1}
+.gift-trigger-copy{font-size:12.5px;color:var(--t2);line-height:1.5}
+.gift-trigger-copy strong{color:var(--t1);display:block;font-size:13px;margin-bottom:2px}
+.gift-trigger-btn{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--violet);background:var(--violet-dim);border:1px solid rgba(167,139,250,0.3);border-radius:7px;padding:9px 16px;cursor:pointer;letter-spacing:.02em;white-space:nowrap;transition:background .15s,transform .15s}
+.gift-trigger-btn:hover{background:rgba(167,139,250,0.16);transform:translateY(-1px)}
+.gift-trigger-btn:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+
+dialog#gift-modal{position:fixed;inset:0;width:100vw;height:100vh;max-width:100vw;max-height:100vh;margin:0;padding:0;border:none;background:transparent;overflow:hidden;z-index:9000;transition:opacity .25s ease}
+dialog#gift-modal[open]{display:flex;align-items:center;justify-content:center}
+dialog#gift-modal::backdrop{background:rgba(5,5,8,0);backdrop-filter:blur(0px);transition:background .3s ease,backdrop-filter .3s ease}
+dialog#gift-modal.is-open::backdrop{background:rgba(5,5,8,.82);backdrop-filter:blur(8px)}
+.gift-modal-card{position:relative;width:min(480px,92vw);max-height:86vh;overflow-y:auto;background:var(--surface2);border:1px solid rgba(167,139,250,0.25);border-radius:14px;padding:32px 30px 28px;box-shadow:0 32px 80px rgba(0,0,0,.7);transform:scale(0.92);opacity:0;transition:transform .3s cubic-bezier(.16,1,.3,1),opacity .25s ease}
+dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
+.gift-modal-eyebrow{font-family:var(--mono);font-size:10px;color:var(--violet);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.gift-modal-card h3{font-size:22px;font-weight:800;letter-spacing:-0.03em;color:var(--t1);margin-bottom:14px;line-height:1.2}
+.gift-modal-card p{font-size:13.5px;color:var(--t2);line-height:1.75;margin-bottom:14px}
+.gift-modal-card ul{margin:0 0 18px 18px;padding:0}
+.gift-modal-card li{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:6px}
+.gift-modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.gift-modal-btn{font-family:var(--mono);font-size:12px;font-weight:600;border-radius:8px;padding:11px 18px;text-decoration:none;letter-spacing:.02em;text-align:center;transition:filter .15s,transform .15s;cursor:pointer;border:1px solid transparent}
+.gift-modal-btn.primary{background:var(--violet);color:#050508}
+.gift-modal-btn.primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.gift-modal-btn.secondary{background:transparent;color:var(--t2);border-color:var(--border-w)}
+.gift-modal-btn.secondary:hover{color:var(--t1);border-color:rgba(255,255,255,0.2)}
+.gift-modal-btn:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+.gift-modal-close{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,0.06);color:var(--t2);font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s}
+.gift-modal-close:hover{background:rgba(255,255,255,0.12);color:var(--t1)}
+.gift-modal-close:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){
+  dialog#gift-modal, dialog#gift-modal::backdrop, .gift-modal-card{transition:none}
+}
+@media(max-width:680px){
+  .gift-trigger{flex-direction:column;align-items:flex-start}
+  .gift-modal-card{padding:26px 22px 22px}
+}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── AMBIENT BACKGROUND RAYS — Vengeance-inspired, Session 20 ───────────
+   Fixed, full-viewport, behind all content (z-index -1). Three slow-drifting
+   radial blobs (teal / violet / dim) rendered with blur, giving the whole
+   page a cinematic glass-over-light-field backdrop instead of flat black.
+   Frozen under prefers-reduced-motion (still visible, just static). ────── */
+.ambient-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.ambient-bg .ray{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.55;will-change:transform}
+.ambient-bg .ray1{width:52vw;height:52vw;max-width:720px;max-height:720px;top:-16vw;left:-10vw;background:radial-gradient(circle,rgba(80,227,194,0.16),transparent 70%);animation:ray-drift-1 26s ease-in-out infinite}
+.ambient-bg .ray2{width:46vw;height:46vw;max-width:640px;max-height:640px;bottom:-14vw;right:-8vw;background:radial-gradient(circle,rgba(167,139,250,0.14),transparent 70%);animation:ray-drift-2 32s ease-in-out infinite}
+.ambient-bg .ray3{width:34vw;height:34vw;max-width:480px;max-height:480px;top:38vh;left:52vw;background:radial-gradient(circle,rgba(80,227,194,0.08),transparent 72%);animation:ray-drift-3 22s ease-in-out infinite}
+.ambient-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(5,5,8,0.4) 100%)}
+@keyframes ray-drift-1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(4vw,3vw) scale(1.08)}}
+@keyframes ray-drift-2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3vw,-4vw) scale(1.1)}}
+@keyframes ray-drift-3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-2vw,3vw) scale(0.94)}}
+@media(prefers-reduced-motion:reduce){.ambient-bg .ray{animation:none}}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── GLASS SURFACES — hero stats, about bio, career timeline, contact,
+   work cards. Applies translucent/blur treatment on top of existing layout,
+   no DOM changes required. Session 20. ─────────────────────────────────── */
+.hero-stats{border:1px solid var(--glass-border);border-radius:14px;background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
+.stat{border-right:1px solid var(--glass-border)}
+.cs-card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid transparent;transition:opacity .5s ease,transform .5s ease,background .25s ease,box-shadow .3s ease,border-color .3s ease}
+.cs-card:hover{background:var(--glass-bg-hi);border-color:rgba(80,227,194,0.28);box-shadow:var(--glow-teal)}
+#founder-mode .cs-card:hover{border-color:rgba(80,227,194,0.28);box-shadow:var(--glow-teal)}
+.cs-grid{background:var(--glass-border)}
+.cs-thumb img{filter:brightness(.86) saturate(.92)}
+.about-grid{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:var(--glass-blur);border-radius:16px;padding:36px}
+.career-timeline{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:var(--glass-blur);border-radius:16px;padding:36px;margin-top:52px;border-top:1px solid var(--glass-border)}
+.contact-strip{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border)}
+.gift-trigger{background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
+@media(max-width:720px){.about-grid,.career-timeline{padding:24px;border-radius:12px}}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── COMPETENCE PILLARS + STACK LINE — about section, Session 20 ────────── */
+.pillar-row{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 18px}
+.pillar-chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--teal);background:var(--teal-dim);border:1px solid rgba(80,227,194,0.22);border-radius:999px;padding:6px 13px;white-space:nowrap}
+.about-stack{font-size:12px !important;color:var(--t3) !important;line-height:1.7 !important;font-family:var(--mono);letter-spacing:.01em;border-top:1px solid var(--border-w);padding-top:16px;margin-top:4px}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+</style>
+  <meta name="description" content="Full case-study archive: 11 UX and product design engagements across telecom, healthcare, energy, construction, analytics, and spatial computing.">
+  <meta name="author" content="Dario Espinosa">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://darioespinosa.design/work.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://darioespinosa.design/work.html">
+  <meta property="og:title" content="Selected Work — Dario Espinosa · Lead Experience Designer">
+  <meta property="og:description" content="Full case-study archive: 11 UX and product design engagements across telecom, healthcare, energy, construction, analytics, and spatial computing.">
+  <meta property="og:image" content="https://darioespinosa.design/og-image.png">
+  <meta property="og:site_name" content="Dario Espinosa Portfolio">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@DataEP">
+  <meta name="twitter:title" content="Selected Work — Dario Espinosa · Lead Experience Designer">
+  <meta name="twitter:description" content="Full case-study archive: 11 UX and product design engagements across telecom, healthcare, energy, construction, analytics, and spatial computing.">
+  <meta name="twitter:image" content="https://darioespinosa.design/og-image.png">
+</head>
+<body>
+<a href="#main-content" style="position:absolute;left:-9999px;top:4px;z-index:9999;background:#50e3c2;color:#050508;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none" onfocus="this.style.left='4px'" onblur="this.style.left='-9999px'">Skip to main content</a>
+
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ray ray1"></div>
+  <div class="ray ray2"></div>
+  <div class="ray ray3"></div>
+</div>
+<div class="nav-dock-wrap" id="nav-dock-wrap">
+<nav>
+  <a class="nav-name" href="index.html">dario-espinosa</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-role">selected work</span>
+  <div class="nav-right">
+    <a class="nav-link" href="index.html">home</a>
+    <a class="nav-link" href="about.html">about</a>
+    <a class="nav-link" href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener">linkedin</a>
+    <div class="nav-dot" title="Available for new opportunities"></div>
+  </div>
+</nav>
+</div>
+<main id="main-content">
+<div style="max-width:var(--max);margin:0 auto;padding:140px 32px 0">
+  <a href="index.html" class="foot-back">&larr; back to portfolio</a>
+</div>
+
+<section id="work">
+  <div class="section-label">
+    <span class="section-label-text">&#8212;&#8212; selected work</span>
+    <div class="section-label-line"></div>
+    <span style="font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3)">07 projects</span>
+  </div>
+  <h2 class="section-title" data-scramble aria-label="Experience across industries & scales">Experience across<br>industries &amp; scales</h2>
+  <p class="section-sub">Enterprise UX leadership, design systems, accessibility, and AI: from telecom to spatial computing.</p>
+
+    <div class="filter-bar" role="group" aria-label="Filter projects by industry">
+    <button class="filter-chip active" data-filter="all" onclick="filterCards(this)">All</button>
+    <button class="filter-chip" data-filter="energy" onclick="filterCards(this)">Energy</button>
+    <button class="filter-chip" data-filter="analytics" onclick="filterCards(this)">Analytics</button>
+    <button class="filter-chip" data-filter="transportation" onclick="filterCards(this)">Transportation</button>
+    <button class="filter-chip" data-filter="telecommunications" onclick="filterCards(this)">Telecom</button>
+    <button class="filter-chip" data-filter="healthcare" onclick="filterCards(this)">Healthcare</button>
+    <button class="filter-chip" data-filter="enterprise" onclick="filterCards(this)">Enterprise</button>
+    <button class="filter-chip" data-filter="construction" onclick="filterCards(this)">Construction</button>
+    <button class="filter-chip" data-filter="technology" onclick="filterCards(this)">Technology</button>
+    <button class="filter-chip" data-filter="entertainment" onclick="filterCards(this)">Entertainment</button>
+  </div>
+  <div class="cs-grid" id="work-grid">
+
+    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='blendops.html'" onclick="location.href='blendops.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(56,198,244,0.28);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
+      <div style="padding:12px;overflow:hidden;min-height:280px">
+        <img src="images/inline/demo-blendops-options.svg" alt="Illustrative recreation — BlendOps Options panel" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;filter:brightness(.82) saturate(.88);transition:transform .55s ease,filter .3s ease">
+      </div>
+      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
+        <div class="cs-head">
+          <div class="cs-tags"><span class="tag tc">ai-workflow</span><span class="tag">product-design</span><span class="tag">ml-ux</span><span class="tag">current</span><span class="tag tag-ind">energy</span></div>
+          <span class="cs-num">00 / 09</span>
+        </div>
+        <div class="cs-title">Replacing Legacy Tools: AI-Powered Blend Optimizer</div>
+        <p class="cs-xyz">Replacing a decades-old Excel model with an <strong>ML-driven web app</strong> that lets Plant Operations Managers optimize oil-well fluid formulas in minutes instead of hours. Designed using an AI-assisted prototyping workflow (Claude), reaching React-ready fidelity at v7.</p>
+        <div class="cs-metrics" style="margin-top:auto">
+          <div class="cs-metric"><span class="cs-mval">Excel</span><span class="cs-mlabel">replaced</span></div>
+          <div class="cs-metric"><span class="cs-mval">3&rarr;1</span><span class="cs-mlabel">systems unified</span></div>
+          <div class="cs-metric"><span class="cs-mval">v7</span><span class="cs-mlabel">prototype iterations</span></div>
+        </div>
+        <div class="cs-foot"><span class="cs-meta">energy-services · oil-field services company · in progress</span><span class="cs-arrow">&#8594;</span></div>
+      </div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='benefits-platform.html'" onclick="location.href='benefits-platform.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(245,158,11,0.28);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
+      <div style="padding:12px;overflow:hidden;min-height:280px">
+        <img src="images/inline/demo-harborview-admin-thumb.svg" alt="Illustrative recreation — benefits administration admin portal, plan list screen" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;filter:brightness(.82) saturate(.88);transition:transform .55s ease,filter .3s ease">
+      </div>
+      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
+        <div class="cs-head">
+          <div class="cs-tags"><span class="tag tc">design-systems</span><span class="tag">ai-workflow</span><span class="tag">accessibility</span><span class="tag">current</span><span class="tag tag-ind">enterprise-saas</span></div>
+          <span class="cs-num">✦ current</span>
+        </div>
+        <div class="cs-title">Rebuilding Benefits Software</div>
+        <p class="cs-xyz">Leading UX for a from-scratch rebuild of a legacy employee-benefits platform, and building the <strong>code-first, AI-assisted workflow</strong> (HTML-to-Figma, connected requirements, a shared token system) that let a small, multinational team ship two full portals to WCAG 2.2 AA.</p>
+        <div class="cs-metrics" style="margin-top:auto">
+          <div class="cs-metric"><span class="cs-mval">v1.3→v1.8</span><span class="cs-mlabel">iterations shipped</span></div>
+          <div class="cs-metric"><span class="cs-mval">2</span><span class="cs-mlabel">portals designed</span></div>
+          <div class="cs-metric"><span class="cs-mval">3</span><span class="cs-mlabel">countries, one team</span></div>
+        </div>
+        <div class="cs-foot"><span class="cs-meta">enterprise-saas · regulated · in progress</span><span class="cs-arrow">&#8594;</span></div>
+      </div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='gradeline.html'" onclick="location.href='gradeline.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(14,42,71,0.5);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
+      <div style="padding:12px;overflow:hidden;min-height:280px">
+        <img src="images/inline/demo-gradeline-mobile.svg" alt="Illustrative recreation — GradeLine mobile sign-in, role picker screen" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;filter:brightness(.82) saturate(.88);transition:transform .55s ease,filter .3s ease">
+      </div>
+      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
+        <div class="cs-head">
+          <div class="cs-tags"><span class="tag">field-ux</span><span class="tag tc">design-systems</span><span class="tag">ai-workflow</span><span class="tag">current</span><span class="tag tag-ind">construction</span></div>
+          <span class="cs-num">✦ current</span>
+        </div>
+        <div class="cs-title">From Bid to Blacktop: One Field App for Three Different Jobs</div>
+        <p class="cs-xyz">Designing a mobile-first field platform for a national paving contractor &mdash; the sales bid, the dispatcher's desk, and the crew foreman's phone &mdash; through a <strong>forked, versioned prototyping pipeline</strong> a founder could click through without touching code.</p>
+        <div class="cs-metrics" style="margin-top:auto">
+          <div class="cs-metric"><span class="cs-mval">8</span><span class="cs-mlabel">versions shipped</span></div>
+          <div class="cs-metric"><span class="cs-mval">63</span><span class="cs-mlabel">catalog components</span></div>
+          <div class="cs-metric"><span class="cs-mval">3</span><span class="cs-mlabel">devices, one system</span></div>
+        </div>
+        <div class="cs-foot"><span class="cs-meta">construction-tech &middot; discovery phase &middot; in progress</span><span class="cs-arrow">&#8594;</span></div>
+      </div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='virtu4lslacksagent.html'" onclick="location.href='virtu4lslacksagent.html'" style="transition-delay:.07s;cursor:pointer;border-top:1px solid rgba(167,139,250,0.22)">
+      <div class="cs-thumb"><img src="images/thumb-vos.svg" alt="VOS — VIRTU4L Operations System UI" loading="lazy"></div>
+      <div class="cs-head">
+        <div class="cs-tags">
+          <span class="tag" style="color:rgba(167,139,250,0.9);border-color:rgba(167,139,250,0.3)">slack-bot</span>
+          <span class="tag">node-js</span>
+          <span class="tag">ai-agent</span>
+          <span class="tag">vibe-coded</span>
+          <span class="tag tag-ind">entertainment</span>
+        </div>
+        <span class="cs-num">01 / 08</span>
+      </div>
+      <div style="font-family:var(--mono);font-size:11px;color:rgba(167,139,250,0.7);margin-bottom:4px">VIRTU4L · Personal Project · Chiapas MX</div>
+      <div class="cs-title">VOS — VIRTU4L Operations System with Local AI</div>
+      <p class="cs-xyz">A Slack-native operations brain for a real-world VR venue: daily checklists, reservations, sales tracking, and Dasha, an AI assistant running locally that handles what the team would otherwise forget.</p>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-mval" style="color:rgba(167,139,250,0.9)">293</span><span class="cs-mlabel">tests passing</span></div>
+        <div class="cs-metric"><span class="cs-mval" style="color:rgba(167,139,250,0.9)">4</span><span class="cs-mlabel">slack channels</span></div>
+        <div class="cs-metric"><span class="cs-mval" style="color:rgba(167,139,250,0.9)">0</span><span class="cs-mlabel">public urls</span></div>
+      </div>
+      <div class="cs-foot"><span class="cs-meta">personal-project &middot; vibe-coded &middot; ai-native</span><span class="cs-arrow">&#8594;</span></div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" aria-label="Revolutionizing Data Insights: Dashboard Redesign — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='nielseniq.html'" onclick="location.href='nielseniq.html'" style="cursor:pointer">
+      <div class="cs-thumb"><img src="images/thumb-nielseniq.jpg" alt="NielsenIQ Discover dashboard UI" loading="lazy"></div>
+      <div class="cs-head">
+        <div class="cs-tags"><span class="tag tc">ux-strategy</span><span class="tag">designops</span><span class="tag">agile</span><span class="tag tag-ind">analytics</span></div>
+        <span class="cs-num">02 / 08</span>
+      </div>
+      <div class="cs-title">Revolutionizing Data Insights: Dashboard Redesign</div>
+      <p class="cs-xyz">Introduced Double Track Agile and a consolidated Figma design system to a burned-out team. Feature delivery got <strong>30%</strong> faster, and UX bugs dropped by half.</p>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-mval">+30%</span><span class="cs-mlabel">delivery speed</span></div>
+        <div class="cs-metric"><span class="cs-mval">&minus;50%</span><span class="cs-mlabel">UX bugs</span></div>
+        <div class="cs-metric"><span class="cs-mval">+25%</span><span class="cs-mlabel">satisfaction</span></div>
+      </div>
+      <div class="cs-foot"><span class="cs-meta">analytics-saas &middot; 6 months</span><span class="cs-arrow">&#8594;</span></div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" aria-label="Modernizing Railway Systems: Back Office Overhaul — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='siemens.html'" onclick="location.href='siemens.html'" style="transition-delay:.07s;cursor:pointer">
+      <div class="cs-thumb"><img src="images/thumb-siemens.jpg" alt="Siemens TrainGuard BOS login UI" loading="lazy"></div>
+      <div class="cs-head">
+        <div class="cs-tags"><span class="tag">enterprise-ux</span><span class="tag tc">design-system</span><span class="tag">wcag</span><span class="tag tag-ind">transportation</span></div>
+        <span class="cs-num">03 / 08</span>
+      </div>
+      <div class="cs-title">Modernizing Railway Systems: Back Office Overhaul</div>
+      <p class="cs-xyz">After a fatal collision exposed a decades-old dispatcher tool, I led the full redesign solo &mdash; research, workflow restructuring, and a component-driven Figma + Flutter UI &mdash; with a direct line to the Product Director and no design committee in between. Operator task time dropped <strong>40%</strong>, onboarding time 60%.</p>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-mval">&minus;40%</span><span class="cs-mlabel">task time</span></div>
+        <div class="cs-metric"><span class="cs-mval">&minus;60%</span><span class="cs-mlabel">onboarding</span></div>
+        <div class="cs-metric"><span class="cs-mval">100%</span><span class="cs-mlabel">wcag 2.1 AA</span></div>
+      </div>
+      <div class="cs-foot"><span class="cs-meta">rail-transport &middot; solo lead</span><span class="cs-arrow">&#8594;</span></div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" aria-label="Digital Transformation: AEM & eCommerce Evolution — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='att.html'" onclick="location.href='att.html'" style="transition-delay:.14s;cursor:pointer">
+      <div class="cs-thumb"><img src="images/inline/demo-connectify-thumb.svg" alt="Illustrative recreation — telecom self-service storefront" loading="lazy"></div>
+      <div class="cs-head">
+        <div class="cs-tags"><span class="tag">telecom</span><span class="tag tc">ecommerce</span><span class="tag tv">accessibility</span><span class="tag tag-ind">telecommunications</span></div>
+        <span class="cs-num">04 / 08</span>
+      </div>
+      <div class="cs-title">Digital Transformation: AEM & eCommerce Evolution</div>
+      <p class="cs-xyz">Led AT&amp;T M&eacute;xico&rsquo;s five-year digital transformation across the flagship site, eCommerce platform, and dozens of microsites &mdash; including a <strong>2021 AEM design system</strong> that moved seven teams from Photoshop into one shared Figma component library. Online sales rose <strong>500%</strong>, with 96% accessibility compliance.</p>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-mval">+500%</span><span class="cs-mlabel">online sales</span></div>
+        <div class="cs-metric"><span class="cs-mval">96%</span><span class="cs-mlabel">accessibility</span></div>
+        <div class="cs-metric"><span class="cs-mval">2020</span><span class="cs-mlabel">intl award</span></div>
+      </div>
+      <div class="cs-foot"><span class="cs-meta">telecom &middot; 5 years</span><span class="cs-arrow">&#8594;</span></div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" aria-label="From Philosophy to Digital Engagement: Life Coaching Platform — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='oolalife.html'" onclick="location.href='oolalife.html'" style="transition-delay:.21s;cursor:pointer">
+      <div class="cs-thumb"><img src="images/thumb-oolalife.jpg" alt="OolaLife platform UI" loading="lazy"></div>
+      <div class="cs-head">
+        <div class="cs-tags"><span class="tag">life-coaching</span><span class="tag tc">gamification</span><span class="tag">mobile-first</span><span class="tag tag-ind">health & wellness</span></div>
+        <span class="cs-num">05 / 08</span>
+      </div>
+      <div class="cs-title">From Philosophy to Digital Engagement: Life Coaching Platform</div>
+      <p class="cs-xyz">Turned a bestselling self-help book into a product people would actually open daily &mdash; not preachy, more like a coach than a checklist. ~50 interviews shaped a <strong>7-area gamification framework</strong> behind a COVID-era pivot, shipped in 6 months.</p>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-mval">7</span><span class="cs-mlabel">life areas</span></div>
+        <div class="cs-metric"><span class="cs-mval">~50</span><span class="cs-mlabel">interviews</span></div>
+        <div class="cs-metric"><span class="cs-mval">6mo</span><span class="cs-mlabel">to MVP</span></div>
+      </div>
+      <div class="cs-foot"><span class="cs-meta">life-coaching &middot; covid pivot</span><span class="cs-arrow">&#8594;</span></div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" aria-label="Building a UX Powerhouse: Center of Excellence — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='benefitbridge.html'" onclick="location.href='benefitbridge.html'" style="transition-delay:.28s;cursor:pointer">
+      <div class="cs-thumb"><img src="images/inline/demo-benefitbridge-thumb.svg" alt="Illustrative recreation — employee health benefits member home" loading="lazy"></div>
+      <div class="cs-head">
+        <div class="cs-tags"><span class="tag">healthcare-saas</span><span class="tag tv">ux-coe</span><span class="tag">accessibility</span><span class="tag tag-ind">healthcare</span></div>
+        <span class="cs-num">06 / 08</span>
+      </div>
+      <div class="cs-title">Building a UX Powerhouse: Center of Excellence</div>
+      <p class="cs-xyz">First designer hired at a live healthcare SaaS platform with no design function. Built the UX practice and the product at the same time &mdash; the rebuilt admin flow now ships under one promise: <strong>&ldquo;Manage benefits in under an hour per month.&rdquo;</strong></p>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-mval">+50%</span><span class="cs-mlabel">dev efficiency</span></div>
+        <div class="cs-metric"><span class="cs-mval">+80%</span><span class="cs-mlabel">user adoption</span></div>
+        <div class="cs-metric"><span class="cs-mval">&minus;70%</span><span class="cs-mlabel">a11y complaints</span></div>
+      </div>
+      <div class="cs-foot"><span class="cs-meta">healthcare-saas &middot; 0&rarr;CoE &middot; regulated env</span><span class="cs-arrow">&#8594;</span></div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" aria-label="Exploring the Future: Metaverse Experience — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='metaverse.html'" onclick="location.href='metaverse.html'" style="transition-delay:.35s;cursor:pointer">
+      <div class="cs-thumb"><img src="images/thumb-metaverse.jpg" alt="SoftServe Metaverse experience UI" loading="lazy"></div>
+      <div class="cs-head">
+        <div class="cs-tags"><span class="tag tv">metaverse</span><span class="tag">xr</span><span class="tag tc">spatial-design</span><span class="tag tag-ind">technology</span></div>
+        <span class="cs-num">07 / 08</span>
+      </div>
+      <div class="cs-title">Exploring the Future: Metaverse Experience</div>
+      <p class="cs-xyz">Designed a fully navigable immersive exhibition for a major European tech convention in 4 months, using Spatial + Unity. It drew <strong>1,500+</strong> virtual visitors.</p>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-mval">1,500+</span><span class="cs-mlabel">visitors</span></div>
+        <div class="cs-metric"><span class="cs-mval">4 mo</span><span class="cs-mlabel">delivery</span></div>
+        <div class="cs-metric"><span class="cs-mval">EU</span><span class="cs-mlabel">convention</span></div>
+      </div>
+      <div class="cs-foot"><span class="cs-meta">spatial &middot; unity &middot; metaverse</span><span class="cs-arrow">&#8594;</span></div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='research-at-scale.html'" onclick="location.href='research-at-scale.html'" style="transition-delay:.42s;cursor:pointer">
+      <div class="cs-thumb"><img src="images/thumb-research.jpg" alt="Illustrative research synthesis board" loading="lazy"></div>
+      <div class="cs-head">
+        <div class="cs-tags"><span class="tag">construction-saas</span><span class="tag tc">research-ops</span><span class="tag tv">ai</span><span class="tag tag-ind">construction</span></div>
+        <span class="cs-num">08 / 08</span>
+      </div>
+      <div class="cs-title">Optimizing User Research at Scale</div>
+      <p class="cs-xyz">Built scalable research guidelines and AI-assisted synthesis workflows across product verticals. Research turnaround dropped <strong>50%</strong>, and cross-team adoption of the methodology followed.</p>
+      <div class="cs-metrics">
+        <div class="cs-metric"><span class="cs-mval">&minus;50%</span><span class="cs-mlabel">turnaround</span></div>
+        <div class="cs-metric"><span class="cs-mval">AI</span><span class="cs-mlabel">synthesis</span></div>
+        <div class="cs-metric"><span class="cs-mval">x-team</span><span class="cs-mlabel">adoption</span></div>
+      </div>
+      <div class="cs-foot"><span class="cs-meta">construction-saas &middot; cross-team &middot; ai-assisted</span><span class="cs-arrow">&#8594;</span></div>
+    </div>
+
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>work &middot; 2026 &middot; dario-espinosa</span>
+  <span>lead-experience-designer &middot; chiapas-mx</span>
+</footer>
+
+<script>
+(function(){
+  if (!('IntersectionObserver' in window)) { // fallback: show everything
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('v'); });
+    document.querySelectorAll('.skill-fill').forEach(function(el){ el.classList.add('v'); });
+    return;
+  }
+  var cardObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('v'); cardObs.unobserve(e.target); }
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ cardObs.observe(el); });
+
+  var skillObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.querySelector('.skill-fill').classList.add('v');
+        skillObs.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.3});
+  document.querySelectorAll('.reveal-skill').forEach(function(el){ skillObs.observe(el); });
+})();
+</script>
+<script>
+(function () {
+  (function () {
+    var wrap = document.getElementById('nav-dock-wrap');
+    if (!wrap) return;
+    var ticking2 = false;
+    function updateDock() {
+      wrap.classList.toggle('scrolled', window.scrollY > 24);
+      ticking2 = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking2) { requestAnimationFrame(updateDock); ticking2 = true; }
+    }, { passive: true });
+    updateDock();
+  })();
+})();
+</script>
+<script>
+(function(){
+  var workSection = document.getElementById('work');
+  if (!workSection) return; // bail if section missing
+
+  // Create and append the custom cursor dot to <body>
+  var dot = document.createElement('div');
+  dot.id  = 'mag-cursor';
+  document.body.appendChild(dot);
+
+  // Cursor position (lerped) and raw mouse coords
+  var mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  var cx = mx, cy = my;
+
+  // Magnetic offset applied when hovering a card
+  var magX = 0, magY = 0;
+
+  // State flags
+  var inWork = false;
+  var onCard = false;
+
+  // Track mouse — check if inside Work section bounds
+  document.addEventListener('mousemove', function(e) {
+    mx = e.clientX;
+    my = e.clientY;
+    var r  = workSection.getBoundingClientRect();
+    inWork = mx >= r.left && mx <= r.right && my >= r.top && my <= r.bottom;
+  });
+
+  // Wire magnetic behaviour to every .cs-card in the Work grid
+  document.querySelectorAll('#work .cs-card').forEach(function(card) {
+
+    // mousemove — compute offset from card center, apply pull + card nudge
+    card.addEventListener('mousemove', function(e) {
+      onCard = true;
+      var r  = card.getBoundingClientRect();
+      var dx = e.clientX - (r.left + r.width  / 2); // signed distance from center
+      var dy = e.clientY - (r.top  + r.height / 2);
+
+      // Cursor pulled 28% toward card center (opposite direction of offset)
+      magX = -dx * 0.28;
+      magY = -dy * 0.28;
+
+      // Card body nudges 4% toward the cursor — subtle magnetic feel
+      card.style.transition = 'transform 0.08s ease, background 0.2s ease';
+      card.style.transform  = 'translate(' + (dx * 0.04) + 'px,' + (dy * 0.04) + 'px)';
+    });
+
+    // mouseleave — reset everything, spring card back with easing
+    card.addEventListener('mouseleave', function() {
+      onCard = false;
+      magX   = 0;
+      magY   = 0;
+      card.style.transition = 'transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94), background 0.2s ease';
+      card.style.transform  = '';
+    });
+  });
+
+  // rAF animation loop — smooth cursor movement via lerp
+  function loop() {
+    requestAnimationFrame(loop);
+
+    // Target = raw mouse + current magnetic offset
+    var targetX    = mx + magX;
+    var targetY    = my + magY;
+    var lerpFactor = onCard ? 0.18 : 0.13; // slightly faster pull when on card
+
+    // Lerp cursor position toward target
+    cx += (targetX - cx) * lerpFactor;
+    cy += (targetY - cy) * lerpFactor;
+
+    // Translate the dot (offset by half its size to centre it on the pointer)
+    dot.style.transform = 'translate(' + (cx - 9) + 'px,' + (cy - 9) + 'px)';
+
+    // Toggle visibility + style classes based on state
+    if (inWork) {
+      dot.classList.add('active');
+      if (onCard) dot.classList.add('on-card');
+      else        dot.classList.remove('on-card');
+    } else {
+      dot.classList.remove('active', 'on-card');
+    }
+  }
+  loop(); // start rAF loop
+})();
+</script>
+<script>
+(function(){
+  var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.filterCards = function (btn) {
+    var filter = btn.dataset.filter;
+    document.querySelectorAll('.filter-chip').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var grid = document.getElementById('work-grid');
+    var norm = function (s) { return s.toLowerCase().replace(/[^a-z0-9]/g, ''); };
+    var cards = grid ? grid.querySelectorAll('.cs-card') : document.querySelectorAll('.cs-card');
+    function apply() {
+      cards.forEach(function (card) {
+        if (filter === 'all') { card.style.display = ''; }
+        else {
+          var ind = card.querySelector('.tag-ind');
+          card.style.display = (!ind || norm(ind.textContent).indexOf(norm(filter)) === -1) ? 'none' : '';
+        }
+      });
+      if (grid) grid.classList.toggle('filtered', filter !== 'all');
+    }
+    if (RM) { apply(); return; }
+    cards.forEach(function (card) { if (card.style.display !== 'none') card.classList.add('f-out'); });
+    setTimeout(function () {
+      apply();
+      requestAnimationFrame(function () { requestAnimationFrame(function () { cards.forEach(function (card) { card.classList.remove('f-out'); }); }); });
+    }, 240);
+  };
+})();
+</script>
+
+<script src="effects.js"></script>
+</body>
+</html>

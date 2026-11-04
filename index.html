@@ -63,6 +63,42 @@ nav{pointer-events:auto;width:min(760px,92vw);height:52px;border-radius:999px;bo
 .hero-eyebrow{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:0.14em;color:rgba(80,227,194,0.65);margin-bottom:22px;display:flex;align-items:center;gap:12px;text-transform:uppercase}
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:rgba(80,227,194,0.5)}
 h1.hero-name{font-size:clamp(56px,7.5vw,88px);font-weight:800;letter-spacing:-0.055em;line-height:0.88;margin-bottom:26px}
+
+/* ── VERSE DOCK — icon row above the tagline (Session 28) ──────────────────
+   Inspired by Vengeance UI's "Verse Cards" nav trigger pattern, hand-ported
+   to vanilla CSS/JS per house rule (no build step, no new runtime deps).
+   Work opens the fanned card deck below; the other two are plain links to
+   their own pages. */
+.verse-dock{display:flex;gap:14px;margin-bottom:28px}
+.verse-tile{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;background:none;border:none;padding:0;font:inherit;color:inherit;text-decoration:none}
+.verse-tile-icon-wrap{position:relative;width:46px;height:46px;border-radius:10px;border:1px solid var(--border-w);background:linear-gradient(180deg,var(--surface2),var(--surface));display:flex;align-items:center;justify-content:center;color:var(--t1);transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.verse-tile:hover .verse-tile-icon-wrap,.verse-tile:focus-visible .verse-tile-icon-wrap{border-color:rgba(80,227,194,0.4);box-shadow:var(--glow-teal);transform:translateY(-2px)}
+.verse-icon{width:20px;height:20px}
+.verse-badge{position:absolute;top:-2px;right:-2px;width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal)}
+.verse-label{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:.03em;text-align:center;opacity:0;transform:translateY(-4px);transition:opacity .2s ease,transform .2s ease;max-width:78px;line-height:1.3}
+.verse-tile:hover .verse-label,.verse-tile:focus-visible .verse-label{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.verse-tile-icon-wrap,.verse-label{transition:none}}
+
+/* Deck overlay — fanned stack, click-front-card-to-deal, matches the
+   reference's mechanic (stacked offset, flung-away dealt cards, reset on
+   close) but driven by plain CSS transitions instead of GSAP. */
+.verse-deck{position:fixed;inset:0;z-index:500;pointer-events:none;background:rgba(5,5,8,0);transition:background .4s ease}
+.verse-deck.open{pointer-events:auto;background:rgba(5,5,8,0.82);backdrop-filter:blur(6px)}
+.verse-close{position:absolute;left:50%;top:7%;z-index:30;transform:translate(-50%,0) scale(0);width:44px;height:44px;border-radius:50%;border:none;background:var(--t1);color:var(--bg);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.verse-deck.open .verse-close{transform:translate(-50%,0) scale(1)}
+.verse-stack{position:absolute;inset:0}
+.verse-card{position:absolute;left:50%;top:50%;width:min(340px,86vw);min-height:300px;transform:translate(-50%,-50%) translateY(1000px);opacity:1;background:var(--surface2);border:1px solid var(--border-w);border-radius:14px;box-shadow:0 30px 70px rgba(0,0,0,.55);padding:26px 24px;display:flex;flex-direction:column;gap:12px;transition:transform .7s cubic-bezier(.76,0,.24,1),opacity .4s ease}
+.verse-next-hint{position:absolute;top:14px;right:16px;font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
+.verse-card-eyebrow{font-family:var(--mono);font-size:10px;color:var(--teal);letter-spacing:.08em;text-transform:uppercase}
+.verse-card-title{font-size:20px;font-weight:700;letter-spacing:-0.02em;color:var(--t1);line-height:1.2}
+.verse-card-text{font-size:13px;color:var(--t2);line-height:1.65;flex:1}
+.verse-card-btn{align-self:flex-start;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--bg);background:var(--teal);padding:9px 16px;border-radius:7px;text-decoration:none;letter-spacing:.02em;transition:filter .15s}
+.verse-card-btn:hover{filter:brightness(1.1)}
+.verse-footer{position:absolute;bottom:7%;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;color:var(--t3);opacity:0;transition:opacity .4s ease;white-space:nowrap}
+.verse-deck.open .verse-footer{opacity:1}
+@media(max-width:560px){.verse-card{width:88vw;min-height:280px;padding:22px 20px}}
+@media(prefers-reduced-motion:reduce){.verse-card,.verse-close,.verse-deck{transition:none}}
+
 .char{display:inline-block;opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease}
 .char.v{opacity:1;transform:translateY(0)}
 .char.teal{color:var(--teal)}
@@ -603,6 +639,27 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
     <div class="hero-left">
       <div class="hero-eyebrow">Portfolio &middot; 2025</div>
       <h1 class="hero-name" id="hero-name" aria-label="Dario Espinosa, Lead Experience Designer"></h1>
+      <div class="verse-dock" role="group" aria-label="Quick links">
+        <button type="button" class="verse-tile" id="verse-trigger" aria-haspopup="dialog" aria-expanded="false" aria-controls="verse-deck">
+          <span class="verse-tile-icon-wrap">
+            <svg class="verse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg>
+            <span class="verse-badge" aria-hidden="true"></span>
+          </span>
+          <span class="verse-label">Work</span>
+        </button>
+        <a class="verse-tile" href="founder-mode.html">
+          <span class="verse-tile-icon-wrap">
+            <svg class="verse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg>
+          </span>
+          <span class="verse-label">When I&rsquo;m the client</span>
+        </a>
+        <a class="verse-tile" href="archive.html">
+          <span class="verse-tile-icon-wrap">
+            <svg class="verse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M10 13h4"/></svg>
+          </span>
+          <span class="verse-label">Archive</span>
+        </a>
+      </div>
       <p class="hero-tagline">
         18+ years turning <em>complex systems</em> into clear experiences.
         I work across Enterprise UX, DesignOps, Accessibility &amp; AI-augmented product.
@@ -621,380 +678,60 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
   </div>
 </div>
 
-<section id="work">
-  <div class="section-label">
-    <span class="section-label-text">&#8212;&#8212; selected work</span>
-    <div class="section-label-line"></div>
-    <span style="font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3)">07 projects</span>
+<div class="verse-deck" id="verse-deck" aria-hidden="true">
+  <button type="button" class="verse-close" id="verse-close" aria-label="Close">&#10005;</button>
+  <div class="verse-stack" id="verse-stack">
+    <article class="verse-card" data-verse-card>
+      <span class="verse-next-hint">click to continue &rarr;</span>
+      <div class="verse-card-eyebrow">Construction</div>
+      <h3 class="verse-card-title">From Bid to Blacktop</h3>
+      <p class="verse-card-text">A mobile-first field platform for a national paving contractor &mdash; the sales bid, the dispatcher&rsquo;s desk, and the crew foreman&rsquo;s phone &mdash; through a forked, versioned prototyping pipeline a founder could click through without touching code.</p>
+      <a class="verse-card-btn" href="gradeline.html">View case study &rarr;</a>
+    </article>
+    <article class="verse-card" data-verse-card>
+      <span class="verse-next-hint">click to continue &rarr;</span>
+      <div class="verse-card-eyebrow">Transportation</div>
+      <h3 class="verse-card-title">Modernizing Railway Systems</h3>
+      <p class="verse-card-text">After a fatal collision exposed a decades-old dispatcher tool, I led the full redesign solo. Operator task time dropped <strong>40%</strong>, onboarding time <strong>60%</strong>.</p>
+      <a class="verse-card-btn" href="siemens.html">View case study &rarr;</a>
+    </article>
+    <article class="verse-card" data-verse-card>
+      <span class="verse-next-hint">click to continue &rarr;</span>
+      <div class="verse-card-eyebrow">Telecommunications</div>
+      <h3 class="verse-card-title">Digital Transformation</h3>
+      <p class="verse-card-text">Led AT&amp;T M&eacute;xico&rsquo;s five-year digital transformation across the flagship site, eCommerce platform, and dozens of microsites. Online sales rose <strong>500%</strong>, with 96% accessibility compliance.</p>
+      <a class="verse-card-btn" href="att.html">View case study &rarr;</a>
+    </article>
+    <article class="verse-card" data-verse-card>
+      <span class="verse-next-hint">click to continue &rarr;</span>
+      <div class="verse-card-eyebrow">Energy</div>
+      <h3 class="verse-card-title">AI-Powered Blend Optimizer</h3>
+      <p class="verse-card-text">Replacing a decades-old Excel model with an ML-driven web app that lets Plant Operations Managers optimize oil-well fluid formulas in minutes instead of hours.</p>
+      <a class="verse-card-btn" href="blendops.html">View case study &rarr;</a>
+    </article>
+    <article class="verse-card" data-verse-card>
+      <span class="verse-next-hint">click to continue &rarr;</span>
+      <div class="verse-card-eyebrow">Healthcare</div>
+      <h3 class="verse-card-title">Building a UX Powerhouse</h3>
+      <p class="verse-card-text">First designer hired at a live healthcare SaaS platform with no design function. Built the UX practice and the product at the same time.</p>
+      <a class="verse-card-btn" href="benefitbridge.html">View case study &rarr;</a>
+    </article>
+    <article class="verse-card" data-verse-card>
+      <span class="verse-next-hint">click to continue &rarr;</span>
+      <div class="verse-card-eyebrow">Spatial Computing</div>
+      <h3 class="verse-card-title">Exploring the Metaverse</h3>
+      <p class="verse-card-text">Designed a fully navigable immersive exhibition for a major European tech convention in 4 months, using Spatial + Unity. It drew <strong>1,500+</strong> virtual visitors.</p>
+      <a class="verse-card-btn" href="metaverse.html">View case study &rarr;</a>
+    </article>
+    <article class="verse-card verse-card-final" data-verse-card>
+      <div class="verse-card-eyebrow">11 case studies</div>
+      <h3 class="verse-card-title">See all the work</h3>
+      <p class="verse-card-text">Telecom, healthcare, energy, construction, analytics, and spatial computing &mdash; the full case-study archive, filterable by industry.</p>
+      <a class="verse-card-btn" href="work.html">View all work &rarr;</a>
+    </article>
   </div>
-  <h2 class="section-title" data-scramble aria-label="Experience across industries & scales">Experience across<br>industries &amp; scales</h2>
-  <p class="section-sub">Enterprise UX leadership, design systems, accessibility, and AI: from telecom to spatial computing.</p>
-
-    <div class="filter-bar" role="group" aria-label="Filter projects by industry">
-    <button class="filter-chip active" data-filter="all" onclick="filterCards(this)">All</button>
-    <button class="filter-chip" data-filter="energy" onclick="filterCards(this)">Energy</button>
-    <button class="filter-chip" data-filter="analytics" onclick="filterCards(this)">Analytics</button>
-    <button class="filter-chip" data-filter="transportation" onclick="filterCards(this)">Transportation</button>
-    <button class="filter-chip" data-filter="telecommunications" onclick="filterCards(this)">Telecom</button>
-    <button class="filter-chip" data-filter="healthcare" onclick="filterCards(this)">Healthcare</button>
-    <button class="filter-chip" data-filter="enterprise" onclick="filterCards(this)">Enterprise</button>
-    <button class="filter-chip" data-filter="construction" onclick="filterCards(this)">Construction</button>
-    <button class="filter-chip" data-filter="technology" onclick="filterCards(this)">Technology</button>
-    <button class="filter-chip" data-filter="entertainment" onclick="filterCards(this)">Entertainment</button>
-  </div>
-  <div class="cs-grid" id="work-grid">
-
-    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='blendops.html'" onclick="location.href='blendops.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(56,198,244,0.28);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
-      <div style="padding:12px;overflow:hidden;min-height:280px">
-        <img src="images/inline/demo-blendops-options.svg" alt="Illustrative recreation — BlendOps Options panel" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;filter:brightness(.82) saturate(.88);transition:transform .55s ease,filter .3s ease">
-      </div>
-      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
-        <div class="cs-head">
-          <div class="cs-tags"><span class="tag tc">ai-workflow</span><span class="tag">product-design</span><span class="tag">ml-ux</span><span class="tag">current</span><span class="tag tag-ind">energy</span></div>
-          <span class="cs-num">00 / 09</span>
-        </div>
-        <div class="cs-title">Replacing Legacy Tools: AI-Powered Blend Optimizer</div>
-        <p class="cs-xyz">Replacing a decades-old Excel model with an <strong>ML-driven web app</strong> that lets Plant Operations Managers optimize oil-well fluid formulas in minutes instead of hours. Designed using an AI-assisted prototyping workflow (Claude), reaching React-ready fidelity at v7.</p>
-        <div class="cs-metrics" style="margin-top:auto">
-          <div class="cs-metric"><span class="cs-mval">Excel</span><span class="cs-mlabel">replaced</span></div>
-          <div class="cs-metric"><span class="cs-mval">3&rarr;1</span><span class="cs-mlabel">systems unified</span></div>
-          <div class="cs-metric"><span class="cs-mval">v7</span><span class="cs-mlabel">prototype iterations</span></div>
-        </div>
-        <div class="cs-foot"><span class="cs-meta">energy-services · oil-field services company · in progress</span><span class="cs-arrow">&#8594;</span></div>
-      </div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='benefits-platform.html'" onclick="location.href='benefits-platform.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(245,158,11,0.28);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
-      <div style="padding:12px;overflow:hidden;min-height:280px">
-        <img src="images/inline/demo-harborview-admin-thumb.svg" alt="Illustrative recreation — benefits administration admin portal, plan list screen" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;filter:brightness(.82) saturate(.88);transition:transform .55s ease,filter .3s ease">
-      </div>
-      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
-        <div class="cs-head">
-          <div class="cs-tags"><span class="tag tc">design-systems</span><span class="tag">ai-workflow</span><span class="tag">accessibility</span><span class="tag">current</span><span class="tag tag-ind">enterprise-saas</span></div>
-          <span class="cs-num">✦ current</span>
-        </div>
-        <div class="cs-title">Rebuilding Benefits Software</div>
-        <p class="cs-xyz">Leading UX for a from-scratch rebuild of a legacy employee-benefits platform, and building the <strong>code-first, AI-assisted workflow</strong> (HTML-to-Figma, connected requirements, a shared token system) that let a small, multinational team ship two full portals to WCAG 2.2 AA.</p>
-        <div class="cs-metrics" style="margin-top:auto">
-          <div class="cs-metric"><span class="cs-mval">v1.3→v1.8</span><span class="cs-mlabel">iterations shipped</span></div>
-          <div class="cs-metric"><span class="cs-mval">2</span><span class="cs-mlabel">portals designed</span></div>
-          <div class="cs-metric"><span class="cs-mval">3</span><span class="cs-mlabel">countries, one team</span></div>
-        </div>
-        <div class="cs-foot"><span class="cs-meta">enterprise-saas · regulated · in progress</span><span class="cs-arrow">&#8594;</span></div>
-      </div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='gradeline.html'" onclick="location.href='gradeline.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(14,42,71,0.5);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
-      <div style="padding:12px;overflow:hidden;min-height:280px">
-        <img src="images/inline/demo-gradeline-mobile.svg" alt="Illustrative recreation — GradeLine mobile sign-in, role picker screen" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;filter:brightness(.82) saturate(.88);transition:transform .55s ease,filter .3s ease">
-      </div>
-      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
-        <div class="cs-head">
-          <div class="cs-tags"><span class="tag">field-ux</span><span class="tag tc">design-systems</span><span class="tag">ai-workflow</span><span class="tag">current</span><span class="tag tag-ind">construction</span></div>
-          <span class="cs-num">✦ current</span>
-        </div>
-        <div class="cs-title">From Bid to Blacktop: One Field App for Three Different Jobs</div>
-        <p class="cs-xyz">Designing a mobile-first field platform for a national paving contractor &mdash; the sales bid, the dispatcher's desk, and the crew foreman's phone &mdash; through a <strong>forked, versioned prototyping pipeline</strong> a founder could click through without touching code.</p>
-        <div class="cs-metrics" style="margin-top:auto">
-          <div class="cs-metric"><span class="cs-mval">8</span><span class="cs-mlabel">versions shipped</span></div>
-          <div class="cs-metric"><span class="cs-mval">63</span><span class="cs-mlabel">catalog components</span></div>
-          <div class="cs-metric"><span class="cs-mval">3</span><span class="cs-mlabel">devices, one system</span></div>
-        </div>
-        <div class="cs-foot"><span class="cs-meta">construction-tech &middot; discovery phase &middot; in progress</span><span class="cs-arrow">&#8594;</span></div>
-      </div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='virtu4lslacksagent.html'" onclick="location.href='virtu4lslacksagent.html'" style="transition-delay:.07s;cursor:pointer;border-top:1px solid rgba(167,139,250,0.22)">
-      <div class="cs-thumb"><img src="images/thumb-vos.svg" alt="VOS — VIRTU4L Operations System UI" loading="lazy"></div>
-      <div class="cs-head">
-        <div class="cs-tags">
-          <span class="tag" style="color:rgba(167,139,250,0.9);border-color:rgba(167,139,250,0.3)">slack-bot</span>
-          <span class="tag">node-js</span>
-          <span class="tag">ai-agent</span>
-          <span class="tag">vibe-coded</span>
-          <span class="tag tag-ind">entertainment</span>
-        </div>
-        <span class="cs-num">01 / 08</span>
-      </div>
-      <div style="font-family:var(--mono);font-size:11px;color:rgba(167,139,250,0.7);margin-bottom:4px">VIRTU4L · Personal Project · Chiapas MX</div>
-      <div class="cs-title">VOS — VIRTU4L Operations System with Local AI</div>
-      <p class="cs-xyz">A Slack-native operations brain for a real-world VR venue: daily checklists, reservations, sales tracking, and Dasha, an AI assistant running locally that handles what the team would otherwise forget.</p>
-      <div class="cs-metrics">
-        <div class="cs-metric"><span class="cs-mval" style="color:rgba(167,139,250,0.9)">293</span><span class="cs-mlabel">tests passing</span></div>
-        <div class="cs-metric"><span class="cs-mval" style="color:rgba(167,139,250,0.9)">4</span><span class="cs-mlabel">slack channels</span></div>
-        <div class="cs-metric"><span class="cs-mval" style="color:rgba(167,139,250,0.9)">0</span><span class="cs-mlabel">public urls</span></div>
-      </div>
-      <div class="cs-foot"><span class="cs-meta">personal-project &middot; vibe-coded &middot; ai-native</span><span class="cs-arrow">&#8594;</span></div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" aria-label="Revolutionizing Data Insights: Dashboard Redesign — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='nielseniq.html'" onclick="location.href='nielseniq.html'" style="cursor:pointer">
-      <div class="cs-thumb"><img src="images/thumb-nielseniq.jpg" alt="NielsenIQ Discover dashboard UI" loading="lazy"></div>
-      <div class="cs-head">
-        <div class="cs-tags"><span class="tag tc">ux-strategy</span><span class="tag">designops</span><span class="tag">agile</span><span class="tag tag-ind">analytics</span></div>
-        <span class="cs-num">02 / 08</span>
-      </div>
-      <div class="cs-title">Revolutionizing Data Insights: Dashboard Redesign</div>
-      <p class="cs-xyz">Introduced Double Track Agile and a consolidated Figma design system to a burned-out team. Feature delivery got <strong>30%</strong> faster, and UX bugs dropped by half.</p>
-      <div class="cs-metrics">
-        <div class="cs-metric"><span class="cs-mval">+30%</span><span class="cs-mlabel">delivery speed</span></div>
-        <div class="cs-metric"><span class="cs-mval">&minus;50%</span><span class="cs-mlabel">UX bugs</span></div>
-        <div class="cs-metric"><span class="cs-mval">+25%</span><span class="cs-mlabel">satisfaction</span></div>
-      </div>
-      <div class="cs-foot"><span class="cs-meta">analytics-saas &middot; 6 months</span><span class="cs-arrow">&#8594;</span></div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" aria-label="Modernizing Railway Systems: Back Office Overhaul — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='siemens.html'" onclick="location.href='siemens.html'" style="transition-delay:.07s;cursor:pointer">
-      <div class="cs-thumb"><img src="images/thumb-siemens.jpg" alt="Siemens TrainGuard BOS login UI" loading="lazy"></div>
-      <div class="cs-head">
-        <div class="cs-tags"><span class="tag">enterprise-ux</span><span class="tag tc">design-system</span><span class="tag">wcag</span><span class="tag tag-ind">transportation</span></div>
-        <span class="cs-num">03 / 08</span>
-      </div>
-      <div class="cs-title">Modernizing Railway Systems: Back Office Overhaul</div>
-      <p class="cs-xyz">After a fatal collision exposed a decades-old dispatcher tool, I led the full redesign solo &mdash; research, workflow restructuring, and a component-driven Figma + Flutter UI &mdash; with a direct line to the Product Director and no design committee in between. Operator task time dropped <strong>40%</strong>, onboarding time 60%.</p>
-      <div class="cs-metrics">
-        <div class="cs-metric"><span class="cs-mval">&minus;40%</span><span class="cs-mlabel">task time</span></div>
-        <div class="cs-metric"><span class="cs-mval">&minus;60%</span><span class="cs-mlabel">onboarding</span></div>
-        <div class="cs-metric"><span class="cs-mval">100%</span><span class="cs-mlabel">wcag 2.1 AA</span></div>
-      </div>
-      <div class="cs-foot"><span class="cs-meta">rail-transport &middot; solo lead</span><span class="cs-arrow">&#8594;</span></div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" aria-label="Digital Transformation: AEM & eCommerce Evolution — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='att.html'" onclick="location.href='att.html'" style="transition-delay:.14s;cursor:pointer">
-      <div class="cs-thumb"><img src="images/inline/demo-connectify-thumb.svg" alt="Illustrative recreation — telecom self-service storefront" loading="lazy"></div>
-      <div class="cs-head">
-        <div class="cs-tags"><span class="tag">telecom</span><span class="tag tc">ecommerce</span><span class="tag tv">accessibility</span><span class="tag tag-ind">telecommunications</span></div>
-        <span class="cs-num">04 / 08</span>
-      </div>
-      <div class="cs-title">Digital Transformation: AEM & eCommerce Evolution</div>
-      <p class="cs-xyz">Led AT&amp;T M&eacute;xico&rsquo;s five-year digital transformation across the flagship site, eCommerce platform, and dozens of microsites &mdash; including a <strong>2021 AEM design system</strong> that moved seven teams from Photoshop into one shared Figma component library. Online sales rose <strong>500%</strong>, with 96% accessibility compliance.</p>
-      <div class="cs-metrics">
-        <div class="cs-metric"><span class="cs-mval">+500%</span><span class="cs-mlabel">online sales</span></div>
-        <div class="cs-metric"><span class="cs-mval">96%</span><span class="cs-mlabel">accessibility</span></div>
-        <div class="cs-metric"><span class="cs-mval">2020</span><span class="cs-mlabel">intl award</span></div>
-      </div>
-      <div class="cs-foot"><span class="cs-meta">telecom &middot; 5 years</span><span class="cs-arrow">&#8594;</span></div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" aria-label="From Philosophy to Digital Engagement: Life Coaching Platform — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='oolalife.html'" onclick="location.href='oolalife.html'" style="transition-delay:.21s;cursor:pointer">
-      <div class="cs-thumb"><img src="images/thumb-oolalife.jpg" alt="OolaLife platform UI" loading="lazy"></div>
-      <div class="cs-head">
-        <div class="cs-tags"><span class="tag">life-coaching</span><span class="tag tc">gamification</span><span class="tag">mobile-first</span><span class="tag tag-ind">health & wellness</span></div>
-        <span class="cs-num">05 / 08</span>
-      </div>
-      <div class="cs-title">From Philosophy to Digital Engagement: Life Coaching Platform</div>
-      <p class="cs-xyz">Turned a bestselling self-help book into a product people would actually open daily &mdash; not preachy, more like a coach than a checklist. ~50 interviews shaped a <strong>7-area gamification framework</strong> behind a COVID-era pivot, shipped in 6 months.</p>
-      <div class="cs-metrics">
-        <div class="cs-metric"><span class="cs-mval">7</span><span class="cs-mlabel">life areas</span></div>
-        <div class="cs-metric"><span class="cs-mval">~50</span><span class="cs-mlabel">interviews</span></div>
-        <div class="cs-metric"><span class="cs-mval">6mo</span><span class="cs-mlabel">to MVP</span></div>
-      </div>
-      <div class="cs-foot"><span class="cs-meta">life-coaching &middot; covid pivot</span><span class="cs-arrow">&#8594;</span></div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" aria-label="Building a UX Powerhouse: Center of Excellence — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='benefitbridge.html'" onclick="location.href='benefitbridge.html'" style="transition-delay:.28s;cursor:pointer">
-      <div class="cs-thumb"><img src="images/inline/demo-benefitbridge-thumb.svg" alt="Illustrative recreation — employee health benefits member home" loading="lazy"></div>
-      <div class="cs-head">
-        <div class="cs-tags"><span class="tag">healthcare-saas</span><span class="tag tv">ux-coe</span><span class="tag">accessibility</span><span class="tag tag-ind">healthcare</span></div>
-        <span class="cs-num">06 / 08</span>
-      </div>
-      <div class="cs-title">Building a UX Powerhouse: Center of Excellence</div>
-      <p class="cs-xyz">First designer hired at a live healthcare SaaS platform with no design function. Built the UX practice and the product at the same time &mdash; the rebuilt admin flow now ships under one promise: <strong>&ldquo;Manage benefits in under an hour per month.&rdquo;</strong></p>
-      <div class="cs-metrics">
-        <div class="cs-metric"><span class="cs-mval">+50%</span><span class="cs-mlabel">dev efficiency</span></div>
-        <div class="cs-metric"><span class="cs-mval">+80%</span><span class="cs-mlabel">user adoption</span></div>
-        <div class="cs-metric"><span class="cs-mval">&minus;70%</span><span class="cs-mlabel">a11y complaints</span></div>
-      </div>
-      <div class="cs-foot"><span class="cs-meta">healthcare-saas &middot; 0&rarr;CoE &middot; regulated env</span><span class="cs-arrow">&#8594;</span></div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" aria-label="Exploring the Future: Metaverse Experience — case study" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='metaverse.html'" onclick="location.href='metaverse.html'" style="transition-delay:.35s;cursor:pointer">
-      <div class="cs-thumb"><img src="images/thumb-metaverse.jpg" alt="SoftServe Metaverse experience UI" loading="lazy"></div>
-      <div class="cs-head">
-        <div class="cs-tags"><span class="tag tv">metaverse</span><span class="tag">xr</span><span class="tag tc">spatial-design</span><span class="tag tag-ind">technology</span></div>
-        <span class="cs-num">07 / 08</span>
-      </div>
-      <div class="cs-title">Exploring the Future: Metaverse Experience</div>
-      <p class="cs-xyz">Designed a fully navigable immersive exhibition for a major European tech convention in 4 months, using Spatial + Unity. It drew <strong>1,500+</strong> virtual visitors.</p>
-      <div class="cs-metrics">
-        <div class="cs-metric"><span class="cs-mval">1,500+</span><span class="cs-mlabel">visitors</span></div>
-        <div class="cs-metric"><span class="cs-mval">4 mo</span><span class="cs-mlabel">delivery</span></div>
-        <div class="cs-metric"><span class="cs-mval">EU</span><span class="cs-mlabel">convention</span></div>
-      </div>
-      <div class="cs-foot"><span class="cs-meta">spatial &middot; unity &middot; metaverse</span><span class="cs-arrow">&#8594;</span></div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='research-at-scale.html'" onclick="location.href='research-at-scale.html'" style="transition-delay:.42s;cursor:pointer">
-      <div class="cs-thumb"><img src="images/thumb-research.jpg" alt="Illustrative research synthesis board" loading="lazy"></div>
-      <div class="cs-head">
-        <div class="cs-tags"><span class="tag">construction-saas</span><span class="tag tc">research-ops</span><span class="tag tv">ai</span><span class="tag tag-ind">construction</span></div>
-        <span class="cs-num">08 / 08</span>
-      </div>
-      <div class="cs-title">Optimizing User Research at Scale</div>
-      <p class="cs-xyz">Built scalable research guidelines and AI-assisted synthesis workflows across product verticals. Research turnaround dropped <strong>50%</strong>, and cross-team adoption of the methodology followed.</p>
-      <div class="cs-metrics">
-        <div class="cs-metric"><span class="cs-mval">&minus;50%</span><span class="cs-mlabel">turnaround</span></div>
-        <div class="cs-metric"><span class="cs-mval">AI</span><span class="cs-mlabel">synthesis</span></div>
-        <div class="cs-metric"><span class="cs-mval">x-team</span><span class="cs-mlabel">adoption</span></div>
-      </div>
-      <div class="cs-foot"><span class="cs-meta">construction-saas &middot; cross-team &middot; ai-assisted</span><span class="cs-arrow">&#8594;</span></div>
-    </div>
-
-
-  </div>
-</section>
-
-<!-- FOUNDER MODE — personal business, own section (Session 12) -->
-<section id="founder-mode" style="max-width:var(--max);margin:0 auto;padding:60px 32px">
-  <div class="section-label">
-    <span class="section-label-text">&#8212;&#8212; founder mode</span>
-    <div class="section-label-line"></div>
-  </div>
-  <h2 class="section-title" data-scramble aria-label="When I'm the client">When I'm the client</h2>
-  <p class="section-sub" style="font-size:var(--fs-sm)">Outside client work: a business I run, plus internal tools I built because nobody else was going to.</p>
-  <div class="cs-grid">
-    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='virtu4l.html'" onclick="location.href='virtu4l.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(80,227,194,0.22);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
-      <div style="padding:12px;overflow:hidden;min-height:280px;background:rgba(0,0,0,0.3)">
-        <img src="https://www.realidadvirtu4l.com/assets/images/hero-index.jpg" alt="VIRTU4L — VR Center hero" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;filter:brightness(.82) saturate(.88);transition:transform .55s ease,filter .3s ease">
-      </div>
-      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
-        <div class="cs-head">
-          <div class="cs-tags"><span class="tag tc">brand-design</span><span class="tag">web-dev</span><span class="tag">marketing</span><span class="tag">ai-tools</span><span class="tag tag-ind">entertainment</span></div>
-          <span class="cs-num">✦ personal</span>
-        </div>
-        <div>
-          <div class="cs-company" style="color:var(--teal);font-family:var(--mono);font-size:11px;margin-bottom:6px">VIRTU4L · Personal Business · Tuxtla Gutiérrez MX</div>
-          <div class="cs-title">VIRTU4L — Brand, Website & AI-Powered VR Business</div>
-        </div>
-        <p class="cs-xyz">Founding and building Chiapas' first VR center from scratch, including the complete brand identity, multi-page website, online quoter wizard, digital marketing system, AI game assistant, and AI avatar creation.</p>
-        <div class="cs-metrics" style="margin-top:auto">
-          <div class="cs-metric"><span class="cs-mval">150+</span><span class="cs-mlabel">VR games</span></div>
-          <div class="cs-metric"><span class="cs-mval">5+</span><span class="cs-mlabel">site pages</span></div>
-          <div class="cs-metric"><span class="cs-mval">AI</span><span class="cs-mlabel">assistant built</span></div>
-        </div>
-        <div class="cs-foot"><span class="cs-meta">personal-business · founder · vibe-coded</span><span class="cs-arrow">&#8594;</span></div>
-      </div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='edga.html'" onclick="location.href='edga.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(80,227,194,0.22);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
-      <div style="padding:12px;overflow:hidden;min-height:280px;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center">
-        <div style="text-align:center">
-          <div style="font-family:var(--mono);font-size:52px;font-weight:800;color:var(--teal);opacity:.85;letter-spacing:-0.03em">EDGA</div>
-          <div style="font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;margin-top:10px">overseer → agents → knowledge base</div>
-        </div>
-      </div>
-      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
-        <div class="cs-head">
-          <div class="cs-tags"><span class="tag tc">ai-tools</span><span class="tag">multi-agent-systems</span><span class="tag">design-thinking</span><span class="tag tag-ind">internal-tools</span></div>
-          <span class="cs-num">✦ personal</span>
-        </div>
-        <div>
-          <div class="cs-company" style="color:var(--teal);font-family:var(--mono);font-size:11px;margin-bottom:6px">EDGA · Internal Tool · Claude Plugin</div>
-          <div class="cs-title">EDGA — A Multi-Agent Design Thinking Operating System</div>
-        </div>
-        <p class="cs-xyz">A self-built Claude plugin that runs the full Design Thinking process (Empathize through Deliver) as a phase-gated multi-agent system, with an Overseer, specialist sub-agents, and a continuously-updated knowledge base mirrored into Obsidian.</p>
-        <div class="cs-metrics" style="margin-top:auto">
-          <div class="cs-metric"><span class="cs-mval">v3.8</span><span class="cs-mlabel">current release</span></div>
-          <div class="cs-metric"><span class="cs-mval">12</span><span class="cs-mlabel">KB categories</span></div>
-          <div class="cs-metric"><span class="cs-mval">115+</span><span class="cs-mlabel">knowledge notes</span></div>
-        </div>
-        <div class="cs-foot"><span class="cs-meta">internal-tool · founder · multi-agent</span><span class="cs-arrow">&#8594;</span></div>
-      </div>
-    </div>
-
-    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='ascend-restyle.html'" onclick="location.href='ascend-restyle.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(80,227,194,0.22);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
-      <div style="padding:12px;overflow:hidden;min-height:280px;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center">
-        <div style="width:120px;height:120px;background:rgba(80,227,194,0.06);border:1px solid rgba(80,227,194,0.25);clip-path:polygon(22% 0,100% 0,100% 78%,78% 100%,0 100%,0 22%);display:flex;align-items:center;justify-content:center">
-          <span style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--teal);letter-spacing:0.04em">AOS</span>
-        </div>
-      </div>
-      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
-        <div class="cs-head">
-          <div class="cs-tags"><span class="tag tc">ai-tools</span><span class="tag">design-systems</span><span class="tag">automation</span><span class="tag tag-ind">internal-tools</span></div>
-          <span class="cs-num">✦ personal</span>
-        </div>
-        <div>
-          <div class="cs-company" style="color:var(--teal);font-family:var(--mono);font-size:11px;margin-bottom:6px">Ascend Restyle · Internal Tool · UX CoE</div>
-          <div class="cs-title">Ascend Restyle — A Skill That Redesigns Portfolio Decks</div>
-        </div>
-        <p class="cs-xyz">A Claude Agent Skill built for an internal UX Center of Excellence. It restyles a designer's existing portfolio or bio deck into the firm's internal design system, then hands back an annotatable HTML preview before exporting to PPTX or PDF.</p>
-        <div class="cs-metrics" style="margin-top:auto">
-          <div class="cs-metric"><span class="cs-mval">49</span><span class="cs-mlabel">pages restyled</span></div>
-          <div class="cs-metric"><span class="cs-mval">4</span><span class="cs-mlabel">layout archetypes</span></div>
-          <div class="cs-metric"><span class="cs-mval">7</span><span class="cs-mlabel">pipeline steps</span></div>
-        </div>
-        <div class="cs-foot"><span class="cs-meta">internal-tool · claude-skill · ux-coe</span><span class="cs-arrow">&#8594;</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin-top:24px;border-left:2px solid var(--teal);padding:18px 22px;background:var(--teal-dim);border-radius:0 6px 6px 0">
-    <div style="font-family:var(--mono);font-size:9px;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px">Also: internal enablement</div>
-    <p style="font-size:13px;color:var(--t2);line-height:1.75;margin:0">Building EDGA turned into a habit: I mentor other designers on using Claude day-to-day in their own workflows, and I've done the same for the internal HR department, helping non-technical teams fold Claude into their existing process instead of bolting AI on as an afterthought.</p>
-  </div>
-
-  <div class="gift-trigger">
-    <div class="gift-trigger-text">
-      <span class="gift-trigger-emoji" aria-hidden="true">🎁</span>
-      <div class="gift-trigger-copy"><strong>A token of gratitude</strong>Free guide: stopping AI agents from burning your tokens</div>
-    </div>
-    <button type="button" class="gift-trigger-btn" onclick="window.openGiftModal && window.openGiftModal()">Open the gift</button>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- MARQUEE DIVIDER — industry verticals -->
-<div class="marquee-divider" aria-hidden="true">
-  <div class="marquee-track" id="marquee-verticals"></div>
+  <div class="verse-footer" id="verse-footer">Click the card to see the next project</div>
 </div>
-
-<!-- ARCHIVE / OLDER WORK -->
-<section id="archive" style="max-width:var(--max);margin:0 auto;padding:60px 32px">
-  <div class="section-label">
-    <span class="section-label-text">&#8212;&#8212; archive</span>
-    <div class="section-label-line"></div>
-  </div>
-  <h2 class="section-title" data-scramble aria-label="Older work & concepts">Older work &amp; concepts</h2>
-  <p class="section-sub" style="font-size:var(--fs-sm)">Freelance, startup, and concept work, 2017–2021.</p>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-w);border:1px solid var(--border-w);border-radius:10px;overflow:hidden">
-    <a href="tycan.html" style="text-decoration:none;background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:8px" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-      <img src="images/project-02-tycan.png" alt="Tycan" style="width:100%;border-radius:4px;aspect-ratio:16/10;object-fit:cover;margin-bottom:4px" loading="lazy">
-      <div style="font-family:var(--mono);font-size:var(--fs-2xs);color:var(--teal);letter-spacing:0.08em;text-transform:uppercase">concept · 2020</div>
-      <div style="font-size:var(--fs-sm);font-weight:600;color:var(--t1)">Driving Conversions: EV Launch Page</div>
-      <div style="font-size:var(--fs-xs);color:var(--t2)">Conversion-first landing page concept for an electric luxury sedan launch.</div>
-    </a>
-    <a href="daily-bot.html" style="text-decoration:none;background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:8px" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-      <img src="images/project-05-daily-bot.png" alt="Daily Bot" style="width:100%;border-radius:4px;aspect-ratio:16/10;object-fit:cover;margin-bottom:4px" loading="lazy">
-      <div style="font-family:var(--mono);font-size:var(--fs-2xs);color:var(--teal);letter-spacing:0.08em;text-transform:uppercase">mvp research · 2021</div>
-      <div style="font-size:var(--fs-sm);font-weight:600;color:var(--t1)">Automating Customer Interaction: eCommerce Chatbot MVP</div>
-      <div style="font-size:var(--fs-xs);color:var(--t2)">MVP research & product design for an online cosmetics chatbot assistant.</div>
-    </a>
-    <a href="zafyro.html" style="text-decoration:none;background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:8px" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-      <img src="images/project-04-zafyro.jpg" alt="Zafyro" style="width:100%;border-radius:4px;aspect-ratio:16/10;object-fit:cover;margin-bottom:4px" loading="lazy">
-      <div style="font-family:var(--mono);font-size:var(--fs-2xs);color:var(--violet);letter-spacing:0.08em;text-transform:uppercase">mobile ui · 2021</div>
-      <div style="font-size:var(--fs-sm);font-weight:600;color:var(--t1)">Custom Plan, Zero Friction: Telecom UI Concept</div>
-      <div style="font-size:var(--fs-xs);color:var(--t2)">High-fidelity mobile UI concept for a configurable telecom plan: pay only for SIM activation.</div>
-    </a>
-    <a href="yaiwa.html" style="text-decoration:none;background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:8px" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-      <img src="images/project-07-yaiwa.png" alt="YAIWA" style="width:100%;border-radius:4px;aspect-ratio:16/10;object-fit:cover;margin-bottom:4px" loading="lazy">
-      <div style="font-family:var(--mono);font-size:var(--fs-2xs);color:var(--teal);letter-spacing:0.08em;text-transform:uppercase">product design · 2017</div>
-      <div style="font-size:var(--fs-sm);font-weight:600;color:var(--t1)">From Identity to Shelf: Smartphone Brand & Packaging</div>
-      <div style="font-size:var(--fs-xs);color:var(--t2)">Complete brand identity system and unboxing experience for a consumer smartphone launch.</div>
-    </a>
-    <a href="walking-dog.html" style="text-decoration:none;background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:8px" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-      <img src="images/project-08-walking-dog.png" alt="Walking Dog" style="width:100%;border-radius:4px;aspect-ratio:16/10;object-fit:cover;margin-bottom:4px" loading="lazy">
-      <div style="font-family:var(--mono);font-size:var(--fs-2xs);color:var(--violet);letter-spacing:0.08em;text-transform:uppercase">poc · 2021</div>
-      <div style="font-size:var(--fs-sm);font-weight:600;color:var(--t1)">Product Catalog Redesign: Smartphones & Accessories</div>
-      <div style="font-size:var(--fs-xs);color:var(--t2)">Dog-walking marketplace POC with business model validation.</div>
-    </a>
-    <a href="kasuva.html" style="text-decoration:none;background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:8px" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background='var(--surface)'">
-      <img src="images/project-12-kasuva.jpg" alt="Kasuva" style="width:100%;border-radius:4px;aspect-ratio:16/10;object-fit:cover;margin-bottom:4px" loading="lazy">
-      <div style="font-family:var(--mono);font-size:var(--fs-2xs);color:var(--teal);letter-spacing:0.08em;text-transform:uppercase">startup · 2017</div>
-      <div style="font-size:var(--fs-sm);font-weight:600;color:var(--t1)">Connecting Businesses: B2B Marketplace Redesign</div>
-      <div style="font-size:var(--fs-xs);color:var(--t2)">Co-founded &amp; designed a LATAM B2B marketplace from scratch.</div>
-    </a>
-  </div>
-</section>
 
 <div class="divider"></div>
 
@@ -1266,6 +1003,99 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
   });
 })();
 
+// ── 1b. VERSE DECK — fanned card-stack, hand-ported from Vengeance UI's
+// "Verse Cards" nav-trigger pattern (vengenceui.com/components/verse-cards).
+// The reference uses React + GSAP; this is a from-scratch vanilla re-build
+// using the same transform math (stacked offset per depth, flung-away
+// transform for dealt cards, closed = parked below the viewport) driven by
+// plain CSS transitions instead of GSAP tweens, per this project's
+// "hand-port reference techniques, no new runtime dependency" house rule.
+(function () {
+  var trigger = document.getElementById('verse-trigger');
+  var deck = document.getElementById('verse-deck');
+  var closeBtn = document.getElementById('verse-close');
+  var footerEl = document.getElementById('verse-footer');
+  if (!trigger || !deck || !closeBtn) return;
+  var cards = Array.prototype.slice.call(deck.querySelectorAll('[data-verse-card]'));
+  if (!cards.length) return;
+
+  var open = false, dealt = 0;
+
+  function stackTransform(depth) {
+    return 'translate(-50%,-50%) translate(' + (depth * 12) + 'px,' + (depth * 8) + 'px) rotate(' + (depth * 3) + 'deg)';
+  }
+  function awayTransform(index) {
+    var side = index % 2 === 0 ? -1 : 1;
+    return 'translate(-50%,-50%) translate(' + (side * 460) + 'px,-540px) rotate(' + (side * 34) + 'deg)';
+  }
+  var CLOSED = 'translate(-50%,-50%) translateY(1000px)';
+
+  function layout() {
+    cards.forEach(function (el, i) {
+      var transform, opacity, z, pe, delay;
+      if (!open) {
+        transform = CLOSED; opacity = 1; z = 0; pe = 'none';
+        delay = (cards.length - 1 - i) * 0.05;
+      } else if (i < dealt) {
+        transform = awayTransform(i); opacity = 0; z = 0; pe = 'none';
+        delay = 0;
+      } else {
+        var depth = i - dealt;
+        transform = stackTransform(depth); opacity = 1; z = 100 - depth;
+        pe = (depth === 0) ? 'auto' : 'none';
+        delay = i * 0.05;
+      }
+      el.style.transform = transform;
+      el.style.opacity = opacity;
+      el.style.zIndex = z;
+      el.style.pointerEvents = pe;
+      el.style.transitionDelay = delay + 's';
+      el.style.cursor = (open && pe === 'auto') ? 'pointer' : 'default';
+    });
+  }
+
+  function openDeck() {
+    dealt = 0; open = true;
+    deck.classList.add('open');
+    deck.setAttribute('aria-hidden', 'false');
+    trigger.setAttribute('aria-expanded', 'true');
+    if (footerEl) footerEl.textContent = 'Click the card to see the next project';
+    layout();
+  }
+  function closeDeck() {
+    open = false; dealt = 0;
+    deck.classList.remove('open');
+    deck.setAttribute('aria-hidden', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+    layout();
+  }
+
+  trigger.addEventListener('click', function () { open ? closeDeck() : openDeck(); });
+  closeBtn.addEventListener('click', closeDeck);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && open) closeDeck(); });
+
+  cards.forEach(function (el, i) {
+    el.addEventListener('click', function (e) {
+      if (e.target.closest('.verse-card-btn')) return; // let the CTA's own link navigate
+      if (!open || i !== dealt) return;
+      dealt++;
+      if (footerEl) {
+        footerEl.textContent = dealt >= cards.length
+          ? 'That’s the whole deck — close to reset.'
+          : 'Click the card to see the next project';
+      }
+      layout();
+    });
+  });
+
+  // Seat every card in its closed position with no transition flash on load.
+  cards.forEach(function (el) { el.style.transition = 'none'; });
+  layout();
+  requestAnimationFrame(function () {
+    cards.forEach(function (el) { el.style.transition = ''; });
+  });
+})();
+
 // ── 2. PIXEL HERO BACKGROUND ──────────────────────────────────────────────
 // Omarchy-style (omarchy.org) ambient dust field — pure background texture,
 // no wordmark baked into it. On the reference site the "OMARCHY" wordmark
@@ -1286,6 +1116,19 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
 // Entirely vanilla canvas — no dependency, replacing the old Three.js CDN
 // particle field (removed in Session 23) with something both more
 // on-brand and lighter.
+//
+// Session 28 (part 2): confirmed, via the reference site's actual production
+// JS bundle (HeroPixelField.Ccs6UcmT.js, fetched directly), that Dario's
+// spotted "double-outline rectangle that grows and fades like an explosion"
+// is real — the reference site periodically (~2-3s) stamps a fixed bitmap
+// at a point and scales it up while fading it out. Re-created here from
+// scratch as `spawnRipple`/the ripple-drawing block below: two concentric
+// strokeRect()s, not the reference's full bitmap-stamping system (which is
+// wired into its own audio/pointer/WASM text-etching machinery, well
+// outside this site's scope). Also added a soft rectangular "stay dark"
+// zone around dead-center (both for the dust grid's probability and for
+// where ripples are allowed to spawn) so the hero text in `.hero-left`
+// keeps visual priority over the ambient texture, per Dario's request.
 (function(){
   var canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
@@ -1294,6 +1137,23 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
   var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var state = {};
+
+  // Hard dark "core" box around dead-center (normalized 0-1 coords) — fully
+  // solid, zero dust/ripples allowed inside, no matter what — plus a margin
+  // band around it that ramps up to full density. Matches what the reference
+  // site actually looks like: the wordmark sits over solid black, and the
+  // dust/ripple texture only becomes visible once you're well out toward the
+  // edges. Tightened per Dario's "mas obscuro, mas notorio hacia las orillas"
+  // feedback — previously this only asymptotically approached zero near
+  // center instead of actually being solid.
+  var CORE_X = 0.24, CORE_Y = 0.30, MARGIN = 0.14;
+  function centerOpen(nx, ny) {
+    var cx = Math.abs(nx - 0.5), cy = Math.abs(ny - 0.5);
+    if (cx < CORE_X && cy < CORE_Y) return 0; // solid dark core — always exactly zero
+    var dx = Math.max(0, (cx - CORE_X) / MARGIN);
+    var dy = Math.max(0, (cy - CORE_Y) / MARGIN);
+    return Math.min(1, Math.max(dx, dy));
+  }
 
   function layout() {
     var hero = document.getElementById('hero');
@@ -1305,7 +1165,7 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
     canvas.style.height = h + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    var cell = Math.max(6, Math.min(14, Math.round(w / 100)));
+    var cell = Math.max(6, Math.min(14, Math.round(w / 100))) * 2; // doubled per Dario's request — bigger, chunkier pixels
     var gridCols = Math.ceil(w / cell), gridRows = Math.ceil(h / cell);
     var cells = [];
 
@@ -1314,13 +1174,35 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
         var x = gx * cell, y = gy * cell;
         var nx = x / w, ny = y / h;
         var cornerDist = Math.min(Math.hypot(nx, ny), Math.hypot(1 - nx, ny), Math.hypot(nx, 1 - ny), Math.hypot(1 - nx, 1 - ny));
-        var prob = Math.max(0, 0.38 - cornerDist * 1.9); // sparse, corner-weighted — matches the reference site's dust density
+        var prob = Math.max(0.05, 0.62 - cornerDist * 1.0); // denser + broader coverage (re-checked against a live omarchy.org screenshot — dust reaches well past the corners, not just a thin sparse edge)
+        prob *= centerOpen(nx, ny); // solid-dark core around the hero text, per Dario
         if (Math.random() < prob) {
           cells.push({ x: x, y: y, phase: Math.random() * Math.PI * 2, freq: 0.15 + Math.random() * 0.35, pulse: 4 + Math.random() * 4 });
         }
       }
     }
-    state = { cells: cells, cell: cell, w: w, h: h, startT: null };
+    state = { cells: cells, cell: cell, w: w, h: h, startT: null, ripples: [], nextRippleAt: 800 + Math.random() * 1200 };
+  }
+
+  // Random "explosion ping" — reverse-engineered from omarchy.org's actual
+  // production bundle (HeroPixelField.Ccs6UcmT.js): it periodically (every
+  // ~2-3s there) stamps a fixed double-bordered-rectangle bitmap at a point,
+  // scaling it up over ~1s while it fades out — exactly the "cohete /
+  // explosión con doble outline" Dario spotted. The reference site's version
+  // is tied into its own audio/pointer/WASM text-etching system, well beyond
+  // this site's scope, so this is a from-scratch vanilla re-creation of just
+  // the visual: two concentric stroked rectangles, growing + fading, spawned
+  // every 2.5-5s at a random point that avoids the dark core, and additionally
+  // clipped at render time so a ring can never visually bleed into the core
+  // even mid-growth.
+  function spawnRipple(tMs, w, h) {
+    var x, y, tries = 0;
+    do {
+      x = Math.random() * w;
+      y = Math.random() * h;
+      tries++;
+    } while (centerOpen(x / w, y / h) < 1 && tries < 8); // keep retrying out of the dark core/margin
+    return { x: x, y: y, born: tMs, life: 950 + Math.random() * 550 };
   }
 
   function render(ts) {
@@ -1339,6 +1221,34 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
       ctx.fillStyle = 'rgba(167,139,250,' + alpha + ')';
       ctx.fillRect(c.x + off, c.y + off, size, size);
     });
+
+    if (!RM) {
+      if (tMs >= state.nextRippleAt) {
+        state.ripples.push(spawnRipple(tMs, state.w, state.h));
+        state.nextRippleAt = tMs + 2500 + Math.random() * 2500;
+      }
+      state.ripples = state.ripples.filter(function(r) { return tMs - r.born < r.life; });
+
+      // No hard clip here anymore — a rectangular ctx.clip() around the core
+      // made the ripple look like it had a solid black square bitten out of
+      // it whenever it grew near that boundary. The "stay dark near center"
+      // rule belongs on the background dust field only (see centerOpen()
+      // above); ripples just avoid spawning in that zone (via spawnRipple)
+      // and are left to draw naturally on top of whatever's already there.
+      state.ripples.forEach(function(r) {
+        var t = (tMs - r.born) / r.life;
+        var eased = 1 - Math.pow(1 - t, 3); // ease-out growth, matches the reference's ripple easing
+        var half = 12 + eased * 110; // max reach trimmed ~25% smaller per Dario's request (size itself, not the stroke, stays here)
+        var gap = 9 + eased * 13;
+        var alpha = Math.pow(1 - t, 1.3) * 0.85; // brighter peak, slower fade — more notorio
+        ctx.strokeStyle = 'rgba(167,139,250,' + alpha + ')';
+        ctx.lineWidth = 4; // outer outline: doubled thickness
+        ctx.strokeRect(r.x - half, r.y - half, half * 2, half * 2);
+        ctx.lineWidth = 8; // inner outline: doubled thickness, stays thicker than the outer one
+        ctx.strokeRect(r.x - half + gap, r.y - half + gap, half * 2 - gap * 2, half * 2 - gap * 2);
+      });
+    }
+
     if (!RM) requestAnimationFrame(render); // runs indefinitely — never settles to static
   }
 

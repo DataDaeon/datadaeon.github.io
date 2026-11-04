@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When I'm the Client — Dario Espinosa · Lead Experience Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="effects.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#050508;--bg2:#08080d;--surface:#0d0d14;--surface2:#111118;
+  --border:rgba(80,227,194,0.12);--border-v:rgba(167,139,250,0.12);--border-w:rgba(255,255,255,0.07);
+  --t1:#ffffff;--t2:rgba(255,255,255,0.65);--t3:rgba(255,255,255,0.44);--t4:rgba(255,255,255,0.07);
+  --teal:#50e3c2;--teal-dim:rgba(80,227,194,0.08);--teal-glow:rgba(80,227,194,0.18);
+  --violet:#a78bfa;--violet-dim:rgba(167,139,250,0.08);
+  --font:'Geist','Inter',system-ui,sans-serif;
+  --mono:'Geist Mono','SF Mono',ui-monospace,monospace;
+  --max:920px;--r:6px;
+  --fs-2xs:0.6875rem;--fs-xs:0.75rem;--fs-sm:0.875rem;--fs-base:1rem;--fs-lg:1.25rem;--fs-xl:1.5rem;--fs-2xl:1.625rem;
+  /* ── GLASS / VENGEANCE-INSPIRED TOKENS (Session 20) ───────────────────── */
+  --glass-bg:rgba(255,255,255,0.035);--glass-bg-hi:rgba(255,255,255,0.07);
+  --glass-border:rgba(255,255,255,0.11);--glass-border-hi:rgba(255,255,255,0.22);
+  --glass-blur:blur(22px) saturate(1.5);
+  --glow-teal:0 0 1px rgba(80,227,194,0.9),0 0 24px rgba(80,227,194,0.22);
+  --glow-violet:0 0 1px rgba(167,139,250,0.9),0 0 24px rgba(167,139,250,0.22);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--t1);font-family:var(--font);font-size:var(--fs-base);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* NAV — floating glass dock (Session 20) */
+.nav-dock-wrap{position:fixed;top:14px;left:0;right:0;z-index:100;display:flex;justify-content:center;pointer-events:none;transition:top .3s cubic-bezier(.16,1,.3,1)}
+nav{pointer-events:auto;width:min(760px,92vw);height:52px;border-radius:999px;border:1px solid var(--glass-border);background:var(--glass-bg);backdrop-filter:var(--glass-blur);box-shadow:0 10px 36px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.05);display:flex;align-items:center;padding:0 10px 0 22px;gap:12px;transition:background .3s ease,border-color .3s ease,box-shadow .3s ease,transform .3s cubic-bezier(.16,1,.3,1)}
+.nav-dock-wrap.scrolled{top:10px}
+.nav-dock-wrap.scrolled nav{background:var(--glass-bg-hi);border-color:var(--glass-border-hi);box-shadow:0 14px 44px rgba(0,0,0,0.5),0 0 0 1px rgba(80,227,194,0.08),inset 0 1px 0 rgba(255,255,255,0.07)}
+.nav-name{font-family:var(--mono);font-size:var(--fs-xs);font-weight:600;color:var(--t1);text-decoration:none;letter-spacing:0.02em}
+.nav-sep{color:var(--t4);font-size:var(--fs-sm)}
+.nav-role{font-family:var(--mono);font-size:var(--fs-xs);color:var(--t3)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:18px;background:rgba(255,255,255,0.03);border:1px solid var(--border-w);border-radius:999px;padding:7px 8px 7px 16px}
+.nav-link{font-family:var(--mono);font-size:var(--fs-xs);color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s}
+.nav-link:hover{color:var(--teal)}
+.nav-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 10px var(--teal)}50%{opacity:0.35;box-shadow:0 0 3px var(--teal)}}
+@media(max-width:720px){.nav-dock-wrap{top:0}nav{width:100%;border-radius:0;border-left:none;border-right:none;border-top:none}.nav-dock-wrap.scrolled{top:0}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;animation:hero-canvas-fade .9s ease-out both}
+@keyframes hero-canvas-fade{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){#hero-canvas{animation:none}}
+.hero-rings{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.ring{position:absolute;border-radius:50%;border:1px solid var(--border);right:-8vw;top:50%;transform:translateY(-50%)}
+.ring:nth-child(1){width:420px;height:420px;animation:rb 9s ease-in-out infinite}
+.ring:nth-child(2){width:640px;height:640px;animation:rb 9s ease-in-out -2.5s infinite}
+.ring:nth-child(3){width:860px;height:860px;animation:rb 9s ease-in-out -5s infinite}
+.ring:nth-child(4){width:1080px;height:1080px;animation:rb 9s ease-in-out -7s infinite}
+@keyframes rb{0%,100%{opacity:.4;transform:translateY(-50%) scale(1)}50%{opacity:.75;transform:translateY(-50%) scale(1.015)}}
+
+.hero-content{position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr;align-items:center;gap:56px;width:100%;padding-top:92px}
+.hero-left{display:flex;flex-direction:column}
+.hero-eyebrow{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:0.14em;color:rgba(80,227,194,0.65);margin-bottom:22px;display:flex;align-items:center;gap:12px;text-transform:uppercase}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:rgba(80,227,194,0.5)}
+h1.hero-name{font-size:clamp(56px,7.5vw,88px);font-weight:800;letter-spacing:-0.055em;line-height:0.88;margin-bottom:26px}
+.char{display:inline-block;opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease}
+.char.v{opacity:1;transform:translateY(0)}
+.char.teal{color:var(--teal)}
+.newline{display:block}
+.hero-tagline{font-size:var(--fs-base);color:var(--t2);line-height:1.75;max-width:400px;margin-bottom:36px;font-weight:300}
+.hero-tagline em{font-style:normal;color:var(--teal)}
+.hero-stats{display:flex;border:1px solid var(--border);border-radius:10px;overflow:hidden;max-width:400px}
+.stat{flex:1;padding:16px 12px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:4px}
+.stat:last-child{border-right:none}
+.stat-val{font-family:var(--mono);font-size:var(--fs-lg);font-weight:700;color:var(--teal);letter-spacing:-0.04em;line-height:1}
+.stat-label{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.07em;text-transform:uppercase}
+
+/* SCROLL CUE */
+.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2}
+.scroll-cue-text{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.12em;text-transform:uppercase}
+.scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--teal),transparent);animation:sd 2s ease-in-out infinite}
+@keyframes sd{0%{opacity:0;transform:scaleY(0);transform-origin:top}55%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(1) translateY(10px)}}
+
+/* MUSIC WIDGET — Omarchy-style floating now-playing control, fixed bottom-left.
+   Ships disabled (dim, inert toggle) until music/track.mp3 exists — see the
+   MUSIC WIDGET script for exactly how it turns itself on once that file loads. */
+.music-widget{position:fixed;left:20px;bottom:20px;z-index:40;display:flex;align-items:stretch;height:46px;border:1px solid var(--glass-border);border-radius:10px;background:var(--glass-bg);backdrop-filter:var(--glass-blur);overflow:hidden;opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
+.music-widget.is-ready{opacity:1;transform:translateY(0)}
+.music-toggle{position:relative;flex-shrink:0;width:44px;border:none;border-right:1px solid var(--glass-border);background:rgba(255,255,255,0.03);color:var(--t1);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.music-toggle:disabled{cursor:not-allowed;color:var(--t3)}
+.music-ring{position:absolute;inset:-1px;border:1px solid transparent;border-radius:0;pointer-events:none;transition:border-color .15s ease}
+.music-toggle:focus-visible .music-ring{border-color:var(--teal)}
+.music-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s ease}
+.music-icon svg{width:17px;height:17px}
+.music-icon-muted{opacity:1}
+.music-widget.is-playing .music-icon-muted{opacity:0}
+.music-widget.is-playing .music-icon-on{opacity:1}
+.music-meta{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:0 14px;min-width:0}
+.music-title,.music-artist,.music-time{font-family:var(--mono);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.music-title{color:var(--t1);font-weight:600}
+.music-sub{position:relative;display:block;height:13px}
+.music-artist,.music-time{position:absolute;inset:0;color:var(--t3);transition:opacity .15s ease}
+.music-time{opacity:0}
+.music-widget:hover .music-artist,.music-widget:focus-within .music-artist{opacity:0}
+.music-widget:hover .music-time,.music-widget:focus-within .music-time{opacity:1}
+.music-eq{display:flex;align-items:flex-end;gap:2px;width:16px;height:12px;margin-right:12px;flex-shrink:0}
+.eq-bar{display:block;width:3px;flex-shrink:0;background:var(--teal);height:3px;border-radius:1px}
+.music-widget.is-playing .eq-bar{animation:eq-bounce 0.9s ease-in-out infinite}
+.music-widget.is-playing .eq-bar:nth-child(1){animation-delay:-0.6s}
+.music-widget.is-playing .eq-bar:nth-child(2){animation-delay:-0.3s}
+.music-widget.is-playing .eq-bar:nth-child(3){animation-delay:-0.75s}
+.music-widget.is-playing .eq-bar:nth-child(4){animation-delay:-0.15s}
+@keyframes eq-bounce{0%,100%{height:3px}50%{height:12px}}
+.music-progress-wrap{position:relative;flex:1;min-width:60px;max-width:90px}
+.music-progress-fill{position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--teal);transform-origin:left;transform:scaleX(0);transition:height .15s ease}
+.music-widget:hover .music-progress-fill,.music-widget:focus-within .music-progress-fill{height:4px}
+.music-seek{position:absolute;inset:auto 0 -6px 0;width:100%;height:14px;margin:0;cursor:pointer;-webkit-appearance:none;appearance:none;background:transparent}
+.music-seek::-webkit-slider-thumb{-webkit-appearance:none;width:1px;height:1px;opacity:0}
+.music-seek::-moz-range-thumb{width:1px;height:1px;opacity:0;border:none}
+.music-seek:disabled{cursor:not-allowed}
+.music-next{flex-shrink:0;width:28px;border:none;border-left:1px solid var(--glass-border);background:rgba(255,255,255,0.03);color:var(--t3);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color .15s ease}
+.music-next svg{width:13px;height:13px}
+.music-next:hover,.music-next:focus-visible{color:var(--teal)}
+@media(max-width:720px){.music-widget{display:none}}
+@media(prefers-reduced-motion:reduce){.music-widget.is-playing .eq-bar{animation:none;height:6px}}
+
+/* SECTIONS */
+section{max-width:var(--max);margin:0 auto;padding:80px 32px}
+.section-label{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.section-label-text{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap}
+.section-label-line{flex:1;height:1px;background:linear-gradient(to right,var(--border-w),transparent)}
+h2.section-title{font-size:var(--fs-2xl);font-weight:700;letter-spacing:-0.04em;color:var(--t1);margin-bottom:8px;line-height:1.15}
+p.section-sub{font-size:var(--fs-sm);color:var(--t2);margin-bottom:38px;max-width:500px;line-height:1.75}
+.divider{max-width:var(--max);margin:0 auto;padding:0 32px;height:1px;background:linear-gradient(to right,transparent,var(--border-w),transparent)}
+
+/* CASE STUDY GRID */
+.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-w);border:1px solid var(--border-w);border-radius:12px;overflow:hidden}
+.cs-card{background:var(--surface);padding:28px 24px;display:flex;flex-direction:column;gap:14px;cursor:pointer;position:relative;overflow:hidden;opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease,background .2s ease}
+.cs-card.v{opacity:1;transform:translateY(0)}
+.cs-card:hover{background:var(--surface2)}
+.cs-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--teal),transparent);opacity:0;transition:opacity .3s}
+.cs-card:hover::before{opacity:.55}
+.cs-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.cs-num{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.05em;white-space:nowrap}
+.cs-tags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);background:var(--t4);border:1px solid var(--border-w);padding:2px 7px;border-radius:3px;letter-spacing:0.02em}
+.tag.tc{color:var(--teal);background:var(--teal-dim);border-color:rgba(80,227,194,0.18)}
+.tag.tv{color:var(--violet);background:var(--violet-dim);border-color:rgba(167,139,250,0.18)}
+.cs-title{font-size:var(--fs-base);font-weight:600;color:var(--t1);letter-spacing:-0.02em;line-height:1.3}
+.cs-xyz{font-size:var(--fs-sm);color:var(--t2);line-height:1.7}
+.cs-xyz strong{color:var(--teal);font-weight:500}
+.cs-metrics{display:flex;gap:20px;padding-top:12px;border-top:1px solid var(--border-w);margin-top:auto}
+.cs-metric{display:flex;flex-direction:column;gap:3px}
+.cs-mval{font-family:var(--mono);font-size:var(--fs-sm);font-weight:700;color:var(--teal);letter-spacing:-0.03em}
+.cs-mlabel{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);text-transform:uppercase;letter-spacing:0.05em}
+.cs-foot{display:flex;justify-content:space-between;align-items:center}
+.cs-meta{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3)}
+.cs-arrow{font-size:var(--fs-sm);color:#FFFF02;transition:color .2s,transform .2s}
+.cs-card:hover .cs-arrow{color:#fff;transform:translateX(5px)}
+
+/* CARD THUMBNAILS */
+.cs-thumb{margin:0;padding:12px 12px 0;width:100%;box-sizing:border-box;height:226px;overflow:hidden;flex-shrink:0;position:relative}
+.cs-thumb img{width:100%;height:100%;object-fit:cover;display:block;border-radius:6px;transition:transform .55s ease,filter .3s ease;filter:brightness(.82) saturate(.88)}
+.cs-card:hover .cs-thumb img{transform:scale(1.04);filter:brightness(.96) saturate(1.08)}
+.cs-thumb::after{content:'';position:absolute;inset:auto 12px 0;height:72px;border-radius:0 0 6px 6px;background:linear-gradient(to bottom,transparent,var(--surface));pointer-events:none;z-index:1}
+.cs-card:hover .cs-thumb::after{background:linear-gradient(to bottom,transparent,var(--surface2))}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.about-bio{font-size:var(--fs-sm);color:var(--t2);line-height:1.85}
+.about-bio p{margin-bottom:16px}
+.about-bio strong{color:var(--t1);font-weight:500}
+.skills-list{display:flex;flex-direction:column;gap:12px}
+.skill-row{display:flex;align-items:center;gap:12px}
+.skill-name{font-family:var(--mono);font-size:var(--fs-xs);color:var(--t3);min-width:148px}
+.skill-bar{flex:1;height:1px;background:var(--border-w);position:relative}
+.skill-fill{position:absolute;top:0;left:0;height:1px;background:linear-gradient(to right,var(--teal),rgba(80,227,194,0.3));transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.skill-fill.v{transform:scaleX(1)}
+.skill-pct{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);min-width:24px;text-align:right}
+
+/* CAREER TIMELINE */
+.career-timeline{margin-top:52px;padding-top:40px;border-top:1px solid var(--border-w)}
+.career-label{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px}
+.career-entries{display:flex;flex-direction:column;gap:0}
+.career-entry{display:grid;grid-template-columns:88px 1px 1fr;gap:0 20px;padding-bottom:32px;position:relative}
+.career-entry:last-child{padding-bottom:0}
+.career-year{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);padding-top:3px;text-align:right;line-height:1.4}
+.career-line{position:relative;display:flex;flex-direction:column;align-items:center}
+.career-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px rgba(80,227,194,0.5);flex-shrink:0;margin-top:4px}
+.career-dot-dim{width:5px;height:5px;border-radius:50%;background:var(--border-w);flex-shrink:0;margin-top:4px}
+.career-vline{flex:1;width:1px;background:linear-gradient(to bottom,var(--border-w),transparent);margin-top:6px}
+.career-entry:last-child .career-vline{display:none}
+.career-body{padding-bottom:4px}
+.career-company{font-size:var(--fs-sm);font-weight:600;color:var(--t1);letter-spacing:-0.01em}
+.career-role{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--teal);letter-spacing:0.03em;margin-top:2px}
+.career-period{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);margin-top:1px}
+.career-takeaway{font-size:var(--fs-xs);color:var(--t2);font-style:italic;line-height:1.6;margin-top:8px;max-width:480px}
+.career-tools{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.02em;margin-top:6px}
+.career-tools span{color:var(--teal)}
+
+/* CONTACT STRIP */
+.contact-strip{background:var(--surface);border-top:1px solid var(--border-w);border-bottom:1px solid var(--border-w)}
+.contact-inner{max-width:var(--max);margin:0 auto;padding:52px 32px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.contact-headline{font-size:var(--fs-xl);font-weight:700;letter-spacing:-0.035em;line-height:1.2}
+.contact-headline span{color:var(--teal)}
+.contact-kicker{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px}
+.contact-links{display:flex;gap:10px;flex-shrink:0}
+.btn{font-family:var(--mono);font-size:var(--fs-xs);padding:9px 18px;border-radius:7px;text-decoration:none;letter-spacing:0.04em;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:var(--teal);color:#050508;font-weight:700}
+.btn-primary:hover{background:#7ef5e0}
+.btn-secondary{border:1px solid var(--border);color:var(--t2)}
+.btn-secondary:hover{border-color:var(--teal);color:var(--teal)}
+
+/* FOOTER */
+footer{max-width:var(--max);margin:0 auto;padding:22px 32px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-w)}
+.foot-l,.foot-r{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.04em}
+
+/* RESPONSIVE */
+@media(max-width:720px){
+  .hero-content{grid-template-columns:1fr;gap:40px;padding:0 20px;padding-top:64px}
+  .cs-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .contact-inner{flex-direction:column;text-align:center}
+  nav{padding:0 16px}
+  .nav-role{display:none}
+  section{padding:60px 20px}
+}
+
+/* ── MAGNETIC CURSOR (Work section only) ─────────────────────────────────
+   Custom cursor dot that follows mouse with lerp smoothing.
+   Expands + shifts color when hovering a .cs-card (magnetic target).
+   Cursor is only visible while mouse is inside #work section.
+   ──────────────────────────────────────────────────────────────────────── */
+#mag-cursor{
+  position:fixed;top:0;left:0;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--teal);
+  mix-blend-mode:screen;
+  pointer-events:none;
+  z-index:9999;
+  opacity:0;
+  transition:opacity .25s ease, width .2s ease, height .2s ease,
+             background .2s ease, box-shadow .2s ease;
+  will-change:transform;
+  box-shadow:0 0 14px var(--teal),0 0 5px var(--teal);
+}
+#mag-cursor.active{opacity:1}
+#mag-cursor.on-card{
+  width:38px;height:38px;
+  background:var(--violet);
+  box-shadow:0 0 22px var(--violet),0 0 8px var(--violet);
+}
+/* Hide system cursor over cards while in Work section */
+#work .cs-card{cursor:none}
+
+
+
+/* ── INDUSTRY TAG ─────────────────────────────────────────────────────────── */
+.tag-ind {
+  color: #f59e0b;
+  background: rgba(245,158,11,0.1);
+  border-color: rgba(245,158,11,0.25);
+}
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+
+/* ── HERO NAME GLITCH — two words ───────────────────────────────────────── */
+.hero-glitch-word {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+  line-height: inherit;
+}
+.hero-glitch-word::before {
+  content: attr(data-hover);
+  display: block;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  font: inherit;
+  letter-spacing: inherit;
+  white-space: nowrap;
+}
+.hero-glitch-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  color: #050508;
+  background: #FFFF02;
+  clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+  transition: clip-path 0.45s cubic-bezier(0.77,0,0.175,1);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.hero-glitch-word:hover .hero-glitch-overlay {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── ACCESSIBILITY: FOCUS STYLES ────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
+[role="link"]:focus-visible, [role="button"]:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── PROJECT FILTER ──────────────────────────────────────────────────────── */
+.filter-bar { display:flex; flex-wrap:nowrap; gap:8px; margin-bottom:32px; overflow-x:auto; padding-bottom:4px; scrollbar-width:none; }
+.filter-bar::-webkit-scrollbar { display:none; }
+.filter-chip {
+  font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase;
+  padding:6px 14px; border-radius:99px; cursor:pointer; border:1px solid var(--border-w);
+  background:var(--surface); color:var(--t3); transition:all .2s; user-select:none;
+}
+.filter-chip:hover { color:var(--t1); border-color:rgba(255,255,255,.2); }
+.filter-chip.active { color:var(--bg); background:var(--teal); border-color:var(--teal); }
+.cs-card[data-hidden="true"] { display:none; }
+.cs-grid.filtered .cs-card { grid-column:1/-1 !important; }
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── HOVER HINT ──────────────────────────────────────────────────────────── */
+.hero-glitch-wrap + .hero-glitch-wrap::after,
+.hero-glitch-wrap:last-of-type::after {
+  content: '— hover';
+  display: block;
+  font-family: var(--mono); font-size: 9px;
+  color: var(--t3); letter-spacing: 0.14em;
+  margin-top: 12px; text-align: right;
+  opacity: 0; animation: hint-in 1s ease 3.5s forwards;
+}
+@keyframes hint-in { to { opacity: 1; } }
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── PORTRAIT — pixelate-in canvas ───────────────────────────────────────── */
+.portrait-img  { display:none !important; }
+/* ascii-portrait removed */
+#ftr-portrait {
+  width:100%; display:block; border-radius:10px;
+  image-rendering: pixelated; /* keeps pixel blocks crisp during animation */
+  mask-image: radial-gradient(ellipse 94% 90% at 50% 44%, black 42%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 94% 90% at 50% 44%, black 42%, transparent 78%);
+}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── SESSION 10 — VISUAL UPGRADES ───────────────────────────────────────── */
+
+/* 1. Scroll progress bar (under nav) */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  background: linear-gradient(to right, var(--teal), var(--violet));
+  box-shadow: 0 0 8px rgba(80,227,194,0.45);
+  z-index: 101; pointer-events: none;
+}
+
+/* 2. Spotlight hover on work cards (pointer-tracked radial glow) */
+.cs-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(320px circle at var(--mx,50%) var(--my,50%),
+              rgba(80,227,194,0.10), transparent 62%);
+  opacity: 0; transition: opacity .35s ease;
+  pointer-events: none; z-index: 1;
+}
+.cs-card:hover::after { opacity: 1; }
+
+/* 3. Image zoom for full-width feature cards (inline-styled imgs) */
+.cs-card:hover > div > img {
+  transform: scale(1.05);
+  filter: brightness(.96) saturate(1.08) !important;
+}
+
+/* 4. Filter transitions — fade/scale instead of instant reflow */
+.cs-card.f-out {
+  opacity: 0 !important;
+  transform: scale(.97) translateY(8px) !important;
+}
+
+/* 5. Career timeline — draw vline + pop dots on scroll */
+.career-line .career-vline {
+  transform: scaleY(0); transform-origin: top;
+  transition: transform .8s cubic-bezier(.22,1,.36,1) .1s;
+}
+.career-entry.lit .career-vline { transform: scaleY(1); }
+.career-line .career-dot,
+.career-line .career-dot-dim {
+  transform: scale(0);
+  transition: transform .5s cubic-bezier(.34,1.56,.64,1);
+}
+.career-entry.lit .career-dot,
+.career-entry.lit .career-dot-dim { transform: scale(1); }
+
+/* 6. Marquee divider (verticals ticker between work & archive) */
+.marquee-divider {
+  overflow: hidden; padding: 26px 0;
+  border-top: 1px solid var(--border-w);
+  border-bottom: 1px solid var(--border-w);
+  max-width: 100%;
+}
+.marquee-track {
+  display: inline-flex; width: max-content;
+  animation: marquee 36s linear infinite;
+}
+.marquee-divider:hover .marquee-track { animation-play-state: paused; }
+.marquee-item {
+  display: inline-flex; align-items: center;
+  font-family: var(--mono); font-size: var(--fs-xs);
+  color: var(--t3); padding: 0 26px;
+  letter-spacing: .08em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.marquee-item span { color: var(--teal); margin-right: 10px; font-size: 9px; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* 7. Tabular numerals for count-ups */
+.stat-val, .skill-pct, .cs-mval { font-variant-numeric: tabular-nums; }
+
+/* 8. Reduced motion — kill all session-10 motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  .career-line .career-vline,
+  .career-line .career-dot,
+  .career-line .career-dot-dim { transform: none; transition: none; }
+  .cs-card.f-out { opacity: 1 !important; transform: none !important; }
+  .cs-card { transition: background .2s ease; opacity: 1; transform: none; }
+  .scroll-line, .nav-dot { animation: none; }
+}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── GIFT TRIGGER + MODAL — Session 19, page-specific per house rule 2 ──── */
+.gift-trigger{margin-top:16px;border:1px dashed rgba(167,139,250,0.35);border-radius:8px;padding:16px 18px;display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap;background:rgba(167,139,250,0.04)}
+.gift-trigger-text{display:flex;align-items:center;gap:10px}
+.gift-trigger-emoji{font-size:20px;line-height:1}
+.gift-trigger-copy{font-size:12.5px;color:var(--t2);line-height:1.5}
+.gift-trigger-copy strong{color:var(--t1);display:block;font-size:13px;margin-bottom:2px}
+.gift-trigger-btn{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--violet);background:var(--violet-dim);border:1px solid rgba(167,139,250,0.3);border-radius:7px;padding:9px 16px;cursor:pointer;letter-spacing:.02em;white-space:nowrap;transition:background .15s,transform .15s}
+.gift-trigger-btn:hover{background:rgba(167,139,250,0.16);transform:translateY(-1px)}
+.gift-trigger-btn:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+
+dialog#gift-modal{position:fixed;inset:0;width:100vw;height:100vh;max-width:100vw;max-height:100vh;margin:0;padding:0;border:none;background:transparent;overflow:hidden;z-index:9000;transition:opacity .25s ease}
+dialog#gift-modal[open]{display:flex;align-items:center;justify-content:center}
+dialog#gift-modal::backdrop{background:rgba(5,5,8,0);backdrop-filter:blur(0px);transition:background .3s ease,backdrop-filter .3s ease}
+dialog#gift-modal.is-open::backdrop{background:rgba(5,5,8,.82);backdrop-filter:blur(8px)}
+.gift-modal-card{position:relative;width:min(480px,92vw);max-height:86vh;overflow-y:auto;background:var(--surface2);border:1px solid rgba(167,139,250,0.25);border-radius:14px;padding:32px 30px 28px;box-shadow:0 32px 80px rgba(0,0,0,.7);transform:scale(0.92);opacity:0;transition:transform .3s cubic-bezier(.16,1,.3,1),opacity .25s ease}
+dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
+.gift-modal-eyebrow{font-family:var(--mono);font-size:10px;color:var(--violet);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.gift-modal-card h3{font-size:22px;font-weight:800;letter-spacing:-0.03em;color:var(--t1);margin-bottom:14px;line-height:1.2}
+.gift-modal-card p{font-size:13.5px;color:var(--t2);line-height:1.75;margin-bottom:14px}
+.gift-modal-card ul{margin:0 0 18px 18px;padding:0}
+.gift-modal-card li{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:6px}
+.gift-modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.gift-modal-btn{font-family:var(--mono);font-size:12px;font-weight:600;border-radius:8px;padding:11px 18px;text-decoration:none;letter-spacing:.02em;text-align:center;transition:filter .15s,transform .15s;cursor:pointer;border:1px solid transparent}
+.gift-modal-btn.primary{background:var(--violet);color:#050508}
+.gift-modal-btn.primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.gift-modal-btn.secondary{background:transparent;color:var(--t2);border-color:var(--border-w)}
+.gift-modal-btn.secondary:hover{color:var(--t1);border-color:rgba(255,255,255,0.2)}
+.gift-modal-btn:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+.gift-modal-close{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(255,255,255,0.06);color:var(--t2);font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s}
+.gift-modal-close:hover{background:rgba(255,255,255,0.12);color:var(--t1)}
+.gift-modal-close:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){
+  dialog#gift-modal, dialog#gift-modal::backdrop, .gift-modal-card{transition:none}
+}
+@media(max-width:680px){
+  .gift-trigger{flex-direction:column;align-items:flex-start}
+  .gift-modal-card{padding:26px 22px 22px}
+}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── AMBIENT BACKGROUND RAYS — Vengeance-inspired, Session 20 ───────────
+   Fixed, full-viewport, behind all content (z-index -1). Three slow-drifting
+   radial blobs (teal / violet / dim) rendered with blur, giving the whole
+   page a cinematic glass-over-light-field backdrop instead of flat black.
+   Frozen under prefers-reduced-motion (still visible, just static). ────── */
+.ambient-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.ambient-bg .ray{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.55;will-change:transform}
+.ambient-bg .ray1{width:52vw;height:52vw;max-width:720px;max-height:720px;top:-16vw;left:-10vw;background:radial-gradient(circle,rgba(80,227,194,0.16),transparent 70%);animation:ray-drift-1 26s ease-in-out infinite}
+.ambient-bg .ray2{width:46vw;height:46vw;max-width:640px;max-height:640px;bottom:-14vw;right:-8vw;background:radial-gradient(circle,rgba(167,139,250,0.14),transparent 70%);animation:ray-drift-2 32s ease-in-out infinite}
+.ambient-bg .ray3{width:34vw;height:34vw;max-width:480px;max-height:480px;top:38vh;left:52vw;background:radial-gradient(circle,rgba(80,227,194,0.08),transparent 72%);animation:ray-drift-3 22s ease-in-out infinite}
+.ambient-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(5,5,8,0.4) 100%)}
+@keyframes ray-drift-1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(4vw,3vw) scale(1.08)}}
+@keyframes ray-drift-2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3vw,-4vw) scale(1.1)}}
+@keyframes ray-drift-3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-2vw,3vw) scale(0.94)}}
+@media(prefers-reduced-motion:reduce){.ambient-bg .ray{animation:none}}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── GLASS SURFACES — hero stats, about bio, career timeline, contact,
+   work cards. Applies translucent/blur treatment on top of existing layout,
+   no DOM changes required. Session 20. ─────────────────────────────────── */
+.hero-stats{border:1px solid var(--glass-border);border-radius:14px;background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
+.stat{border-right:1px solid var(--glass-border)}
+.cs-card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid transparent;transition:opacity .5s ease,transform .5s ease,background .25s ease,box-shadow .3s ease,border-color .3s ease}
+.cs-card:hover{background:var(--glass-bg-hi);border-color:rgba(80,227,194,0.28);box-shadow:var(--glow-teal)}
+#founder-mode .cs-card:hover{border-color:rgba(80,227,194,0.28);box-shadow:var(--glow-teal)}
+.cs-grid{background:var(--glass-border)}
+.cs-thumb img{filter:brightness(.86) saturate(.92)}
+.about-grid{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:var(--glass-blur);border-radius:16px;padding:36px}
+.career-timeline{background:var(--glass-bg);border:1px solid var(--glass-border);backdrop-filter:var(--glass-blur);border-radius:16px;padding:36px;margin-top:52px;border-top:1px solid var(--glass-border)}
+.contact-strip{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border)}
+.gift-trigger{background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
+@media(max-width:720px){.about-grid,.career-timeline{padding:24px;border-radius:12px}}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ── COMPETENCE PILLARS + STACK LINE — about section, Session 20 ────────── */
+.pillar-row{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 18px}
+.pillar-chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--teal);background:var(--teal-dim);border:1px solid rgba(80,227,194,0.22);border-radius:999px;padding:6px 13px;white-space:nowrap}
+.about-stack{font-size:12px !important;color:var(--t3) !important;line-height:1.7 !important;font-family:var(--mono);letter-spacing:.01em;border-top:1px solid var(--border-w);padding-top:16px;margin-top:4px}
+/* ────────────────────────────────────────────────────────────────────────── */
+
+</style>
+  <meta name="description" content="Outside client work: VIRTU4L (a VR business built from scratch), EDGA (a multi-agent design-thinking Claude plugin), and Ascend Restyle (an internal portfolio-redesign skill).">
+  <meta name="author" content="Dario Espinosa">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://darioespinosa.design/founder-mode.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://darioespinosa.design/founder-mode.html">
+  <meta property="og:title" content="When I'm the Client — Dario Espinosa · Lead Experience Designer">
+  <meta property="og:description" content="Outside client work: VIRTU4L (a VR business built from scratch), EDGA (a multi-agent design-thinking Claude plugin), and Ascend Restyle (an internal portfolio-redesign skill).">
+  <meta property="og:image" content="https://darioespinosa.design/og-image.png">
+  <meta property="og:site_name" content="Dario Espinosa Portfolio">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@DataEP">
+  <meta name="twitter:title" content="When I'm the Client — Dario Espinosa · Lead Experience Designer">
+  <meta name="twitter:description" content="Outside client work: VIRTU4L (a VR business built from scratch), EDGA (a multi-agent design-thinking Claude plugin), and Ascend Restyle (an internal portfolio-redesign skill).">
+  <meta name="twitter:image" content="https://darioespinosa.design/og-image.png">
+</head>
+<body>
+<a href="#main-content" style="position:absolute;left:-9999px;top:4px;z-index:9999;background:#50e3c2;color:#050508;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none" onfocus="this.style.left='4px'" onblur="this.style.left='-9999px'">Skip to main content</a>
+
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ray ray1"></div>
+  <div class="ray ray2"></div>
+  <div class="ray ray3"></div>
+</div>
+<div class="nav-dock-wrap" id="nav-dock-wrap">
+<nav>
+  <a class="nav-name" href="index.html">dario-espinosa</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-role">when i'm the client</span>
+  <div class="nav-right">
+    <a class="nav-link" href="index.html">home</a>
+    <a class="nav-link" href="about.html">about</a>
+    <a class="nav-link" href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener">linkedin</a>
+    <div class="nav-dot" title="Available for new opportunities"></div>
+  </div>
+</nav>
+</div>
+<main id="main-content">
+<div style="max-width:var(--max);margin:0 auto;padding:140px 32px 0">
+  <a href="index.html" class="foot-back">&larr; back to portfolio</a>
+</div>
+
+<section id="founder-mode" style="max-width:var(--max);margin:0 auto;padding:60px 32px">
+  <div class="section-label">
+    <span class="section-label-text">&#8212;&#8212; founder mode</span>
+    <div class="section-label-line"></div>
+  </div>
+  <h2 class="section-title" data-scramble aria-label="When I'm the client">When I'm the client</h2>
+  <p class="section-sub" style="font-size:var(--fs-sm)">Outside client work: a business I run, plus internal tools I built because nobody else was going to.</p>
+  <div class="cs-grid">
+    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='virtu4l.html'" onclick="location.href='virtu4l.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(80,227,194,0.22);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
+      <div style="padding:12px;overflow:hidden;min-height:280px;background:rgba(0,0,0,0.3)">
+        <img src="https://www.realidadvirtu4l.com/assets/images/hero-index.jpg" alt="VIRTU4L — VR Center hero" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;filter:brightness(.82) saturate(.88);transition:transform .55s ease,filter .3s ease">
+      </div>
+      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
+        <div class="cs-head">
+          <div class="cs-tags"><span class="tag tc">brand-design</span><span class="tag">web-dev</span><span class="tag">marketing</span><span class="tag">ai-tools</span><span class="tag tag-ind">entertainment</span></div>
+          <span class="cs-num">✦ personal</span>
+        </div>
+        <div>
+          <div class="cs-company" style="color:var(--teal);font-family:var(--mono);font-size:11px;margin-bottom:6px">VIRTU4L · Personal Business · Tuxtla Gutiérrez MX</div>
+          <div class="cs-title">VIRTU4L — Brand, Website & AI-Powered VR Business</div>
+        </div>
+        <p class="cs-xyz">Founding and building Chiapas' first VR center from scratch, including the complete brand identity, multi-page website, online quoter wizard, digital marketing system, AI game assistant, and AI avatar creation.</p>
+        <div class="cs-metrics" style="margin-top:auto">
+          <div class="cs-metric"><span class="cs-mval">150+</span><span class="cs-mlabel">VR games</span></div>
+          <div class="cs-metric"><span class="cs-mval">5+</span><span class="cs-mlabel">site pages</span></div>
+          <div class="cs-metric"><span class="cs-mval">AI</span><span class="cs-mlabel">assistant built</span></div>
+        </div>
+        <div class="cs-foot"><span class="cs-meta">personal-business · founder · vibe-coded</span><span class="cs-arrow">&#8594;</span></div>
+      </div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='edga.html'" onclick="location.href='edga.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(80,227,194,0.22);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
+      <div style="padding:12px;overflow:hidden;min-height:280px;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center">
+        <div style="text-align:center">
+          <div style="font-family:var(--mono);font-size:52px;font-weight:800;color:var(--teal);opacity:.85;letter-spacing:-0.03em">EDGA</div>
+          <div style="font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.08em;margin-top:10px">overseer → agents → knowledge base</div>
+        </div>
+      </div>
+      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
+        <div class="cs-head">
+          <div class="cs-tags"><span class="tag tc">ai-tools</span><span class="tag">multi-agent-systems</span><span class="tag">design-thinking</span><span class="tag tag-ind">internal-tools</span></div>
+          <span class="cs-num">✦ personal</span>
+        </div>
+        <div>
+          <div class="cs-company" style="color:var(--teal);font-family:var(--mono);font-size:11px;margin-bottom:6px">EDGA · Internal Tool · Claude Plugin</div>
+          <div class="cs-title">EDGA — A Multi-Agent Design Thinking Operating System</div>
+        </div>
+        <p class="cs-xyz">A self-built Claude plugin that runs the full Design Thinking process (Empathize through Deliver) as a phase-gated multi-agent system, with an Overseer, specialist sub-agents, and a continuously-updated knowledge base mirrored into Obsidian.</p>
+        <div class="cs-metrics" style="margin-top:auto">
+          <div class="cs-metric"><span class="cs-mval">v3.8</span><span class="cs-mlabel">current release</span></div>
+          <div class="cs-metric"><span class="cs-mval">12</span><span class="cs-mlabel">KB categories</span></div>
+          <div class="cs-metric"><span class="cs-mval">115+</span><span class="cs-mlabel">knowledge notes</span></div>
+        </div>
+        <div class="cs-foot"><span class="cs-meta">internal-tool · founder · multi-agent</span><span class="cs-arrow">&#8594;</span></div>
+      </div>
+    </div>
+
+    <div class="cs-card reveal" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')location.href='ascend-restyle.html'" onclick="location.href='ascend-restyle.html'" style="grid-column:1/-1;cursor:pointer;border-top:1px solid rgba(80,227,194,0.22);display:grid;grid-template-columns:44% 1fr;gap:0;padding:0;align-items:stretch">
+      <div style="padding:12px;overflow:hidden;min-height:280px;background:rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center">
+        <div style="width:120px;height:120px;background:rgba(80,227,194,0.06);border:1px solid rgba(80,227,194,0.25);clip-path:polygon(22% 0,100% 0,100% 78%,78% 100%,0 100%,0 22%);display:flex;align-items:center;justify-content:center">
+          <span style="font-family:var(--mono);font-size:20px;font-weight:700;color:var(--teal);letter-spacing:0.04em">AOS</span>
+        </div>
+      </div>
+      <div style="padding:28px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border-w)">
+        <div class="cs-head">
+          <div class="cs-tags"><span class="tag tc">ai-tools</span><span class="tag">design-systems</span><span class="tag">automation</span><span class="tag tag-ind">internal-tools</span></div>
+          <span class="cs-num">✦ personal</span>
+        </div>
+        <div>
+          <div class="cs-company" style="color:var(--teal);font-family:var(--mono);font-size:11px;margin-bottom:6px">Ascend Restyle · Internal Tool · UX CoE</div>
+          <div class="cs-title">Ascend Restyle — A Skill That Redesigns Portfolio Decks</div>
+        </div>
+        <p class="cs-xyz">A Claude Agent Skill built for an internal UX Center of Excellence. It restyles a designer's existing portfolio or bio deck into the firm's internal design system, then hands back an annotatable HTML preview before exporting to PPTX or PDF.</p>
+        <div class="cs-metrics" style="margin-top:auto">
+          <div class="cs-metric"><span class="cs-mval">49</span><span class="cs-mlabel">pages restyled</span></div>
+          <div class="cs-metric"><span class="cs-mval">4</span><span class="cs-mlabel">layout archetypes</span></div>
+          <div class="cs-metric"><span class="cs-mval">7</span><span class="cs-mlabel">pipeline steps</span></div>
+        </div>
+        <div class="cs-foot"><span class="cs-meta">internal-tool · claude-skill · ux-coe</span><span class="cs-arrow">&#8594;</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;border-left:2px solid var(--teal);padding:18px 22px;background:var(--teal-dim);border-radius:0 6px 6px 0">
+    <div style="font-family:var(--mono);font-size:9px;color:var(--teal);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px">Also: internal enablement</div>
+    <p style="font-size:13px;color:var(--t2);line-height:1.75;margin:0">Building EDGA turned into a habit: I mentor other designers on using Claude day-to-day in their own workflows, and I've done the same for the internal HR department, helping non-technical teams fold Claude into their existing process instead of bolting AI on as an afterthought.</p>
+  </div>
+
+  <div class="gift-trigger">
+    <div class="gift-trigger-text">
+      <span class="gift-trigger-emoji" aria-hidden="true">🎁</span>
+      <div class="gift-trigger-copy"><strong>A token of gratitude</strong>Free guide: stopping AI agents from burning your tokens</div>
+    </div>
+    <button type="button" class="gift-trigger-btn" onclick="window.openGiftModal && window.openGiftModal()">Open the gift</button>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>founder mode &middot; 2026 &middot; dario-espinosa</span>
+  <span>lead-experience-designer &middot; chiapas-mx</span>
+</footer>
+
+<!-- Gift modal — "wait, before you go" token of gratitude (Session 19) -->
+<dialog id="gift-modal" aria-labelledby="gift-modal-title">
+  <div class="gift-modal-card">
+    <button type="button" class="gift-modal-close" id="gift-modal-close" aria-label="Close">&#x2715;</button>
+    <div class="gift-modal-eyebrow">Wait — before you go 👋</div>
+    <h3 id="gift-modal-title">A token of gratitude</h3>
+    <p>Thanks for spending time on my portfolio. As a small thank-you, here's something I actually use day to day: a free, practical guide on keeping AI coding agents (Cursor, Claude, or similar) from quietly wasting your tokens and losing the thread on long sessions. No email required, nothing to sign up for.</p>
+    <ul>
+      <li>Fewer runaway sessions that burn budget without anyone noticing</li>
+      <li>Less time re-explaining a decision the agent already made ten minutes ago</li>
+      <li>Fewer "regenerate the whole thing from scratch" cycles once a long session degrades</li>
+    </ul>
+    <div class="gift-modal-actions">
+      <a class="gift-modal-btn primary" href="gift-token-habits.html">Read the guide</a>
+      <a class="gift-modal-btn secondary" href="ai-agent-token-habits.md" download>Download .md</a>
+      <button type="button" class="gift-modal-btn secondary" id="gift-modal-later">Maybe later</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* ── GIFT MODAL — open/close, exit-intent, once-per-tab-session (Session 19) */
+(function(){
+  var dlg = document.getElementById('gift-modal');
+  if (!dlg) return;
+  var closeBtn = document.getElementById('gift-modal-close');
+  var laterBtn = document.getElementById('gift-modal-later');
+  var lastFocused = null;
+  var SEEN_KEY = 'giftModalSeen';
+
+  function openModal(fromExitIntent){
+    if (dlg.open) return;
+    lastFocused = document.activeElement;
+    dlg.style.opacity = '0';
+    dlg.showModal();
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        dlg.style.opacity = '1';
+        dlg.classList.add('is-open');
+        closeBtn.focus();
+      });
+    });
+    try { if (fromExitIntent) sessionStorage.setItem(SEEN_KEY, '1'); } catch(e){}
+  }
+
+  function closeModal(){
+    if (!dlg.open) return;
+    dlg.classList.remove('is-open');
+    dlg.style.opacity = '0';
+    setTimeout(function(){
+      dlg.close();
+      dlg.style.opacity = '';
+      if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+    }, 260);
+  }
+
+  window.openGiftModal = function(){ openModal(false); };
+
+  closeBtn.addEventListener('click', closeModal);
+  laterBtn.addEventListener('click', closeModal);
+  dlg.addEventListener('click', function(e){ if (e.target === dlg) closeModal(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && dlg.open) { e.preventDefault(); closeModal(); } });
+
+  /* Exit-intent: mouse leaves via the top of the viewport — once per tab session,
+     and only after the visitor has actually scrolled (avoids firing on a bounce). */
+  var hasScrolled = false;
+  window.addEventListener('scroll', function(){ hasScrolled = true; }, { passive: true, once: true });
+
+  document.addEventListener('mouseout', function(e){
+    if (e.clientY > 0) return;
+    if (!hasScrolled) return;
+    var seen = false;
+    try { seen = sessionStorage.getItem(SEEN_KEY) === '1'; } catch(err){ seen = false; }
+    if (seen || dlg.open) return;
+    openModal(true);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  if (!('IntersectionObserver' in window)) { // fallback: show everything
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('v'); });
+    document.querySelectorAll('.skill-fill').forEach(function(el){ el.classList.add('v'); });
+    return;
+  }
+  var cardObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('v'); cardObs.unobserve(e.target); }
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ cardObs.observe(el); });
+
+  var skillObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.querySelector('.skill-fill').classList.add('v');
+        skillObs.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.3});
+  document.querySelectorAll('.reveal-skill').forEach(function(el){ skillObs.observe(el); });
+})();
+</script>
+<script>
+(function () {
+  (function () {
+    var wrap = document.getElementById('nav-dock-wrap');
+    if (!wrap) return;
+    var ticking2 = false;
+    function updateDock() {
+      wrap.classList.toggle('scrolled', window.scrollY > 24);
+      ticking2 = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking2) { requestAnimationFrame(updateDock); ticking2 = true; }
+    }, { passive: true });
+    updateDock();
+  })();
+})();
+</script>
+
+<script src="effects.js"></script>
+</body>
+</html>
