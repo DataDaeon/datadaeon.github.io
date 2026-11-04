@@ -6,7 +6,7 @@
 <title>Exploring the Future: Metaverse Experience · Dario Espinosa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="effects.css">
 <script>/* IO shim — immediate-fire fallback (Session 10c) */
 if(!('IntersectionObserver' in window)){window.IntersectionObserver=function(cb){this._cb=cb};IntersectionObserver.prototype.observe=function(el){var s=this;setTimeout(function(){s._cb([{isIntersecting:true,target:el}],s)},0)};IntersectionObserver.prototype.unobserve=function(){};IntersectionObserver.prototype.disconnect=function(){}}
@@ -41,7 +41,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .cs-hero-inner{max-width:var(--max);margin:0 auto}
 .cs-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:var(--teal);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .cs-eyebrow::before{content:'';width:24px;height:1px;background:var(--teal);opacity:0.5}
-.cs-hero h1{font-size:clamp(40px,6vw,64px);font-weight:800;letter-spacing:-0.05em;line-height:1;margin-bottom:20px;color:var(--t1)}
+.cs-hero h1{font-family:'Pixelify Sans','Geist Mono',ui-monospace,monospace;font-size:clamp(40px,6vw,64px);font-weight:800;letter-spacing:-0.05em;line-height:1;margin-bottom:20px;color:var(--t1)}
 .cs-xyz{font-size:16px;color:var(--t2);line-height:1.75;max-width:640px;margin-bottom:32px}
 .cs-xyz strong{color:var(--teal);font-weight:500}
 .meta-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border-w);border-radius:var(--r);overflow:hidden;max-width:640px}
@@ -60,7 +60,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .block-inner{max-width:var(--max);margin:0 auto;padding:48px 32px}
 .block-label{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .block-label::after{content:'';flex:1;height:1px;background:var(--border-w)}
-.block h2{font-size:22px;font-weight:700;letter-spacing:-0.035em;color:var(--t1);margin-bottom:16px}
+.block h2{font-family:'Pixelify Sans','Geist Mono',ui-monospace,monospace;font-size:22px;font-weight:700;letter-spacing:-0.035em;color:var(--t1);margin-bottom:16px;line-height:1.15}
 .block p{font-size:14px;color:var(--t2);line-height:1.85;margin-bottom:14px}
 .block p:last-child{margin-bottom:0}
 /* HMW */
@@ -366,6 +366,26 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <div class="scroll-hero-wrap" data-auto></div>
   </div>
 </header>
+
+<div class="iso-figure-wrap">
+  <div class="iso-figure-inner">
+<svg viewBox="112 42 227 143" role="img" aria-label="Isometric illustration: visitors orbiting a glowing portal ring">
+<polygon class="iso-ground" points="209.0,71.5 319.0,126.5 242.0,165.0 132.0,110.0"/>
+<ellipse cx="220.0" cy="107.8" rx="34" ry="46" fill="none" stroke="var(--teal)" stroke-width="2.5" opacity="0.85"/>
+<ellipse cx="220.0" cy="107.8" rx="27" ry="37" fill="var(--teal)" opacity="0.08"/>
+<circle r="3" fill="var(--violet)">
+  <animateMotion dur="5s" repeatCount="indefinite" path="M 220.0 61.8 A 34 46 0 1 1 219.9 61.8"/>
+</circle>
+<circle r="2.4" fill="var(--teal)">
+  <animateMotion dur="5s" begin="-1.7s" repeatCount="indefinite" path="M 220.0 61.8 A 34 46 0 1 1 219.9 61.8"/>
+</circle>
+<circle r="2" fill="var(--t1)" opacity="0.8">
+  <animateMotion dur="5s" begin="-3.3s" repeatCount="indefinite" path="M 220.0 61.8 A 34 46 0 1 1 219.9 61.8"/>
+</circle>
+</svg>
+    <div class="iso-caption">visitors, orbiting a shared portal</div>
+  </div>
+</div>
 
 <div class="metrics">
   <div class="metrics-inner">

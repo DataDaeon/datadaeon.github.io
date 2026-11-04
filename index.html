@@ -6,7 +6,7 @@
 <title>Dario Espinosa — Lead Experience Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="effects.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -18,6 +18,7 @@
   --violet:#a78bfa;--violet-dim:rgba(167,139,250,0.08);
   --font:'Geist','Inter',system-ui,sans-serif;
   --mono:'Geist Mono','SF Mono',ui-monospace,monospace;
+  --font-pixel:'Pixelify Sans','Geist Mono',ui-monospace,monospace;
   --max:920px;--r:6px;
   --fs-2xs:0.6875rem;--fs-xs:0.75rem;--fs-sm:0.875rem;--fs-base:1rem;--fs-lg:1.25rem;--fs-xl:1.5rem;--fs-2xl:1.625rem;
   /* ── GLASS / VENGEANCE-INSPIRED TOKENS (Session 20) ───────────────────── */
@@ -62,7 +63,7 @@ nav{pointer-events:auto;width:min(760px,92vw);height:52px;border-radius:999px;bo
 .hero-left{display:flex;flex-direction:column}
 .hero-eyebrow{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:0.14em;color:rgba(80,227,194,0.65);margin-bottom:22px;display:flex;align-items:center;gap:12px;text-transform:uppercase}
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:rgba(80,227,194,0.5)}
-h1.hero-name{font-size:clamp(56px,7.5vw,88px);font-weight:800;letter-spacing:-0.055em;line-height:0.88;margin-bottom:26px}
+h1.hero-name{font-family:var(--font-pixel);font-size:clamp(50px,7vw,80px);font-weight:700;letter-spacing:0;line-height:1;margin-bottom:26px}
 
 /* ── VERSE DOCK — icon row above the tagline (Session 28) ──────────────────
    Inspired by Vengeance UI's "Verse Cards" nav trigger pattern, hand-ported
@@ -77,6 +78,8 @@ h1.hero-name{font-size:clamp(56px,7.5vw,88px);font-weight:800;letter-spacing:-0.
 .verse-badge{position:absolute;top:-2px;right:-2px;width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal)}
 .verse-label{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:.03em;text-align:center;opacity:0;transform:translateY(-4px);transition:opacity .2s ease,transform .2s ease;max-width:78px;line-height:1.3}
 .verse-tile:hover .verse-label,.verse-tile:focus-visible .verse-label{opacity:1;transform:translateY(0)}
+.verse-tile--work{flex-direction:row;align-items:center;gap:10px}
+.verse-tile--work .verse-label{opacity:1;transform:none;max-width:none;white-space:nowrap;text-align:left;font-size:12px;color:var(--t2)}
 @media(prefers-reduced-motion:reduce){.verse-tile-icon-wrap,.verse-label{transition:none}}
 
 /* Deck overlay — fanned stack, click-front-card-to-deal, matches the
@@ -87,11 +90,11 @@ h1.hero-name{font-size:clamp(56px,7.5vw,88px);font-weight:800;letter-spacing:-0.
 .verse-close{position:absolute;left:50%;top:7%;z-index:30;transform:translate(-50%,0) scale(0);width:44px;height:44px;border-radius:50%;border:none;background:var(--t1);color:var(--bg);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
 .verse-deck.open .verse-close{transform:translate(-50%,0) scale(1)}
 .verse-stack{position:absolute;inset:0}
-.verse-card{position:absolute;left:50%;top:50%;width:min(340px,86vw);min-height:300px;transform:translate(-50%,-50%) translateY(1000px);opacity:1;background:var(--surface2);border:1px solid var(--border-w);border-radius:14px;box-shadow:0 30px 70px rgba(0,0,0,.55);padding:26px 24px;display:flex;flex-direction:column;gap:12px;transition:transform .7s cubic-bezier(.76,0,.24,1),opacity .4s ease}
-.verse-next-hint{position:absolute;top:14px;right:16px;font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
-.verse-card-eyebrow{font-family:var(--mono);font-size:10px;color:var(--teal);letter-spacing:.08em;text-transform:uppercase}
-.verse-card-title{font-size:20px;font-weight:700;letter-spacing:-0.02em;color:var(--t1);line-height:1.2}
-.verse-card-text{font-size:13px;color:var(--t2);line-height:1.65;flex:1}
+.verse-card{position:absolute;left:50%;top:50%;width:min(340px,86vw);min-height:300px;transform:translate(-50%,-50%) translateY(1000px);opacity:1;background:#ffffff;border:1px solid rgba(12,12,18,0.08);border-radius:14px;box-shadow:0 30px 70px rgba(0,0,0,.55);padding:26px 24px;display:flex;flex-direction:column;gap:12px;transition:transform .7s cubic-bezier(.76,0,.24,1),opacity .4s ease}
+.verse-next-hint{position:absolute;top:14px;right:16px;font-family:var(--mono);font-size:9px;color:rgba(12,12,18,0.4);letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
+.verse-card-eyebrow{font-family:var(--mono);font-size:10px;color:#0a8f78;letter-spacing:.08em;text-transform:uppercase}
+.verse-card-title{font-family:'Pixelify Sans','Geist Mono',ui-monospace,monospace;font-size:20px;font-weight:700;letter-spacing:-0.02em;color:var(--solid);line-height:1.2}
+.verse-card-text{font-size:13px;color:rgba(12,12,18,0.68);line-height:1.65;flex:1}
 .verse-card-btn{align-self:flex-start;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--bg);background:var(--teal);padding:9px 16px;border-radius:7px;text-decoration:none;letter-spacing:.02em;transition:filter .15s}
 .verse-card-btn:hover{filter:brightness(1.1)}
 .verse-footer{position:absolute;bottom:7%;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;color:var(--t3);opacity:0;transition:opacity .4s ease;white-space:nowrap}
@@ -105,11 +108,6 @@ h1.hero-name{font-size:clamp(56px,7.5vw,88px);font-weight:800;letter-spacing:-0.
 .newline{display:block}
 .hero-tagline{font-size:var(--fs-base);color:var(--t2);line-height:1.75;max-width:400px;margin-bottom:36px;font-weight:300}
 .hero-tagline em{font-style:normal;color:var(--teal)}
-.hero-stats{display:flex;border:1px solid var(--border);border-radius:10px;overflow:hidden;max-width:400px}
-.stat{flex:1;padding:16px 12px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:4px}
-.stat:last-child{border-right:none}
-.stat-val{font-family:var(--mono);font-size:var(--fs-lg);font-weight:700;color:var(--teal);letter-spacing:-0.04em;line-height:1}
-.stat-label{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.07em;text-transform:uppercase}
 
 /* SCROLL CUE */
 .scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2}
@@ -165,7 +163,7 @@ section{max-width:var(--max);margin:0 auto;padding:80px 32px}
 .section-label{display:flex;align-items:center;gap:14px;margin-bottom:14px}
 .section-label-text{font-family:var(--mono);font-size:var(--fs-2xs);color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap}
 .section-label-line{flex:1;height:1px;background:linear-gradient(to right,var(--border-w),transparent)}
-h2.section-title{font-size:var(--fs-2xl);font-weight:700;letter-spacing:-0.04em;color:var(--t1);margin-bottom:8px;line-height:1.15}
+h2.section-title{font-family:'Pixelify Sans','Geist Mono',ui-monospace,monospace;font-size:var(--fs-2xl);font-weight:700;letter-spacing:-0.04em;color:var(--t1);margin-bottom:8px;line-height:1.15}
 p.section-sub{font-size:var(--fs-sm);color:var(--t2);margin-bottom:38px;max-width:500px;line-height:1.75}
 .divider{max-width:var(--max);margin:0 auto;padding:0 32px;height:1px;background:linear-gradient(to right,transparent,var(--border-w),transparent)}
 
@@ -492,7 +490,7 @@ dialog#gift-modal.is-open::backdrop{background:rgba(5,5,8,.82);backdrop-filter:b
 .gift-modal-card{position:relative;width:min(480px,92vw);max-height:86vh;overflow-y:auto;background:var(--surface2);border:1px solid rgba(167,139,250,0.25);border-radius:14px;padding:32px 30px 28px;box-shadow:0 32px 80px rgba(0,0,0,.7);transform:scale(0.92);opacity:0;transition:transform .3s cubic-bezier(.16,1,.3,1),opacity .25s ease}
 dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
 .gift-modal-eyebrow{font-family:var(--mono);font-size:10px;color:var(--violet);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
-.gift-modal-card h3{font-size:22px;font-weight:800;letter-spacing:-0.03em;color:var(--t1);margin-bottom:14px;line-height:1.2}
+.gift-modal-card h3{font-family:'Pixelify Sans','Geist Mono',ui-monospace,monospace;font-size:22px;font-weight:800;letter-spacing:-0.03em;color:var(--t1);margin-bottom:14px;line-height:1.2}
 .gift-modal-card p{font-size:13.5px;color:var(--t2);line-height:1.75;margin-bottom:14px}
 .gift-modal-card ul{margin:0 0 18px 18px;padding:0}
 .gift-modal-card li{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:6px}
@@ -535,8 +533,6 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
 /* ── GLASS SURFACES — hero stats, about bio, career timeline, contact,
    work cards. Applies translucent/blur treatment on top of existing layout,
    no DOM changes required. Session 20. ─────────────────────────────────── */
-.hero-stats{border:1px solid var(--glass-border);border-radius:14px;background:var(--glass-bg);backdrop-filter:var(--glass-blur)}
-.stat{border-right:1px solid var(--glass-border)}
 .cs-card{background:var(--glass-bg);backdrop-filter:var(--glass-blur);border:1px solid transparent;transition:opacity .5s ease,transform .5s ease,background .25s ease,box-shadow .3s ease,border-color .3s ease}
 .cs-card:hover{background:var(--glass-bg-hi);border-color:rgba(80,227,194,0.28);box-shadow:var(--glow-teal)}
 #founder-mode .cs-card:hover{border-color:rgba(80,227,194,0.28);box-shadow:var(--glow-teal)}
@@ -637,10 +633,10 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
   </div>
   <div class="hero-content">
     <div class="hero-left">
-      <div class="hero-eyebrow">Portfolio &middot; 2025</div>
+      <div class="hero-eyebrow">Portfolio &middot; 2026</div>
       <h1 class="hero-name" id="hero-name" aria-label="Dario Espinosa, Lead Experience Designer"></h1>
       <div class="verse-dock" role="group" aria-label="Quick links">
-        <button type="button" class="verse-tile" id="verse-trigger" aria-haspopup="dialog" aria-expanded="false" aria-controls="verse-deck">
+        <button type="button" class="verse-tile verse-tile--work" id="verse-trigger" aria-haspopup="dialog" aria-expanded="false" aria-controls="verse-deck">
           <span class="verse-tile-icon-wrap">
             <svg class="verse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg>
             <span class="verse-badge" aria-hidden="true"></span>
@@ -662,14 +658,8 @@ dialog#gift-modal.is-open .gift-modal-card{transform:scale(1);opacity:1}
       </div>
       <p class="hero-tagline">
         18+ years turning <em>complex systems</em> into clear experiences.
-        I work across Enterprise UX, DesignOps, Accessibility &amp; AI-augmented product.
+        I prototype in code with Claude and Cursor, closing the gap between idea and shipped product &mdash; across Enterprise UX, Design Systems, Accessibility &amp; AI-native product.
       </p>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-val">18+</span><span class="stat-label">years</span></div>
-        <div class="stat"><span class="stat-val">80%</span><span class="stat-label">adoption lift</span></div>
-        <div class="stat"><span class="stat-val">70%</span><span class="stat-label">a11y reduction</span></div>
-        <div class="stat"><span class="stat-val">1.5k</span><span class="stat-label">metaverse visitors</span></div>
-      </div>
     </div>
   </div>
   <div class="scroll-cue" aria-hidden="true">

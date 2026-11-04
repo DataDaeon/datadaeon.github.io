@@ -6,7 +6,7 @@
 <title>Modernizing Railway Systems: Back Office Overhaul · Dario Espinosa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="effects.css">
 <script>/* IO shim — immediate-fire fallback (Session 10c) */
 if(!('IntersectionObserver' in window)){window.IntersectionObserver=function(cb){this._cb=cb};IntersectionObserver.prototype.observe=function(el){var s=this;setTimeout(function(){s._cb([{isIntersecting:true,target:el}],s)},0)};IntersectionObserver.prototype.unobserve=function(){};IntersectionObserver.prototype.disconnect=function(){}}
@@ -41,7 +41,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .cs-hero-inner{max-width:var(--max);margin:0 auto}
 .cs-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:var(--teal);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .cs-eyebrow::before{content:'';width:24px;height:1px;background:var(--teal);opacity:0.5}
-.cs-hero h1{font-size:clamp(40px,6vw,64px);font-weight:800;letter-spacing:-0.05em;line-height:1;margin-bottom:20px;color:var(--t1)}
+.cs-hero h1{font-family:'Pixelify Sans','Geist Mono',ui-monospace,monospace;font-size:clamp(40px,6vw,64px);font-weight:800;letter-spacing:-0.05em;line-height:1;margin-bottom:20px;color:var(--t1)}
 .cs-xyz{font-size:16px;color:var(--t2);line-height:1.75;max-width:640px;margin-bottom:32px}
 .cs-xyz strong{color:var(--teal);font-weight:500}
 .meta-row{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border-w);border-radius:var(--r);overflow:hidden;max-width:640px}
@@ -60,7 +60,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .block-inner{max-width:var(--max);margin:0 auto;padding:48px 32px}
 .block-label{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .block-label::after{content:'';flex:1;height:1px;background:var(--border-w)}
-.block h2{font-size:22px;font-weight:700;letter-spacing:-0.035em;color:var(--t1);margin-bottom:16px}
+.block h2{font-family:'Pixelify Sans','Geist Mono',ui-monospace,monospace;font-size:22px;font-weight:700;letter-spacing:-0.035em;color:var(--t1);margin-bottom:16px;line-height:1.15}
 .block p{font-size:14px;color:var(--t2);line-height:1.85;margin-bottom:14px}
 .block p:last-child{margin-bottom:0}
 /* HMW */
@@ -416,6 +416,25 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <div class="scroll-hero-wrap" data-auto data-index="0"></div>
   </div>
 </header>
+
+<div class="iso-figure-wrap">
+  <div class="iso-figure-inner">
+<svg viewBox="112 36 216 134" role="img" aria-label="Isometric illustration: a rail signal turning from red to green as a train waits">
+<polygon class="iso-ground" points="198.0,62.0 308.0,117.0 242.0,150.0 132.0,95.0"/>
+<line class="iso-line" x1="187.0" y1="71.9" x2="283.8" y2="120.3"/>
+<line class="iso-line" x1="173.8" y1="78.5" x2="270.6" y2="126.9"/>
+<polygon class="iso-face iso-right" points="222.2,82.9 211.2,88.4 211.2,80.7 222.2,75.2"/>
+<polygon class="iso-face iso-left" points="198.0,70.8 187.0,76.3 187.0,68.6 198.0,63.1"/>
+<polygon class="iso-face iso-top" points="198.0,63.1 222.2,75.2 211.2,80.7 187.0,68.6"/>
+<polygon class="iso-face iso-right" points="242.0,128.0 220.0,139.0 220.0,106.0 242.0,95.0"/>
+<polygon class="iso-face iso-left" points="220.0,117.0 198.0,128.0 198.0,95.0 220.0,84.0"/>
+<polygon class="iso-face iso-top" points="220.0,84.0 242.0,95.0 220.0,106.0 198.0,95.0"/>
+<circle cx="231.0" cy="84.0" r="4" fill="#ff5c5c" style="animation:iso-blink-a 3.6s ease-in-out infinite"/>
+<circle cx="231.0" cy="84.0" r="4" fill="var(--teal)" style="animation:iso-blink-b 3.6s ease-in-out infinite"/>
+</svg>
+    <div class="iso-caption">signal clears, dispatcher proceeds</div>
+  </div>
+</div>
 
 <div class="metrics">
   <div class="metrics-inner">

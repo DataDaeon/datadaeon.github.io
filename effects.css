@@ -356,6 +356,97 @@
 }
 
 
+/* ── 6. ISO FIGURE — small hand-built isometric illustration ──────
+   One per project hero, in the spirit of "draw the mechanism, not
+   a diagram about it" (inspired by wheresryan22/anatomy, hand-ported
+   to plain SVG + CSS — no Node toolkit, no WebGL, no npm). Solid
+   iso blocks in three tones (top lit, left mid, right shaded), one
+   teal/violet accent part per scene carries the motion. Session 30.
+   ─────────────────────────────────────────────────────────────── */
+.iso-figure-wrap {
+  border-bottom: 1px solid var(--border-w);
+  background: var(--bg2, var(--surface));
+}
+.iso-figure-inner {
+  max-width: var(--max, 820px);
+  margin: 0 auto;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.iso-figure-inner svg {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  overflow: visible;
+}
+.iso-caption {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--t3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.iso-face { stroke: var(--border-w); stroke-width: 0.5; }
+.iso-top  { fill: rgba(255,255,255,0.10); }
+.iso-left { fill: rgba(255,255,255,0.05); }
+.iso-right{ fill: rgba(255,255,255,0.025); }
+.iso-top-lit  { fill: var(--teal); fill-opacity: 0.9; }
+.iso-left-lit { fill: var(--teal); fill-opacity: 0.55; }
+.iso-right-lit{ fill: var(--teal); fill-opacity: 0.32; }
+.iso-top-lit-v  { fill: var(--violet); fill-opacity: 0.9; }
+.iso-left-lit-v { fill: var(--violet); fill-opacity: 0.55; }
+.iso-right-lit-v{ fill: var(--violet); fill-opacity: 0.32; }
+.iso-ground { fill: rgba(255,255,255,0.03); stroke: var(--border-w); stroke-width: 0.5; }
+.iso-line { stroke: var(--t3); stroke-width: 1; fill: none; }
+
+@keyframes iso-pulse {
+  0%, 100% { opacity: 1; r: 3.4; }
+  50%      { opacity: 0.25; r: 5.5; }
+}
+@keyframes iso-pulse-ring {
+  0%   { opacity: 0.55; transform: scale(0.6); }
+  80%  { opacity: 0;    transform: scale(1.8); }
+  100% { opacity: 0;    transform: scale(1.8); }
+}
+@keyframes iso-blink-a {
+  0%, 40%, 100% { opacity: 1; }
+  50%, 90%      { opacity: 0; }
+}
+@keyframes iso-blink-b {
+  0%, 40%, 100% { opacity: 0; }
+  50%, 90%      { opacity: 1; }
+}
+@keyframes iso-flow {
+  0%   { opacity: 0; transform: translate(-26px,-13px); }
+  12%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(26px,13px); }
+}
+@keyframes iso-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes iso-rise {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+@keyframes iso-stack {
+  0%   { opacity: 0; transform: translateY(14px); }
+  20%  { opacity: 1; transform: translateY(0); }
+  90%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(0); }
+}
+.iso-anim-slow  { animation-duration: 3.2s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+.iso-anim-mid   { animation-duration: 2.2s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+.iso-anim-fast  { animation-duration: 1.4s; animation-iteration-count: infinite; animation-timing-function: linear; }
+@media (prefers-reduced-motion: reduce) {
+  .iso-figure-inner [class*="iso-anim"], .iso-figure-inner [style*="animation"] { animation: none !important; }
+}
+
 
 /* ════════════════════════════════════════════════════════════════════════
    REDUCED MOTION — site-wide (Session 10c)

@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://darioespinosa.design/virtu4l.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="effects.css">
 <script>/* IO shim — immediate-fire fallback (Session 10c) */
 if(!('IntersectionObserver' in window)){window.IntersectionObserver=function(cb){this._cb=cb};IntersectionObserver.prototype.observe=function(el){var s=this;setTimeout(function(){s._cb([{isIntersecting:true,target:el}],s)},0)};IntersectionObserver.prototype.unobserve=function(){};IntersectionObserver.prototype.disconnect=function(){}}
@@ -47,7 +47,7 @@ header.cs-hero{padding:120px 32px 60px;border-bottom:1px solid var(--border-w)}
 .cs-hero-inner{max-width:var(--max);margin:0 auto}
 .cs-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:var(--teal);text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .cs-eyebrow::before{content:'';width:24px;height:1px;background:var(--teal);opacity:0.5}
-.cs-hero h1{font-size:clamp(36px,5.5vw,60px);font-weight:800;letter-spacing:-0.05em;line-height:1;margin-bottom:20px;color:var(--t1)}
+.cs-hero h1{font-family:'Pixelify Sans','Geist Mono',ui-monospace,monospace;font-size:clamp(36px,5.5vw,60px);font-weight:800;letter-spacing:-0.05em;line-height:1;margin-bottom:20px;color:var(--t1)}
 .cs-hero h1 span{color:var(--teal)}
 .cs-xyz{font-size:16px;color:var(--t2);line-height:1.75;max-width:640px;margin-bottom:32px}
 .cs-xyz strong{color:var(--teal);font-weight:500}
@@ -69,7 +69,7 @@ header.cs-hero{padding:120px 32px 60px;border-bottom:1px solid var(--border-w)}
 .block-inner{max-width:var(--max);margin:0 auto;padding:48px 32px}
 .block-label{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .block-label::after{content:'';flex:1;height:1px;background:var(--border-w)}
-.block h2{font-size:22px;font-weight:700;letter-spacing:-0.035em;color:var(--t1);margin-bottom:16px}
+.block h2{font-family:'Pixelify Sans','Geist Mono',ui-monospace,monospace;font-size:22px;font-weight:700;letter-spacing:-0.035em;color:var(--t1);margin-bottom:16px;line-height:1.15}
 .block p{font-size:14px;color:var(--t2);line-height:1.85;margin-bottom:14px}
 .block p:last-child{margin-bottom:0}
 .block p strong{color:var(--t1);font-weight:500}
@@ -125,7 +125,7 @@ header.cs-hero{padding:120px 32px 60px;border-bottom:1px solid var(--border-w)}
 /* CTA */
 .cta-block{border-bottom:1px solid var(--border-w)}
 .cta-inner{max-width:var(--max);margin:0 auto;padding:48px 32px;display:flex;align-items:center;justify-content:space-between;gap:32px}
-.cta-text h3{font-size:18px;font-weight:700;letter-spacing:-0.03em;margin-bottom:6px}
+.cta-text h3{font-family:'Pixelify Sans','Geist Mono',ui-monospace,monospace;font-size:18px;font-weight:700;letter-spacing:-0.03em;margin-bottom:6px;line-height:1.2}
 .cta-text p{font-size:13px;color:var(--t3)}
 .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-decoration:none;padding:10px 20px;border-radius:var(--r);transition:all .2s;cursor:pointer;border:none}
 .btn-primary{background:var(--teal);color:#050508;font-weight:600}
