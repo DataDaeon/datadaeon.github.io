@@ -121,3 +121,10 @@
 /* the site's older .iso-caption (effects.css) must not restyle the anatomy legend */
 .anat-wrap .iso-caption{display:block;font-family:"Geist",system-ui,sans-serif;font-size:13px;line-height:1.55;letter-spacing:0;text-transform:none;text-align:left;color:var(--anatomy-muted);margin:0;padding:0}
 .anat-wrap .iso-legend{padding:0 4px}
+/* figure + NDA note sit directly under the hero meta row (client/context/role/stage) */
+.cs-figure{margin:24px 0 8px;opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .56s forwards}
+.cs-figure .nda-alert{margin:0 0 16px;max-width:820px}
+.cs-figure .anat-section{padding:0}
+.cs-figure .anat-wrap{margin:0}
+@media(max-width:860px){.cs-figure .nda-alert{margin:0 0 14px}}
+@media(prefers-reduced-motion:reduce){.cs-figure{opacity:1;animation:none}}

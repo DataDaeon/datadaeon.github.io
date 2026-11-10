@@ -924,3 +924,18 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 
 - **NDA alert**: an amber inline note (`aside.nda-alert`, `role="note"`, lock icon) right under the hero of the 8 case studies whose real UI is client-confidential — att, benefitbridge, benefits-platform, blendops, gradeline, nielseniq, siemens (UI wording) and research-at-scale (recordings/participant-data wording): the real UI isn't shown, what's on the page is an illustrative recreation, the problem/process/decisions/results are real. Styled in `effects.css` for dark and light themes.
 - **"Glitch but the page never loads" on GitHub**: reproduced every navigation path locally over HTTP (classic deck → gradeline, face-view card → blendops) and all load. The live symptom matches the domain redirect loop: the glitch-out plays, then the browser fails on `datadaeon.github.io/<page>` while GitHub Pages still redirects to the custom domain. Fix is on GitHub (Settings → Pages → remove the custom domain) + a private window to drop the cached 301. Added a safety in `effects.js`: if the browser hasn't left the page 1.8 s after the glitch, the overlay clears so the page is never left blanked.
+
+### Session 45 (November 2026) — Anatomy figures for every case study, moved under the hero meta row
+
+- **Nine new "How it works" figures** (same Anatomy kit pattern as BlendOps/Siemens: one lit accent, idle loop, pause on hover/focus, click/Enter/→ to step, ← back, offscreen stop, reduced-motion still frame, dark + light via `anatomy/theme.js`). Scripts in `anatomy/<name>.js`:
+  - gradeline — *Token press*: version dial v1–v8 stamps one token set onto laptop / monitor / phone.
+  - benefits-platform — *One part, two portals*: gantry places the same library component into employer and employee portals, v1.3 → v1.8.
+  - virtu4lslacksagent — *Sealed sorter*: local AI files messages into 4 channel pigeonholes; padlocked, 293 tests passing.
+  - nielseniq — *Double track*: discovery conveyor validates cards one sprint ahead of delivery; rejects go back to rework.
+  - att — *Type case & ramp*: 40-component type case builds the storefront; carts roll up an accessible ramp, orders ×6 (+500%).
+  - oolalife — *Seven gauges*: daily action steps fill the 7 life areas; streak counter.
+  - benefitbridge — *Bridge, block by block*: crane hoists 6 practice blocks; carts cross; pier screen shows 80% / −70% / 50%.
+  - metaverse — *Sightline pavilion*: visitors follow focal points and orbit the portal; counter to 1,500+.
+  - research-at-scale — *Synthesis drum*: session notes → AI synthesis → 4 theme bins; turnaround bar at 50%.
+- The old static `.iso-figure-wrap` illustrations on att, benefitbridge, gradeline and metaverse were replaced.
+- **Placement**: on all 11 case studies the NDA note (where present) and the figure now sit inside the hero, directly under the client/context/role/stage meta row, in a `.cs-figure` wrapper that fades in after the meta row (styles in `anatomy/anatomy.css`; no animation under reduced motion).
