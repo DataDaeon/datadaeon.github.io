@@ -1024,6 +1024,42 @@ body.face-mode .nav-dock-wrap{display:none}
 @media(max-width:720px){.fm-menu{width:auto!important;padding:0 16px!important;font-size:13px}.fm-cta{top:14px;width:auto}.fm-dock.is-collapsed .fm-item{display:none}}
 @media(prefers-reduced-motion:reduce){.fm-item,.fm-dock.is-collapsed .fm-item{transition:none}}
 </style>
+<style>
+/* ═══ Session 48 — classic hero v3: dock in the nav row, big name, the Mac drops in ═══ */
+.nav-dock-wrap{gap:12px;align-items:center}
+.nav-dock-wrap>nav{width:min(760px,calc(100vw - 350px))}
+.nav-dock-wrap .verse-dock{pointer-events:auto;display:flex;gap:10px;align-items:center;flex-wrap:nowrap;margin:0}
+.nav-dock-wrap .verse-tile--work{height:52px;border-radius:999px;padding:0 20px 0 16px;gap:12px;background:var(--glass-bg);border:1px solid var(--glass-border);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);box-shadow:0 10px 36px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.05)}
+.nav-dock-wrap .verse-tile--work .verse-label{font-family:var(--mono);font-size:13px}
+.nav-dock-wrap .verse-icon{width:20px;height:20px}
+.nav-dock-wrap .verse-tile:not(.verse-tile--work) .verse-tile-icon-wrap{width:52px;height:52px;border-radius:50%;background:var(--glass-bg);border:1px solid var(--glass-border);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);box-shadow:0 10px 36px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.05)}
+.nav-dock-wrap .verse-tile--work .verse-badge{top:-3px;right:-3px;width:11px;height:11px}
+.nav-dock-wrap.scrolled .verse-tile--work,.nav-dock-wrap.scrolled .verse-tile:not(.verse-tile--work) .verse-tile-icon-wrap{background:var(--glass-bg-hi);border-color:var(--glass-border-hi)}
+@media(max-width:1060px){.nav-dock-wrap .nav-sep,.nav-dock-wrap .nav-role{display:none}}
+@media(max-width:860px) and (min-width:721px){.nav-dock-wrap .verse-tile--work .verse-label{display:none}.nav-dock-wrap .verse-tile--work{padding:0;width:52px;justify-content:center}.nav-dock-wrap>nav{width:calc(100vw - 230px)}}
+@media(max-width:720px){.nav-dock-wrap>nav{width:100%}.nav-dock-wrap .verse-dock{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:101}.nav-dock-wrap .verse-tile:not(.verse-tile--work) .verse-label{display:none}.nav-dock-wrap .verse-tile--work,.nav-dock-wrap .verse-tile:not(.verse-tile--work) .verse-tile-icon-wrap{height:46px}.nav-dock-wrap .verse-tile:not(.verse-tile--work) .verse-tile-icon-wrap{width:46px}}
+.hero-content{max-width:1180px}
+h1.hero-name{font-size:clamp(52px,10.6vw,188px);margin-bottom:0}
+.hero-left{position:relative;width:fit-content;max-width:100%;justify-self:start}
+/* face view: player moves to the right so it never sits on the case cards */
+body.face-mode .music-widget{left:auto;right:20px}
+.mac-row{position:absolute;left:50%;top:calc(50% + 16px);width:clamp(230px,24vw,430px);transform:translate(-50%,-50%);display:block;z-index:4;margin:0}
+.mac-row .mac-wrap{width:100%;max-width:none;margin:0}
+.mac-stickers image{filter:drop-shadow(0 .8px .6px rgba(0,0,0,.28))}
+body:not(.mac-dropped) .mac-row .mac-wrap{opacity:0;visibility:hidden;transform:translateY(-130vh) rotate(-7deg);pointer-events:none}
+body.mac-dropped .mac-row .mac-wrap{animation:macDrop 1.05s cubic-bezier(.55,0,1,.45) both}
+@keyframes macDrop{
+  0%{transform:translateY(-130vh) rotate(-7deg)}
+  55%{transform:translateY(0) rotate(0) scale(1.05,.92);animation-timing-function:cubic-bezier(0,0,.4,1)}
+  70%{transform:translateY(-7%) rotate(1.5deg) scale(.98,1.03);animation-timing-function:cubic-bezier(.6,0,1,1)}
+  82%{transform:translateY(0) scale(1.02,.97);animation-timing-function:cubic-bezier(0,0,.4,1)}
+  91%{transform:translateY(-1.6%)}
+  100%{transform:none}}
+body.mac-landed h1.hero-name{animation:nameJolt .36s steps(1,end) 1}
+@keyframes nameJolt{0%{transform:translate(-4px,3px)}25%{transform:translate(4px,-2px)}50%{transform:translate(-2px,1px)}75%{transform:translate(1px,0)}100%{transform:none}}
+@media(max-width:720px){.mac-row{position:relative;left:auto;top:auto;transform:none;width:min(280px,74vw);margin:28px auto 0}}
+@media(prefers-reduced-motion:reduce){body:not(.mac-dropped) .mac-row .mac-wrap{transform:none}body.mac-dropped .mac-row .mac-wrap{animation:none;transition:opacity .4s ease}body.mac-landed h1.hero-name{animation:none}}
+</style>
 </head>
 <body>
 <a href="#main-content" style="position:absolute;left:-9999px;top:4px;z-index:9999;background:#50e3c2;color:#050508;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none" onfocus="this.style.left='4px'" onblur="this.style.left='-9999px'">Skip to main content</a>
@@ -1045,6 +1081,27 @@ body.face-mode .nav-dock-wrap{display:none}
     <div class="nav-dot" title="Available for new opportunities"></div>
   </div>
 </nav>
+<div class="verse-dock" role="group" aria-label="Quick links">
+        <button type="button" class="verse-tile verse-tile--work" id="verse-trigger" aria-haspopup="dialog" aria-expanded="false" aria-controls="verse-deck">
+          <span class="verse-tile-icon-wrap">
+            <svg class="verse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg>
+            <span class="verse-badge" aria-hidden="true"></span>
+          </span>
+          <span class="verse-label">Visit my Work</span>
+        </button>
+        <a class="verse-tile" href="founder-mode.html" aria-label="When I&rsquo;m the client: my own ventures">
+          <span class="verse-tile-icon-wrap">
+            <svg class="verse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          </span>
+          <span class="verse-label">When I&rsquo;m the client</span>
+        </a>
+        <a class="verse-tile" href="archive.html" aria-label="Archive: older work and concepts">
+          <span class="verse-tile-icon-wrap">
+            <svg class="verse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M10 13h4"/></svg>
+          </span>
+          <span class="verse-label">Archive</span>
+        </a>
+      </div>
 </div>
 
 <main id="main-content">
@@ -1064,12 +1121,12 @@ body.face-mode .nav-dock-wrap{display:none}
       <div class="mac-row">
       <div class="mac-wrap">
       <button type="button" class="mac" id="mac" aria-describedby="mac-desc">
-        <span class="sr-only" id="mac-desc">A sleeping pixel computer with a 3.5-inch disk labelled Hello in front of it. Activate to insert the disk and wake it up.</span>
+        <span class="sr-only" id="mac-desc">A sleeping pixel computer with Claude, Figma and Cursor stickers on its case and a 3.5-inch disk labelled Hello in front of it. Activate to insert the disk and wake it up.</span>
         <span class="mac-body">
           <img class="layer" src="images/hero/mac-case.webp" width="938" height="979" alt="" decoding="async">
           <svg class="layer" viewBox="35 -410 417 435" aria-hidden="true">
             <defs><clipPath id="scrClip"><path d="M159.2 -140.5L375.5 -176.0L375.5 -329.1L159.2 -293.6z"/></clipPath>
-              <filter id="bloomF" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="16"/></filter></defs>
+              <filter id="bloomF" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="16"/></filter></defs><g class="mac-stickers" aria-hidden="true"><g transform="translate(178 -106) matrix(1 -0.164 0 1 0 0) rotate(-7)"><image href="images/hero/stickers/claude.png" x="-30.0" y="-28.0" width="60" height="56" preserveAspectRatio="xMidYMid meet"/></g><g transform="translate(246 -117) matrix(1 -0.164 0 1 0 0) rotate(6)"><image href="images/hero/stickers/figma.png" x="-24.0" y="-25.0" width="48" height="50" preserveAspectRatio="xMidYMid meet"/></g><g transform="translate(218 -56) matrix(1 -0.164 0 1 0 0) rotate(-3)"><image href="images/hero/stickers/cursor.png" x="-25.0" y="-25.5" width="50" height="51" preserveAspectRatio="xMidYMid meet"/></g></g>
             <path class="bloom" d="M159.2 -140.5L375.5 -176.0L375.5 -329.1L159.2 -293.6z" fill="#7ff4fb" filter="url(#bloomF)"/>
             <g clip-path="url(#scrClip)"><path class="scan" d="M159.4 -280.2L375.7 -315.7L375.7 -329.0L159.4 -293.5z" fill="#e8ffff"/></g>
             <g class="face"><path fill="#06303a" d="M196.9 -247.2L201.9 -248.0L201.9 -253.3L196.9 -252.5zM196.9 -253.8L201.9 -254.6L201.9 -260.0L196.9 -259.2zM203.1 -248.2L208.0 -249.0L208.0 -254.3L203.1 -253.5zM203.1 -254.9L208.0 -255.7L208.0 -261.0L203.1 -260.2zM209.3 -249.2L214.2 -250.0L214.2 -255.3L209.3 -254.5zM209.3 -255.9L214.2 -256.7L214.2 -262.0L209.3 -261.2zM215.5 -250.2L220.4 -251.0L220.4 -256.4L215.5 -255.5zM215.5 -256.9L220.4 -257.7L220.4 -263.0L215.5 -262.2zM221.6 -251.2L226.6 -252.1L226.6 -257.4L221.6 -256.6zM221.6 -257.9L226.6 -258.7L226.6 -264.0L221.6 -263.2zM227.8 -252.3L232.8 -253.1L232.8 -258.4L227.8 -257.6zM227.8 -258.9L232.8 -259.7L232.8 -265.1L227.8 -264.2zM184.6 -231.8L189.5 -232.6L189.5 -238.0L184.6 -237.2zM184.6 -238.5L189.5 -239.3L189.5 -244.6L184.6 -243.8zM190.7 -232.8L195.7 -233.7L195.7 -239.0L190.7 -238.2zM190.7 -239.5L195.7 -240.3L195.7 -245.6L190.7 -244.8zM234.0 -240.0L238.9 -240.8L238.9 -246.1L234.0 -245.3zM234.0 -246.6L238.9 -247.4L238.9 -252.8L234.0 -251.9zM240.2 -241.0L245.1 -241.8L245.1 -247.1L240.2 -246.3zM240.2 -247.6L245.1 -248.4L245.1 -253.8L240.2 -253.0zM295.8 -263.4L300.8 -264.2L300.8 -269.6L295.8 -268.8zM295.8 -270.1L300.8 -270.9L300.8 -276.2L295.8 -275.4zM302.0 -264.4L306.9 -265.3L306.9 -270.6L302.0 -269.8zM302.0 -271.1L306.9 -271.9L306.9 -277.2L302.0 -276.4zM308.2 -265.5L313.1 -266.3L313.1 -271.6L308.2 -270.8zM308.2 -272.1L313.1 -272.9L313.1 -278.3L308.2 -277.4zM314.4 -266.5L319.3 -267.3L319.3 -272.6L314.4 -271.8zM314.4 -273.1L319.3 -273.9L319.3 -279.3L314.4 -278.5zM320.5 -267.5L325.5 -268.3L325.5 -273.6L320.5 -272.8zM320.5 -274.1L325.5 -275.0L325.5 -280.3L320.5 -279.5zM326.7 -268.5L331.7 -269.3L331.7 -274.6L326.7 -273.8zM326.7 -275.2L331.7 -276.0L331.7 -281.3L326.7 -280.5zM283.5 -248.1L288.4 -248.9L288.4 -254.2L283.5 -253.4zM283.5 -254.7L288.4 -255.5L288.4 -260.9L283.5 -260.1zM289.6 -249.1L294.6 -249.9L294.6 -255.2L289.6 -254.4zM289.6 -255.8L294.6 -256.6L294.6 -261.9L289.6 -261.1zM332.9 -256.2L337.8 -257.0L337.8 -262.3L332.9 -261.5zM332.9 -262.9L337.8 -263.7L337.8 -269.0L332.9 -268.2zM339.1 -257.2L344.0 -258.0L344.0 -263.4L339.1 -262.5zM339.1 -263.9L344.0 -264.7L344.0 -270.0L339.1 -269.2z"/><path fill="#06303a" d="M264.9 -225.1L269.9 -225.9L269.9 -231.2L264.9 -230.4zM258.7 -217.4L263.7 -218.2L263.7 -223.5L258.7 -222.7zM271.1 -219.4L276.0 -220.2L276.0 -225.6L271.1 -224.7zM258.7 -210.7L263.7 -211.5L263.7 -216.9L258.7 -216.1zM271.1 -212.8L276.0 -213.6L276.0 -218.9L271.1 -218.1zM264.9 -205.1L269.9 -205.9L269.9 -211.2L264.9 -210.4z"/></g>
@@ -1949,33 +2006,6 @@ body.face-mode .nav-dock-wrap{display:none}
       <p class="sr-only" aria-live="polite" id="mac-status"></p>
       <div style="text-align:center"><button type="button" class="replay" id="replay" hidden>Replay intro</button></div>
     </div>
-      <div class="mac-side">
-      <div class="verse-dock" role="group" aria-label="Quick links">
-        <button type="button" class="verse-tile verse-tile--work" id="verse-trigger" aria-haspopup="dialog" aria-expanded="false" aria-controls="verse-deck">
-          <span class="verse-tile-icon-wrap">
-            <svg class="verse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg>
-            <span class="verse-badge" aria-hidden="true"></span>
-          </span>
-          <span class="verse-label">Visit my Work</span>
-        </button>
-        <a class="verse-tile" href="founder-mode.html" aria-label="When I&rsquo;m the client: my own ventures">
-          <span class="verse-tile-icon-wrap">
-            <svg class="verse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
-          </span>
-          <span class="verse-label">When I&rsquo;m the client</span>
-        </a>
-        <a class="verse-tile" href="archive.html" aria-label="Archive: older work and concepts">
-          <span class="verse-tile-icon-wrap">
-            <svg class="verse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M10 13h4"/></svg>
-          </span>
-          <span class="verse-label">Archive</span>
-        </a>
-      </div>
-      <p class="hero-tagline">
-        18+ years turning <em>complex systems</em> into clear experiences.
-        I prototype in code with Claude and Cursor, closing the gap between idea and shipped product &mdash; across Enterprise UX, Design Systems, Accessibility &amp; AI-native product.
-      </p>
-      </div>
       </div>
     </div>
   </div>
@@ -3098,6 +3128,25 @@ body.face-mode .nav-dock-wrap{display:none}
 </script>
 
 <script src="effects.js"></script>
+<script>
+/* Session 48 — the Mac drops onto the name: on the first hover/focus of the name, Enter, the
+   Insert-the-disk cue, or after 3 s. Its own sleep / floppy / wake interactions are unchanged. */
+(function () {
+  var name = document.getElementById('hero-name'), row = document.querySelector('.mac-row');
+  if (!name || !row) return;
+  var b = document.body, done = false, rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function drop() {
+    if (done) return; done = true; b.classList.add('mac-dropped');
+    setTimeout(function () { b.classList.add('mac-landed'); setTimeout(function () { b.classList.remove('mac-landed'); }, 420); }, rm ? 0 : 580);
+  }
+  name.addEventListener('mouseenter', drop); name.addEventListener('focusin', drop);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Enter') drop(); }, true);
+  document.addEventListener('pointerdown', function (e) { if (e.target.closest && e.target.closest('#disk-cue')) drop(); }, true);
+  if (b.classList.contains('face-mode')) drop();
+  setTimeout(drop, 3000);
+})();
+</script>
+
 <div class="glitch" id="glitch" aria-hidden="true"><div class="flash"></div>
   <div class="band" style="top:12%;height:6%;background:#50e3c2;animation-delay:.02s"></div>
   <div class="band" style="top:31%;height:3%;background:#a78bfa;animation-delay:.06s"></div>
