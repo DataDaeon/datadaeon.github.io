@@ -1,0 +1,3838 @@
+# Dario Espinosa — full site text
+
+> Source: https://espinosadesign.com · generated 2026-11-10 · one section per page. Short version: https://espinosadesign.com/llms.txt
+> Note: the site is under construction; content is current as of the date above.
+
+
+---
+
+## Dario Espinosa — Lead Experience Designer
+URL: https://espinosadesign.com/
+Summary: Dario Espinosa — Lead Experience Designer with 18+ years turning complex systems into clear experiences across telecom, healthcare, energy, analytics and spatial computing. Prototypes in code with Claude. Case studies 2017–2026.
+
+Portfolio · 2026
+
+## Dario Espinosa
+
+A sleeping pixel computer with a 3.5-inch disk labelled Hello in front of it. Activate to insert the disk and wake it up.
+
+Replay intro
+
+Visit my Work
+
+When I’m the client
+
+Archive
+
+18+ years turning complex systems into clear experiences.
+I prototype in code with Claude and Cursor, closing the gap between idea and shipped product — across Enterprise UX, Design Systems, Accessibility & AI-native product.
+
+dario-espinosa
+ESC to return
+About
+LinkedIn
+Myself as Client
+Archive
+Menu Close
+
+Skip the cards — just ask me
+
+### Ask about Dario
+
+Answers come from this site’s own content.
+Back to the cards
+
+Your question
+
+### Selected work
+
+Insert the disk Click to insert Tap the disk Enter
+
+✕
+
+click to continue →
+
+Construction
+
+#### From Bid to Blacktop
+
+A mobile-first field platform for a national paving contractor — the sales bid, the dispatcher’s desk, and the crew foreman’s phone — through a forked, versioned prototyping pipeline a founder could click through without touching code.
+View case study →
+
+click to continue →
+
+Transportation
+
+#### Modernizing Railway Systems
+
+After a fatal collision exposed a decades-old dispatcher tool, I led the full redesign solo. Operator task time dropped 40% , onboarding time 60% .
+View case study →
+
+click to continue →
+
+Telecommunications
+
+#### Digital Transformation
+
+Led AT&T México’s five-year digital transformation across the flagship site, eCommerce platform, and dozens of microsites. Online sales rose 500% , with 96% accessibility compliance.
+View case study →
+
+click to continue →
+
+Energy
+
+#### AI-Powered Blend Optimizer
+
+Replacing a decades-old Excel model with an ML-driven web app that lets Plant Operations Managers optimize oil-well fluid formulas in minutes instead of hours.
+View case study →
+
+click to continue →
+
+Healthcare
+
+#### Building a UX Powerhouse
+
+First designer hired at a live healthcare SaaS platform with no design function. Built the UX practice and the product at the same time.
+View case study →
+
+click to continue →
+
+Spatial Computing
+
+#### Exploring the Metaverse
+
+Designed a fully navigable immersive exhibition for a major European tech convention in 4 months, using Spatial + Unity. It drew 1,500+ virtual visitors.
+View case study →
+
+11 case studies
+
+#### See all the work
+
+Telecom, healthcare, energy, construction, analytics, and spatial computing — the full case-study archive, filterable by industry.
+View all work →
+
+Click the card to see the next project
+
+// available for opportunities
+
+Let’s build something remarkable.
+
+get in touch
+quick portfolio PDF ↓
+linkedin ↗
+
+### Dario Espinosa — Lead Experience Designer
+
+18+ years turning complex systems into clear, human experiences. Based in Chiapas, México. Currently Experience Design Lead at SoftServe. Contact: despi@softserveinc.com .
+
+#### Case studies
+
+- Replacing Legacy Tools: AI-Powered Blend Optimizer — Excel replaced
+- Rebuilding Benefits Software — v1.3→v1.8 iterations shipped
+- From Bid to Blacktop: One Field App for Three Different Jobs — 8 versions shipped
+- VOS — VIRTU4L Operations System with Local AI — 293 tests passing
+- Revolutionizing Data Insights: Dashboard Redesign — +30% delivery speed
+- Modernizing Railway Systems: Back Office Overhaul — −40% task time
+- Digital Transformation: AEM & eCommerce Evolution — +500% online sales
+- From Philosophy to Digital Engagement: Life Coaching Platform — 7 life areas
+- Building a UX Powerhouse: Center of Excellence — +50% dev efficiency
+- Exploring the Future: Metaverse Experience — 1,500+ visitors
+- Optimizing User Research at Scale — −50% turnaround
+About & work history · All work · Own ventures · Archive · llms.txt
+
+Pixel Adventure
+
+Dario Espinosa
+0:00 / 0:00
+
+---
+
+## About — Dario Espinosa · Lead Experience Designer
+URL: https://espinosadesign.com/about.html
+Summary: Dario Espinosa — Lead Experience Designer with 18+ years building digital products. Specializing in design systems, accessibility, AI-assisted design, and enterprise UX.
+
+Lead Experience Designer · Chiapas MX
+
+## Design is
+Everything.
+
+18+ years turning complex systems into clear, human experiences, from enterprise telecom to AI-powered tools and immersive spatial design.
+
+Available for new opportunities
+
+Get in touch
+
+About
+
+I'm Dario Espinosa, a Lead Experience Designer who turns complex, outdated systems into clear, human solutions that drive real business impact.
+
+Great design combines strategy, creativity, and execution. Every decision research-driven, built shoulder-to-shoulder with stakeholders and engineering.
+
+Accessibility and innovation aren't add-ons. They've earned international recognition. My principle never changes: understand the system before you redesign it.
+
+18+
+
+Years of experience
+
+40+
+
+Enterprise components
+
+9
+
+Industry verticals
+
+ES
+
+Español · Native
+
+EN
+
+English · B2
+
+Multidisciplinary Experience Designer with 18+ years shipping across field operations, industrial software, enterprise platforms, and healthcare products — from startups to Fortune 500 companies.
+
+I prototype in code using Claude and coding agents , which means stakeholders see a working interface, not a static mockup, from the first review. Research-grounded, systems-minded — I like taking a complex legacy system apart and turning it into something people can actually use, in ways that show up in the numbers.
+
+Based in Chiapas, MX . Recognized with the 2020 AT&T International Accessibility in Action Award for inclusive design at national scale. Currently at SoftServe spanning healthcare, construction SaaS, analytics, and emerging tech (XR / Metaverse).
+
+Design & prototyping: Figma, Affinity, Sketch, Adobe CC, AEM, Penpot. AI agents & dev: Claude, Cursor, local LLMs. Research: Miro, Maze, UserTesting, HotJar.
+
+Skill levels
+
+Design Systems
+
+95
+
+Accessibility / WCAG
+
+93
+
+Figma / Prototyping
+
+96
+
+UX Research
+
+91
+
+DesignOps
+
+88
+
+AI-Augmented UX
+
+81
+
+Spatial / XR Design
+
+74
+
+Competency Focus
+
+01
+
+#### IA & Design Systems
+
+Comprehensive information frameworks that enhance usability. Design systems that ensure consistency and efficiency across large digital products.
+
+02
+
+#### Accessibility
+
+WCAG standards and inclusive UX methods are fundamental to how I work, so products stay usable for everyone, always.
+
+03
+
+#### Product Design
+
+Translating business objectives into user-focused digital solutions. Balancing aesthetics and functionality to create intuitive interfaces that convert.
+
+04
+
+#### Art Direction
+
+I bring strategic vision to digital experiences: brand consistency, visual storytelling, and design leadership that connects product with identity.
+
+05
+
+#### AI-Native Prototyping
+
+I prototype in code with Claude and coding agents, so stakeholders review a working interface from the first session and decisions get tested, not just presented.
+
+// aptitudes
+
+Experience
+
+### Where I've built.
+
+01
+
+Lead Experience Designer
+
+SoftServe
+
+Leading UX strategy for enterprise clients across energy, healthcare, analytics, construction, and spatial computing. Conducting user research, journey mapping, and accessibility advocacy. Creating and evolving design systems. Mentoring designers and multidisciplinary teams.
+
+Jun 2022 — Present
+
+02
+
+Lead UX Designer
+
+3Pillar Global
+
+Led design initiatives from ideation to UI/UX delivery. Established DesignOps practices, recruited design talent, built and maintained design systems. User research, competitive analysis, from low-fi to high-fidelity prototypes.
+
+Nov 2020 — May 2022
+
+03
+
+Web & eCommerce Manager
+
+AT&T México
+
+Owned and managed the AT&T México website, subdomains, and eCommerce channel. Led UX/UI for digital transformation across multiple acquisitions. Unified technologies under Adobe Experience Manager. Applied Sales Ops, Service Design, and data-driven methods for direct ROI. Recognized with the 2020 Accessibility in Action Award.
+
+Jan 2015 — Nov 2020
+
+Work History
+
+### Every role, and what it taught me.
+
+2025
+→ now
+
+SoftServe
+
+Experience Design Lead
+
+Jan 2025 – present
+
+Leading how design and AI-assisted workflows plug into each other across healthcare, energy, and spatial computing.
+
+Tools: Figma, Claude, coding agents
+
+2022
+→ 2025
+
+SoftServe
+
+Senior User Experience Designer
+
+Jun 2022 – Jan 2025
+
+Learned to scale one design system across construction SaaS, analytics, and emerging XR products.
+
+Tools: Figma, Miro, Claude
+
+2021
+→ 2022
+
+3Pillar Global
+
+Lead User Experience Designer
+
+Jul 2021 – May 2022
+
+Learned to stand up DesignOps and a design system from zero, not just contribute to one already running.
+
+Tools: Figma, FigJam
+
+2020
+→ 2021
+
+3Pillar Global
+
+Senior UX Designer · Software Eng. IV
+
+Nov 2020 – Jul 2021
+
+Learned to sit close enough to engineering that "senior UX" and "software engineer" could share one title.
+
+Tools: Figma, HTML · CSS · JS
+
+2019
+→ 2020
+
+AT&T México
+
+Web & eCommerce Manager
+
+Apr 2019 – Nov 2020
+
+Learned that a +500% sales lift means little if the checkout isn't accessible to everyone.
+
+Tools: Adobe Experience Manager, Google Analytics
+
+2017
+→ 2019
+
+AT&T México
+
+UX·UI, Accessibility & AEM Design Lead
+
+Jan 2017 – Apr 2019
+
+Learned to make accessibility a national compliance story, not a nice-to-have. That's the work behind the 2020 Accessibility in Action Award.
+
+Tools: Adobe Experience Manager, Adobe Creative Suite
+
+2015
+→ 2017
+
+AT&T México
+
+Web Designer · Digital Marketing
+
+Jan 2015 – Jan 2017
+
+Learned how a design decision actually moves once it has to survive marketing, legal, and engineering review.
+
+Tools: Adobe Creative Suite
+
+2013
+→ 2015
+
+Nextel de México
+
+Web / Wap Developer
+
+Jan 2013 – Jan 2015
+
+Learned mobile web before "mobile-first" was a phrase anyone used.
+
+Tools: HTML · CSS, WAP-era web
+
+2007
+→ 2013
+
+Latin3 · Alog3no · Freelance
+
+Developer · Designer · Founder
+
+Learned to be the designer, developer, and account manager at once. There was no one else to do it.
+
+Tools: Freelance design + dev stack
+
+full history on Adobe Portfolio ↗
+
+Recommendations
+
+### What colleagues say.
+
+Dario is a very responsible person, with a lot of knowledge in HCD, with great creativity to solve problems, and he always seeks to share his knowledge with others.
+
+Rosa Contreras
+
+Senior UX/UI Designer · Marketing · PM · Mentor · Tech Women LATAM
+
+LinkedIn ↗
+
+David is a creative person, with a lot of experience in the digital field, results-oriented, with a business vision, an excellent professional and human being.
+
+Mariana Luna H.
+
+Marketing Director · Digital Marketing · Demand Generation · Business Strategy
+
+LinkedIn ↗
+
+Tuve el privilegio de trabajar con Dario, es un excelente profesional, responsable, con enfoque en trabajo en equipo, cumple con todos los objetivos impuestos y ayuda a crecimiento de los demás aportando con su conocimiento.
+
+Luis Sztul Torselli
+
+Solution Engineer · Adobe Experience Cloud · Enterprise Digital Platforms
+
+LinkedIn ↗
+
+Dario es un diseñador de gran experiencia. Se destaca por la búsqueda constante para ofrecer la mejor solución a sus clientes internos. Sus aportaciones son desarrolladas con un alto nivel creativo, innovador y estratégico. Dario es un gran compañero de trabajo con quien tuve la oportunidad de trabajar en diversos proyectos.
+
+Verónica Miranda
+
+Strategic Communication & Reputation Advisor · Crisis Management · Corporate Affairs
+
+LinkedIn ↗
+
+←
+
+→
+
+drag the card · or use arrows
+
+Reconocimientos y Premios
+
+### Recognition & Awards.
+
+2020
+
+Accessibility in Action Award
+
+AT&T International · Nacional recognition for digital accessibility leadership in México
+
+2020
+
+IFETEL Digital Accessibility Recognition
+
+Instituto Federal de Telecomunicaciones · México — National leadership in web accessibility compliance
+
+2019
+
+Best Digital Experience — Telecom Sector
+
+AT&T México Internal Recognition · eCommerce redesign driving +500% online sales
+
+// available for opportunities
+
+Let’s build something remarkable.
+
+get in touch
+quick portfolio PDF ↓
+linkedin ↗
+
+---
+
+## Selected Work — Dario Espinosa · Lead Experience Designer
+URL: https://espinosadesign.com/work.html
+Summary: Full case-study archive: 11 UX and product design engagements across telecom, healthcare, energy, construction, analytics, and spatial computing.
+
+← back to portfolio
+
+—— selected work
+
+07 projects
+
+### Experience across
+industries & scales
+
+Enterprise UX leadership, design systems, accessibility, and AI: from telecom to spatial computing.
+
+All
+Energy
+Analytics
+Transportation
+Telecom
+Healthcare
+Enterprise
+Construction
+Technology
+Entertainment
+
+ai-workflow product-design ml-ux current energy
+00 / 09
+
+Replacing Legacy Tools: AI-Powered Blend Optimizer
+
+Replacing a decades-old Excel model with an ML-driven web app that lets Plant Operations Managers optimize oil-well fluid formulas in minutes instead of hours. Designed using an AI-assisted prototyping workflow (Claude), reaching React-ready fidelity at v7.
+
+Excel replaced
+
+3→1 systems unified
+
+v7 prototype iterations
+
+energy-services · oil-field services company · in progress →
+
+design-systems ai-workflow accessibility current enterprise-saas
+✦ current
+
+Rebuilding Benefits Software
+
+Leading UX for a from-scratch rebuild of a legacy employee-benefits platform, and building the code-first, AI-assisted workflow (HTML-to-Figma, connected requirements, a shared token system) that let a small, multinational team ship two full portals to WCAG 2.2 AA.
+
+v1.3→v1.8 iterations shipped
+
+2 portals designed
+
+3 countries, one team
+
+enterprise-saas · regulated · in progress →
+
+field-ux design-systems ai-workflow current construction
+✦ current
+
+From Bid to Blacktop: One Field App for Three Different Jobs
+
+Designing a mobile-first field platform for a national paving contractor — the sales bid, the dispatcher's desk, and the crew foreman's phone — through a forked, versioned prototyping pipeline a founder could click through without touching code.
+
+8 versions shipped
+
+63 catalog components
+
+3 devices, one system
+
+construction-tech · discovery phase · in progress →
+
+slack-bot
+node-js
+ai-agent
+vibe-coded
+entertainment
+
+01 / 08
+
+VIRTU4L · Personal Project · Chiapas MX
+
+VOS — VIRTU4L Operations System with Local AI
+
+A Slack-native operations brain for a real-world VR venue: daily checklists, reservations, sales tracking, and Dasha, an AI assistant running locally that handles what the team would otherwise forget.
+
+293 tests passing
+
+4 slack channels
+
+0 public urls
+
+personal-project · vibe-coded · ai-native →
+
+ux-strategy designops agile analytics
+02 / 08
+
+Revolutionizing Data Insights: Dashboard Redesign
+
+Introduced Double Track Agile and a consolidated Figma design system to a burned-out team. Feature delivery got 30% faster, and UX bugs dropped by half.
+
++30% delivery speed
+
+−50% UX bugs
+
++25% satisfaction
+
+analytics-saas · 6 months →
+
+enterprise-ux design-system wcag transportation
+03 / 08
+
+Modernizing Railway Systems: Back Office Overhaul
+
+After a fatal collision exposed a decades-old dispatcher tool, I led the full redesign solo — research, workflow restructuring, and a component-driven Figma + Flutter UI — with a direct line to the Product Director and no design committee in between. Operator task time dropped 40% , onboarding time 60%.
+
+−40% task time
+
+−60% onboarding
+
+100% wcag 2.1 AA
+
+rail-transport · solo lead →
+
+telecom ecommerce accessibility telecommunications
+04 / 08
+
+Digital Transformation: AEM & eCommerce Evolution
+
+Led AT&T México’s five-year digital transformation across the flagship site, eCommerce platform, and dozens of microsites — including a 2021 AEM design system that moved seven teams from Photoshop into one shared Figma component library. Online sales rose 500% , with 96% accessibility compliance.
+
++500% online sales
+
+96% accessibility
+
+2020 intl award
+
+telecom · 5 years →
+
+life-coaching gamification mobile-first health & wellness
+05 / 08
+
+From Philosophy to Digital Engagement: Life Coaching Platform
+
+Turned a bestselling self-help book into a product people would actually open daily — not preachy, more like a coach than a checklist. ~50 interviews shaped a 7-area gamification framework behind a COVID-era pivot, shipped in 6 months.
+
+7 life areas
+
+~50 interviews
+
+6mo to MVP
+
+life-coaching · covid pivot →
+
+healthcare-saas ux-coe accessibility healthcare
+06 / 08
+
+Building a UX Powerhouse: Center of Excellence
+
+First designer hired at a live healthcare SaaS platform with no design function. Built the UX practice and the product at the same time — the rebuilt admin flow now ships under one promise: “Manage benefits in under an hour per month.”
+
++50% dev efficiency
+
++80% user adoption
+
+−70% a11y complaints
+
+healthcare-saas · 0→CoE · regulated env →
+
+metaverse xr spatial-design technology
+07 / 08
+
+Exploring the Future: Metaverse Experience
+
+Designed a fully navigable immersive exhibition for a major European tech convention in 4 months, using Spatial + Unity. It drew 1,500+ virtual visitors.
+
+1,500+ visitors
+
+4 mo delivery
+
+EU convention
+
+spatial · unity · metaverse →
+
+construction-saas research-ops ai construction
+08 / 08
+
+Optimizing User Research at Scale
+
+Built scalable research guidelines and AI-assisted synthesis workflows across product verticals. Research turnaround dropped 50% , and cross-team adoption of the methodology followed.
+
+−50% turnaround
+
+AI synthesis
+
+x-team adoption
+
+construction-saas · cross-team · ai-assisted →
+
+---
+
+## When I'm the Client — Dario Espinosa · Lead Experience Designer
+URL: https://espinosadesign.com/founder-mode.html
+Summary: Outside client work: VIRTU4L (a VR business built from scratch), EDGA (a multi-agent design-thinking Claude plugin), and Ascend Restyle (an internal portfolio-redesign skill).
+
+← back to portfolio
+
+—— founder mode
+
+### When I'm the client
+
+Outside client work: a business I run, plus internal tools I built because nobody else was going to.
+
+brand-design web-dev marketing ai-tools entertainment
+✦ personal
+
+VIRTU4L · Personal Business · Tuxtla Gutiérrez MX
+
+VIRTU4L — Brand, Website & AI-Powered VR Business
+
+Founding and building Chiapas' first VR center from scratch, including the complete brand identity, multi-page website, online quoter wizard, digital marketing system, AI game assistant, and AI avatar creation.
+
+150+ VR games
+
+5+ site pages
+
+AI assistant built
+
+personal-business · founder · vibe-coded →
+
+EDGA
+
+overseer → agents → knowledge base
+
+ai-tools multi-agent-systems design-thinking internal-tools
+✦ personal
+
+EDGA · Internal Tool · Claude Plugin
+
+EDGA — A Multi-Agent Design Thinking Operating System
+
+A self-built Claude plugin that runs the full Design Thinking process (Empathize through Deliver) as a phase-gated multi-agent system, with an Overseer, specialist sub-agents, and a continuously-updated knowledge base mirrored into Obsidian.
+
+v3.8 current release
+
+12 KB categories
+
+115+ knowledge notes
+
+internal-tool · founder · multi-agent →
+
+AOS
+
+ai-tools design-systems automation internal-tools
+✦ personal
+
+Ascend Restyle · Internal Tool · UX CoE
+
+Ascend Restyle — A Skill That Redesigns Portfolio Decks
+
+A Claude Agent Skill built for an internal UX Center of Excellence. It restyles a designer's existing portfolio or bio deck into the firm's internal design system, then hands back an annotatable HTML preview before exporting to PPTX or PDF.
+
+49 pages restyled
+
+4 layout archetypes
+
+7 pipeline steps
+
+internal-tool · claude-skill · ux-coe →
+
+Also: internal enablement
+
+Building EDGA turned into a habit: I mentor other designers on using Claude day-to-day in their own workflows, and I've done the same for the internal HR department, helping non-technical teams fold Claude into their existing process instead of bolting AI on as an afterthought.
+
+🎁
+
+A token of gratitude Free guide: stopping AI agents from burning your tokens
+
+Open the gift
+
+---
+
+## Archive — Older Work & Concepts — Dario Espinosa
+URL: https://espinosadesign.com/archive.html
+Summary: Freelance, startup, and concept work from 2017–2021: brand identity, eCommerce concepts, MVP research, and marketplace design.
+
+← back to portfolio
+
+—— archive
+
+### Older work & concepts
+
+Freelance, startup, and concept work, 2017–2021.
+
+concept · 2020
+
+Driving Conversions: EV Launch Page
+
+Conversion-first landing page concept for an electric luxury sedan launch.
+
+mvp research · 2021
+
+Automating Customer Interaction: eCommerce Chatbot MVP
+
+MVP research & product design for an online cosmetics chatbot assistant.
+
+mobile ui · 2021
+
+Custom Plan, Zero Friction: Telecom UI Concept
+
+High-fidelity mobile UI concept for a configurable telecom plan: pay only for SIM activation.
+
+product design · 2017
+
+From Identity to Shelf: Smartphone Brand & Packaging
+
+Complete brand identity system and unboxing experience for a consumer smartphone launch.
+
+poc · 2021
+
+Product Catalog Redesign: Smartphones & Accessories
+
+Dog-walking marketplace POC with business model validation.
+
+startup · 2017
+
+Connecting Businesses: B2B Marketplace Redesign
+
+Co-founded & designed a LATAM B2B marketplace from scratch.
+
+---
+
+## Ascend Restyle — A Skill That Redesigns Portfolio Decks · Dario Espinosa
+URL: https://espinosadesign.com/ascend-restyle.html
+Summary: Ascend Restyle — a Claude Agent Skill built for an internal UX Center of Excellence that restyles a designer's existing portfolio or bio deck into the firm's internal design system, producing an annotatable HTML preview before export to PPTX or PDF.
+
+internal tool · claude skill · ux coe
+
+## Ascend Restyle — A Skill That
+Redesigns Portfolio Decks On Its Own
+
+A Claude Agent Skill built for an internal UX Center of Excellence: point it at a designer's existing portfolio or bio deck (PDF, PowerPoint, or Keynote export) and it restyles the whole thing into the firm's internal design system , then hands back an annotatable HTML preview so the designer can polish content before exporting a final PPTX or PDF.
+
+context
+Internal Tool · UX CoE
+
+role
+Creator · Skill Author
+
+format
+Claude Agent Skill
+
+tested on
+My own portfolio
+
+49 source pages restyled
+
+4 layout archetypes
+
+7 pipeline steps
+
+0 rounded corners
+
+01 — Overview
+
+Self-Initiated · UX CoE
+
+### The Problem: Every Designer's Deck Looks Different
+
+Designers at the firm carry portfolio decks built up over years: different templates, different tools, different eras of personal style. Every time the UX CoE needed one presented internally or to a client, someone spent hours by hand rebuilding slides into the current brand system, one shape and font at a time.
+
+Ascend Restyle exists to remove that hours-long manual step. It's not a proposal generator, and it doesn't score candidates against a brief. That's what the separate match / export-proposal skills do. This one is a one-to-one restyle: take a designer's own existing material, keep the content, replace the design.
+
+02 — How It Works
+
+### A Seven-Step Restyle Pipeline
+
+The skill is deliberately conservative about content. It never invents or rewrites what a slide says, only how it looks. Structure gets confirmed with the designer before any restyling begins.
+
+STEP 1
+
+Intake
+Accepts the source file (PDF, PPTX, or a Keynote export).
+
+STEP 2
+
+Map the structure
+Parses every slide/page and confirms the section map with the designer. It never assumes intent.
+
+STEP 3
+
+Restyle in the internal design system
+Applies the real design tokens and hard design rules (chamfers, motion, type) to every element.
+
+STEP 3.5
+
+Layout-grid rules
+Routes each slide into one of four layout archetypes based on its content density and image count.
+
+STEP 4
+
+Generate the HTML preview
+Builds a single browsable preview of the full restyled deck.
+
+STEP 5
+
+Annotation / edit loop
+The designer marks up the preview directly with an Agentation toolbar before anything is finalized.
+
+STEP 6–7
+
+Export & completion
+Delivered as PPTX and/or PDF (via the pptx skill), or a quick in-browser print-to-PDF for a fast pass.
+
+03 — Target Design System
+
+### Restyling Into the Internal Design System
+
+This is the firm's design language for internal designer-facing material, distinct from client-facing brand work. The skill enforces its real tokens and a short list of hard rules rather than approximating a "similar-looking" theme.
+
+Color tokens
+
+Primary Blue
+--ds-primary-100
+
+Accent Orange
+--ds-accent-100
+
+Ink
+--ds-neutral-600
+
+Type system
+
+Azurio — display headlines
+
+Replica — sans / UI text
+
+Roboto Mono — code & labels
+
+Chamfer-clip corners, never border-radius
+
+Circular status dots are the one exception
+
+No drop shadows or glassmorphism
+
+Motion: 120–220ms cubic-bezier(0.2,0.8,0.2,1)
+
+Why chamfers, not rounded corners
+
+The internal design system deliberately avoids the soft, rounded-corner look most decks default to. Chamfer-clipped polygons give it a sharper, more technical identity that reads as "internal engineering tool" rather than "marketing template," which matches how the UX CoE wants this material to feel.
+
+04 — Real Usage
+
+### Run Against My Own Portfolio
+
+The first real test of the skill was my own 49-page Keynote-exported portfolio PDF: Cover, About, Expertise, Experience, Competence Focus, a Portfolio index, seven full case studies, and a Closing section, all restyled in one pass.
+
+Content correction, not just style
+
+Two real content decisions came up mid-restyle: industry tags across my case studies weren't consistently named, so the skill flagged the inconsistency and we standardized the taxonomy together rather than silently restyling around a mislabeled slide.
+
+A later pass rebuilt the layout engine itself around four grid archetypes driven by content density and image count, so dense case-study slides and sparse cover slides don't get forced into the same template. As of this writing, the preview is generated and the annotation pass is still in progress. That's the honest state of a tool built to be used, not just demoed.
+
+05 — Stack & Tags
+
+### Built On
+
+Claude Agent Skills
+
+.skill packaging
+
+HTML/CSS preview engine
+
+Agentation annotation toolbar
+
+pptx export skill
+
+Internal design-system tokens
+
+ai-tools
+design-systems
+automation
+internal-enablement
+ux-coe
+founder
+
+#### Style shouldn't be the bottleneck
+
+Content is the hard part. Restyling forty-nine slides shouldn't take longer than writing them did.
+
+← Founder mode
+All work
+
+---
+
+## Digital Transformation: AEM & eCommerce Evolution · Dario Espinosa
+URL: https://espinosadesign.com/att.html
+Summary: Boosted online sales by 500% and reached 96% accessibility compliance — leading AT&T México's digital transformation through AEM, 40+ custom components, and a complete eCommerce redesign.
+
+Case Study 03
+
+telecommunications
+
+## AEM & eCommerce Evolution
+
+Boosted online sales by 500% and reached 96% accessibility compliance, by leading AT&T México's digital transformation through AEM and a complete eCommerce redesign.
+
+period
+5 years
+
+context
+AT&T México
+
+role
+UX Lead → Manager
+
+tags
+AEM eCommerce Accessibility
+
+storefronts and channels, one pipeline
+
++500%
+online sales
+
+96%
+accessibility compliance
+
+2020
+AT&T a11y award
+
+5yr
+engagement history
+
+How Might We
+
+// hmw
+unify the digital presence of a multi-brand telecom giant, built from Nextel, Iusacell, and Unefon acquisitions, into a single, accessible, high-converting experience?
+
+The Problem
+
+Every acquisition brought a different tech stack: PHP, AJAX, Flash, CQ5, Drupal. There was no unified design language, no accessibility roadmap, and no shared component library. Users encountered a different AT&T depending on which URL they landed on.
+
+Accessibility was not on anyone's roadmap until regulatory pressure made it unavoidable. The gap between brand promise and digital reality was enormous, and it kept growing with every acquisition.
+
+Visual Context
+
+Illustrative recreation — telecom self-service storefront, generic branding and fictional data
+
+The production storefront and internal UI-toolkit documents are client-confidential. The interactive recreation further down shows the resulting interface without any client-identifying detail.
+
+The Solution
+
+Led the migration from CQ5 to Adobe Experience Manager (AEM) , including a full year of custom component development. It was a long bet, but it paid off in long-term governance and content velocity.
+
+Designed the 2021 AEM design system , then led the migration from Magento 1 to Adobe Commerce . Introduced voice contracts for users with disabilities, one of the first telecom accessibility programs of its kind in México. The 2020 AT&T Accessibility Award followed.
+
+Technical Scope
+
+### 40 Components, One System
+
+The entire system was built for Adobe Experience Manager (AEM) , based on CQ5 (Java) with a database structured around IDs. I had to study directly with Adobe to grasp the development concepts needed to design and deploy the system.
+
+- Created approximately 40 different components for AEM production
+
+- CID (Computer Interaction Design) thinking: technical constraints informed before design decisions
+
+- Atomic Design approach: components built from smaller components, storing information at nodes
+
+- Templates first, then components: mapping what to embed (sliders, rich text, galleries) before building
+
+- Extensive documentation: PPTs and PDFs describing templates, components, character limits, and resize properties
+
+- 2019: a failed deployment. Adobe Brazil and Guatemala teams assisted directly, and we managed a one-year rollback
+
+- 2020–2021: the design system became the foundation for all components across the platform
+
+Role & Responsibilities
+
+### One Designer Across Every Function
+
+Led the design team within Corporate Marketing Operations, operating across multiple concurrent roles throughout the engagement: UX Specialist · UI Designer · Project Manager · Web Design Lead · Content Facilitator.
+
+- Translated AT&T's brand promise, strategy, and design language into world-class digital designs
+
+- Monitored and planned projects with Adobe Brazil teams and agencies
+
+- Managed AEM DAM assets, Information Architecture, and content creation pipeline
+
+- Delivered analytics insights via Adobe Analytics, Google Analytics, and Google Tag Manager
+
+- Managed eCommerce in a separate Magento 2 domain
+
+- Oversaw multiple subdomains and partner initiatives (Netflix, Spotify, Warner, Google)
+
+- Collaborated with Facebook, YouTube, Google, and Twitter on digital strategies
+
+- Maintained AT&T Mexico's national leadership in accessibility, recognized by IFETEL Mexico
+
+- Implemented Agile processes for the web team; trained agencies on UX and accessibility principles
+
+Design System Evolution
+
+### Three Challenges That Shaped the System
+
+Building the first design system for AT&T Mexico required overcoming three foundational challenges that no playbook covered:
+
+- Challenge 1: Finding anyone who had the Digital Guidelines. That meant navigating from Branding to Compliance, speaking with managers and directors across departments
+
+- Challenge 2: Establishing communication with US development and design teams. All files were in Photoshop format, so I had to recreate everything in Sketch, then later migrate to Adobe XD
+
+- Challenge 3: Creating and demonstrating the system as the only designer, frontend developer, and coordinator on the team
+
+Evolution timeline: Initial Sketch system (2016) → Found Adobe XD files from US agency (late 2018) → Full migration to Adobe XD → Left/Right/Viewports approach (desktop top + mobile right) → Modularity allowed live site changes without downtime (2019–2020).
+
+eCommerce Process · D3
+
+### Seguimiento y Atención e-Commerce — 2017
+
+Interactive recreation of the AT&T México internal eCommerce process flow, originally documented in 2017 as the Magento integration went live. Chat agents followed this decision tree to handle order tracking, delivery follow-up, and cancellations. Hover any node.
+
+Key Decision
+
+// design-decision
+
+The implementation required a full year of custom component development. It was a bet on infrastructure over features. Stakeholders wanted faster visible output. Making the case for foundational investment, and holding the line on it, was the critical design leadership moment.
+
+// reflection
+
+Five years across three role changes is unusual for a single engagement. Systems that outlast individual roles require documentation-first thinking from day one. The components I built in year one were still in production when I handed off the system in year five. That's only possible when the rationale is written down, not just lived.
+
+Illustrative Recreation
+
+### How the Storefront and Kit Felt to Use
+
+The production storefront and internal component library are client-confidential. Below is an interactive recreation built for this portfolio, using the same interaction patterns, but with a generic brand and fictional data.
+
+Illustrative recreation: interface rebuilt from memory in plain HTML/CSS/JS. Product name, brand names, and data are fictional.
+
+Connectify Self-Service Portal
+
+Storefront
+Component Kit
+Support Flow
+
+Renew your plan — triple the data
+
+0% interest for 9 months on compatible devices
+
+Phone A
+$7,989
+
+Phone B
+$4,999
+
+Phone C
+$1,739
+
+Buttons — states & breakpoints
+
+Default
+Disabled
+Outline
+
+Chat support — decision flow
+
+Start → Identify request → Route to queue → Resolve
+
+---
+
+## Building a UX Powerhouse: UX Center of Excellence · Dario Espinosa
+URL: https://espinosadesign.com/benefitbridge.html
+Summary: Built a UX Center of Excellence from zero in a regulated healthcare environment. It improved design-to-dev efficiency by 50% and lifted user adoption to 80%.
+
+Case Study 05
+
+healthcare
+
+## UX Center of Excellence
+
+Built a UX Center of Excellence from zero. It delivered 80% user adoption and cut accessibility issues by 70%, inside a WCAG/ADA-regulated healthcare environment.
+
+period
+Healthcare SaaS
+
+context
+WCAG / ADA
+
+role
+UX Lead
+
+tags
+Healthcare Design System Accessibility
+
+a ux practice, built block by block
+
+80%
+user adoption
+
+−70%
+a11y issues
+
+50%
+faster dev cycles
+
+0→1
+design system
+
+How Might We
+
+// hmw
+build a scalable, accessible, and consistent design system from zero, in a regulated healthcare environment, without disrupting ongoing product development?
+
+The Problem
+
+There was no design system, no component library, no naming conventions in Figma. Accessibility complaints were surfacing in production, and in healthcare, compliance failure has legal consequences, not just UX ones.
+
+There were no documented design principles. PMs were making product decisions without research backing. The design function existed but lacked the infrastructure to scale or defend its decisions.
+
+Illustrative Recreation
+
+### How the Component Library Felt to Use
+
+The production member and admin portals are client-confidential. Below is an interactive recreation built for this portfolio, using the same interaction pattern with a generic product name and fictional data.
+
+Illustrative recreation: interface rebuilt from memory in plain HTML/CSS/JS. Product name, brand names, and data are all fictional.
+
+BenefitBridge Component Library
+
+Component Library
+Member Home
+Admin Plans
+
+Button AA 4.6:1
+
+Save changes
+Learn more
+Cancel
+Locked
+
+Text Input AA 4.6:1
+
+Email address
+
+Plan ID
+
+Plan ID must be 6 characters
+
+Selection Controls
+
+✓ Email me claim updates
+
+Share data with employer
+
+Individual plan
+
+Family plan
+
+Status Badges text + icon
+
+● Active
+● Pending
+● Expired
+● Draft
+
+Toggle
+
+Notifications on
+
+Auto-renew off
+
+Type Scale
+
+Aa H2 · 20/700
+
+Aa H3 · 15/600
+
+Aa Body · 13/400
+
+Aa Caption · mono 10
+
+Every specimen shipped with a documented focus ring, a minimum 4.5:1 contrast ratio, and a written usage rule — the same three checks any component had to clear before it entered the library.
+
+$1,240 Plan balance
+
+2 Open claims
+
+Open enrollment closes in 12 days
+
+Benefit Plans
+
+Plan Members Status
+
+Plan A — Medical 412
+
+Plan B — Dental 288
+
+Plan C — Vision 150
+
+The Solution
+
+Built a WCAG/ADA-aligned component library in Figma from zero, prioritizing accessibility-first components over visual refinement. I framed the design system as a risk-reduction tool to get cross-functional buy-in.
+
+Established a design-to-dev handoff process and trained PMs and stakeholders on design system usage. Redesigned the shopping experience flow, which became the flagship proof of adoption: 80% of the product now runs through the system.
+
+Key Decision
+
+// design-decision
+
+I prioritized accessibility-first components over visual refinement. In healthcare, compliance failure has legal consequences. Framing the design system as a risk-reduction tool, not a design preference, is what got buy-in from legal, engineering, and product at the same time.
+
+// reflection
+
+Building from zero is different from inheriting a system. The hardest part isn't the design. It's getting cross-functional buy-in before there's anything visible to show. The first deliverable that mattered wasn't a component either. It was a shared vocabulary.
+
+---
+
+## Modernizing Benefits Software: A Multinational, AI-Assisted Design System · Dario Espinosa
+URL: https://espinosadesign.com/benefits-platform.html
+Summary: Leading UX for a from-scratch rebuild of a legacy employee-benefits platform — the code-first, HTML-to-Figma workflow, the multinational team, and the design tokens and KPI framework behind it. WCAG 2.2 AA.
+
+Case Study 08 · Ongoing
+
+enterprise-saas
+
+## Rebuilding Benefits Software
+
+Leading UX for a from-scratch rebuild of a legacy employee-benefits platform used by employers of every size and members of every generation, and building the AI-assisted workflow that let a small, distributed team design, validate and hand off two full portals in a matter of weeks, not quarters.
+
+period
+2026 · Ongoing
+
+context
+Regulated · Enterprise
+
+role
+Lead UX Designer
+
+tags
+Design Systems AI Workflow
+
+v1.3→v1.8
+iterations shipped
+
+2
+portals designed
+
+WCAG 2.2 AA
+accessibility bar
+
+3
+countries, one team
+
+How Might We
+
+// hmw
+replace a decades-old benefits administration system, used by employers of every size and members of every generation, without slowing down a live pilot that stakeholders were already watching closely?
+
+The Problem
+
+The existing platform had grown for years without a dedicated design function. The rules for enrollment, eligibility and rating lived scattered across documents and in the heads of a few long-tenured staff, not in the interface itself.
+
+Roughly a third of the people who would use the new member experience are over 50, and the typical employer admin manages benefits as one responsibility among many, not as a specialist. None of that showed up anywhere in the old product, and it had to show up in the new one.
+
+Reality Check
+
+### A Moving Target, Not a Clean Brief
+
+None of this arrived as one settled brief. Requirements came in through several channels at once: written specs, recorded calls, live workshops. They didn't always agree with each other, either. A rule confirmed in one conversation would get quietly complicated by a document from a different team two weeks later, and it was on us to notice before it reached a screen.
+
+The people pulling on the work wanted different things, too. One senior stakeholder believed AI could handle the design work end to end and treated a design system as overhead. Rather than argue the point, we built the evidence instead: several AI-generated screens for the exact same decision, sitting side by side, all inconsistent with each other. That single comparison did more than any argument would have. It reframed the design system as what makes AI-assisted work land in one consistent place, not a constraint on it.
+
+Other decisions genuinely shifted mid-stream, for good reasons. The accessibility bar got raised on day one once the real user base was understood, an assumed medical-coverage scope narrowed to a firmer dental-and-vision pilot once the actual boundary was confirmed, and more than one piece of member-facing wording got proposed, used, and reversed in the same week once it collided with how that term is actually used in US healthcare. None of that was a planning failure. It's the normal shape of discovery when several people are feeding it at once.
+
+What made it manageable wasn't trying to freeze requirements early. It was accepting that they'd keep moving, and building a habit around that: decide, write it down in one place everyone could check, and move on, instead of relitigating the same question across five different threads.
+
+The Team
+
+### Small, Distributed, Mixed Human and AI
+
+The design team was deliberately small and spread across three countries: a lead UX designer and a second product designer. They worked alongside two AI coding assistants that owned the actual front-end code, plus a separate AI research assistant dedicated to writing, terminology and quality checks.
+
+On the client side, product and business leadership reviewed and signed off on every phase. Rather than one large team in one room, this was a small, mixed group with clearly split responsibilities, which is what let it move fast without losing consistency as more hands touched the same files.
+
+Keeping that many contributors from stepping on each other took an explicit working agreement, not just good intentions. Anything going in front of the client got a tone-and-clarity pass first. Any new word we introduced for what a member would actually read got checked against the official US healthcare glossary before we used it. And any decision that touched a real benefits rule, like waiting periods or eligibility windows, got sanity-checked against how those things actually work in the industry before it ever reached engineering.
+
+Design Workflow
+
+### Code First, Then Figma
+
+Instead of the usual Figma-first process, the team designed in code first. Real, working screens got built in the browser using the same design tokens as the live product, tested with real interaction, and only then captured into Figma automatically, screen by screen.
+
+That order matters: Figma never drifted into an idealized version of the product that didn't match what actually shipped. It stayed a living library of exactly what was built, not a mockup that quietly falls out of date. Designers still worked natively in Figma to compose new screens, but always by reusing real components bound to the same variables running in the product, never by redrawing shapes from scratch.
+
+That flow ran in both directions, deliberately gated. Real screens got captured into Figma automatically so the library always mirrored what actually shipped. Separately, once a component in the Figma library was reviewed and explicitly marked ready, an automated pipeline could generate real front-end code straight from it, wired to the same color, spacing and type variables used in the live product. Nothing got built from a screen that hadn't been signed off as ready. That single checkpoint was what let automation move fast without ever building on work still in flux.
+
+AI-Assisted Workflow
+
+Mixed human + AI team
+
+### Process and Tools, Stage by Stage
+
+Two coding agents owned the front-end code, a dedicated AI research assistant owned writing and terminology, and every one of them worked inside the same gate: nothing shipped that hadn't been explicitly signed off by a human first.
+
+Benefits Platform: AI-assisted process and tools by stage
+
+Stage
+01 · Frame
+02 · Explore
+03 · Build (code-first)
+04 · Validate
+05 · Ship
+
+AI role
+Drafts problem-framing options for stakeholder debate
+Generates side-by-side option comparisons
+Two coding agents own the actual front-end code
+Research assistant checks terminology, tone, and copy against the US healthcare glossary
+Generates production code from signed-off Figma components
+
+Tools
+AI research assistant
+Claude, coding agents
+Coding agents, shared design tokens
+AI research assistant, Figma (auto-captured)
+Automated Figma-to-code pipeline, shared token system
+
+Process
+Surfaced the how-might-we against a legacy platform, and a stakeholder betting AI could skip design entirely
+Several AI-generated screens for the same decision, compared side by side, became the evidence for why a design system mattered
+Real, working screens built in the browser first, tested with real interaction, before any Figma existed
+Built screens synced automatically into Figma; wording and business rules sanity-checked before reaching engineering
+Only components explicitly marked ready could trigger code generation: one gate, two portals shipped in weeks
+
+Key question
+What are we solving, and who still needs convincing?
+What does each direction actually cost, and does it stay consistent?
+What shape does this take once it's actually running?
+Does this hold up against real accessibility and industry-rule constraints?
+Is this ready to trace back to a signed-off decision?
+
+← swipe to see every stage →
+
+Visual Reference
+
+Illustrative recreation — admin portal, benefit plans list, dense data with clear status states
+
+The production admin and member portals are client-confidential and withheld. Above is an interactive recreation built for this portfolio, using a fictional product name ("Harborview Benefits"), generic plan names, and generalized data — illustrating the same interaction pattern and design-token architecture described below, with no client branding, real names, or real screens reproduced.
+
+Behind the Screens
+
+### One Connected Source, Not Scattered Documents
+
+Separately from the design pipeline, the wider team set up a shared knowledge system that connected requirements, architecture decisions and test plans to each other, instead of letting them live as disconnected documents the way they had for years.
+
+When a business analyst changed a rule, the system immediately showed which diagrams or user stories that change touched, before anyone edited them. Developers picked up implementation work straight from that same connected source, so a feature always traced back to the exact requirement that justified it. Product, design and engineering stopped quietly drifting out of sync with each other, which is the failure mode that usually kills momentum on a project this size.
+
+System Map · D3
+
+### How the Mess Actually Converged
+
+Force-directed graph of how scattered inputs, shifting stakeholder asks and a legacy system with no design function fed into a working agreement and a shared knowledge system, which converged into one design token system, then radiated out to both portals, the Figma library, the generated front-end code, and the pilot that finally got demoed. Drag any node.
+
+The mess
+How we absorbed it
+The hub
+Portals
+Platforms
+What shipped
+
+Design Tokens
+
+### One Component, Two Portals, Zero Duplication
+
+Every visual decision, color included, was built as a named token rather than a hardcoded value. That's what let the same button render one accent color in the employer-facing admin portal and a different accent in the member portal without maintaining two separate components.
+
+/* 1. Primitive — the raw brand value (illustrative; not the real client value) */
+--brand-primary : #3B5BDB;
+
+/* 2. Semantic layer — theme-aware naming */
+--primary : var(--brand-primary) ;
+
+/* 3. Component bridge — what buttons, inputs and cards actually consume */
+--ui-primary : var(--primary) ;
+.btn-primary { background: var(--ui-primary) ; }
+
+/* 4. Portal-scoped remap — same component, different accent, no duplication */
+.member-portal {
+--ui-primary : var(--member-accent) ; /* #D97706, illustrative */
+}
+
+Four layers, one direction of truth: change the primitive once, and every button, badge and focus ring downstream updates with it, in code and in Figma alike.
+
+Accessibility
+
+### Accessible by Default, Not by Afterthought
+
+Accessibility was a day-one requirement, confirmed before a single wireframe existed, because of who actually uses this kind of software: a third of the member base is over 50, and most employer admins are generalists checking one thing between other tasks, not power users. The target was WCAG 2.2 Level AA across both portals.
+
+Text contrast held to at least 4.5:1, interface elements to 3:1
+
+Every interactive element keeps a visible focus outline
+
+Touch targets stay at 44px or larger throughout
+
+Motion respects the reduced-motion preference
+
+Login avoids anything resembling a cognitive puzzle
+
+Plain-language copy over insurance jargon, member-side
+
+None of that changes the visual language. It just means the design works just as well for the admin glancing at their phone between meetings as it does for someone reading every field carefully.
+
+Measuring Impact
+
+### Proving It Helped, Not Just That It Looked Nicer
+
+Before proposing a redesign, the more useful question was whether we could actually prove it helped. A full year of real usage data gave a solid baseline for how people use the product today, but it could only say how long people stayed, not whether they succeeded at what they came to do.
+
+So alongside the redesign, we proposed a second, smaller set of numbers worth tracking going forward: task success rate per flow, error rate on forms, time to complete a plan configuration, a short satisfaction question after each task, an accessibility conformance score, and a simple self-service-versus-support-call ratio that speaks directly to cost. The goal was never a single "UX score." It was gi
+
+---
+
+## Replacing Legacy Tools: AI-Powered Blend Optimizer · Dario Espinosa
+URL: https://espinosadesign.com/blendops.html
+Summary: Replacing a decades-old Excel model with an ML-driven web app for oil-well fluid optimization. AI-assisted design process using Claude. 7 prototype iterations to React-ready fidelity.
+
+Case Study — Current Project
+
+energy
+
+## Blend Optimizer
+
+Replacing a decades-old Excel-based blend planning workflow with an AI-powered web application , turning oil-well fluid optimization from a manual spreadsheet exercise into a fast, auditable, ML-driven process.
+
+client
+Energy Services (NDA)
+
+context
+Energy Services
+
+role
+UX Lead
+
+stage
+Phase 2 · MVP
+
+blend ratio, recalculated live
+
+Excel
+replaced entirely
+
+7
+prototype versions
+
+3
+pilot runs per project
+
+3→1
+systems unified
+
+How Might We
+
+// hmw
+help Plant Operations Managers run fluid blend optimization faster and more accurately, without losing the nuance and institutional knowledge currently locked inside a complex Excel model?
+
+Context
+
+### The Problem with the Legacy Spreadsheet
+
+The client, a global oil-field services company, operates in completion fluids: engineered salt brine solutions used to maintain pressure in oil and gas wells. Their existing blend optimization process ran through a proprietary spreadsheet model, where engineers manually input well parameters, cross-reference chemical inventories, and calculate optimal formulas for each job.
+
+The model was powerful but brittle: only a few specialists could operate it correctly, results weren't trackable across runs, and every approval workflow ran through email threads and printed sheets. The client's data science team had already built a Machine Learning proof of concept that outperformed the manual approach. The challenge was turning that PoC into a production-ready tool their field ops teams would actually adopt.
+
+The production application is client-confidential. See the interactive recreation further down this page for an illustration of the resulting interface.
+
+My Role
+
+### UX Lead on a Cross-Functional Team
+
+SoftServe was brought in to build the full-stack application: React + Next.js frontend, Python APIs, Azure infrastructure. As UX Lead, I owned the interaction design and prototyping from discovery through Phase 2 MVP handoff — consolidating three disconnected systems into one workflow, working alongside a cross-functional project team.
+
+design approach
+
+Four discovery sessions with the client's operations and data science teams established that the primary user, the Plant Operations Manager , needed a workflow anchored to Jira tickets (the existing job tracking system) and connected to the client's internal plant monitoring system. Every design decision had to make sense within that mental model: jobs → pilots → blend results → approval → lab validation.
+
+AI-Assisted Workflow
+
+AI-accelerated design
+
+### Prototyping with Claude
+
+This project became an active experiment in AI-assisted UX work. Rather than produce static Figma screens, I used Claude (Anthropic) as a design collaborator, describing interaction patterns, iterating on component states, and generating functional HTML prototypes directly from conversation.
+
+The approach compressed iteration cycles significantly: a full-fidelity interactive mockup could be reviewed by engineers and stakeholders within hours of a discovery session, rather than days. By v7, the prototype had accumulated the product's full brand token system, all major user flows, and was close enough to production quality that it directly informed the React implementation.
+
+BlendOps — AI-assisted process and tools by stage
+
+Stage
+01 · Discovery
+02 · Prototype v1–v3
+03 · Feedback loops
+04 · v7 Handoff
+
+AI role
+Session-note synthesis
+Design collaborator, generates working HTML from conversation
+Iterates screens live against reviewer notes
+Produces near-production, React-ready markup
+
+Tools
+Claude
+Claude, product brand tokens
+Claude, Figma (annotation only)
+Claude, React-ready component spec
+
+Process
+4 workflow-mapping sessions with client Ops + Data Science
+Interaction patterns described in chat, working screens generated the same session
+Ops + Data Science review a working prototype, not slides
+Full token system + every flow consolidated into a dev-ready spec
+
+Key question
+What does the legacy spreadsheet model actually get wrong today?
+What should this look and feel like, fast enough to react to?
+Does this match how a blend actually gets approved?
+Is this literally buildable, not just believable?
+
+← swipe to see every stage →
+
+Process · D3 Visualization
+
+### How AI Compressed the Design Loop
+
+The diagram maps the real flow of inputs, AI-augmented work, and deliverables across the BlendOps engagement. Link weight reflects dependency intensity: client domain knowledge was the bottleneck that determined AI quality. Hover any node or link for context.
+
+Inputs
+AI-augmented
+Iteration
+Deliverables
+
+Illustrative Recreation
+
+### From Ticket to Approved Blend
+
+The core workflow follows a Project → Pilot → Run → Approve loop. Each project can hold up to three pilot blends; only one can be approved for production. The production application is client-confidential. Below is an interactive recreation with generic labels and fictional data illustrating the same interaction pattern.
+
+Illustrative recreation: interface rebuilt from memory in plain HTML/CSS/JS. Product name, org names, and data are fictional.
+
+BlendOps Fluid Blend Optimizer
+
+Project Context
+Pilot Blend
+Submit
+
+Available Batches
+
+Ticket Location Type Cost/bbl Avail
+
+BX-2201 Site A · Tank 4 CI/B $206.95 1,000
+
+BX-2214 Site A · Tank 2 CI/B $143.85 1,000
+
+BX-2255 Site B · Yard CI $34.29 2,400
+
+15.71 Density (ppg)
+
+59.1 Temp (°F)
+
+389 Cost ($/bbl)
+
+Run Optimizer
+
+Submit for Approval
+
+Job BX-4356 — Site A
+
+Status Draft
+Submit for Approval
+
+Component Library
+
+### Building the BlendOps UI Kit
+
+Alongside the prototype work, a dedicated Figma component library was built to give the engineering team a clear, token-driven reference for every UI surface in BlendOps.
+
+The kit covers form controls (dropdowns, number inputs, inline validation), data table patterns (sortable columns, status chips, inline edits), modal flows (confirmation dialogs, optimizer progress, approval submission), and the three-panel shell itself.
+
+Design tokens follow the product's brand palette directly: primary blue for structural authority, cyan for interactive accents, and citron reserved exclusively for commit actions. All components carry accessibility annotations, contrast ratios, and keyboard interaction specs ready for developer handoff.
+
+Figma Variables
+Shadcn/ui base
+Tailwind tokens
+Auto-layout
+WCAG AA
+Dev handoff specs
+
+// drag to reorder
+
+Token hierarchy drives every decision: structural → interactive → commit action.
+
+Design Decisions
+
+### Why These Choices
+
+component library
+
+Used Shadcn/ui + Tailwind as the component base, building on top of Radix primitives. The interface is data-dense: dense tables, inline chemical formulas, multi-state status chips. That density needed a system that could scale without visual debt, and Shadcn's unstyled base let us apply the product's tokens cleanly.
+
+brand tokens
+
+The product's brand palette maps naturally to information hierarchy: #005495 primary blue for authority and nav, #38C6F4 cyan for accent and topbar stripe, and #DAE24C citron reserved exclusively for primary CTAs such as Run Optimizer, Save to Jira, and Submit for Approval. The citron stands out against both dark and light backgrounds and signals "this commits to action."
+
+typography
+
+Montserrat for UI surfaces (authority, legibility at small sizes in data tables) paired with IBM Plex Mono for values, ticket numbers, chemical formulas, and any data that needs character-level precision. Engineers read mono; it signals trustworthiness for numerical output.
+
+three-panel layout
+
+Left sidebar for job navigation (All Jobs → Current Job → Pilot tabs), center for the active workflow form, right panel for the optimizer result and comparison table. This maps to how operations managers actually work: they hold the job context in their head while checking results against targets. The layout externalizes that mental model.
+
+Stack & Integration
+
+### Technical Context
+
+BlendOps is a standalone Azure-hosted web application. The frontend is React + Next.js; Python APIs handle ML orchestration, Jira sync, and plant-monitoring data retrieval. From a UX perspective, the architecture meant designing around API latency: the optimizer takes 1–2 minutes to return results, requiring explicit loading state design and a clear "run in progress" pattern that doesn't lock the interface.
+
+React Next.js Shadcn/ui Tailwind Python APIs Azure Jira API Plant Monitoring API ML Model Montserrat IBM Plex Mono
+
+// reflection
+
+What surprised me most was how productive the AI-assisted prototyping workflow became once the domain was well-established. The first few iterations were mostly me learning the chemical vocabulary: what density means in ppg vs kg/L, what TCT (Thermodynamic Crystallization Temperature) constrains. Once that was solid, the AI could generate accurate UI scaffolding because I could describe the domain precisely. The quality of the prototype was a direct function of the quality of my domain knowledge. That's a lesson I'll carry forward.
+
+---
+
+## Automating Customer Interaction: eCommerce Chatbot MVP · Dario Espinosa
+URL: https://espinosadesign.com/daily-bot.html
+Summary: MVP research and product design for a chatbot solution for an online cosmetics store. From benchmark and proto-persona through hypotheses, interviews, and 3 design iterations to functional demo.
+
+// archive · older work
+
+ecommerce
+UX Research
+Product Design
+Chatbot
+2021
+
+## Daily Bot
+Chatbot MVP
+
+MVP chatbot designed to improve cosmetics purchase decisions in online stores, accelerating conversion through an intelligent chat assistant that mimics in-store expert guidance. Research-led, prototype-tested.
+
+Client: PROSCAI (SaaS)
+Role: UX Researcher + Designer
+Niche: Organic Cosmetics
+
+Problem: Online cosmetics shoppers lack the knowledgeable human guide they'd find in a physical store. This creates decision paralysis, abandoned carts, and low conversion. The Daily Bot replaces that expert with a conversational AI that qualifies needs, recommends products, and converts interest into purchase.
+
+Process
+
+### Research to MVP in 6 Stages
+
+01
+
+#### Benchmark
+
+Competitive analysis of chatbot implementations in cosmetics ecommerce
+
+02
+
+#### Proto-Persona
+
+Defined target user profile: women shopping organic cosmetics online
+
+03
+
+#### Hypotheses
+
+Research hypotheses around decision triggers and conversation patterns
+
+04
+
+#### Interviews
+
+4 qualitative user interviews to validate assumptions and uncover mental models
+
+05
+
+#### Solution
+
+Conversation flow design: question trees, recommendation logic, CTA placement
+
+06
+
+#### 3 Iterations
+
+Progressive prototype refinement based on user testing feedback
+
+Research & Design
+
+Prototype
+
+Chat replaces the human guide at the store. The bot must pattern-match conversational cues to deliver the right recommendation at the right emotional moment. Hesitation signals an unanswered question, not a lost sale.
+
+Outcome
+
+The MVP was built using Landbot.io and demonstrated a complete conversational flow from product discovery to purchase intent. The research validated the core hypothesis: guided chat meaningfully reduces the decision gap in organic cosmetics ecommerce.
+
+Try the Live Bot Demo →
+
+← Zafyro UI
+Next: YAIWA Smartphone →
+
+---
+
+## EDGA — A Multi-Agent Design Thinking OS · Dario Espinosa
+URL: https://espinosadesign.com/edga.html
+Summary: EDGA — Experience Designer Generalist Agent: a self-built Claude plugin that runs an end-to-end, phase-gated Design Thinking process with a coordinating Overseer, specialized sub-agents, and a continuously-updated knowledge base.
+
+internal tool · founder · claude plugin
+
+## EDGA — A Multi-Agent
+Design Thinking Operating System
+
+A self-built Claude Cowork / Claude Code plugin that runs the full Design Thinking process (Empathize through Deliver) as a phase-gated multi-agent system, with a coordinating Overseer, specialized sub-agents for each discipline, and its own continuously-updated knowledge base of UX frameworks and patterns.
+
+context
+Internal Tool · Founder
+
+role
+Creator · Architect
+
+timeline
+2025 – present
+
+platform
+Claude Cowork/Code
+
+v3.8 current release
+
+12 KB categories
+
+115+ knowledge notes
+
+9 intake blocks
+
+01 — Overview
+
+Self-Initiated · Internal Tool
+
+### Why I Built EDGA
+
+EDGA — Experience Designer Generalist Agent started from a simple frustration: every real design engagement runs through the same disciplines (research, strategy, systems, prototyping, testing, delivery), but a single chat with an AI assistant has no memory of which phase you're in, no gate to stop you from skipping straight to pixels before the problem is framed, and no persistent record of what was decided and why.
+
+EDGA is my answer to that: a plugin that turns Claude into a small, disciplined studio. One Overseer agent keeps track of where a project is in the process and hands work to the right specialist; the specialists never freelance outside their phase; and every phase ends with a human decision gate, so nothing moves forward without my explicit sign-off.
+
+02 — Architecture
+
+### An Overseer, and a Bench of Specialists
+
+The Overseer is the only agent that talks to me directly and the only one with the full project context. It reads intake data and session memory, decides which phase the project is in, injects the relevant context into a sub-agent, and enforces the human gate before advancing. Sub-agents never load project context on their own. They only work with what the Overseer hands them, which keeps each one focused and keeps token usage predictable on long engagements.
+
+Dario (human gate)
+
+↕
+
+Overseer — phase routing, memory, context injection
+
+↓ hands off, phase by phase
+
+UX Researcher
+Empathize/Ideate
+
+Product Strategist
+Define/red-team
+
+Systems Designer
+Design tokens
+
+Component Builder
+Prototype code
+
+Figma Design Auditor
+Token/handoff QA
+
+User Testing
+Real sessions
+
+Quality Auditor
+WCAG/perf audit
+
+Delivery Coordinator
+Estimation, git, handoff
+
+↕ (long engagements only)
+
+Memory Coordinator — institutional memory, Obsidian export
+
+Phases are gated: Empathize → Define → Ideate → Prototype → Test → Deliver , each with a documented "artifact contract," a specific output the phase must produce before the gate opens. I approve or send back the work at every gate; the Overseer never advances a phase on its own judgment.
+
+03 — How It's Used
+
+### Three Ways to Engage It
+
+EDGA isn't one-size-fits-all — a quick gut-check and a multi-month retainer need different amounts of ceremony. Onboarding starts with /edga-new , a structured intake across 9 blocks (goals, users, constraints, existing artifacts, timeline, and more) that scopes which mode fits.
+
+MODE 1
+
+Advisory
+
+Fast expert input, no full process
+
+MODE 2
+
+Discovery
+
+Research + framing only
+
+MODE 3
+
+Full Project
+
+All 6 phases, gated end-to-end
+
+For long-running retainers
+
+Projects running past ~3 months switch to a Cycle Model : the Memory Coordinator manages staleness checks and cycle transitions so institutional knowledge about the project doesn't silently rot between sessions. It also handles exporting that project memory to Obsidian for a durable, searchable record outside the chat.
+
+04 — Knowledge Base
+
+### How the Knowledge Base Stays Current
+
+EDGA's sub-agents reason from a generic knowledge base (UX frameworks, research methods, interaction patterns) that grows with every release. New material only gets absorbed through a deliberately slow, checked pipeline, because a design-thinking assistant is only as trustworthy as the sources it's quoting.
+
+01
+
+Deep-research round triggered
+Usually kicked off by me forwarding a new source, framework, or paper worth adding.
+
+02
+
+Primary sources read in full
+No summarizing a summary. The original paper, book chapter, or spec gets read directly.
+
+03
+
+Citations independently verified
+Claims and citations get a separate WebSearch verification pass before they're trusted.
+
+04
+
+Distilled into a capped module
+Condensed into a size-capped knowledge doc — never left as sprawling raw notes.
+
+05
+
+Confirmed before absorbing
+I get an explicit AskUserQuestion checkpoint before new material is folded into the KB.
+
+06
+
+Written with confidence tags
+Findings are marked by how certain they are, not presented as uniform fact.
+
+07
+
+Shipped as a versioned release
+Bundled into the next tagged .plugin release with a changelog entry.
+
+05 — Knowledge Base, Mapped
+
+### What the Obsidian Memory Actually Looks Like
+
+Running /edga-export-kb mirrors the plugin's knowledge base into a real Obsidian vault. A Home.md note links out to 12 category Maps of Content (MOCs), each holding the notes for that discipline. The export is content-hash based: it only touches notes that actually changed, never overwrites a note I've hand-edited inside Obsidian, and flags anything orphaned.
+
+Interaction & Interfaces 24
+
+Psychology & Research 20
+
+Product & Strategy 18
+
+AI-First & Agentic UX 17
+
+Process & Governance 11
+
+Engineering & Delivery 10
+
+Motion & Prototyping 5
+
+Accessibility & Inclusive Design 3
+
+Service & Systemic Design 3
+
+UX Writing & Content 2
+
+Spatial, XR & AR 1
+
+Reference 1
+
+Important distinction
+
+This vault is the plugin's own generic knowledge : frameworks and patterns any project can draw on. It is not project memory: a client engagement's institutional memory is a separate export, kept scoped to that one project so nothing crosses between engagements.
+
+06 — Stack & Tags
+
+### Built On
+
+Claude Cowork
+
+Claude Code
+
+Agent Skills
+
+Multi-agent orchestration
+
+Obsidian
+
+Markdown / YAML frontmatter
+
+Versioned .plugin releases
+
+ai-tools
+multi-agent-systems
+design-thinking
+knowledge-management
+plugin-architecture
+internal-enablement
+founder
+
+#### A studio, distilled into a plugin
+
+EDGA is still evolving. Every real engagement teaches it something new about where the gates should be.
+
+← Founder mode
+All work
+
+---
+
+## A Token of Gratitude: Token & Session-Burnout Habits for AI Agents · Dario Espinosa
+URL: https://espinosadesign.com/gift-token-habits.html
+Summary: A free, portable guide to token and session-hygiene habits for AI code agents — checkpoint discipline, layered memory, and anti-patterns that keep long agent sessions from degrading. Shared as a thank-you for visiting the portfolio.
+
+A Token of Gratitude
+
+## Token & Session-Burnout Habits for AI Code Agents
+
+Thanks for making it this far into my portfolio — as a small thank-you, here's something I actually use day to day: a free, practical set of habits for keeping AI coding agents (Cursor, Claude, or similar) from quietly wasting your tokens and losing the thread on long sessions. No email required, nothing to sign up for.
+
+What it saves you: fewer runaway sessions that burn budget without anyone noticing, less time re-explaining a decision the agent already made ten minutes ago, and fewer "regenerate the whole thing from scratch" cycles once a long session has quietly degraded.
+
+~6 min read
+Markdown, portable to any project
+Free — no attribution required
+
+⬇ Download the .md file
+
+01 · What This Solves
+
+### What Problem This Solves
+
+Three concrete symptoms, not an abstract fear of "spending tokens":
+
+- Session-memory files grow without limit. If you keep project state in a file like CLAUDE.md / CONTEXT.md / NOTES.md , reading it in full at the start of every session burns context budget before you've even touched the real problem.
+
+- The tool's auto-compact fires late (around 95% of the window). By then the tool decides what to drop, and it systematically keeps mundane output while discarding the reasoning that actually mattered.
+
+- Long sessions re-derive decisions already made in the same conversation, lose track of what was decided ten minutes ago, or drift from the original request. That's context-budget degradation, not "the model got lazy."
+
+This guide attacks the two levers that are actually controllable: tokens per task (well-scoped context) and unnecessary tasks (the Restart Rule, one chat = one task) — not the price per token or the number of users.
+
+02 · Layered Memory
+
+### L0 / L1 / L2 Habits (Abstract-First)
+
+Load information in layers, from less to more detail, and only go deeper once something actually matched the current task.
+
+Level What it is When it loads
+
+L0 The title / first bold line of a state entry, or a doc's title + first paragraph Always — this is what gets scanned to decide relevance
+
+L1 A status log's full entry, a doc's headings, a "where to look" table Only if the L0 matched the current task
+
+L2 The full document, source code, meeting notes, extensive research Only when the task genuinely needs that specific content
+
+Writing rule: every new entry in a state/memory file starts with a bold L0 — one sentence a future session can rank without reading the body. Never open an L2 file because "the name sounds relevant": check its L0/L1 first.
+
+03 · Checkpoint Timing
+
+### Checkpoint at ~60%, Not ~95%
+
+Most agent tools' auto-compact fires around 95% of capacity — by then the tool decides what to drop, keeping mundane output and discarding the reasoning. Intervene earlier, while the agent still has control:
+
+- At ~60% of the session's practical budget (a "this is getting heavy" signal, not an exact token counter).
+
+- Stop at a clean point, not mid-edit.
+
+- Write the state to a file: what was done, what's left, what decision is pending. That's the real checkpoint, not the chat's own memory.
+
+- If a logical unit of work is finished and the code passes its quality gate, commit.
+
+- Say it explicitly: "I recommend a fresh chat from here — the state is saved in [file]/git log."
+
+Explicit handoff: for large or multi-stage work, write the checkpoint as a clearly marked block ("HANDOFF" or similar) with the reference plan, what's done, what's left, and what human confirmation is pending.
+
+04 · The Restart Rule
+
+### Stop Arguing, Respec Instead
+
+If the agent is stuck, produces output that doesn't work, or you find yourself arguing the same point twice — stop arguing. Rewrite the spec (what's being asked, what constraints, what acceptance criteria) and regenerate cleanly. Arguing spends tokens re-deriving; a clean respec spends tokens moving forward.
+
+Corollary: if you correct the same thing twice, that's the signal to write it once as a permanent rule, not to keep correcting it by hand every time.
+
+05 · Memory Writes
+
+### Summary Only, Never the Transcript
+
+Don't paste chat transcripts into durable state/memory files. Writes are summary-level: rationale + outcome, never the full conversation. Every new entry carries its bold L0 and, below it, the minimum needed for another session to understand what happened and why, without reading the original chat.
+
+06 · When to Interrupt
+
+### Escalate on Anomaly, Not on Schedule
+
+Default: autonomous — the agent keeps working and commits without asking permission at every step. Interrupt the human only on a concrete signal:
+
+- the same file rewritten more than ~5 times in a row,
+
+- the build/typecheck fails 3+ times consecutively,
+
+- the tool-call count is roughly 2x the expected baseline for that kind of task.
+
+Don't add a "should I continue?" checkpoint at a fixed number of turns regardless of session health — the goal is for the flow to run mostly unattended, and for an interruption to signal something real.
+
+07 · Scaffolding
+
+### Mechanical Work Is a Script, Not a Session
+
+Creating a new copy/variant of a project (duplicating a folder, renaming identifiers, registering paths across several files) is mechanical work. It's better handled with a shell script than as open-ended, turn-by-turn agentic editing. Only the real design/logic changes inside the new copy need a reasoning model's attention.
+
+Intent note: the moment work starts on a new fork or scoped derivative, write a short note (~5 lines): what changes this round, what stays untouched, and one line answering "fork on disk, or a git branch?" — a full fork only if it needs to run live alongside another version or be published separately; otherwise a branch, deleted once the learning is extracted.
+
+08 · Commit Discipline
+
+### Checkpoint Gated on Build/Typecheck
+
+Commit at the end of the scaffold step, before starting feature edits, and at every natural subtask boundary — but only if the current state passes the project's build/typecheck/tests. If it doesn't pass, commit to a working branch, never to main with broken state.
+
+09 · Plan-First
+
+### Only for Large Work
+
+Write a short plan and get a one-line approval before scaffolding a new variant, preparing a reduced-scope clone, or any refactor touching multiple files. Skip this ceremony for single-file tweaks — it isn't worth it below roughly ~15 expected tool calls.
+
+10 · Indexing
+
+### Soft-Exclude Large, Superseded Trees
+
+Distinguish two levels of exclusion: hard (the agent can't read it even with an explicit mention — binaries, installed dependencies, build artifacts) and soft (out of search by default, but reachable with an explicit mention — superseded versions still useful as historical reference). When something becomes formally superseded, move it to soft exclusion in the same session, instead of leaving it competing for search space indefinitely.
+
+11 · Durable Notes
+
+### A Manual Export Bridge, Never a Database
+
+If a project needs a knowledge layer outside the repo (an Obsidian-style note, a wiki), treat it as a manual, on-request bridge only — never automatic sync, never a source of truth. Export only when explicitly asked, carry minimal metadata, and keep it hand-curated: no relationship queries unless a real index structure exists. The repo's own state files and git history remain the source of truth.
+
+12 · Anti-Patterns
+
+### What Not to Do
+
+- Don't open every file "just in case" — use a "where to look" routing map if one exists.
+
+- Don't paste chat transcripts into durable memory files.
+
+- Don't silently archive a large state file — flag the recommendation and wait for confirmation.
+
+- Don't use broad git commands ( checkout / reset ) on shared work to fix a wrong turn — restore only the agent's own last edit with a targeted patch.
+
+- Don't treat an Obsidian/wiki-style export as a database or source of truth.
+
+- Don't add a "should I continue?" checkpoint at a fixed number of turns.
+
+Install
+
+### How to Install This in Another Project
+
+- Copy the Markdown file into the new repo (e.g., docs/token-burnout-optimization.md ).
+
+- If the agent supports "always-apply" per-file rules, create a summarized 20–30 line version that points to this doc for detail — don't duplicate the full content there.
+
+- If the agent supports "skills" or longer on-demand documents, move the full detail there and leave only the summary in the always-apply rule.
+
+- Adapt the session-memory filenames to the project's actual scheme — none of this requires a particular filename.
+
+- If multiple agents/tools work on the same repo, point all of them at the same doc instead of each keeping its own abbreviated version.
+
+Shared as a small thank-you for visiting my portfolio. No email required, no strings attached — just a set of habits I actually use, written down so they're portable to whatever agent or repo you're working in. If it saves you one runaway session, it's done its job.
+
+— Dario Espinosa
+
+---
+
+## From Bid to Blacktop: A Field App for Three Different Jobs · Dario Espinosa
+URL: https://espinosadesign.com/gradeline.html
+Summary: Designing GradeLine, a mobile-first field platform for a national paving contractor — the sales bid, the dispatcher's desk, and the crew foreman's phone, built through a forked, versioned prototyping pipeline a founder could click through without touching code.
+
+Case Study · In Progress
+
+construction field-ux ai-workflow design-systems current
+
+## From Bid to Blacktop: One Field App for Three Different Jobs
+
+Designing GradeLine , a mobile-first field platform for a national paving and sealcoating contractor — the sales bid, the dispatcher's desk, and the crew foreman's phone in the heat, all one product, built through a forked, versioned prototyping pipeline a founder could click through without touching code.
+
+industry
+Paving & Sealcoating
+
+phase
+Discovery → Prototype
+
+role
+Lead Experience Designer
+
+tags
+Field UX AI Workflow
+
+field device, synced live from the job site
+
+8
+forked versions shipped
+
+63
+catalog components
+
+3
+devices, one system
+
+~90%
+agent cost is input tokens
+
+How Might We
+
+// hmw
+give a sales rep, a dispatcher, and a crew foreman one coherent mobile product, when each works in a completely different context, and the product itself was still being defined underneath us?
+
+The Problem
+
+The client runs paving and sealcoating crews across multiple regions, and the process that got a bid signed, scheduled, and finished still lived across paper tickets, spreadsheets, and phone calls. This engagement started in discovery , which meant the product itself kept shifting week to week — screens that looked settled on Monday were wrong by Thursday because the underlying business logic hadn't been locked yet.
+
+The founder and the client-side stakeholders needed to see and react to real, current thinking constantly, not once a sprint. A static deck couldn't keep up, and asking a non-technical founder to pull a branch and run a dev server wasn't realistic either.
+
+Visual Context
+
+Four screens from across the app — sign-in, dispatch, and the two live-AR surfaces the field crew actually leans on (lot measurement and before/after site verification).
+
+Mobile sign-in & role picker
+
+Live route & dispatch map
+
+Live AR — auto lot measurement
+
+AR ghost-overlay site verification
+
+The production prototypes, Figma libraries, and stakeholder-facing screens are client-confidential and withheld. Everything above is rebuilt for this portfolio with a fictional product name, fictional personas, and generalized data — grounded in the real mobile layouts and the real design-system tokens, but with no client branding, real names, or real screens reproduced.
+
+The Solution
+
+Instead of one prototype that got overwritten every time a decision changed, each meaningful direction became its own full fork of the same React/Tailwind codebase — a complete, independent build, not a feature flag. All forks deployed together as one static, multi-app site, so any version was a public link, not a local checkout.
+
+Underneath every fork sat one living component catalog : the same button, input, badge, and list-row primitives, reused across every version and every persona's screens. That's what kept 8 diverging prototypes from turning into 8 different-looking products.
+
+AI-Assisted Design
+
+### Process and Tools
+
+The same five-stage arc repeated for every version fork, but the AI's role and the tools in hand shifted at each stage — from synthesizing on-site research to shipping a versioned, accessible prototype.
+
+Frame the Problem
+
+Explore Directions
+
+Materialize
+
+Prototype the Experience
+
+Specify and Ship
+
+AI Role
+
+Expand
+
+Diverge
+
+Draft
+
+Build
+
+Deliver
+
+Tools
+
+Claude On-site notes
+
+Claude
+
+Figma Claude Catalog
+
+Cursor Claude Code GitHub
+
+Claude Code Cursor GitHub
+
+Process
+
+Synthesizing on-site findings across three personas into one shared problem framing
+
+Sketching persona-specific directions before committing any of them to a real build
+
+Turning directions into real screens against the shared token set and the 63-primitive catalog
+
+Forking a full, live version per direction, deployed together as one static multi-app build
+
+Hardening for accessibility and token cost, documenting the version lineage and every state
+
+Artifact
+
+Problem statement (the HMW)
+
+Alternative directions with tradeoffs
+
+Screen variants across three device contexts
+
+A clickable, versioned prototype — the lobby
+
+Versioned catalog, handoff notes, token-efficiency plan
+
+Answers
+
+What are we solving, and for which persona?
+
+What does each direction cost to build and review?
+
+What shape should the field app take?
+
+How does it actually feel on a phone, in the field?
+
+What are all the states, personas, and edge cases?
+
+Audience
+
+Founder, stakeholders
+
+Team
+
+Team
+
+Founder, client counterpart, team
+
+Team, engineering
+
+Lobby, Versioning & Personas · Interactive
+
+### A Version Switcher a Founder Could Actually Use
+
+Instead of a founder scrolling through Slack screenshots asking "which build is this," every fork got a plain-language label and a running note on what changed. A five-minute click-through replaced a half-hour status meeting. The same screen also had to work for three completely different people — try both controls below.
+
+Lobby — version switcher
+
+v0.1 Concept
+v0.5 +Dispatch
+v0.9 Field-hardened
+v1.1 Current
+
+Sales bid flow only. Everything else was still a placeholder — the point was to validate the bid screen with the founder before building anything else.
+
+Same app, filtered by persona
+
+Marisol · Sales Rep
+Devon · Dispatcher
+Hank · Crew Lead
+
+New Bid
+
+Home Day Menu
+
+Illustrative recreation, not the real prototype. Palette follows the real shadcn/ui token set: navy for the one committing action, a scarce light-blue for accents, amber reserved strictly for warnings.
+
+Design System
+
+### One Token Set, Three Platforms
+
+The product design system runs on a white-first shadcn/ui + Tailwind foundation: navy carries every primary call to action at AA contrast, a scarce light blue is reserved for accents, focus, and map detail, and amber is demoted to a single job — the warning state — instead of doubling as a brand color. A shape-and-motion layer on top adapts sheets, radii, and dialog behavior per platform (iOS vs. Android) without touching the brand tokens underneath.
+
+The differentiator was a live map with a custom detection layer showing parcels, routes, and flagged conditions — not a static screenshot, an actually interactive map component in the catalog that every persona's screens could reuse.
+
+navy · primary CTA
+
+blue · scarce accent
+
+light blue · map / focus
+
+amber · warning only
+
+green · success
+
+Process
+
+### Making Cursor and Claude Cheaper to Run
+
+A discovery-phase engagement means the AI-assisted workflow runs constantly, so I spent real time treating token spend as a design problem, not just an engineering one. The biggest lever wasn't the model's output, it was what got loaded into context in the first place — input tokens, not generation, are most of an agent loop's cost.
+
+A few things that actually moved the number: defaulting to a reversible, soft exclusion for files that shouldn't be indexed by default but might still be needed (rather than a hard block that's unreachable even on purpose), preferring diff-based edits over full-file rewrites on anything long, and treating "context rot" as something that happens well before the window is actually full — so context gets loaded just-in-time and abstract-first instead of dumped upfront. Runaway agent loops got an external, mechanical limit — a checkpoint commit — instead of relying on the model to self-police. Prompt caching cut repeated-context cost dramatically, but only holds if the prefix stays stable, which is why the project's own working-memory file got reordered to put the fast-changing "current state" section last instead of first. And a full fork was reserved for anything that had to run live at the same time as everything else; a lighter branch handled exploration that was never going to ship.
+
+Research & Reflection
+
+### What the Field Told Us, and Where It Broke
+
+On-site research surfaced device-shaped gaps, not just screen-shaped ones. A dispatcher at a desk needed the reasoning behind a schedule, not just the result — "why this stop, why now" mattered as much as the assignment itself. A crew foreman's phone, in direct sun, on a schedule, got almost no patience for reading — copy had to be terse and voice-first by default. A sales screen was the one surface a client might actually read, so it was the one place the copy earned the right to be a full, persuasive sentence instead of a fragment. Seven separate on-site findings each traced forward into a specific interface decision this way, rather than sitting in a research deck nobody opened again.
+
+Two honest weak points worth naming rather than hiding: a secondary visual theme prototyped in parallel didn't yet persist a reviewer's style choice across sessions, a known gap flagged for the next milestone rather than a shipped inconsistency. And the fork-per-version model that made stakeholder review painless started to cost real build time once the lineage passed half a dozen versions — every fork was a fully separate application, so the convenience had a compounding price.
+
+None of this ran on one tool. Design reasoning and long-running project memory lived in one AI-agent runtime, implementation happened inside a second, and a separate component-generation workflow used by another teammate ran a third — coordinated through a shared, versioned memory file instead of ad hoc chat threads. On the human side: an engineering counterpart on the client's team, a second frontend developer, and the client's own product approver all worked off the same versioned prototypes and the same catalog, so nobody was ever reacting to a stale screenshot.
+
+// design-decision
+
+Every fork shipped as a real, clickable link, never a slide. That multiplied the deploy surface and the maintenance cost, but a discovery-phase founder acting on a five-minute click-through was worth more than a beautifully-produced deck nobody opened between meetings.
+
+// reflection
+
+The hardest part was never any single screen. It was making three people's genuinely different jobs feel like one coherent product without pretending their jobs were the same job.
+
+construction field-ux design-systems ai-workflow versioned-prototyping accessibility
+
+---
+
+## Connecting Businesses: B2B Marketplace Redesign · Dario Espinosa
+URL: https://espinosadesign.com/kasuva.html
+Summary: Complete redesign and frontend development of a B2B online marketplace for Latin America and Spain. Co-Founder and Design Director role, built on Magento with full HTML template integration.
+
+// archive · older work
+
+b2b-marketplace
+Startup
+B2B
+Marketplace Design
+2017–2018
+
+## Kasuva
+B2B Marketplace
+
+B2B online marketplace for Latin America and Spain, co-founded and designed from scratch. Visual identity, UX flows, Magento theme implementation, and frontend HTML template development.
+
+Role: Co-founder & Design Director
+Market: LATAM + Spain
+Stack: Magento · HTML · CSS
+
+Context: Kasuva was a startup co-founded to address fragmentation in B2B wholesale commerce across Latin America and Spain, markets where businesses still relied heavily on offline catalog browsing and personal relationships. The design challenge was translating that relationship-driven buying behavior into a digital-first marketplace experience.
+
+Full-Scope Design Work
+
+### From Identity to Implementation
+
+As Co-founder and Design Director, ownership spanned the entire design surface: brand identity, UX strategy, UI design, and frontend implementation. There was no handoff: design decisions were made with direct awareness of technical constraints and business requirements.
+
+Brand Identity
+
+Visual Language
+
+UX Flows
+
+Magento Theme
+
+HTML Templates
+
+Frontend CSS
+
+Design
+
+B2B buyers are not impulse purchasers. The UX had to reduce friction in bulk ordering, price negotiation, and repeat purchases, while building the vendor trust that traditionally came from in-person relationship management. The design had to do the job that sales reps used to do.
+
+Context & Role
+
+### Co-Founded and Designed End-to-End
+
+Kasuva was a B2B online marketplace for Latin America and Spain, conceived to connect businesses across regional markets on a Magento platform. As Co-Founder and Design Director, I led both the complete redesign and the frontend development.
+
+- Complete visual and UX redesign of an existing marketplace platform
+
+- Built the HTML template structure and integrated it with Magento
+
+- Designed for Latin American and Spanish B2B buying behavior, which meant different trust signals and navigation patterns than B2C
+
+- Managed design and frontend simultaneously as the sole design resource on the co-founding team
+
+Reflection
+
+Kasuva was the crucible project: co-founding a startup forces design decisions that are real, irreversible, and directly tied to business survival. Every UX choice had a cost. Every redesign iteration was a bet on whether users would respond differently.
+
+The experience of designing and implementing, building the Magento theme and writing the HTML/CSS templates, permanently shaped how I think about design systems. Visual decisions that can't be implemented efficiently are not good decisions. The designer who understands production is a more effective designer.
+
+What Kasuva gave me: a designer-founder perspective that persists in every project since. Build for real constraints. Ship to learn. Redesign with data.
+
+← Walking Dog App
+Back to All Work →
+
+---
+
+## Exploring the Future: Metaverse Experience · Dario Espinosa
+URL: https://espinosadesign.com/metaverse.html
+Summary: Attracted 1,500+ virtual visitors to a fully navigable immersive exhibition at a major European tech convention, designed in 4 months using Spatial and Unity.
+
+Case Study 06
+
+technology
+
+## Metaverse Experience
+
+Designed a metaverse experience that attracted 1,500+ virtual visitors . I got there by solving spatial storytelling for a European tech convention that had no physical constraints to lean on.
+
+period
+SoftServe
+
+context
+European Tech Convention
+
+role
+Lead Designer
+
+tags
+Spatial Design XR 3D
+
+visitors, orbiting a shared portal
+
+1,500+
+virtual visitors
+
+Spatial
++ Unity
+
+0→1
+spatial process
+
+multi
+disciplinary team
+
+How Might We
+
+// hmw
+design a metaverse experience engaging enough to hold attention without a human guide, for a major European tech convention?
+
+The Problem
+
+A physical convention means one location, a fixed audience, and a time window that closes. The brief was to remove all three constraints. Doing that introduced new problems, though: without spatial affordances, how does a visitor know where to go, what to explore, or how long to stay?
+
+There was no internal process for spatial or metaverse design at the company yet. No templates, no precedent, no established toolchain. The team had to figure out what "done" even looked like before designing for it.
+
+Visual Context
+
+// visual-01
+
+// visual-02
+
+The Solution
+
+Designed the exhibition layout for Spatial + Unity , applying sightline principles borrowed from physical exhibition design to create natural navigation without explicit UI affordances. Visitors moved through the space because the space itself directed them, not because of labels or arrows.
+
+Placed 3D interactive content at focal points, using the company's brand assets to create spatial consistency. The result felt branded without feeling like a trade show booth dropped into 3D.
+
+Spatial Architecture · D3
+
+### Five Layers: From Platform to Visitor
+
+The metaverse experience was designed as 5 distinct layers, moving from the Unity platform through spatial sightlines and branded content moments to the visitor's self-directed journey. Hover each layer.
+
+Key Decision
+
+// design-decision
+
+We prioritized spatial storytelling over information density. An early prototype was overloaded with content, so we stripped it back to 5 key moments. Engagement time increased significantly. In spatial design, less is more measurable than in any other medium.
+
+// reflection
+
+Spatial design is fundamentally different from screen design. There's no scroll, no back button, no obvious hierarchy. You're designing for presence, not just information. The mental shift from 'what does the user see' to 'where does the user look' changed every decision.
+
+---
+
+## Revolutionizing Data Insights: Dashboard Redesign · Dario Espinosa
+URL: https://espinosadesign.com/nielseniq.html
+Summary: Improved feature delivery speed by 30% and cut UX bugs by 50%, after introducing Double Track Agile and a consolidated Figma design system to a burned-out analytics team.
+
+Case Study 01
+
+analytics
+
+## Dashboard Redesign
+
+Feature delivery sped up by 30% and UX bugs got cut in half. I got there by introducing Double Track Agile and a consolidated Figma design system to a burned-out NielsenIQ design team.
+
+period
+6 months
+
+context
+Analytics SaaS
+
+role
+UX Lead
+
+tags
+DesignOps Design Systems Agile
+
++30%
+delivery speed
+
+−50%
+UX bugs
+
+40%
+user retention
+
++55%
+engagement lift
+
+How Might We
+
+// hmw
+eliminate designer burnout caused by reactive, development-driven decision-making, without sacrificing continuous delivery quality?
+
+The Problem
+
+Traditional handoff cycles forced designers to respond to developer decisions rather than lead them. Teams were burning out fixing issues in production rather than driving product strategy.
+
+There was no shared design system, so every designer worked in isolation. More than 60% of design time went into bug fixes, leaving almost no room for discovery or innovation. The team had lost the ability to be proactive.
+
+Visual Context
+
+UX design process flow, from definition through handoff and validation
+
+Sprint board showing design and dev ceremonies across two parallel tracks
+
+The client's product UI itself is confidential. The interactive recreation further down shows the resulting dashboard without any client-identifying detail.
+
+The Solution
+
+Double Track Agile ran discovery and delivery as parallel sprints, formally separating the space where designers could think ahead from the space where they supported delivery. That one structural change ended the reactive loop.
+
+A consolidated Figma design system with tokens, components, and documented variants eliminated inconsistency at the source. Proactive KPI alerts and a democratized data dashboard gave the team visibility to anticipate problems before they reached production.
+
+Process Model · D3
+
+### Double Track Agile: Structural Fix
+
+The swimlane shows how separating Discovery and Delivery tracks ended the reactive loop. Designers stopped responding to developer decisions and started leading them. Hover each cell for detail.
+
+Key Decision
+
+// design-decision
+
+Double Track Agile. The team was stuck in a reactive loop. By formally separating discovery and delivery tracks, designers stopped being responders and became leaders of the product conversation. It was a structural fix to a cultural problem.
+
+// reflection
+
+It started emerging organically, midway through the project. If we'd planned for it from sprint one, the consistency gains would have compounded faster. The lesson: structural process changes need to be designed as deliberately as the product itself.
+
+Illustrative Recreation
+
+### How the Dashboard Felt to Use
+
+The production dashboard UI is client-confidential. Below is an interactive recreation built for this portfolio, using the same interaction pattern but with generic product names and fictional data.
+
+Illustrative recreation: interface rebuilt from memory in plain HTML/CSS/JS. Product name, brand names, and data are all fictional.
+
+MarketPulse Retail Analytics
+
+Dashboard
+Build a KPI
+
++4.2% Volume · Product A
+
+18.6% Market share
+
+3 Active alerts
+
+Scheduled Reports
+
+Report Region Cadence Status
+
+Weekly Share Recap Total US Weekly Sent
+
+Distribution Tracker Region 1 Monthly Pending
+
+Set up a KPI
+
+Compare Volume Share
+of Product A Product B Product C
+in Total US
+
+Volume · Product A
+
+XXX
+
+---
+
+## From Philosophy to Digital Engagement: Life Coaching Platform · Dario Espinosa
+URL: https://espinosadesign.com/oolalife.html
+Summary: Transformed a book tour cancelled by COVID into a mobile-first digital platform with gamified progress tracking — a 7-area gamification framework, 50 user interviews, 4 key personas, shipped in 6 months.
+
+Case Study 04
+
+health & wellness
+
+## Life Coaching Platform
+
+Transformed a book tour cancelled by COVID into a full digital platform built around a 7-area gamification framework , shaped directly by 50 user interviews.
+
+period
+6 months
+
+context
+Healthcare SaaS
+
+role
+UX Lead
+
+tags
+Product Design UX Research Web App
+
+7
+life areas
+
+50
+user interviews
+
+4
+key personas
+
+6mo
+to MVP
+
+How Might We
+
+// hmw
+transform an in-person book promotion experience into a digital platform that captures the same community and personal-transformation value, in 6 months?
+
+The Problem
+
+COVID eliminated the physical event strategy overnight. The OolaLife brand had built its audience through in-person book tours and community gatherings, none of which could happen anymore. There was no digital strategy, no product, and a countdown clock.
+
+The platform needed to serve two distinct user types: Ambassadors with premium access and management capabilities, and regular users seeking personal-growth accountability. Both needed the system to feel human, not transactional.
+
+Objectives & Scope
+
+### Seven Life Areas, One Digital Platform
+
+The founders initially didn't know where to start. They only knew they wanted everything online. Working closely with Dr. Dave Braun and Dr. Troy Amdahl, I defined two interconnected products: a marketing website and a web app with eLearning sections, Ambassador and Coach roles, login, progress tracking, and enrollment built in.
+
+- MVP platform with user enrollment and Ambassador & Coach role hierarchy
+
+- Articles per unit + activities for long-term, monthly, and weekly goal tracking
+
+- Daily Action Steps with built-in accountability and weekly retrospectives
+
+- Dashboard as the main profile page, with progress visible at a glance
+
+- 7 Key Areas: Fitness · Finance · Family · Field (career) · Faith · Friends · Fun
+
+Target audience: Women aged 30–60, high tech literacy, interested in personal development, networking, and Young Living. Competitor references studied: bigskyhealth.com, mindvalley.com, zerofasting.com.
+
+Visual Context
+
+// visual-01
+
+// visual-02
+
+The Solution
+
+Conducted approximately 50 user interviews to define 4 key personas, primarily women aged 30–60 with high tech literacy and strong motivation for personal growth. Research showed accountability mattered more than content quantity.
+
+Designed a gamification system , built from streaks, rewards, progress tracking, and daily action steps, that replicated the social accountability of in-person events. Collaborated directly with clients in live Miro + Figma sessions to compress decision cycles and meet the 6-month deadline.
+
+Research & Process
+
+### From Whiteboard to Wireframe
+
+The primary user journey started at the marketing website and ended at the application. MindValley served as the indirect benchmark. The founders admired its content depth and future-forward positioning, which shaped early explorations of structure and interaction.
+
+- 4 personas co-created directly with Dr. Braun and Dr. Amdahl through collaborative sessions
+
+- Extensive whiteboarding using customer-centric and Design Thinking methodologies
+
+- UX flow maps, wireframing, Information Architecture definition, sitemap, and MVP task scoping
+
+- Mobile-first approach with breakpoints defined early in process
+
+- Oola had organic growth across multiple domains, so we identified a consolidation opportunity for SEO and brand coherence
+
+- SEO strategy and Google Analytics fixes scoped alongside design work
+
+- Accessibility audit and code-level fixes identified and documented
+
+- When the marketing firm joined, aligned digital style guides with their team and Frontend devs
+
+- Handed off to another designer for final delivery; stayed available to close gaps
+
+Project Momentum · D3
+
+### Six Months — Crisis to Launch
+
+Momentum arc across the 6-month project. Each point marks a real milestone, from COVID crisis to the key insight that reshaped the product (accountability > content) to MVP launch. Hover each point for context.
+
+Key Decision
+
+// design-decision
+
+The gamification system was a deliberate bet. Research showed the audience valued accountability above content quantity. They didn't need more to read, they needed a reason to show up tomorrow. The streak mechanic was the product insight, not the feature.
+
+// reflection
+
+Building for an audience that doesn't know they need digital is a different UX challenge than building for tech-native users. You end up teaching people a new language as much as solving a problem for them. The onboarding flow was more important than any individual feature.
+
+OolaLife.com homepage redesign, showing Programs, Products, and the Oola community platform
+
+Oola Lifestyle Excuses, a gamified assessment showing the 7 F's of Oola wheel and life balance score
+
+Discovery research: competitive analysis covering Google, Instagram, Oola site audit, and analytics overview
+
+Mobile login overlay for the Oola app authentication screen, a cellphone-first sign-in flow
+
+Persona: Ambassador Martha, one of 4 personas derived from 50 user interviews
+
+---
+
+## Optimizing User Research at Scale · Dario Espinosa
+URL: https://espinosadesign.com/research-at-scale.html
+Summary: Cut research turnaround by 50% and drove cross-team adoption of UX methodology, by building scalable research guidelines and AI-assisted synthesis workflows across construction SaaS product verticals.
+
+Case Study 07
+
+construction
+
+## Research at Scale
+
+Cut UX research turnaround by 50% . I did it by building research guidelines and AI-integrated synthesis workflows for a construction-SaaS platform's cross-functional product teams.
+
+period
+Construction SaaS
+
+context
+Multi-vertical
+
+role
+Research Lead
+
+tags
+UX Research AI Integration DesignOps
+
+50%
+faster research
+
+AI
+synthesis integration
+
+x-func
+adoption
+
+multi
+verticals
+
+How Might We
+
+// hmw
+make rigorous UX research accessible and actionable for designers and PMs who don't have a research background, across multiple product verticals at once?
+
+The Problem
+
+Research was siloed inside the research department. Designers and PMs either waited weeks for research outputs or made decisions without them. The bottleneck wasn't data collection. It was the gap between sessions and actionable insight.
+
+AI tools were available across the organization but unused in any structured research workflow. There were no standardized guidelines enabling designers or PMs to self-serve research at a quality bar the team could trust.
+
+Visual Context
+
+Generic research-process template board
+
+Actual usability-testing session recordings, transcripts, and participant feedback are client-confidential and withheld.
+
+The Solution
+
+Built research guidelines enabling designers and PMs to self-serve qualitative research without a research background. They cover study design, recruitment via Ethnio, session facilitation with UserTesting.com, and synthesis standards.
+
+Introduced AI-assisted synthesis to close the gap between raw sessions and insight delivery. Established cross-functional feedback loops so research findings moved into product decisions in days, not weeks. Deployed across multiple verticals simultaneously.
+
+Research Framework · D3
+
+### Research Process: Definition to Insight
+
+Four-phase research framework built to enable designers and PMs to self-serve UX research without a research background. AI synthesis closed the gap between sessions and actionable insight. Hover each phase.
+
+Key Decision
+
+// design-decision
+
+I introduced AI-assisted synthesis because the bottleneck wasn't data collection. It was the time between sessions and actionable insight. AI cut that gap without reducing quality, as long as it was paired with human judgment at the interpretation layer. Speed without shortcuts.
+
+// reflection
+
+The best outcome wasn't the speed improvement. It was the cultural shift. When designers started asking 'what does the research say?' before writing a user story, the work had done what it was meant to do. Process adoption is the real design deliverable.
+
+UX Research Process Flow: Definition → Recruiting → Testing → Reporting · meetings, activities, and artifacts per phase
+
+---
+
+## Modernizing Railway Systems: Back Office Overhaul · Dario Espinosa
+URL: https://espinosadesign.com/siemens.html
+Summary: Reduced operator task time by 40% and onboarding time by 60% — redesigning a safety-critical legacy C++ system with a component-driven Flutter and Figma design system. WCAG 2.1 AA compliant.
+
+Case Study 02
+
+transportation
+
+## Railway Back Office
+
+Reduced operator task time by 40% and onboarding time by 60%, by redesigning a legacy railway backoffice system with a component-driven design system aligned to Siemens brand standards.
+
+period
+Rail Transport
+
+context
+Safety-Critical
+
+role
+Solo Lead
+
+tags
+Enterprise UX Design System WCAG
+
+signal clears, dispatcher proceeds
+
+−40%
+operator task time
+
+−60%
+onboarding time
+
+100%
+WCAG 2.1 AA
+
+1
+solo lead
+
+How Might We
+
+// hmw
+redesign a complex, legacy backend tool, where every UI decision has safety implications, without disrupting active railroad operations?
+
+The Problem
+
+The PTC Backend Admin Server was a native C++ application with no design standards, cryptic error codes like CSX0256, and zero documentation for onboarding. A train collision made digital modernization non-negotiable. The stakes weren't abstract.
+
+The primary competitor (GE) had already set a high bar for usability. The existing interface couldn't just be iterated on. It needed to be rethought from the ground up, while operators continued to rely on it daily.
+
+Visual Context
+
+Design system reference — colors, UI elements, typography scale
+
+The underlying architecture documents and Figma prototype maps are client-confidential and withheld. The interactive recreation further down shows the resulting interface without any client-identifying detail.
+
+The Solution
+
+Introduced Scrum to a team that had never worked with it, establishing rhythm and predictability for a high-stakes redesign. Built a Material Design UI kit aligned to Siemens brand standards and Flutter-ready component specs using Atomic Design principles.
+
+Dark and light themes. A fully navigable prototype for desktop review. And a separate tablet solution for field workers who needed the same system in motion, on trains, on platforms, in variable light conditions.
+
+System Architecture · D3
+
+### Component Library as Design Hub
+
+Force-directed graph showing how Material Design, Siemens brand standards, WCAG 2.1 AA, and Atomic Design converged into a single component library, which then radiated out to screens, themes, and delivery platforms. Drag any node.
+
+Legacy system
+Input frameworks
+Component hub
+UI screens
+Platforms
+
+Key Decision
+
+// design-decision
+
+Flutter had no mature desktop export tool. Rather than block delivery, I designed for web-resolution parity and used Figma + Zeplin for handoff, documenting the gap explicitly for the next phase. Transparency about tooling constraints is a design decision.
+
+// reflection
+
+Doing this solo was the biggest constraint and the biggest lesson. I learned to ruthlessly prioritize what required design leadership versus what could be iterated through developer feedback. The output was cleaner for it, too. Fewer opinions meant fewer compromises.
+
+On Site Collab · POC for Expo
+
+### One Week, One MVP, One Global Stage
+
+During a week-long on-site sprint, the team delivered a fully functional MVP for the C&S Transportation Signals Expo 2021 . The prototype ran live on both a wall-mounted display and a ruggedized tablet, drawing significant interest from railroad operators and sparking the broader vision of merging the BOS tablet capability with the existing desktop platform.
+
+Event photography withheld. The on-site booth and demo stations were client-branded assets outside the scope of what can be shown publicly here.
+
+Design System
+
+### BOS Tablet Design System
+
+The Siemens Trainguard PTC BOS interface required a purpose-built component library designed for operators working in live railroad environments: dense data tables, real-time status indicators, and multi-level navigation across BOS nodes, subdivisions, and locomotives.
+
+The palette is anchored in Siemens Petrol as the structural foundation, with a bright Interactive Teal reserved for live status and active selections. The dark sidebar creates clear spatial hierarchy, letting operators instantly orient within a complex information architecture without visual noise.
+
+All components were designed for tablet-first use, with generous touch targets, high contrast ratios for varying light conditions, and explicit active/inactive/error state coverage across every element.
+
+Figma Variables
+Design Tokens
+Tablet-first
+WCAG AA
+Zeplin Handoff
+Status System
+
+// drag to reorder
+
+A three-tier spatial hierarchy: dark structure, teal interaction, light surface.
+
+Illustrative Recreation
+
+### How the Console Felt to Use
+
+The real prototype and production screens are client-confidential. Below is an interactive recreation built for this portfolio, using the same interaction patterns and information density, but with generic labels and fictional data.
+
+Illustrative recreation: interface rebuilt from memory in plain HTML/CSS/JS. Product name, org names, and data are fictional.
+
+TrackWatch Rail Ops Console
+
+Overview
+Field View
+Network Map
+
+All Status ▾
+Request Ownership
+
+Work Zone Bulletins
+
+Bulletin Subdivision Track Window Status
+
+▤ 2214 NORTH LINE MAIN 08:00–16:00 Unassigned
+
+▤ 2231 RIVER JCT MAIN 08:00–16:00 Assigned
+
+▤ 2258 NORTH LINE SIDE-2 10:00–18:00 Unassigned
+
+Field Terminal · dark
+
+Summary Notifications Train Activity
+
+Engine RX-4471 · Bulletin 2231 · Milepost 19.2 · On Board
+
+Network Map · abstract
+
+Five Current Sources of Train Information — PTC context slide showing the problem space before digital transformation (2021)
+
+---
+
+## Driving Conversions: Electric Vehicle Launch Page · Dario Espinosa
+URL: https://espinosadesign.com/tycan.html
+Summary: Conceptual mobile-first landing page for Porsche's Taycan EV. Designed around visceral emotional triggers, conversion rate optimization, and a multi-step pre-order flow. Figma prototype, 2020.
+
+// archive · older work
+
+automotive
+Concept
+UI/UX Design
+Conversion Design
+2020
+
+## Porsche Taycan
+Landing Page Concept
+
+Conceptual landing page for Porsche's Taycan EV, designed around emotional triggers, conversion rate optimization, and premium digital experience. A mobile-first Figma prototype with a multi-step pre-order flow.
+
+Role: Designer
+Brief: 3Pillar Global
+Medium: Figma Prototype
+
+Objective: Design a high-conversion landing page for the Taycan EV launch that communicates brand prestige while guiding visitors through an emotionally charged pre-order funnel. Every element, from typography to micro-copy, was crafted to trigger desire and reduce hesitation.
+
+Hero & Visual Direction
+
+Process
+
+### From Brand Research to Prototype
+
+The project began with deep immersion in Porsche's brand world: studying premium automotive landing pages, EV marketing campaigns, and conversion patterns in high-ticket ecommerce. A moodboard established the visual tension between raw performance and refined elegance.
+
+Wireframes mapped the scroll narrative: hook → desire → specification → social proof → CTA. Each section answers an unspoken objection and moves the visitor forward. The pre-order flow was designed as a multi-step modal, using progressive disclosure to reduce cognitive load while maintaining momentum.
+
+High-Fidelity Screens
+
+The purchase decision is always to take advantage of timing. Every CTA should use emotional triggers and close quickly through a conversion trigger.
+
+Prototype & Reflection
+
+The final Figma prototype includes animated transitions between sections and a functional pre-order modal, demonstrating the full user journey from first impression to conversion. This concept brief sharpened my understanding of high-stakes landing page design, where brand prestige and conversion urgency have to coexist.
+
+View Figma Prototype →
+
+Design Decisions & Context
+
+The competitive context shaped every decision: Tesla, Rivian, E-Tron, and Polestar were all positioning in the electric premium space. The focus had to be on making the Taycan feel irreplaceable, not just electric. The answer was visceral and behavioral design, targeting the sensory experience rather than specifications.
+
+- Used the official Porsche press kit : high-fidelity images, brand guidelines, SVG logos, and licensed fonts
+
+- One call-to-action per scroll section, so no competing messages and no decision fatigue
+
+- One-page design for segmented digital marketing: invitation, email, social campaign, SMS, and QR code
+
+- Multistep pre-order flow designed to reduce friction through progressive disclosure
+
+- High-quality images with detail zoom across all 3 Taycan models
+
+- Conversion via online chat for personalized, direct treatment (system modeled after existing Porsche programs in other countries)
+
+- Color contrast treated for accessibility throughout
+
+- SEO-ready: every button and CTA measurable by analytics tools, heat maps applicable from day one
+
+← Back to Work
+Next: Zafyro UI →
+
+---
+
+## VIRTU4L — Brand, Website & AI-Powered VR Business · Dario Espinosa
+URL: https://espinosadesign.com/virtu4l.html
+Summary: VIRTU4L — founding a VR entertainment business in Chiapas: brand identity, website, AI-powered operations, and physical VR center experience design.
+
+personal business · founder
+
+## VIRTU4L — Brand, Website
+& AI-Powered VR Business
+
+Founding and building Chiapas' first VR center from the ground up: complete brand identity , a multi-page website with an AI game assistant and online quoter, a digital marketing system, and an AI avatar that runs operations. Every touchpoint designed and built by hand.
+
+context
+Personal Business
+
+role
+Founder · Designer · Dev
+
+timeline
+2024 – present
+
+location
+Tuxtla Gutiérrez MX
+
+150+ VR games
+
+5+ Website pages
+
+4 Experience packages
+
+AI Game assistant built
+
+01 — Overview
+
+Personal Business · Founder
+
+### The First VR Center in Chiapas
+
+VIRTU4L is not a client project. It's a real business I co-founded, designed, and built in Tuxtla Gutiérrez, Chiapas. The challenge was not just design: it meant going from zero to a fully operational venue , with a brand, a digital presence, pricing strategy, marketing, and AI tooling all running simultaneously.
+
+The venue features free-roaming Meta Quest headsets with 45+ VR titles in-room, Xbox Cloud Gaming, Gotcha (paintball), private events for birthdays, corporate team building, and concerts. As the experience lead, I handled everything from naming and visual identity to the code that powers the website, and kept iterating once the business was already running with customers walking in.
+
+01
+
+Brand Identity
+
+Logo, palette, tone
+
+02
+
+Website
+
+5 pages, vibe-coded
+
+03
+
+Business Dev
+
+Pricing & packages
+
+04
+
+Marketing
+
+Social + AI content
+
+05
+
+AI Tools
+
+Assistant + avatar
+
+02 — Brand Identity
+
+### Building from Zero: Logo, Palette & Voice
+
+The name VIRTU4L (with the 4 standing in for the letter A) immediately signals the digital-first identity and sets it apart from generic venue names. The brand had to feel exciting and premium while staying accessible to families, teenagers, and corporates alike.
+
+Brand Principle
+
+Dark, immersive, neon-forward. The brand lives in the space between tech product and entertainment venue, more like a gaming company than a carnival. Red (#ef4444) as the primary action color; teal as the digital-future accent; black as the permanent foundation.
+
+Color System
+
+#EF4444
+Primary action · CTA
+
+#3CFFD0
+Digital accent · highlights
+
+#0A0A0F
+Immersive background
+
+Typography uses a clean bold sans across all touch points. Headers run heavy to create the cinematic weight the VR experience demands, while body copy stays readable across mobile and venue screens. The tag line "Experimenta la Realidad Virtual" is direct, action-first, and bilingual by design.
+
+03 — Website Design & Development
+
+Vibe-coded · Vanilla JS · No framework
+
+### A Multi-Page Business Website Built from Scratch
+
+The site was designed and developed end-to-end: no template, no CMS. Built in vanilla HTML, CSS, and JavaScript with deliberate performance constraints: fast-loading on mobile, SEO-ready, and deployable without a backend.
+
+/ index
+
+Home
+
+Hero, features, experience packages, games carousel, events, client logos, CTA
+
+/ juegos
+
+Games Catalog
+
+45+ VR titles + 550+ Xbox Cloud with filter by genre, AI game mood assistant
+
+/ cotizador
+
+Quote Wizard
+
+6-step interactive wizard: event type → package → location → extras → WhatsApp send
+
+/ faq
+
+FAQ
+
+Accordion-based FAQ covering booking, safety, age limits, and accessibility
+
+/ halloween
+
+Seasonal Events
+
+Themed landing for special events. Halloween 2024 was the first edition
+
+interactive
+
+AI Mood Assistant
+
+JS-powered 2-step mood questionnaire that recommends up to 3 VR games
+
+↑ Home page hero — full-bleed immersive layout with booking CTA above the fold
+
+↑ Games catalog — filterable, searchable, 45+ VR titles
+
+↑ Online quoter — 6-step wizard ending in a WhatsApp pre-filled message
+
+Key Design Decision
+
+The quote wizard was the single highest-impact UX feature. Instead of a generic contact form, users answer 6 structured questions (event type, package, extras, location) and get a WhatsApp message pre-filled with their configuration. Zero sales friction, zero back-and-forth.
+
+04 — Business Development
+
+### Pricing Architecture & Package Strategy
+
+Defining the pricing model was as much a design challenge as a business one. The goal: make the entry point irresistible ($50 MXN walk-in), scale cleanly to group events, and never leave money on the table with vague "custom quotes".
+
+Star
+
+$50 MXN
+
+5–10 min individual — gateway experience, walk-in, no booking needed
+
+1 person · intro games only
+
+Mini
+
+$120 MXN
+
+30 min individual — full catalog access, guided session
+
+1 person · all games
+
+Club ✦
+
+$400 MXN
+
+60 min group — private area, multiplayer, ideal for friends & family
+
+2–4 people · most popular
+
+Arena
+
+$800 MXN
+
+90 min events — full space, tournaments, competitions, corporate
+
+5+ people · events & groups
+
+Beyond walk-in packages, a parallel revenue track was designed for B2B and event rentals : birthday packages with Gotcha paintball add-ons, corporate team building with catering coordination, and venue rental for concerts and private events up to 50 people. Each has its own pricing logic and a dedicated section in the quote wizard.
+
+Partnership
+
+Gotcha Depredadores, a local paintball venue, was brought in as a strategic partner, expanding the offer to combined VR + Gotcha packages. This cross-sell drives higher AOV and differentiates VIRTU4L from a standard gaming lounge into a full entertainment destination .
+
+05 — Digital Marketing & Social
+
+### Content Strategy & AI-Assisted Execution
+
+Running a business and creating daily content simultaneously is unsustainable without a system. VIRTU4L's social presence spans Instagram, TikTok, Threads, and Facebook. Each platform gets a distinct content format built around its own algorithm.
+
+Instagram @virtu4lsc
+
+Reels-first: in-venue gameplay clips, customer reactions, game highlights. High-production shorts drive reach; stories drive reservations via link-in-bio.
+
+TikTok @realidadvirtu4l
+
+Organic discovery channel: raw gameplay + funny moments format. Lower production cost, higher reach ceiling. Used for new game announcements and walk-in promotions.
+
+AI-assisted content creation is central to the operation. Claude and Midjourney draft caption variants, social copy, and visual concepts, cutting content production time by 60% while keeping brand voice consistent. Seasonal campaigns (Halloween, summer breaks, corporate season) are planned and partially generated with AI.
+
+Marketing Principle
+
+The best marketing for a VR venue is showing people what it feels like to be inside one . All content strategy is anchored to first-person reaction content. The guest's face the moment they put on the headset is the most effective ad we can run.
+
+06 — AI Tools Built
+
+AI-native operations
+
+### Three Distinct AI Systems for One Business
+
+Running a small VR venue means wearing every hat. Rather than hiring for each gap, AI tools were designed and built to fill specific operational holes, each one scoped to a real pain point.
+
+WEBSITE
+
+AI Game Mood Assistant
+
+Built into the games catalog page, a 2-step conversational filter asks the user how they feel today (tranquil / excited / social / first-timer / with kids) and recommends up to 3 VR titles matched to that mood and available session time. Pure vanilla JS, no API calls.
+
+OPERATIONS
+
+VOS — VIRTU4L Operations System
+
+A Slack-native agent (Node.js + Ollama) handling daily checklists, reservations, sales tracking, and Dasha, an AI assistant that runs locally with zero cloud dependency. 293 passing tests. Full case study available separately.
+→ VOS case study
+
+BRAND
+
+AI Avatar — Dasha
+
+Created a branded AI avatar, Dasha, as the face of VIRTU4L's customer communications and operations assistant. Dasha has a defined personality (energetic, direct, local), appears in social content, and powers the Slack operations brain inside VOS. Designed with a consistent visual identity so the avatar becomes a recognizable character.
+
+07 — Technical Stack
+
+### Built to Run Without a Backend
+
+Every decision in the technical stack was shaped by one constraint: this business runs on a tight budget in a city with limited dev talent. The stack had to be maintainable by me alone, fast to deploy, and free to host.
+
+HTML5
+
+CSS3
+
+Vanilla JS
+
+Google Calendar API
+
+WhatsApp API
+
+Google Maps embed
+
+Netlify / GitHub Pages
+
+Node.js (VOS)
+
+Ollama (local LLM)
+
+Claude (AI assist)
+
+Midjourney (visuals)
+
+No-backend design choice
+
+The quote wizard generates a WhatsApp deep link with a pre-filled message constructed entirely in JS on the client side. The calendar booking uses Google's public calendar embed. There is no server, no database, no API keys exposed. Zero hosting cost, zero attack surface, zero maintenance overhead.
+
+08 — Reflection
+
+### What Running a Business Teaches a Designer
+
+This project is ongoing. The business is live, customers are walking in, and the product keeps evolving. The difference between client work and founder work is that you feel every design decision in your bank account .
+
+Learned: Speed beats perfect
+
+The first version of the website launched in under 2 weeks. It was imperfect. It still generated the first 20 reservations. Every sprint since has been driven by real customer behavior, not assumptions.
+
+Learned: AI amplifies solo founders
+
+Running marketing, operations, development, and design simultaneously is only feasible because of AI tooling. Claude wrote first drafts of copy that I refined. Midjourney generated visual concepts in hours. VOS automated the operational checklist that used to require a dedicated person.
+
+Ongoing challenge
+
+Local market education is still a challenge: many potential customers in Tuxtla Gutiérrez have never tried VR. A significant part of the content strategy is converting curiosity into first-visit intent, not just retaining existing customers.
+
+brand-design
+web-development
+business-development
+digital-marketing
+ai-tools
+vibe-coded
+founder
+meta-quest
+personal-project
+
+#### See it live
+
+realidadvirtu4l.com is open to the public. Walk-ins welcome, events bookable online.
+
+Visit VIRTU4L ↗
+← All work
+
+---
+
+## VOS — VIRTU4L Operations System with Local AI · Dario Espinosa
+URL: https://espinosadesign.com/virtu4lslacksagent.html
+Summary: Slack-native AI operations system for a VR venue. Daily checklists, reservations, sales tracking, and Dasha — a locally-hosted AI agent. 293 tests, 4 channels, 0 public URLs.
+
+← back to work
+
+Personal Project · Side Project
+
+entertainment
+
+## VOS — VIRTU4L
+Operations System
+with Local AI
+
+A Slack-native operations brain for a real-world VR venue, built where the team already works. One operator can run a full day independently. The director keeps full visibility. Dasha , the AI assistant, handles what the team would otherwise forget.
+
+Type
+
+Vibe-coded
+
+Role
+
+Founder / Dev
+
+Context
+
+VIRTU4L · MX
+
+Stack
+
+Node · Slack
+
+// tools
+Claude Code
+Cursor
+Node.js 20
+Slack Bolt SDK
+SQLite + Drizzle
+Ollama · gemma3:4b
+Google Calendar API
+Loyverse POS API
+Docker
+pm2
+Jest
+
+293
+
+Tests Passing
+
+4
+
+Slack Channels
+
+3
+
+External Integrations
+
+0
+
+Public URLs Required
+
+How Might We
+
+How might we give a solo VR venue operator full operational control, without building a custom admin panel, adding new logins, or switching tools during the workday?
+
+The Problem
+
+### Operations Running on WhatsApp and Memory
+
+VIRTU4L is an independent VR entertainment venue in Tuxtla Gutiérrez, Chiapas. Sessions are short, guided, and high-turnover. One operator runs the floor: welcoming guests, managing headsets, processing sales, tracking reservations, and coordinating events.
+
+Most small venues survive on a mix of WhatsApp groups, spreadsheets, and memory . That works until it doesn't: a double-booking, a missed opening checklist, an event nobody confirmed, a headset nobody cleaned. There was no single place to run the day, no visibility for the director, and no structured path for operators to grow.
+
+// Pain · Operator
+
+No structured workflow. Opening and closing tasks lived in a WhatsApp thread. Reservations were manual. Sales reconciliation happened at end of shift, if at all.
+
+// Pain · Director
+
+No real-time visibility. Had to ask the operator for updates instead of seeing them. Financial summaries required manual compilation. No pattern data, only anecdotes.
+
+Visual Context · Slack Interface
+
+### Dasha in Action
+
+VOS meets the team inside Slack, the tool they already use. Each channel has a dedicated workflow. Below is a typical start-of-shift interaction in #operaciones-local .
+
+# operaciones-local
+VOS · Socket Mode · connected
+
+AO
+
+Adzhiri 09:01
+
+checklist
+
+D
+
+Dasha APP 09:01
+
+☀️ Buenos días. Aquí tu checklist de apertura — martes 3 jun .
+
+☐ Encender televisores y verificar conexión
+
+☐ Revisar visores V2, V3, V4 — carga y limpieza
+
+☐ Confirmar reservaciones activas del día
+
+☐ Abrir caja y verificar cambio disponible
+
+☐ Señalización y área de experiencia lista
+
+Tienes 2 reservaciones confirmadas: 11:00 y 14:30. Escríbeme reservacion para ver detalles.
+
+AO
+
+Adzhiri 09:44
+
+venta 2 sesiones estándar efectivo
+
+D
+
+Dasha APP 09:44
+
+✅ Venta registrada: $100 MXN efectivo · 2 × Sesión estándar ($50 c/u)
+
+Loyverse actualizado · Corte del día: $100 MXN acumulado.
+
+DASHA-GUARD: precio verificado ✓ · stock suficiente ✓
+
+Dir
+
+Director 18:00
+
+dashboard
+
+D
+
+Dasha APP 18:00
+
+📊 Resumen del día — martes 3 jun
+
+Ventas: $650 MXN · 13 sesiones · 4 efectivo · 9 transferencia
+
+Reservaciones completadas: 2/2 ✓
+
+Visores operativos: V2 ✓ V3 ✓ V4 ⚠ (batería baja al cierre)
+
+Checklist apertura: completado 09:18 · cierre: pendiente
+
+Message #operaciones-local
+
+The Solution
+
+### One Slack Layer, Four Dedicated Channels
+
+VOS is not a website and not a mobile app. It is an operations layer inside Slack , built where the team already communicates. Bolt SDK Socket Mode means no public URL and no inbound ports; the bot initiates an outbound WebSocket to Slack and stays live on a Mac mini running pm2.
+
+The architecture separates concerns by channel: operations, learning, marketing, and director oversight each get a dedicated agent with specific commands and guardrails. DashaGuard sits in front of every write operation, whether that's a calendar event, a sales record, or a financial action, enforcing double-booking checks, price tolerance windows, and director authentication on high-risk commands.
+
+# operaciones-local
+
+Daily checklist, reservaciones (Google Calendar), ventas (Loyverse POS), headset tracking, event setup, and gotcha coordination. One operator, one thread.
+
+# overseer-director
+
+Private director view. Financial dashboards, DashaGuard alerts, shift summaries, and two-factor authentication for sensitive writes. No operator access.
+
+# formacion-ai
+
+Career path Levels 1–5, Kanban-style task tracking, onboarding coaching, and daily learning nudges. Training is part of the workday, not a separate PDF.
+
+# marketing-virtu4l
+
+MKT-COACH advisory powered by Ollama. Content planning tied to real venue data: trending games, session signals, and seasonal context for Tuxtla Gutiérrez.
+
+AI-Assisted Workflow
+
+Solo build · Claude Code + Cursor
+
+### Building VOS with Claude Code and Cursor
+
+VOS was built solo, end to end, with AI as an active build partner rather than a code-completion tool. The interesting design work wasn't the Slack integration. It was deciding what Dasha is allowed to state as fact versus offer as a suggestion, and gating every write behind DashaGuard before it touches a real calendar, sale, or financial record.
+
+VOS — AI-assisted process and tools by stage
+
+Stage
+01 · Frame
+02 · Architect
+03 · Build
+04 · Guardrail
+05 · Ship
+
+AI role
+None yet, human problem framing
+Sounding board for architecture tradeoffs
+Pair-programs the actual implementation
+Subject of the design problem, not just the tool
+Runs the live system
+
+Tools
+—
+Claude
+Claude Code, Cursor
+Ollama (gemma3:4b), deterministic logic for high-risk commands
+pm2, Mac mini, outbound WebSocket
+
+Process
+Mapped how ops actually ran on WhatsApp and memory, channel by channel
+Chose Slack Bolt Socket Mode over a web panel; defined DashaGuard's checkpoints
+Four Slack channels, DashaGuard, and Ollama advisory agents built end to end by one developer
+Drew the line between what Dasha can suggest versus what needs a verified fact or human sign-off
+Live in production for the actual VR center team, on a real Mac mini
+
+Key question
+Where does this actually break today?
+Why Slack, and what has to be gated before it ships?
+Can one person actually ship this alone?
+How does Dasha know the difference between a guess and a fact?
+Does the team actually use it on a real shift?
+
+← swipe to see every stage →
+
+Architecture · D3
+
+### System Architecture — VOS
+
+Socket Mode means no reverse proxy, no public endpoint, no load balancer. The bot owns the connection. All external writes go through DashaGuard.check() before touching any service.
+
+Key Decision
+
+// design-decision
+
+Why Slack and not a web panel? The team already lives in Slack. A custom admin panel means a new URL to bookmark, a new login to forget, and a screen nobody opens unless they're told to. VOS meets people where they work, with no onboarding friction and no context-switching mid-shift. The AI assistant feels like a colleague in the thread, not a form to fill out.
+
+// design-decision
+
+Local LLM (Ollama) over cloud API for advisory agents. Marketing coaching and career conversations don't need GPT-4. Ollama's gemma3:4b runs locally, so there's no per-token cost, no data leaving the machine, and no latency spike. For operational commands (checklist, sales, calendar) the bot uses deterministic business logic, not LLM inference, for reliability and auditability.
+
+Reflection
+
+"Building this entirely with Claude Code and Cursor showed me how fast a solo developer can move when the AI partner understands the domain. The hardest part wasn't the code. It was designing Dasha's behavioral rules so she never invents data and always knows the difference between a suggestion and a verified fact. Getting that boundary right is a design problem, not an engineering one."
+
+View on GitHub ↗
+VIRTU4L Website ↗
+
+---
+
+## Product Catalog Redesign: Smartphones & Accessories · Dario Espinosa
+URL: https://espinosadesign.com/walking-dog.html
+Summary: UI/UX redesign from concept to production of the AT&T México Smartphones, Accessories, and Tablets Catalog. Complete product catalog experience redesign deployed to att.com.mx/consiguelo.
+
+// archive · older work
+
+telecommunications
+UX Design
+Business Model
+POC
+2021
+
+## Walking Dog
+App POC
+
+Proof of concept for a dog-walking marketplace app called "Dog City." User research, business model validation, and UX design for a location-based service connecting dog owners with professional walkers.
+
+Role: UX Designer
+Type: POC · Marketplace
+Model: Two-sided Platform
+
+Objective: Validate a business model before committing to full product development. The POC combined market research, competitive analysis, and UX design to determine whether a dog-walking marketplace could achieve product-market fit, and how it should be designed to convert both dog owners and walkers.
+
+Business Model
+
+### Two-Sided Marketplace Dynamics
+
+Dog City is a platform business: value is created by connecting two distinct user groups whose needs are complementary. The design had to serve both sides, building trust for owners and opportunity for walkers, without favoring one over the other.
+
+#### Dog Owners
+
+Need: reliable, trustworthy care for their pets on flexible schedules. Key friction: trust and real-time visibility
+
+#### Dog Walkers
+
+Need: consistent income and manageable client load. Key friction: discovery and booking efficiency
+
+UX Design
+
+In two-sided marketplace design, the first design decision is: which side bootstraps first? For Dog City, walkers are supply. Without them there is no product. The onboarding UX prioritized walker acquisition, then built owner trust on top of that foundation.
+
+Reflection
+
+The Walking Dog POC was an exercise in UX as business validation. It meant designing a business model through the lens of user behavior, not just designing screens. The research phase challenged initial assumptions about which features drive adoption on each side of the marketplace.
+
+Location-based services add a critical trust dimension: users must feel safe before they will share location and payment data. The design solution embedded trust signals (verified profiles, real-time GPS tracking, rating systems) at every step of the journey rather than relegating them to a single "trust" section.
+
+← YAIWA Smartphone
+Next: Kasuva B2B →
+
+---
+
+## From Identity to Shelf: Smartphone Brand & Packaging · Dario Espinosa
+URL: https://espinosadesign.com/yaiwa.html
+Summary: Complete brand identity system and unboxing experience design for YAIWA smartphone by Spirit Asian Company. From name proposal to 3D packaging renders, extended to IBERIA and Spirit Credit Card.
+
+// archive · older work
+
+consumer-tech
+Product Design
+Industrial UX
+Brand Identity
+2017
+
+## YAIWA
+Smartphone Design
+
+Full smartphone UI and industrial design concept for YAIWA, a Spirit Asia Company product. Visual identity, screen UI design, packaging direction, and product photography art direction.
+
+Client: Spirit Asia Company
+Role: Product Designer
+Scope: Brand + UI + Packaging
+
+Scope: End-to-end design responsibility for a hardware product entering a competitive mobile market. The work spanned from brand identity and visual language through to UI screen design and packaging: a full product design engagement requiring consistency across physical and digital touchpoints.
+
+Brand & Identity
+
+Product Design
+
+UI & Packaging
+
+Screen UI design followed the brand's visual language: clean, modern, and market-competitive. Packaging direction unified the physical product presentation with the digital experience identity.
+
+Process & Extended Work
+
+### From Name Proposal to Unboxing Experience
+
+The original name was "Yawa." When expanding the market to the Americas, the team searched for a name with easy pronunciation across multiple languages. Spanish, English, and Portuguese speakers all needed to say it naturally. The final name became YAIWA .
+
+- Complete brand identity system: visual language, color, typography, mark
+
+- Packaging design: box structure and full unboxing experience design
+
+- Digital content: screen wallpapers and 3D renders for both high-end and low-end smartphone SKUs
+
+- Extended engagement: designs for IBERIA (Spanish Airlines) travel branding
+
+- Spirit Credit Card travel account kit, smartphone-ready for use in 130+ countries
+
+Tools: Adobe Dimension for 3D renders and photorealistic product visualization. The project started with a credit card identity for Spirit Asian Company and grew into a full smartphone brand system.
+
+Reflection
+
+YAIWA was an early and formative project in designing across the physical-digital boundary. Creating a consistent brand expression that worked equally on product hardware, retail packaging, and digital screens required a systems-first mindset, one that has informed all subsequent work in product and UX design.
+
+Designing for an Asia-market client also pushed cultural adaptability: form factors, aesthetic preferences, and brand signaling all required contextual calibration beyond Western design defaults.
+
+← Daily Bot
+Next: Walking Dog →
+
+---
+
+## Custom Plan, Zero Friction: Telecom UI Concept · Dario Espinosa
+URL: https://espinosadesign.com/zafyro.html
+Summary: High-fidelity mobile UI concept: 'Create your plan, pay only for the SIM.' A simple telecom plan configurator designed for transparency and zero commitment before activation.
+
+// archive · older work
+
+telecommunications
+Mobile UI
+High-Fidelity
+Visual Design
+2021
+
+## Zafyro
+Mobile App UI
+
+High-fidelity UI mockup for Zafyro, a mobile app concept. Focused on clean visual design, component consistency, and mobile-first interaction patterns. A visual showcase in systematic interface craft.
+
+Role: UI/UX Designer
+Medium: Figma
+Type: Concept
+
+Approach: This was an exercise in visual discipline: building a coherent, polished mobile UI from a concept brief. Every screen was crafted around component reusability, typographic hierarchy, and touch-target usability. The result is a high-fidelity mockup that communicates product vision with precision.
+
+Concept & Approach
+
+### Pay Only for the SIM You Actually Need
+
+Zafyro was a service concept designed around a single insight: mobile plan pricing is opaque, bundled, and rarely matches actual usage. The product idea, "Create your plan, pay only for the SIM," let users configure exactly what they needed before activating anything.
+
+- Mobile-first concept: the entire configuration experience was designed for thumb-reach interaction
+
+- Plan builder UI: users select data, voice, and SMS amounts independently
+
+- Payment tied only to SIM activation, with no commitment before the user was ready
+
+- High-fidelity prototype demonstrated the full plan-creation-to-checkout journey
+
+Visual Showcase
+
+### High-Fidelity Mobile Interface
+
+The Zafyro UI demonstrates a mature mobile design language: clean, structured, and purposeful. Component systems were built first, with screens assembled from consistent building blocks to ensure scalability across the product.
+
+Reflection
+
+### On Visual Systems
+
+Zafyro was a compact but instructive project. The constraint of a single coherent visual identity across multiple screens pushed for disciplined design decision-making. Color, spacing, and type all follow strict rules that make the interface feel inevitable rather than arbitrary.
+
+This kind of high-fidelity visual work informs how I approach larger UX systems: the visual layer is not decoration, it is communication.
+
+← Porsche Taycan
+Next: Daily Bot →

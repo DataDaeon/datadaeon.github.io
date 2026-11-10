@@ -421,7 +421,8 @@
   };
   var T = {
     en: {
-      hello: 'Hi — I’m Dario’s pixel twin. Ask me about his work, experience, skills or how to reach him. I only answer from what’s on this site.',
+      hello: 'Hi — I’m Dario’s pixel twin. Ask me about his work, experience, skills or how to reach him. I only answer from what’s on this site. Heads-up: the site is still under construction, so new case studies and features keep landing.',
+      construction: 'Yes — this site is under construction. Dario keeps adding case studies, the interactive home and this chat, so some pages may change or still be rough. Everything here is real work; if something looks off, tell him at [' + EMAIL + '](mailto:' + EMAIL + ').',
       who: 'Dario Espinosa is a Lead Experience Designer based in Chiapas, Mexico, with 18+ years turning complex, outdated systems into clear, human experiences — from enterprise telecom to AI-powered tools and immersive spatial design.\nHe prototypes in code with Claude and coding agents, so stakeholders review a working interface from the first session. More on [the About page](about.html).',
       current: 'Today he’s an Experience Design Lead at SoftServe (since January 2025), leading how design and AI-assisted workflows plug into each other across healthcare, energy and spatial computing.',
       years: '18+ years — shipping across field operations, industrial software, enterprise platforms and healthcare products, from startups to Fortune 500 companies.',
@@ -441,7 +442,8 @@
       chips: ['What do you do?', 'Current role', 'Show me your work', 'AI prototyping', 'Accessibility award', 'How can I contact you?']
     },
     es: {
-      hello: 'Hola — soy el gemelo pixel de Dario. Pregúntame por su trabajo, experiencia, habilidades o cómo contactarlo. Solo respondo con lo que está en este sitio.',
+      hello: 'Hola — soy el gemelo pixel de Dario. Pregúntame por su trabajo, experiencia, habilidades o cómo contactarlo. Solo respondo con lo que está en este sitio. Ojo: el sitio sigue en construcción, así que van llegando casos y funciones nuevas.',
+      construction: 'Sí — este sitio está en construcción. Dario sigue agregando casos de estudio, el home interactivo y este chat, así que algunas páginas pueden cambiar o verse incompletas. Todo el trabajo aquí es real; si algo se ve raro, avísale a [' + EMAIL + '](mailto:' + EMAIL + ').',
       who: 'Dario Espinosa es Lead Experience Designer en Chiapas, México, con más de 18 años convirtiendo sistemas complejos y obsoletos en experiencias claras y humanas — desde telecom empresarial hasta herramientas con IA y diseño espacial inmersivo.\nPrototipa en código con Claude y agentes, así los stakeholders revisan una interfaz funcional desde la primera sesión. Más en [About](about.html).',
       current: 'Hoy es Experience Design Lead en SoftServe (desde enero de 2025), liderando cómo se conectan el diseño y los flujos asistidos por IA en salud, energía y computación espacial.',
       years: 'Más de 18 años, entregando en operaciones de campo, software industrial, plataformas empresariales y productos de salud, de startups a empresas Fortune 500.',
@@ -462,6 +464,7 @@
     }
   };
   var INTENTS = [
+    ['construction', 'construction under unfinished finished done wip beta broken bug bugs new update updated construccion terminado incompleto roto actualizado nuevo'],
     ['thanks', 'thanks thank gracias genial perfect'],
     ['contact', 'contact email mail hire hiring reach available availability linkedin cv resume pdf contacto contactar correo contratar disponible'],
     ['current', 'current currently now today present softserve actual actualmente hoy ahora'],
@@ -641,7 +644,7 @@
   // ---- one gentle intro bubble per session ----
   var tip = document.createElement('div'); tip.className = 'pt-tip'; tip.setAttribute('aria-hidden', 'true');
   var pc = PT.pageCase();
-  tip.textContent = pc ? 'Questions about this project? Ask me.' : 'Questions about Dario? Ask me.';
+  tip.textContent = (pc ? 'Questions about this project? Ask me.' : 'Questions about Dario? Ask me.') + ' (The site is under construction — new stuff keeps landing.)';
   document.body.appendChild(tip);
   var seen = false; try { seen = sessionStorage.getItem('ptTip') === '1'; } catch (e) {}
   if (!seen) { setTimeout(function () { if (!panel.hidden) return; tip.classList.add('on'); mood('happy', 1500); setTimeout(function () { tip.classList.remove('on'); }, 5200); }, 3500); try { sessionStorage.setItem('ptTip', '1'); } catch (e) {} }
@@ -714,7 +717,7 @@
   var greeted = false;
   function open() {
     panel.hidden = false; orb.setAttribute('aria-expanded', 'true'); tip.classList.remove('on'); input.focus({ preventScroll: true });
-    if (!greeted) { greeted = true; reply(pc ? 'Hi! You’re looking at “' + pc.title + '”. Want a quick summary, the key results, or anything else about Dario?' : 'Hi! Ask me about this page or anything about Dario’s work.'); }
+    if (!greeted) { greeted = true; reply((pc ? 'Hi! You’re looking at “' + pc.title + '”. Want a quick summary, the key results, or anything else about Dario?' : 'Hi! Ask me about this page or anything about Dario’s work.') + '\nHeads-up: the site is still under construction, so some pages may change.'); }
   }
   function close() { panel.hidden = true; orb.setAttribute('aria-expanded', 'false'); orb.focus({ preventScroll: true }); }
   orb.addEventListener('click', function () { panel.hidden ? open() : close(); });

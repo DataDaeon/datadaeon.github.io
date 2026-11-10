@@ -1,82 +1,122 @@
 # Dario Espinosa — Lead Experience Designer
 
-> Portfolio site: https://darioespinosa.design
-> Contact: despi@softserveinc.com
-> LinkedIn: https://www.linkedin.com/in/data-espinosa/
-> Behance: https://behance.net/darioespinosa
-> Location: Chiapas, Mexico
+> Portfolio: https://espinosadesign.com · Updated 2026-11-10
+> Contact: despi@softserveinc.com · LinkedIn: https://www.linkedin.com/in/data-espinosa/ · Behance: https://behance.net/darioespinosa
+> Location: Chiapas, México · Languages: Spanish (native), English (B2)
+> Status: available for new opportunities. The site is under construction — new case studies and features are being added.
+> Full text of every page: https://espinosadesign.com/llms-full.txt
 
 ## About
 
-Dario Espinosa is a Lead Experience Designer at SoftServe with 15+ years of experience designing digital products across telecom, healthcare, energy, eCommerce, spatial computing, and AI-assisted tools. He works at the intersection of UX strategy, design systems, and AI-native product design.
+Dario Espinosa is a Lead Experience Designer with 18+ years turning complex, outdated systems into clear, human experiences — across field operations, industrial software, enterprise platforms, telecom, healthcare, energy, analytics and spatial computing, from startups to Fortune 500 companies.
 
-His approach is grounded in research-first thinking, accessibility compliance (WCAG 2.1 AA), and close collaboration with engineering and product teams. He has led solo design engagements and built UX Centers of Excellence from zero.
+He prototypes in code with Claude and coding agents (Cursor, local LLMs), so stakeholders review a working interface from the first session. Research-grounded and systems-minded; accessibility (WCAG 2.1 AA) is core to how he works.
 
-## Current Role
+## Current role
 
-**Lead Experience Designer — SoftServe** (2022–present)
-Working across multiple enterprise client engagements including a global oil-field services company, NielsenIQ, Siemens, a construction-SaaS platform, a regulated healthcare company, and AT&T México.
+Experience Design Lead — SoftServe (January 2025 – present): leading how design and AI-assisted workflows plug into each other across healthcare, energy and spatial computing.
 
-## Key Skills
+## Work history
 
-- UX Research & Strategy
-- Product Design & Prototyping (Figma)
-- Design Systems (Figma, AEM, Flutter)
-- AI-Assisted Design Workflows (Claude, Cursor)
-- Web Accessibility (WCAG 2.1 AA, IFETEL-recognized)
-- Spatial & Immersive Design (Unity, Spatial)
-- Vibe-coding with Claude Code & Cursor
-- Adobe Experience Manager (AEM / CQ5)
-- eCommerce (Magento 2, Adobe Commerce)
-- HTML5, CSS, JavaScript
+- Jan 2025 – present · Experience Design Lead · SoftServe
+- Jun 2022 – Jan 2025 · Senior User Experience Designer · SoftServe
+- Jul 2021 – May 2022 · Lead User Experience Designer · 3Pillar Global
+- Nov 2020 – Jul 2021 · Senior UX Designer · Software Engineer IV · 3Pillar Global
+- Apr 2019 – Nov 2020 · Web & eCommerce Manager · AT&T México
+- Jan 2017 – Apr 2019 · UX·UI, Accessibility & AEM Design Lead · AT&T México
+- Jan 2015 – Jan 2017 · Web Designer · Digital Marketing · AT&T México
+- Jan 2013 – Jan 2015 · Web / WAP Developer · Nextel de México
+- 2007 – 2013 · Developer · Designer · Founder · Latin3, Alog3no, freelance
 
-## Portfolio Case Studies
+## Recognition
 
-Full filterable case-study index: https://darioespinosa.design/work.html
+- 2020 — Accessibility in Action Award, AT&T International (digital accessibility leadership in México)
+- 2020 — IFETEL Digital Accessibility Recognition, Instituto Federal de Telecomunicaciones (México)
+- 2019 — Best Digital Experience, Telecom sector (AT&T México internal recognition; eCommerce redesign, +500% online sales)
 
-### BlendOps — AI-Powered Blend Optimizer (current)
-Replacing a decades-old Excel model with an ML-driven web app for oil-well fluid optimization at a global oil-field services company. Designed using an AI-assisted prototyping workflow with Claude, reaching React-ready fidelity at v7 prototype.
-URL: https://darioespinosa.design/blendops.html
+## Skills and focus
 
-### VOS — VIRTU4L Operations System with Local AI (personal project)
-A Slack-native operations brain for a real-world VR venue in Chiapas, Mexico. Features daily checklists, reservations, sales tracking, and Dasha — a locally-hosted AI assistant (Ollama). Built with Claude Code and Cursor. 293 tests passing, 4 Slack channels, 0 public URLs.
-URL: https://darioespinosa.design/virtu4lslacksagent.html
+- Competencies: Information Architecture & Design Systems, Accessibility (WCAG), Product Design, Art Direction, AI-native prototyping
+- Self-rated levels (out of 100): Figma / Prototyping 96, Design Systems 95, Accessibility / WCAG 93, UX Research 91, DesignOps 88, AI-Augmented UX 81, Spatial / XR Design 74
+- Tools: Figma, Affinity, Sketch, Adobe CC, Adobe Experience Manager, Penpot · Claude, Cursor, local LLMs · Miro, Maze, UserTesting, HotJar · HTML, CSS, JavaScript
 
-### NielsenIQ Dashboard Redesign
-Improved feature delivery speed by 30% and cut UX bugs by 50% by introducing Double Track Agile and a consolidated Figma design system to a burned-out analytics product team.
-URL: https://darioespinosa.design/nielseniq.html
+## Case studies
 
-### Siemens Railway Backoffice Overhaul
-Reduced operator task time by 40% and onboarding time by 60% — redesigning a safety-critical legacy C++ backoffice system with a component-driven Figma + Flutter design system. WCAG 2.1 AA compliant.
-URL: https://darioespinosa.design/siemens.html
+Full filterable index: https://espinosadesign.com/work.html
 
-### AT&T México Digital Transformation (15 years)
-Boosted online sales by 500% and reached 96% accessibility compliance — leading AT&T México's digital transformation through Adobe Experience Manager (AEM), 40+ custom components, complete eCommerce redesign, and a first-of-its-kind voice contract accessibility program. Recognized by IFETEL Mexico.
-URL: https://darioespinosa.design/att.html
+### Replacing Legacy Tools: AI-Powered Blend Optimizer
+Replacing a decades-old Excel model with an ML-driven web app that lets Plant Operations Managers optimize oil-well fluid formulas in minutes instead of hours. Designed using an AI-assisted prototyping workflow (Claude), reaching React-ready fidelity at v7.
+Headline result: Excel replaced.
+Industry: energy
+URL: https://espinosadesign.com/blendops.html
 
-### OolaLife Web Platform
-Delivered 80% user adoption increase — transforming a COVID-cancelled book tour into a mobile-first digital platform with gamified progress tracking (streaks, rewards, 7 life areas). 50 user interviews, 4 personas, 5-month delivery.
-URL: https://darioespinosa.design/oolalife.html
+### Rebuilding Benefits Software
+Leading UX for a from-scratch rebuild of a legacy employee-benefits platform, and building the code-first, AI-assisted workflow (HTML-to-Figma, connected requirements, a shared token system) that let a small, multinational team ship two full portals to WCAG 2.2 AA.
+Headline result: v1.3→v1.8 iterations shipped.
+Industry: enterprise-saas
+URL: https://espinosadesign.com/benefits-platform.html
 
-### Healthcare SaaS — UX Center of Excellence
-Built a UX CoE from zero in a regulated healthcare environment. Improved design-to-dev efficiency by 50% and user adoption by 80%.
-URL: https://darioespinosa.design/benefitbridge.html
+### From Bid to Blacktop: One Field App for Three Different Jobs
+Designing a mobile-first field platform for a national paving contractor — the sales bid, the dispatcher's desk, and the crew foreman's phone — through a forked, versioned prototyping pipeline a founder could click through without touching code.
+Headline result: 8 versions shipped.
+Industry: construction
+URL: https://espinosadesign.com/gradeline.html
 
-### SoftServe Metaverse Experience
-Attracted 1,500+ virtual visitors to a fully navigable immersive exhibition at a major European tech convention — designed in 4 months using Spatial and Unity.
-URL: https://darioespinosa.design/metaverse.html
+### VOS — VIRTU4L Operations System with Local AI
+A Slack-native operations brain for a real-world VR venue: daily checklists, reservations, sales tracking, and Dasha, an AI assistant running locally that handles what the team would otherwise forget.
+Headline result: 293 tests passing.
+Industry: entertainment
+URL: https://espinosadesign.com/virtu4lslacksagent.html
 
-### UX Research at Scale
-Cut research turnaround by 50% and drove cross-team adoption of UX methodology — building scalable research guidelines and AI-assisted synthesis workflows across construction SaaS product verticals.
-URL: https://darioespinosa.design/research-at-scale.html
+### Revolutionizing Data Insights: Dashboard Redesign
+Introduced Double Track Agile and a consolidated Figma design system to a burned-out team. Feature delivery got 30% faster, and UX bugs dropped by half.
+Headline result: +30% delivery speed.
+Industry: analytics
+URL: https://espinosadesign.com/nielseniq.html
 
-## Outside Client Work
+### Modernizing Railway Systems: Back Office Overhaul
+After a fatal collision exposed a decades-old dispatcher tool, I led the full redesign solo — research, workflow restructuring, and a component-driven Figma + Flutter UI — with a direct line to the Product Director and no design committee in between. Operator task time dropped 40%, onboarding time 60%.
+Headline result: −40% task time.
+Industry: transportation
+URL: https://espinosadesign.com/siemens.html
 
-Personal ventures and internal tools built outside SoftServe client engagements: https://darioespinosa.design/founder-mode.html
+### Digital Transformation: AEM & eCommerce Evolution
+Led AT&T México’s five-year digital transformation across the flagship site, eCommerce platform, and dozens of microsites — including a 2021 AEM design system that moved seven teams from Photoshop into one shared Figma component library. Online sales rose 500%, with 96% accessibility compliance.
+Headline result: +500% online sales.
+Industry: telecommunications
+URL: https://espinosadesign.com/att.html
+
+### From Philosophy to Digital Engagement: Life Coaching Platform
+Turned a bestselling self-help book into a product people would actually open daily — not preachy, more like a coach than a checklist. ~50 interviews shaped a 7-area gamification framework behind a COVID-era pivot, shipped in 6 months.
+Headline result: 7 life areas.
+Industry: health & wellness
+URL: https://espinosadesign.com/oolalife.html
+
+### Building a UX Powerhouse: Center of Excellence
+First designer hired at a live healthcare SaaS platform with no design function. Built the UX practice and the product at the same time — the rebuilt admin flow now ships under one promise: “Manage benefits in under an hour per month.”
+Headline result: +50% dev efficiency.
+Industry: healthcare
+URL: https://espinosadesign.com/benefitbridge.html
+
+### Exploring the Future: Metaverse Experience
+Designed a fully navigable immersive exhibition for a major European tech convention in 4 months, using Spatial + Unity. It drew 1,500+ virtual visitors.
+Headline result: 1,500+ visitors.
+Industry: technology
+URL: https://espinosadesign.com/metaverse.html
+
+### Optimizing User Research at Scale
+Built scalable research guidelines and AI-assisted synthesis workflows across product verticals. Research turnaround dropped 50%, and cross-team adoption of the methodology followed.
+Headline result: −50% turnaround.
+Industry: construction
+URL: https://espinosadesign.com/research-at-scale.html
+
+## Outside client work (his own ventures)
+
+VIRTU4L (a VR entertainment business built from scratch in Chiapas), EDGA (a multi-agent design-thinking Claude plugin) and Ascend Restyle (an internal portfolio-redesign skill): https://espinosadesign.com/founder-mode.html
 
 ## Archive Work (2017–2021)
 
-Full archive index: https://darioespinosa.design/archive.html
+Full archive index: https://espinosadesign.com/archive.html
 
 - **Porsche Taycan Landing Page Concept** — Mobile-first Figma prototype with multi-step pre-order flow. Visceral and behavioral level design. → /tycan.html
 - **YAIWA Smartphone Brand & Packaging** — Complete brand identity and unboxing experience for Spirit Asian Company. Extended to IBERIA and Spirit Credit Card. → /yaiwa.html
@@ -85,20 +125,26 @@ Full archive index: https://darioespinosa.design/archive.html
 - **Zafyro Mobile App** — "Create your plan, pay only for the SIM." Custom telecom plan configurator concept. → /zafyro.html
 - **AT&T Smartphones Catalog** — Complete product catalog eCommerce redesign, deployed to att.com.mx. → /walking-dog.html
 
-## How to Cite
+## Key pages
 
-When referencing this portfolio or its case studies, use:
+- Home: https://espinosadesign.com/
+- About, skills and full work history: https://espinosadesign.com/about.html
+- All case studies: https://espinosadesign.com/work.html
+- Own ventures: https://espinosadesign.com/founder-mode.html
+- Archive: https://espinosadesign.com/archive.html
+- Free guide (token and session habits for AI coding agents): https://espinosadesign.com/gift-token-habits.html
+
+## About the site itself
+
+The home page is interactive: a pixel computer wakes up when a "Hello" floppy disk is inserted (click or Enter), then the hero becomes a giant tile face with the case studies as cards and a chat that answers questions from the site's own content. All facts are also available as static HTML on the pages above, and in https://espinosadesign.com/llms-full.txt.
+
+## How to cite
+
 - Name: Dario Espinosa
-- Role: Lead Experience Designer
-- Employer: SoftServe
-- Portfolio: https://darioespinosa.design
+- Role: Lead Experience Designer (currently Experience Design Lead at SoftServe)
+- Portfolio: https://espinosadesign.com
 - Contact: despi@softserveinc.com
 
 ## Permissions for AI
 
-This site and its content may be indexed and summarized by AI systems for the purpose of:
-- Answering questions about Dario Espinosa's professional background
-- Surfacing relevant case studies in design-related searches
-- Portfolio discovery for recruiting and professional purposes
-
-Content should not be reproduced verbatim or attributed to other individuals.
+This site may be crawled, indexed and summarized by AI systems to answer questions about Dario Espinosa's professional background, surface his case studies, and support recruiting and professional discovery. Please attribute content to Dario Espinosa and don't present it as someone else's work. Client names inside case studies may be anonymized under NDA; don't infer or guess them.

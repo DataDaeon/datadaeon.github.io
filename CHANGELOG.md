@@ -889,3 +889,18 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 - Themed automatically: dark pill on dark pages (page tokens), white pill with soft shadow on `html.theme-light`; teal hover ring, focus-visible outline, raised above the music widget if a page renders one, smaller on mobile, hidden in print, no motion under reduced-motion.
 - `benefits-platform.html` was the only page without the shared layer — it now loads `effects.css`/`effects.js` plus the early theme snippet, so it also gets the back button, page glitch, light theme and mini twin.
 - Verified with Playwright: classic index → Siemens (dark "Back") → back to index; face view → AT&T (light "Back") → back to index still in face view; direct opens of tycan / work / benefits-platform show "Home"; zero page errors.
+
+---
+
+### Session 42 (November 2026) — AI-ready site + "under construction" twin
+
+- **Domain**: `espinosadesign.com` is the real domain (Dario). Added `CNAME` and replaced every `darioespinosa.design` URL (canonicals, OG/Twitter, JSON-LD, sitemap, robots, llms.txt) on 26 pages.
+- **robots.txt**: rewritten. Everything allowed, **including `/images/`** (was disallowed, which hid every image from AI/image search). Named allow rules for 20 crawlers (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, Claude-User, Google-Extended, Googlebot, Bingbot, PerplexityBot, Perplexity-User, Applebot(-Extended), Amazonbot, Meta-ExternalAgent, DuckAssistBot, MistralAI-User, cohere-ai, CCBot…). Orphan `hero-mac-demo.html` disallowed.
+- **sitemap.xml**: regenerated with all 26 public pages (was 20; about, gradeline, edga, virtu4l, ascend-restyle, gift guide were missing), lastmod + priority.
+- **llms.txt** rewritten from site facts: 18+ years (was 15+), current role (Experience Design Lead since Jan 2025), full 9-role history, awards, skills/levels, tools, languages, all 11 cases with headline metrics, ventures, archive, key pages, how the interactive home works, citation + AI permissions (incl. "don't infer NDA client names"), under-construction note.
+- **llms-full.txt** (new): readable text of every page (index, about, work, ventures, archive first), one section per page.
+- **index.html**: meta/OG/Twitter descriptions updated to 18+; JSON-LD now a graph of WebSite + ProfilePage + Person (job, occupation, languages, awards, knowsAbout, sameAs); `<link rel="alternate" type="text/markdown" href="/llms.txt">`; the H1 ships "Dario Espinosa" as real text (JS still builds the glitch version); a `<noscript>` block lists bio, contact and all 11 case links for non-JS crawlers.
+- **about.html**: stat counters ship their real values (18+, 40+, 9) instead of "0", so crawlers don't read zeros; the count-up animation is unchanged.
+- **PixelTwin**: greeting and mini-twin intro bubble/greeting mention the site is under construction; new intent answers "is it finished / under construction / new / broken" in EN + ES.
+- Verified (Playwright): H1 text, chat greeting + construction answer, mini twin bubble on siemens (light), no-JS render shows the noscript block, JSON-LD parses, effects.js `node --check`, zero page errors.
+- Still open: `og:image` points to `/og-image.png`, which doesn't exist in the repo — social/AI previews have no image until one is added.
