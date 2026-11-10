@@ -529,3 +529,16 @@ html.theme-light .pg-back:hover,html.theme-light .pg-back:focus-visible{border-c
 html.theme-light .nda-alert{border-color:rgba(180,104,0,.3);background:#fff8eb;color:#3a3a46}
 html.theme-light .nda-alert strong,html.theme-light .nda-alert .nda-ic{color:#9a5b00}
 @media(max-width:860px){.nda-alert{margin:22px 20px 4px}}
+
+/* Session 46 — Back + Next project share one fixed bottom-left group */
+.pg-nav{position:fixed;left:22px;bottom:22px;z-index:890;display:flex;gap:10px;align-items:center}
+.pg-nav .pg-back{position:static}
+.pg-nav--raised{bottom:80px}
+.pg-next{max-width:min(320px,calc(100vw - 170px))}
+.pg-next .pg-next-k{color:var(--t3,rgba(255,255,255,.45))}
+.pg-next .pg-next-t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pg-next:hover,.pg-next:focus-visible{transform:translateX(3px)}
+.pg-next:hover svg{transform:translateX(2px)}
+html.theme-light .pg-next .pg-next-k{color:#6b6b80}
+@media(max-width:600px){.pg-nav{left:14px;bottom:14px;gap:8px}.pg-nav--raised{bottom:72px}.pg-next .pg-next-t{display:none}}
+@media print{.pg-nav{display:none}}

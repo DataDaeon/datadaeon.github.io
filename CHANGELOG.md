@@ -939,3 +939,8 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
   - research-at-scale — *Synthesis drum*: session notes → AI synthesis → 4 theme bins; turnaround bar at 50%.
 - The old static `.iso-figure-wrap` illustrations on att, benefitbridge, gradeline and metaverse were replaced.
 - **Placement**: on all 11 case studies the NDA note (where present) and the figure now sit inside the hero, directly under the client/context/role/stage meta row, in a `.cs-figure` wrapper that fades in after the meta row (styles in `anatomy/anatomy.css`; no animation under reduced motion).
+
+### Session 46 (November 2026) — "Next project" button (`effects.js` / `effects.css`)
+
+- On the 11 case studies, a **Next · <project>** pill sits beside the Back/Home button (both now in a fixed `.pg-nav` group, bottom-left). Order matches the index cards: GradeLine → Railway Back Office → AT&T México → Blend Optimizer → UX Center of Excellence → Metaverse → Benefits Platform → VOS → Dashboard Redesign → Life Coaching → Research at Scale → (wraps to GradeLine). It uses the normal glitch transition; Back on the next page returns to the previous case.
+- Dark and light themes; on phones (≤600px) only "Next →" is shown; hidden on print; non-case pages (About, Archive…) keep only Back. The group is a `div role="group"` — a `<nav>` element picked up the site's top-bar `nav` styles.

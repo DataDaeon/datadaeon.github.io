@@ -375,8 +375,23 @@
     var lbl = internal ? (NAMES[from] || 'Back') : 'Home';
     b.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg><span>' + (internal ? 'Back' : 'Home') + '</span>';
     b.setAttribute('aria-label', internal ? 'Go back to ' + lbl : 'Go to the home page');
-    if (document.getElementById('music-widget')) b.classList.add('pg-back--raised');
-    document.body.appendChild(b);
+    // ── NEXT PROJECT (Session 46) — on case studies, a pill next to Back that opens the
+    // next case in the same order as the index cards (wraps around after the last one).
+    var CASES = [['gradeline', 'GradeLine'], ['siemens', 'Railway Back Office'], ['att', 'AT&T México'], ['blendops', 'Blend Optimizer'], ['benefitbridge', 'UX Center of Excellence'], ['metaverse', 'Metaverse'], ['benefits-platform', 'Benefits Platform'], ['virtu4lslacksagent', 'VOS'], ['nielseniq', 'Dashboard Redesign'], ['oolalife', 'Life Coaching'], ['research-at-scale', 'Research at Scale']];
+    var here = (location.pathname.split('/').pop() || '').replace(/\.html$/, ''), ci = -1;
+    CASES.forEach(function (c, i) { if (c[0] === here) ci = i; });
+    var nav = document.createElement('div');
+    nav.className = 'pg-nav'; nav.setAttribute('role', 'group'); nav.setAttribute('aria-label', 'Page navigation');
+    if (document.getElementById('music-widget')) nav.classList.add('pg-nav--raised');
+    nav.appendChild(b);
+    if (ci >= 0) {
+      var nx = CASES[(ci + 1) % CASES.length], n = document.createElement('a');
+      n.className = 'pg-back pg-next'; n.href = nx[0] + '.html';
+      n.setAttribute('aria-label', 'Next project: ' + nx[1] + ' (' + ((ci + 1) % CASES.length + 1) + ' of ' + CASES.length + ')');
+      n.innerHTML = '<span class="pg-next-k">Next</span><span class="pg-next-t">' + nx[1].replace(/&/g, '&amp;') + '</span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+      nav.appendChild(n);
+    }
+    document.body.appendChild(nav);
     b.addEventListener('click', function (e) {
       if (!internal || e.metaKey || e.ctrlKey || e.shiftKey) return;   // no history: let the link go to the index
       e.preventDefault(); e.stopPropagation(); set(IN, '1');
