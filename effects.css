@@ -520,3 +520,12 @@ html.theme-light .pg-back:hover,html.theme-light .pg-back:focus-visible{border-c
 @media(max-width:600px){.pg-back{left:14px;bottom:14px;height:40px;padding:0 14px 0 11px;font-size:12px}.pg-back--raised{bottom:72px}}
 @media print{.pg-back{display:none}}
 @media(prefers-reduced-motion:reduce){.pg-back,.pg-back svg{transition:none}}
+
+/* ── NDA INLINE ALERT (Session 44) — on case studies whose real UI is confidential ── */
+.nda-alert{display:flex;gap:12px;align-items:flex-start;max-width:820px;margin:28px auto 8px;padding:14px 18px;border-radius:12px;border:1px solid rgba(245,158,11,.32);background:rgba(245,158,11,.07);color:var(--t2,rgba(255,255,255,.7));font-size:14px;line-height:1.6}
+.nda-alert p{margin:0}
+.nda-alert strong{color:#f5b443;font-weight:600}
+.nda-alert .nda-ic{flex:none;margin-top:2px;color:#f5b443}
+html.theme-light .nda-alert{border-color:rgba(180,104,0,.3);background:#fff8eb;color:#3a3a46}
+html.theme-light .nda-alert strong,html.theme-light .nda-alert .nda-ic{color:#9a5b00}
+@media(max-width:860px){.nda-alert{margin:22px 20px 4px}}

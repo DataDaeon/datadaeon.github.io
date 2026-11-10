@@ -917,3 +917,10 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 - Build sources (figure modules + `make.mjs`) live in the agent workspace, not in the repo; next: the other 9 project figures once Dario approves this look.
 
 **Session 43 addendum — canonical domain back to GitHub Pages**: `espinosadesign.com` forwarding + the CNAME caused a redirect loop on `datadaeon.github.io`. The CNAME was removed (Dario pushed `a8d796e`), and until the Hostinger DNS is pointed at GitHub Pages every canonical/OG/JSON-LD URL, `sitemap.xml`, `robots.txt`, `llms.txt` and `llms-full.txt` use `https://datadaeon.github.io`. To switch back later: Hostinger A records 185.199.108–111.153 + `www` CNAME → datadaeon.github.io, re-add `CNAME`, replace the base URL again. `.agents/` and `skills-lock.json` (created by the skill install) added to `.gitignore`.
+
+---
+
+### Session 44 (November 2026) — NDA inline alert + navigation safety
+
+- **NDA alert**: an amber inline note (`aside.nda-alert`, `role="note"`, lock icon) right under the hero of the 8 case studies whose real UI is client-confidential — att, benefitbridge, benefits-platform, blendops, gradeline, nielseniq, siemens (UI wording) and research-at-scale (recordings/participant-data wording): the real UI isn't shown, what's on the page is an illustrative recreation, the problem/process/decisions/results are real. Styled in `effects.css` for dark and light themes.
+- **"Glitch but the page never loads" on GitHub**: reproduced every navigation path locally over HTTP (classic deck → gradeline, face-view card → blendops) and all load. The live symptom matches the domain redirect loop: the glitch-out plays, then the browser fails on `datadaeon.github.io/<page>` while GitHub Pages still redirects to the custom domain. Fix is on GitHub (Settings → Pages → remove the custom domain) + a private window to drop the cached 301. Added a safety in `effects.js`: if the browser hasn't left the page 1.8 s after the glitch, the overlay clears so the page is never left blanked.

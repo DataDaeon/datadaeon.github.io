@@ -357,7 +357,11 @@
     set('navFrom', location.pathname.split('/').pop() || 'index.html');
     set(IN, '1');
     e.preventDefault();
-    play('out', 300, function () { location.href = a.href; });
+    play('out', 300, function () {
+      location.href = a.href;
+      // safety: if the browser didn't leave (blocked, offline, redirect error), clear the overlay
+      setTimeout(function () { g.className = 'pg-glitch'; document.documentElement.classList.remove('pg-shake'); try { sessionStorage.removeItem(IN); } catch (e) {} }, 1800);
+    });
   });
   // back/forward cache: never come back to a page frozen mid-glitch
   // ── BACK BUTTON (Session 41) — every page except the index. Goes back to the page
