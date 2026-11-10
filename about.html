@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>try{if(sessionStorage.getItem("siteTheme")==="light"&&!/(^|\/)(index\.html)?$/.test(location.pathname))document.documentElement.classList.add("theme-light")}catch(e){}</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Dario Espinosa · Lead Experience Designer</title>
@@ -353,6 +354,56 @@ footer { max-width: var(--max); margin: 0 auto; padding: 22px 32px; display: fle
 .fx-reveal.in { opacity: 1; transform: none; filter: none; }
 
 /* ── RESPONSIVE ─────────────────────────────────────────────────────────── */
+
+/* ── MOVED FROM HOME (Session 34): how-I-work bio, skill levels, full work history ── */
+.focus-grid { grid-template-columns: repeat(6,1fr); }
+.focus-card { grid-column: span 2; }
+.focus-card:nth-child(n+4) { grid-column: span 3; }
+.howiwork { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-w); align-items: start; }
+.howiwork-bio { font-size: var(--fs-sm); color: var(--t2); line-height: 1.85; }
+.howiwork-bio p { margin-bottom: 16px; }
+.howiwork-bio strong { color: var(--t1); font-weight: 500; }
+.howiwork-stack { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--t3); line-height: 1.8; letter-spacing: .02em; }
+.howiwork-stack span { color: var(--teal); }
+.skills-list { display: flex; flex-direction: column; gap: 14px; }
+.skills-head { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--t3); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
+.skill-row { display: flex; align-items: center; gap: 12px; }
+.skill-name { font-family: var(--mono); font-size: var(--fs-xs); color: var(--t3); min-width: 148px; }
+.skill-bar { flex: 1; height: 1px; background: var(--border-w); position: relative; }
+.skill-fill { position: absolute; top: 0; left: 0; height: 1px; background: linear-gradient(to right,var(--teal),rgba(80,227,194,0.3)); transform: scaleX(0); transform-origin: left; transition: transform .9s cubic-bezier(.16,1,.3,1); }
+.skill-fill.v { transform: scaleX(1); }
+.skill-pct { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--t3); min-width: 24px; text-align: right; }
+.career-entries { display: flex; flex-direction: column; }
+.career-entry { display: grid; grid-template-columns: 88px 1px 1fr; gap: 0 20px; padding-bottom: 32px; }
+.career-entry:last-child { padding-bottom: 0; }
+.career-year { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--t3); padding-top: 3px; text-align: right; line-height: 1.4; }
+.career-line { position: relative; display: flex; flex-direction: column; align-items: center; }
+.career-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px rgba(80,227,194,0.5); flex-shrink: 0; margin-top: 4px; }
+.career-dot-dim { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.25); flex-shrink: 0; margin-top: 4px; }
+.career-vline { flex: 1; width: 1px; background: linear-gradient(to bottom,rgba(255,255,255,0.14),transparent); margin-top: 6px; }
+.career-entry:last-child .career-vline { display: none; }
+.career-company { font-size: var(--fs-sm); font-weight: 600; color: var(--t1); letter-spacing: -0.01em; }
+.career-role { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--teal); letter-spacing: 0.03em; margin-top: 2px; }
+.career-period { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--t3); margin-top: 1px; }
+.career-takeaway { font-size: var(--fs-xs); color: var(--t2); font-style: italic; line-height: 1.6; margin-top: 8px; max-width: 520px; }
+.career-tools { font-family: var(--mono); font-size: var(--fs-2xs); color: var(--t3); letter-spacing: 0.02em; margin-top: 6px; }
+.career-tools span { color: var(--teal); }
+.career-more { color: var(--teal); text-decoration: none; font-family: var(--mono); font-size: var(--fs-2xs); }
+.career-line .career-vline { transform: scaleY(0); transform-origin: top; transition: transform .8s cubic-bezier(.22,1,.36,1) .1s; }
+.career-line .career-dot, .career-line .career-dot-dim { transform: scale(0); transition: transform .5s cubic-bezier(.34,1.56,.64,1); }
+.career-entry.lit .career-vline { transform: scaleY(1); }
+.career-entry.lit .career-dot, .career-entry.lit .career-dot-dim { transform: scale(1); }
+@media(max-width:768px) {
+  .focus-card, .focus-card:nth-child(n+4) { grid-column: auto; }
+  .howiwork { grid-template-columns: 1fr; gap: 32px; }
+  .career-entry { grid-template-columns: 64px 1px 1fr; gap: 0 14px; }
+  .skill-name { min-width: 120px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skill-fill { transform: scaleX(1); transition: none; }
+  .career-line .career-vline, .career-line .career-dot, .career-line .career-dot-dim { transform: none; transition: none; }
+}
+
 @media(max-width:768px) {
   .stat-row { grid-template-columns: repeat(2,1fr); }
   .stat-cell:last-child { grid-column: span 2; }
@@ -407,8 +458,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   <span class="nav-role">about</span>
   <div class="nav-right">
     <a class="nav-link" href="index.html">work</a>
-    <a class="nav-link" href="about.html" style="color:var(--t1)">about</a>
-    <a class="nav-link" href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener">linkedin</a>
+    <a class="nav-link" href="about.html" style="color:var(--t1)"><svg class="nav-ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg><span class="nav-txt">about</span></a>
+    <a class="nav-link" href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener"><svg class="nav-ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg><span class="nav-txt">linkedin</span><span class="sr-only-nav"> (opens in a new tab)</span></a>
     <div class="nav-dot"></div>
   </div>
 </nav>
@@ -459,6 +510,25 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       <div class="stat-label">English · B2</div>
     </div>
   </div>
+
+  <div class="howiwork">
+    <div class="howiwork-bio fx-reveal">
+      <p>Multidisciplinary Experience Designer with <strong>18+ years</strong> shipping across field operations, industrial software, enterprise platforms, and healthcare products &mdash; from startups to Fortune 500 companies.</p>
+      <p>I prototype in code using <strong>Claude and coding agents</strong>, which means stakeholders see a working interface, not a static mockup, from the first review. Research-grounded, systems-minded &mdash; I like taking a complex legacy system apart and turning it into something people can actually use, in ways that show up in the numbers.</p>
+      <p>Based in <strong>Chiapas, MX</strong>. Recognized with the <strong>2020 AT&amp;T International Accessibility in Action Award</strong> for inclusive design at national scale. Currently at SoftServe spanning healthcare, construction SaaS, analytics, and emerging tech (XR / Metaverse).</p>
+      <p class="howiwork-stack"><span>Design &amp; prototyping:</span> Figma, Affinity, Sketch, Adobe CC, AEM, Penpot. <span>AI agents &amp; dev:</span> Claude, Cursor, local LLMs. <span>Research:</span> Miro, Maze, UserTesting, HotJar.</p>
+    </div>
+    <div class="skills-list fx-reveal" style="--d:.08s" aria-label="Skill levels, self-assessed out of 100">
+      <div class="skills-head">Skill levels</div>
+        <div class="skill-row reveal-skill"><span class="skill-name">Design Systems</span><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div><span class="skill-pct">95</span></div>
+        <div class="skill-row reveal-skill"><span class="skill-name">Accessibility / WCAG</span><div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div><span class="skill-pct">93</span></div>
+        <div class="skill-row reveal-skill"><span class="skill-name">Figma / Prototyping</span><div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div><span class="skill-pct">96</span></div>
+        <div class="skill-row reveal-skill"><span class="skill-name">UX Research</span><div class="skill-bar"><div class="skill-fill" style="width:91%"></div></div><span class="skill-pct">91</span></div>
+        <div class="skill-row reveal-skill"><span class="skill-name">DesignOps</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div><span class="skill-pct">88</span></div>
+        <div class="skill-row reveal-skill"><span class="skill-name">AI-Augmented UX</span><div class="skill-bar"><div class="skill-fill" style="width:81%"></div></div><span class="skill-pct">81</span></div>
+        <div class="skill-row reveal-skill"><span class="skill-name">Spatial / XR Design</span><div class="skill-bar"><div class="skill-fill" style="width:74%"></div></div><span class="skill-pct">74</span></div>
+    </div>
+  </div>
 </section>
 
 <div class="divider"></div>
@@ -486,6 +556,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       <span class="focus-num">04</span>
       <h3>Art Direction</h3>
       <p>I bring strategic vision to digital experiences: brand consistency, visual storytelling, and design leadership that connects product with identity.</p>
+    </div>
+    <div class="focus-card fx-reveal" style="--d:.32s">
+      <span class="focus-num">05</span>
+      <h3>AI-Native Prototyping</h3>
+      <p>I prototype in code with Claude and coding agents, so stakeholders review a working interface from the first session and decisions get tested, not just presented.</p>
     </div>
   </div>
 </section>
@@ -546,6 +621,116 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
+
+<!-- WORK HISTORY — every role (moved from home, Session 34) -->
+<section class="section" aria-label="Work history" id="work-history">
+  <div class="section-label fx-reveal">Work History</div>
+  <h2 class="section-title" data-scramble-in aria-label="Every role, and what it taught me." style="margin-bottom:48px">Every role, <em>and what it taught me.</em></h2>
+  <div class="career-entries">
+      <div class="career-entry">
+        <div class="career-year">2025<br>→ now</div>
+        <div class="career-line"><div class="career-dot"></div><div class="career-vline"></div></div>
+        <div class="career-body">
+          <div class="career-company">SoftServe</div>
+          <div class="career-role">Experience Design Lead</div>
+          <div class="career-period">Jan 2025 – present</div>
+          <div class="career-takeaway">Leading how design and AI-assisted workflows plug into each other across healthcare, energy, and spatial computing.</div>
+          <div class="career-tools"><span>Tools:</span> Figma, Claude, coding agents</div>
+        </div>
+      </div>
+      <div class="career-entry">
+        <div class="career-year">2022<br>→ 2025</div>
+        <div class="career-line"><div class="career-dot-dim"></div><div class="career-vline"></div></div>
+        <div class="career-body">
+          <div class="career-company">SoftServe</div>
+          <div class="career-role">Senior User Experience Designer</div>
+          <div class="career-period">Jun 2022 – Jan 2025</div>
+          <div class="career-takeaway">Learned to scale one design system across construction SaaS, analytics, and emerging XR products.</div>
+          <div class="career-tools"><span>Tools:</span> Figma, Miro, Claude</div>
+        </div>
+      </div>
+      <div class="career-entry">
+        <div class="career-year">2021<br>→ 2022</div>
+        <div class="career-line"><div class="career-dot-dim"></div><div class="career-vline"></div></div>
+        <div class="career-body">
+          <div class="career-company">3Pillar Global</div>
+          <div class="career-role">Lead User Experience Designer</div>
+          <div class="career-period">Jul 2021 – May 2022</div>
+          <div class="career-takeaway">Learned to stand up DesignOps and a design system from zero, not just contribute to one already running.</div>
+          <div class="career-tools"><span>Tools:</span> Figma, FigJam</div>
+        </div>
+      </div>
+      <div class="career-entry">
+        <div class="career-year">2020<br>→ 2021</div>
+        <div class="career-line"><div class="career-dot-dim"></div><div class="career-vline"></div></div>
+        <div class="career-body">
+          <div class="career-company">3Pillar Global</div>
+          <div class="career-role">Senior UX Designer · Software Eng. IV</div>
+          <div class="career-period">Nov 2020 – Jul 2021</div>
+          <div class="career-takeaway">Learned to sit close enough to engineering that "senior UX" and "software engineer" could share one title.</div>
+          <div class="career-tools"><span>Tools:</span> Figma, HTML · CSS · JS</div>
+        </div>
+      </div>
+      <div class="career-entry">
+        <div class="career-year">2019<br>→ 2020</div>
+        <div class="career-line"><div class="career-dot-dim"></div><div class="career-vline"></div></div>
+        <div class="career-body">
+          <div class="career-company">AT&amp;T México</div>
+          <div class="career-role">Web &amp; eCommerce Manager</div>
+          <div class="career-period">Apr 2019 – Nov 2020</div>
+          <div class="career-takeaway">Learned that a +500% sales lift means little if the checkout isn't accessible to everyone.</div>
+          <div class="career-tools"><span>Tools:</span> Adobe Experience Manager, Google Analytics</div>
+        </div>
+      </div>
+      <div class="career-entry">
+        <div class="career-year">2017<br>→ 2019</div>
+        <div class="career-line"><div class="career-dot-dim"></div><div class="career-vline"></div></div>
+        <div class="career-body">
+          <div class="career-company">AT&amp;T México</div>
+          <div class="career-role">UX·UI, Accessibility &amp; AEM Design Lead</div>
+          <div class="career-period">Jan 2017 – Apr 2019</div>
+          <div class="career-takeaway">Learned to make accessibility a national compliance story, not a nice-to-have. That's the work behind the 2020 Accessibility in Action Award.</div>
+          <div class="career-tools"><span>Tools:</span> Adobe Experience Manager, Adobe Creative Suite</div>
+        </div>
+      </div>
+      <div class="career-entry">
+        <div class="career-year">2015<br>→ 2017</div>
+        <div class="career-line"><div class="career-dot-dim"></div><div class="career-vline"></div></div>
+        <div class="career-body">
+          <div class="career-company">AT&amp;T México</div>
+          <div class="career-role">Web Designer · Digital Marketing</div>
+          <div class="career-period">Jan 2015 – Jan 2017</div>
+          <div class="career-takeaway">Learned how a design decision actually moves once it has to survive marketing, legal, and engineering review.</div>
+          <div class="career-tools"><span>Tools:</span> Adobe Creative Suite</div>
+        </div>
+      </div>
+      <div class="career-entry">
+        <div class="career-year">2013<br>→ 2015</div>
+        <div class="career-line"><div class="career-dot-dim"></div><div class="career-vline"></div></div>
+        <div class="career-body">
+          <div class="career-company">Nextel de México</div>
+          <div class="career-role">Web / Wap Developer</div>
+          <div class="career-period">Jan 2013 – Jan 2015</div>
+          <div class="career-takeaway">Learned mobile web before "mobile-first" was a phrase anyone used.</div>
+          <div class="career-tools"><span>Tools:</span> HTML · CSS, WAP-era web</div>
+        </div>
+      </div>
+      <div class="career-entry">
+        <div class="career-year">2007<br>→ 2013</div>
+        <div class="career-line"><div class="career-dot-dim"></div></div>
+        <div class="career-body">
+          <div class="career-company" style="color:var(--t2)">Latin3 · Alog3no · Freelance</div>
+          <div class="career-role" style="color:var(--t3)">Developer · Designer · Founder</div>
+          <div class="career-takeaway">Learned to be the designer, developer, and account manager at once. There was no one else to do it.</div>
+          <div class="career-tools"><span>Tools:</span> Freelance design + dev stack</div>
+          <div class="career-period"><a class="career-more" href="https://dario-espinosa.myportfolio.com/dario-espinosa-ux-designs" target="_blank" rel="noopener">full history on Adobe Portfolio ↗</a></div>
+        </div>
+      </div>
+    </div>
+</section>
+
 
 <div class="divider"></div>
 
@@ -637,6 +822,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     </div>
     <div class="contact-links" id="contact-links">
       <a class="btn btn-primary" data-magnetic href="mailto:despi@softserveinc.com">get in touch</a>
+      <a class="btn btn-secondary" data-magnetic href="dario-espinosa-portfolio.pdf" download>quick portfolio PDF &#8595;</a>
       <a class="btn btn-secondary" data-magnetic href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener">linkedin &#8599;</a>
     </div>
   </div>
@@ -733,7 +919,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   var TOOLS = [
     'Figma','Adobe XD','Sketch','Miro','Adobe Experience Manager',
     'HotJar','Lookback','Maze.co','UserTesting','Google Analytics',
-    'Claude · AI','Cursor','HTML · CSS · JS','Keynote','Adobe Creative Suite'
+    'Claude · AI','Cursor','Local LLMs','HTML · CSS · JS','Keynote','Adobe Creative Suite','Affinity','Penpot'
   ];
 
   function buildTrack(items, el) {
@@ -1100,5 +1286,47 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 </script>
 
 <script src="effects.js"></script>
+<script>
+/* ── SKILL BARS + WORK-HISTORY TIMELINE reveal (moved from home, Session 34) ── */
+(function () {
+  var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bars = document.querySelectorAll('.skill-fill'), entries = document.querySelectorAll('.career-entry');
+  if (RM || !('IntersectionObserver' in window)) {
+    bars.forEach(function (b) { b.classList.add('v'); }); entries.forEach(function (e) { e.classList.add('lit'); }); return;
+  }
+  var bo2 = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.querySelector('.skill-fill').classList.add('v'); bo2.unobserve(e.target); } }); }, { threshold: 0.3 });
+  document.querySelectorAll('.skill-row').forEach(function (r) { bo2.observe(r); });
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('lit'); io.unobserve(e.target); } }); }, { threshold: 0.5, rootMargin: '0px 0px -30px 0px' });
+  entries.forEach(function (e) { io.observe(e); });
+})();
+</script>
+<script>
+/* ── SCRAMBLE-IN on scroll (same as index "Work History": 500 ms, ease-out quad,
+   left-to-right resolve, letters+digits+symbols). Walks text nodes so <em>
+   styling survives. aria-label keeps the clean string for screen readers. ── */
+(function () {
+  var els = document.querySelectorAll('[data-scramble-in]');
+  if (!els.length) return;
+  var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (RM || !('IntersectionObserver' in window)) return;
+  var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#&%!@^*~<>?|=+', TOTAL = 500;
+  function run(el) {
+    var nodes = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) nodes.push({ n: n, v: n.nodeValue });
+    var total = nodes.reduce(function (a, o) { return a + o.v.length; }, 0), t0 = performance.now();
+    (function frame(now) {
+      var k = Math.min(1, (now - t0) / TOTAL), done = Math.floor((1 - Math.pow(1 - k, 2)) * total), i = 0;
+      nodes.forEach(function (o) {
+        var out = '';
+        for (var c = 0; c < o.v.length; c++, i++) out += (o.v[c] === ' ' || i < done) ? o.v[c] : CHARS[(Math.random() * CHARS.length) | 0];
+        o.n.nodeValue = out;
+      });
+      if (k < 1) requestAnimationFrame(frame); else nodes.forEach(function (o) { o.n.nodeValue = o.v; });
+    })(t0);
+  }
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }); }, { threshold: 0.3 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
 </body>
 </html>

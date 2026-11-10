@@ -464,3 +464,59 @@
   html { scroll-behavior: auto !important; }
   #tracing-beam { display: none !important; }
 }
+
+/* ── TOP NAV ICONS — about / linkedin (Session 35) ───────────────────────── */
+.nav-link:has(.nav-ic){display:inline-flex;align-items:center;gap:6px}
+.nav-ic{width:14px;height:14px;flex:none;opacity:.85;transition:opacity .15s,transform .15s}
+.nav-link:hover .nav-ic,.nav-link:focus-visible .nav-ic{opacity:1;transform:translateY(-1px)}
+.sr-only-nav{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(max-width:420px){.nav-link .nav-ic{margin-right:0}}
+
+/* ═══ PAGE TRANSITIONS + LIGHT THEME (Session 38) ═══════════════════════════
+   Every internal page change plays a short glitch (out on click, in on load).
+   Leaving the index from the white face view stores siteTheme=light, so the
+   page you land on (and the ones after it) render light; leaving from the
+   classic dark view stores dark. Reduced motion: no glitch, theme still applies. */
+.pg-glitch{position:fixed;inset:0;z-index:99999;pointer-events:none;visibility:hidden}
+.pg-glitch.on{visibility:visible}
+.pg-glitch .pg-flash{position:absolute;inset:0;background:#fff;opacity:0}
+.pg-glitch .pg-band{position:absolute;left:0;right:0;mix-blend-mode:difference;opacity:0}
+.pg-glitch.out .pg-flash{animation:pgOut .3s cubic-bezier(.4,0,1,1) both}
+.pg-glitch.in .pg-flash{animation:pgIn .42s cubic-bezier(0,0,.2,1) both}
+.pg-glitch.on .pg-band{animation:pgBand .42s steps(1,end) both}
+@keyframes pgOut{0%{opacity:0}100%{opacity:.92}}
+@keyframes pgIn{0%{opacity:.92}100%{opacity:0}}
+@keyframes pgBand{0%{opacity:0}10%{opacity:.85;transform:translateX(-3%)}28%{opacity:.6;transform:translateX(4%)}46%{opacity:.8;transform:translateX(-1.5%)}64%{opacity:.4;transform:translateX(2%)}82%{opacity:.2;transform:none}100%{opacity:0}}
+html.pg-shake body{animation:pgShake .42s steps(1,end) 1}
+@keyframes pgShake{0%,100%{transform:none;filter:none}12%{transform:translate(-4px,1px);filter:drop-shadow(3px 0 0 rgba(80,227,194,.8)) drop-shadow(-3px 0 0 rgba(167,139,250,.8))}34%{transform:translate(3px,-1px);filter:drop-shadow(-3px 0 0 rgba(80,227,194,.8))}56%{transform:translate(-1px,0);filter:none}}
+html.theme-light .pg-glitch .pg-flash{background:#14142a}
+@media (prefers-reduced-motion:reduce){.pg-glitch{display:none}html.pg-shake body{animation:none}}
+
+/* light theme: token overrides (beats each page's :root) + the face-wall grid */
+html.theme-light{
+  --bg:#f3f4f6;--bg2:#eceef2;--surface:#ffffff;--surface2:#f6f7f9;--solid:#ffffff;
+  --border:rgba(10,143,120,.22);--border-v:rgba(109,79,216,.2);--border-w:rgba(20,20,42,.1);
+  --t1:#14142a;--t2:rgba(20,20,42,.74);--t3:rgba(20,20,42,.56);--t4:rgba(20,20,42,.08);
+  --teal:#0a8f78;--teal-dim:rgba(10,143,120,.08);--teal-glow:rgba(10,143,120,.18);
+  --violet:#6d4fd8;--violet-dim:rgba(109,79,216,.08);
+  --glass-bg:rgba(255,255,255,.78);--glass-bg-hi:rgba(255,255,255,.92);--glass-border:rgba(20,20,42,.12);--glass-border-hi:rgba(20,20,42,.22);
+  --glow-teal:0 0 0 1px rgba(10,143,120,.5),0 6px 18px rgba(10,143,120,.15);--glow-violet:0 0 0 1px rgba(109,79,216,.5),0 6px 18px rgba(109,79,216,.15);
+  color-scheme:light;
+}
+html.theme-light body{background-color:var(--bg);color:var(--t1);
+  background-image:linear-gradient(rgba(20,20,42,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(20,20,42,.055) 1px,transparent 1px);background-size:28px 28px;background-attachment:fixed}
+html.theme-light nav{background:rgba(255,255,255,.82);border-color:rgba(20,20,42,.12);box-shadow:0 10px 30px rgba(20,20,42,.08)}
+html.theme-light ::selection{background:rgba(10,143,120,.2);color:#14142a}
+
+/* ── BACK BUTTON (Session 41) — themed by page tokens (dark by default, light under html.theme-light) ── */
+.pg-back{position:fixed;left:22px;bottom:22px;z-index:890;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px 0 14px;border-radius:999px;font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;font-weight:500;letter-spacing:.02em;text-decoration:none;color:var(--t1,#fff);background:var(--surface2,#111118);border:1px solid var(--border-w,rgba(255,255,255,.1));box-shadow:0 10px 26px rgba(0,0,0,.35);transition:transform .2s cubic-bezier(.16,1,.3,1),border-color .2s,box-shadow .2s}
+.pg-back:hover,.pg-back:focus-visible{transform:translateX(-3px);border-color:var(--teal,#50e3c2);box-shadow:0 12px 30px rgba(0,0,0,.4),0 0 0 1px var(--teal,#50e3c2)}
+.pg-back:focus-visible{outline:2px solid var(--teal,#50e3c2);outline-offset:3px}
+.pg-back svg{transition:transform .2s}
+.pg-back:hover svg{transform:translateX(-2px)}
+.pg-back--raised{bottom:80px}
+html.theme-light .pg-back{background:#fff;color:#14142a;border-color:rgba(20,20,42,.16);box-shadow:0 10px 24px rgba(20,20,42,.14)}
+html.theme-light .pg-back:hover,html.theme-light .pg-back:focus-visible{border-color:#0a8f78;box-shadow:0 12px 28px rgba(20,20,42,.18),0 0 0 1px #0a8f78}
+@media(max-width:600px){.pg-back{left:14px;bottom:14px;height:40px;padding:0 14px 0 11px;font-size:12px}.pg-back--raised{bottom:72px}}
+@media print{.pg-back{display:none}}
+@media(prefers-reduced-motion:reduce){.pg-back,.pg-back svg{transition:none}}

@@ -732,3 +732,160 @@ Every scene uses only the site's own existing Dark Matter tokens (`--teal`, `--v
 **Not done this session**: no visual/pixel render check was possible (same sandbox limitation as every prior session) — Dario should open all six illustrated pages himself to confirm the isometric scenes actually read as intended and the motion feels calm rather than busy before this ships. The pre-existing `siemens.html` div-count mismatch was flagged but not investigated or fixed (out of scope for this session, didn't originate here). Commit made locally only, on `main` — push remains Dario's manual step.
 
 **Addendum — tighter interline (0.8) + bigger hero name**: after seeing a screenshot of the rendered Pixelify Sans result, Dario asked for `h1.hero-name` and, "probably," every other title, to go to `line-height:0.8`, and for "Dario Espinosa" specifically to render bigger (with its existing `clamp()` responsive-resize approach kept). Bumped `h1.hero-name`'s `font-size` from `clamp(50px,7vw,80px)` to `clamp(60px,9vw,116px)` (its line break is a hardcoded `<span class="newline">` between the two words, not a width-driven wrap, so the two-line layout doesn't change at any viewport size). Dropped `line-height` to `0.8` on every heading rule touched in the previous Pixelify Sans pass, site-wide — `h1.hero-name`, `.cs-hero h1`, `.hero h1`, `.hero-title`, `.block h2`, `.section h2`, `h2.section-title`, `.section-title`, `.cta-text h3`, `.step h3`, `.bm-card h3`, `.focus-card h3`, `.gift-modal-card h3`, `.verse-card-title`. Flagged for Dario to check: "Dario Espinosa" itself has no descenders so 0.8 is safe there, but a few multi-line case-study `h2`/`h3` headings elsewhere on the site do contain descenders (g/j/p/q/y) and could clip slightly tighter than intended at that line-height — easy to dial back per-selector if any look wrong. Verified `node --check` + style brace-balance clean across all 26 files; confidentiality grep clean.
+
+
+---
+
+### Session 31 (November 2026) — Hero Mac, Phase 1 demo: sleeping pixel computer + "Hello" 3.5" disk (standalone, not wired into index yet)
+
+**New files**: `hero-mac-demo.html` (standalone prototype, `noindex`, no shared-file changes) + `images/hero/mac-case.webp` (88 KB, transparent, 2.25x). `index.html`, `effects.js` and `effects.css` were NOT touched.
+
+**What it does**: a shorter isometric voxel computer (screen and face kept at the same size, floppy slot kept) sleeps and breathes a bubble. A violet 3.5" disk labelled "Hello" rests in front of it. Hover/focus anywhere on the computer: the disk lifts and aligns with the slot, the machine "holds its breath" (bubble deflates, breathing stops), and the slot emits a teal light beam plus square "pixel" particles (teal/violet/white). Click/Enter/tap: the disk slides into the slot (voxel slices disappear as they cross the front plane), particle burst, LED blinks then stays teal, aria-live announces "Disk inserted", and a `mac:inserted` CustomEvent fires as the Phase 2 hook (wake → white screen → smile → look at user → glitch).
+
+**Architecture (why)**: the old all-polygon SVG (~670 KB) could not change state. The case is now a static raster (WebP); the screen face, bubble, bloom and scanline are a light SVG overlay; the disk is its own SVG group moved by one 2D translate (orthographic projection keeps it pixel-aligned with the slot). Particles are a pooled set of SVG rects (cap 70) snapped to a half-voxel grid.
+
+**EDGA (designer-agent) decisions applied**: Fitts — the whole computer is the hit target, not the small disk. Signifiers — a periodic shine over the label, plus an idle hint ("insert the disk" + Enter key) after 3.5 s that hides on interaction. Doherty — hover feedback starts on the first frame. Anticipation — the machine reacts before the click (holds its breath). Peak-End — the insertion is the peak; Phase 2 wake + cards are the end. Color — teal light / violet disk + pixels = existing Dark Matter tokens (violet = personal), no new hues. Accessibility — real `<button>`, `aria-describedby`, aria-live status, `:focus-visible` ring, keyboard Enter/Space, skip link, `prefers-reduced-motion` (no breathing/particles, instant insert). Performance — rAF only while something moves, paused off-screen (IntersectionObserver) and on hidden tab. Touch — a tap floats the disk first, then inserts (no hover dependency).
+
+**Verification**: `node --check` on the inline script — clean. Headless Chromium (Playwright) render at 1440x900 and 375x812: idle, hover, mid-insert and inserted states checked visually; no page errors (only the Google Fonts request failed inside the sandbox); no horizontal scroll at 375. Reduced-motion + keyboard path checked: Enter inserts instantly and announces status.
+
+**Not done / next**: Phase 2 (wake sequence + full-screen glitch, flash kept single and under 3/s for WCAG 2.3.1), Phase 3 (giant grid face background with gestures and pointer tracking, vanilla canvas), Phase 4 (colored cards replacing the Work deck + integration into `index.html`). No commit made.
+
+
+**Addendum — Phase 2: wake sequence** (`hero-mac-demo.html` only): on `mac:inserted` → ~0.5 s "disk read" pause (LED blinks) → screen-only flicker (4 steps, small area) → the screen turns into a white tile grid (35x23 cells, light grid lines, dark cells with a one-cell extrusion shadow below — the look of the reference video) → happy closed eyes (^ ^) + smile → eyes open and turn toward the cursor, the whole computer leans a few degrees toward it, random natural blinks every 2.6–6.4 s → ONE full-viewport flash (0.32 s, peak opacity 0.88) + 0.46 s RGB-split glitch with teal/violet/white bands → `mac:awake` CustomEvent fires (Phase 3 hook: the hero becomes the giant grid face). Face is redrawn only when the quantized eye position/blink changes. Reduced motion: no flicker/flash/glitch/lean, the awake face appears directly and looks straight ahead. Status line announces "Disk inserted. Reading…" then "The computer is awake and smiling at you." "Replay intro" fully resets (`mac:reset`). Flash safety: a single flash, well under the WCAG 2.3.1 three-flashes-per-second threshold. Verified with Playwright at 1440x900: happy → open → glitch → looks top-right → looks bottom-left; zero page errors; both inline scripts pass `node --check`.
+
+
+---
+
+### Session 32 (November 2026) — hero-mac-demo.html rebuilt on top of the real index + Phase 3 (face wall) + Phase 4 (colored cards)
+
+**What changed**: `hero-mac-demo.html` is now a full copy of `index.html` (starfield/dust hero canvas, rings, DARIO ESPINOSA name with the hover-to-EXPERIENCE/DESIGNER glitch, Work verse deck, every section below the fold through the footer, music widget, `effects.js`) with the Mac + Hello disk inserted in the hero (Mac left, dock + tagline right, as in Dario's U_BICACION mock). `index.html` itself is still untouched. File stays `noindex`.
+
+**Flow**: sleeping Mac → hover: disk floats to the slot, light + pixels → click/Enter/tap: disk goes in, LED reads, screen wakes white, ^ ^ smile, eyes turn to the user, one flash + glitch → at the flash peak (`mac:switch`) the whole hero becomes the **face wall** → in face mode the Work button opens **colored floating cards** instead of the verse deck → **Eject disk** tile (new, only in face mode) glitches back to the starfield and a sleeping Mac. Same-session revisits skip the intro (sessionStorage `hello-disk-inserted`); Eject clears it.
+
+**Face wall (Phase 3)**: vanilla canvas 2D, `#face-wall` inside `.hero`. White tile grid; dark tiles are "extruded" (side shadow + lifted top + diagonal sheen) like the reference video. Expression = continuous params (eye size, blink, happy-arc cut, wink, mouth curve/width/open, cheeks, gaze) eased toward presets (smile, neutral, happy with pink cheeks, surprised "o", squint, wink); each cell eases its own depth, so expressions morph as tiles sinking/rising. Follows the pointer (eyes + mouth offset), wanders when the pointer is idle 3 s, blinks every 2.6–6.4 s, random gesture every 4–8 s, tiles bend away from a moving cursor. Placement measures the hero text so the face never sits under the name (desktop: right of the text, cell size adapts; mobile: below the text, hero gets 300 px extra). Paused off-screen / hidden tab; reduced motion = one static smile.
+
+**Colored cards (Phase 4)**: built at runtime from the existing `#verse-deck` cards (single source of truth — no duplicated copy). Coral / yellow / mint / lavender, meta line (industry · Case study), Pixelify title, one-line summary with chevron accordion, navy pill, impact bar only when the deck text has a real metric (`<strong>`; % ≤ 100 fills to that value, larger figures fill fully with the figure shown), arrow link to the case study. Float idle, staggered entrance; hero text dims while open; Esc / Close return focus to the Work button; the face reacts (happy on hover/focus, surprised on expand). Intercepted with a capture-phase listener so the original deck code is untouched and still works after Eject.
+
+**Contrast in face mode**: name/eyebrow/tagline/tiles switch to dark ink on the white wall, nav pill gets a solid dark background, a bottom gradient blends the white hero into the dark sections below; on mobile the tagline sits on a frosted panel.
+
+**Pre-existing bug found (fixed in the demo only)**: in `index.html` `.verse-card-title` renders white on the white verse card (computed `rgb(255,255,255)`; the CSS references `--solid`, which `index.html` never defines). The demo forces `#0c0c12`. Needs the same one-line fix in `index.html`.
+
+**Verification**: all 8 inline scripts pass `node --check`. Playwright (1440x900 and 390x844 touch): start → name hover → disk hover → insert → face mode looking top-right → cards open → Esc → scroll below the fold → Eject → original verse deck opens. Zero page errors (Google Fonts blocked in the sandbox only). No horizontal scroll at 390.
+
+**Not done / next**: merge into `index.html` once approved (and decide whether the face mode should persist across sessions); the starfield canvas keeps animating under the face wall (hidden, small cost) — pause it on merge. No commit made.
+
+
+**Addendum — dock restyle + desk synth in the gift modal** (`hero-mac-demo.html` only):
+- **Hero dock** now matches Dario's reference: "Visit my Work" is a 58 px pill (grid icon + always-visible mono label, teal badge on the top-right corner), the other two are 58 px square tiles (15 px radius, #111118, hairline border) with their labels as hover/focus tooltips that no longer shift the layout. The second tile's icon changed from a person to a **rocket** (Lucide, ISC) because it links to `founder-mode.html` ("When I'm the client" — Dario's own ventures), which a person/profile icon misrepresented. Both icon-only tiles got descriptive `aria-label`s. Face-mode (white) variants included.
+- **Gift modal ("A token of gratitude")**: on ≥1024 px it becomes two columns — left, a playable **"Fig. 07 · Desk synth"** plate; right, the existing card, unchanged. The synth follows the iso-figure skill method (github.com/MrBongoC/ai-iso-skill, MIT): ~15-line isometric kernel, boxes as three visible faces, every flat detail (17 keys, display, 4 waveform buttons, octave Z/X, release knob, grille, model plate) drawn in face-local 2D and placed with one SVG `matrix()` per plane, back-to-front paint order, one state object + one `render()`, hairlines in two greys with violet as the only live colour, captions in the plate corners with a live readout. Original drawing (not copied from the skill's example); no brand silhouettes or logos. Plays real notes with WebAudio — A–; whites, W E T Y U O P blacks, 1–4 waveform, Z/X octave, click/drag on the keys, click the knob for release; audio context is created only on the first press, all notes stop when the modal closes. Hidden below 1024 px (no audio, no listeners active there). Reduced motion: no slide-in or key travel.
+- Verified with Playwright: dock + tooltip, modal at 1440x900 holding a C-E-G chord on the square wave (readout "square · oct 4 · c4 e4 g4"), pointer press on a key, mobile 390 px hides the synth; 9/9 inline scripts pass `node --check`; zero page errors.
+
+
+---
+
+### Session 33 (November 2026) — Face mode becomes a single, non-scrolling view (`hero-mac-demo.html` only)
+
+Decisions confirmed by Dario before building: single view with no scroll; "Tell me more" opens the case page and the ✕ only sends that card to the end of the queue; the About button links to the existing `about.html`; all 11 cases from `work.html` with neon colours.
+
+- **Layout after the disk wakes the Mac**: page scroll is locked and everything except the hero is hidden (name, tagline, hero dock, sections below the fold, footer). Classic page returns intact on Eject.
+- **Face** is centred on screen (if the centre would slide under the card column on narrower desktops, it centres in the free space to the right of it); mobile puts it in the upper part above the card strip.
+- **Left column**: the 11 case studies, data extracted from `work.html` at build time (href, industry tag, title, description, first metric), rendered as neon cards cycling lime `#cdff4d` / magenta `#d4287a` / blue `#2d63dc` / cyan `#6ff5f7` (dark text on lime/cyan, white on magenta/blue), mono industry eyebrow, Pixelify title, 3-line description, metric line, teal "Tell me more →" link. Vertical scroll column with a fade at the bottom (horizontal snap strip on mobile). ✕ animates the card out and re-appends it at the end of the queue, focus moves to the next card, a live region announces it, the face winks.
+- **Round buttons top-right**: About pill → `about.html`, rocket → `founder-mode.html`, archive → `archive.html`, eject → back to the classic page; tooltips on hover/focus, `aria-label`s. Built as `div role="navigation"` (a `<nav>` inherited the site's floating-nav styles). In face mode the top nav pill aligns left and narrows so it never collides with the round buttons; below 1200 px it drops the role text. Mobile: round buttons sit at the bottom centre.
+- Removed from the previous iteration: the pastel task-card panel and the "Eject" tile inside the hero dock (replaced by the round eject button).
+- **Verified** (Playwright): 1440/1280/1024 px and 390 px touch; scroll height equals the viewport in face mode; ✕ moves the first card to position 11; nav/round-button no overlap at 1280 and 1024; Eject restores the full scrollable page; 9/9 inline scripts pass `node --check`; zero page errors.
+- **Note**: the card data is a snapshot of `work.html`; when merging into `index.html`, either keep regenerating it from `work.html` or move the case list into one shared JSON.
+
+
+---
+
+### Session 34 (November 2026) — about.html completed with the content that only lived on home
+
+Because the new face-mode home hides everything below the fold and its About button links to `about.html`, the About page now carries everything the home About/Work History block had that it was missing. Content copied verbatim from `index.html` (no rewriting, no new claims); `index.html` itself not touched (the classic page still shows it).
+
+- **How I work** block inside the About section, after the stats: the three home bio paragraphs (18+ years across field ops/industrial/enterprise/healthcare; prototyping in code with Claude and coding agents; Chiapas, the 2020 AT&T award, current SoftServe domains) + the tools stack line (Figma, Affinity, Sketch, Adobe CC, AEM, Penpot · Claude, Cursor, local LLMs · Miro, Maze, UserTesting, HotJar).
+- **Skill levels**: the 7 self-assessed bars from home (Design Systems 95 … Spatial/XR 74), animate in on scroll.
+- **Competency Focus**: added card 05 "AI-Native Prototyping" (the fourth home pillar About didn't have); grid now 3 + 2 on desktop.
+- **Work History** section (new, after "Where I've built"): the full 9-entry timeline from home, each role with dates, takeaway, tools, and the Adobe Portfolio link; dots/line draw in on scroll.
+- **Contact strip**: added the "quick portfolio PDF ↓" download home had.
+- **Tools ticker**: added Local LLMs, Affinity, Penpot.
+- Page-specific CSS/JS inline (house rule 2), reduced-motion fallbacks, `node --check` clean, div/section balance clean, Playwright 1440 + 390 px: no horizontal scroll, 7/7 bars and 9/9 timeline entries reveal, zero page errors (Three.js CDN blocked in the sandbox only).
+- **Open question for Dario (not changed)**: the existing "Where I've built" cards and the home timeline disagree — About says "Lead Experience Designer · SoftServe · Jun 2022 — Present" and "Lead UX Designer · 3Pillar · Nov 2020 — May 2022"; the timeline splits these into Senior UX Designer (Jun 2022 – Jan 2025) → Experience Design Lead (Jan 2025 – present) and Senior UX Designer · Software Eng. IV → Lead UX Designer at 3Pillar. Both now appear on the same page.
+
+---
+
+### Session 35 (November 2026) — Icons on the top-nav "about" / "linkedin" links, site-wide
+
+- 21 pages: the top-nav `about` link now carries a person icon and `linkedin` an external-link icon (Lucide-style inline SVG, `aria-hidden`), with the label wrapped in `<span class="nav-txt">`. The LinkedIn link also gets screen-reader text "(opens in a new tab)". Shared styling appended to `effects.css` ("TOP NAV ICONS"): inline-flex + 6 px gap, 14 px icon, hover lift.
+- The official LinkedIn "in" logo was deliberately not drawn by hand; an external-link icon is used instead. If Dario wants the official mark, download it from LinkedIn's brand resources into `images/icons/` and swap the SVG.
+- Fix needed on the way: `index.html` and `hero-mac-demo.html` run a nav-link scramble on hover that rewrote `link.textContent`, which wiped the icon and exposed the screen-reader text. It now scrambles only `.nav-txt` (falls back to the whole link if absent).
+- Verified with Playwright on index (1440 + 390 px), hero-mac-demo and about: 2 icons in the nav, icon survives mid-scramble, label restores to "linkedin", zero page errors.
+
+---
+
+### Session 36 (November 2026) — "Insert the disk" hint made prominent (`hero-mac-demo.html`)
+
+- Replaced the 11 px grey hint under the Mac with a **pixel speech bubble anchored to the disk**: dark fill, 2 px teal border, hard teal offset shadow, a tail pointing at the disk, blinking teal caret, 13 px mono label and a solid teal `Enter` key cap.
+- Appears after 1.5 s (was 3.5 s) with a small pop, then bobs gently; it **stays visible until the disk is inserted** (it used to vanish on hover).
+- When the disk floats to the slot, the bubble slides under the slot and reads "Click to insert"; touch devices (`hover:none`) read "Tap the disk" without the key cap. Hidden once inserted; re-armed by Replay/Eject.
+- Reduced motion: no pop/bob, opacity fade only. Mobile: extra space under the Mac so the bubble never touches the dock.
+- Verified with Playwright at 1440 px (idle, hover, leave) and 390 px touch; zero page errors.
+
+---
+
+### Session 37 (November 2026) — About heading scramble, hero cleanup, "Insert the disk" cue, Enter/Esc shortcuts
+
+- **about.html**: "Every role, and what it taught me." now scrambles in on scroll like the home "Work History" heading (500 ms, ease-out quad, left-to-right, letters/digits/symbols). Implemented as `[data-scramble-in]` (About already uses `[data-scramble]` for hover-scramble on awards) and walks text nodes so the teal `<em>` survives; `aria-label` keeps the clean string; skipped under reduced motion.
+- **hero-mac-demo.html**:
+  - `.hero-content` `padding-top` 92 px → 1 px on desktop. Mobile kept at 76 px (1 px put the eyebrow under the fixed nav bar there).
+  - Removed `<section id="about">` (bio, skills, Work History) and its divider — that content now lives on `about.html`. Contact strip and footer kept. No `#about` anchors pointed to it.
+  - The "scroll" cue is now a real button: caret + "Insert the disk" + teal `Enter` key cap above the teal line (Dario's reference). Pops in at 1.2 s; reads "Click to insert" while the disk floats, "Tap the disk" on touch; fades once the disk goes in. The disk-anchored bubble from Session 36 was removed (one hint, not two). Mobile: cue sits in the flow under the tagline.
+  - **Enter works again from anywhere on the first view** (not only when the Mac has focus). It is ignored while typing, inside the gift modal / verse deck, and when focus is on another link or button so their own Enter still works. Exposed as `window.__MAC.insert()`.
+  - **Esc leaves the face view** (same as the round Eject button); an `ESC` key cap sits next to Eject; the button has `aria-keyshortcuts="Escape"`. Esc does nothing while a modal is open.
+- Verified (Playwright, 1440 + 390 px): Enter → face view, Esc → back with "Disk ejected", cue button inserts, About heading mid-scramble → clean text, no `#about` in the DOM, scripts `node --check` clean, zero page errors.
+
+---
+
+### Session 38 (November 2026) — Merge into index, face view v2 with chat, page glitch transitions, light theme, mini twin
+
+**Merge**: `index.html` is now the former `hero-mac-demo.html` (Mac + disk, face view, neon cards, synth, Enter/Esc, nav icons) with the real `<title>` and without `noindex`. `hero-mac-demo.html` is left in the repo as an orphan copy (delete when happy).
+
+**Face view v2** (decisions confirmed by Dario: remove the long nav bar; scripted chat now, AI-ready; CTA "Skip the cards — just ask me"; neutral icon for LinkedIn instead of its trademarked logo):
+- The wide nav bar is hidden in the face view; one grouped row of pills top-right: `dario-espinosa` · `ESC to return` (the eject action, `aria-keyshortcuts="Escape"`) · About · LinkedIn (people icon) · Myself as Client (rocket) · Archive (icon + tooltip). LinkedIn/Myself collapse to icons under 1280 px, the name pill hides under 980 px, mobile = icon-only bar at the bottom.
+- CTA above the cards ("Skip the cards — just ask me", chat icon, retro offset-shadow pill). It fades the cards out and opens a chat panel in the same column: header + "Back to the cards", message log (`role="log"`), suggestion chips (single scrolling row), input + send. Esc inside the chat returns to the cards; a second Esc leaves the face view.
+- Face: now centred in the free area right of the column and below the pills, cell size fitted to that area; relayouts when the chat opens/closes. While the twin answers, the face looks at the chat and its mouth flaps between "o" and a smile.
+- Chat engine = **PixelTwin** (new, in `effects.js`): scripted, only answers from site content (bio, current role, 9-role history, 11 cases with metrics, skills, AI prototyping, accessibility awards, tools, location, languages, ventures, contact); EN/ES detection; unknown questions get an honest "not on this site" + email. `PixelTwin.ask()` is the single seam for a future real-AI endpoint.
+
+**Page transitions + theme hand-off** (`effects.js` / `effects.css`, all pages that load them): every internal link plays a 0.3 s glitch-out, the next page a 0.42 s glitch-in (skipped under reduced motion; external, `_blank`, download, mailto and same-page anchors untouched). Leaving the index from the face view stores `siteTheme=light`, from the classic view `dark`; other pages keep the stored theme. Light theme = token overrides on `html.theme-light` (beats each page's `:root`) + the face-wall grid as page background + light nav; applied by a tiny inline `<head>` script on 24 pages to avoid a dark flash. `benefits-platform.html` does not load `effects.js`, so it gets neither (left as-is).
+
+**Mini twin** (`effects.js`, only on project pages in the light theme): 72 px pixelated circle bottom-right, floats, eyes follow the pointer, blinks, happy on hover, surprised on a fast scroll, one intro bubble per session ("Questions about this project? Ask me."). Click → compact chat with page-aware chips ("Summarize this project", "Key results") using the case data, plus everything PixelTwin knows. Esc/✕ close, focus returns to the orb, mouth moves while answering. Not shown on dark pages or the index.
+
+Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES questions incl. fallback, Esc twice, card → siemens.html arrives light with glitch, classic → dark, mini twin summary + location answers, no twin on dark pages; all inline scripts and effects.js pass `node --check`; zero page errors.
+
+---
+
+### Session 39 (November 2026) — Face-view "Menu", CTA/cards grouping, gift modal fix (`index.html`)
+
+- **Menu**: the face-view pill row now shows in full when the view opens, then (after ~2.6 s, never while hovered or focused) folds right-to-left with a staggered fade/slide into a single text button **"Menu"** (no hamburger). Clicking it re-opens the row (the button reads "Close"); clicking outside or tabbing away folds it again. `aria-expanded`/`aria-controls` on the button; reduced motion = no animation. The `dario-espinosa` name pill now hides under 1600 px so the open row never collides with the CTA.
+- **CTA + cards as one group**: root cause of the gap was the index's generic `section{padding:80px 32px}` applying to `.fm-cards` (cards sat 32 px right and 80 px below the CTA). Removed it; the CTA now matches the card column width and left edge exactly (72 px / 368 px at 1440) with a 16 px gap above the first card, same 14 px radius family.
+- **Gift modal not appearing — fixed**: it only opened on exit intent *after a page scroll*; the merged index now spends most time in the non-scrolling face view, so the condition never became true. Engagement now also counts: entering the face view, inserting the disk, clicking the CTA/chat/cards, or 20 s on the page. Still once per tab session, still only when the pointer leaves through the top of the window; an instant bounce (no engagement) still doesn't trigger it.
+- Verified with Playwright at 1440 px: row → folded "Menu" → reopen → click-outside fold; geometry CTA/cards aligned; exit intent opens the modal in the face view; bounce does not; zero page errors.
+
+**Session 39 addendum — mini twin outline**: the floating face's pixel rim on project pages changed from solid ink `#14142a` to a soft grey `#a7adb8` (inner grid `#d7dae0`) and its drop shadow was lightened, so the orb blends with the light grid background instead of reading as a hard black badge. Face tiles unchanged.
+
+### Session 40 (November 2026) — Mini twin: square, deeper shadow, pixel sparks, page-aware answers (`effects.js`)
+
+- The floating face is now a **pixel square** with stepped (notched) corners instead of a circle, 10 px focus radius, and a stronger two-layer drop shadow (deeper on hover).
+- **Pixel sparks**: every 4.5–10 s (and on hover) 5–11 soft-colour squares (mint, violet, pink, sky, butter, teal, lavender) drift out up/left of the orb and fade in ~1–2 s. Skipped while its chat is open, when the tab is hidden, and under reduced motion.
+- **Knows the page it's on** ("page brief" read from the DOM at load): H1 title, hero lead paragraph, the meta row (client / context / role / period), every metric box, and each section heading with its text. Answers now come from the page first: "Summarize" (title + lead + meta + top results), "Key results" (all page metrics), "Your role here" / client, "What does it cover?" (section list), and free questions are matched to the best section by keywords (heading matches weigh more) and answered with its first sentences; only if nothing on the page matches does it fall back to the site-wide PixelTwin. New chips: Summarize · Key results · Your role here · What does it cover? · Contact.
+- Verified on siemens.html (light): summary, −40%/−60%/100% WCAG metrics, "Solo Lead", section list, "design system" → BOS Tablet Design System section, site fallback for location; zero page errors.
+
+**Session 40 addendum**: back to the **round** pixel face (Dario preferred it); kept the stronger shadow. Sparks now burst from the centre outward in **all directions**, evenly spread around the circle with a little random jitter (previously up/left only).
+
+---
+
+### Session 41 (November 2026) — Back button on every page (`effects.js` / `effects.css`)
+
+- A floating **"← Back"** pill, bottom-left (opposite the mini twin), on every page except the index. If you arrived from another page of the site it plays the glitch-out and does `history.back()` (so returning to the index lands back in the face view or classic view you left, cards scroll intact); if the page was opened directly it reads **"Home"** and links to `index.html`. `aria-label` names the destination ("Go back to Home / Work / About…"). The site's link-click handler now records `navFrom` in sessionStorage for this.
+- Themed automatically: dark pill on dark pages (page tokens), white pill with soft shadow on `html.theme-light`; teal hover ring, focus-visible outline, raised above the music widget if a page renders one, smaller on mobile, hidden in print, no motion under reduced-motion.
+- `benefits-platform.html` was the only page without the shared layer — it now loads `effects.css`/`effects.js` plus the early theme snippet, so it also gets the back button, page glitch, light theme and mini twin.
+- Verified with Playwright: classic index → Siemens (dark "Back") → back to index; face view → AT&T (light "Back") → back to index still in face view; direct opens of tycan / work / benefits-platform show "Home"; zero page errors.
