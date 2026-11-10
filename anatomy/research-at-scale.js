@@ -679,7 +679,7 @@ const ISO_CSS = `
   const card = document.querySelector('[data-anatomy="research-at-scale"]');
   if (!card) return;
   const stage = card.querySelector(".iso-stage"), svg = stage.querySelector("svg");
-  const P = {"origin":[310,233.40061439747848],"scale":1.184913827408762,"azimuth":40,"elevation":30}, G = {"HX":-112,"HY":-22,"DX":-50,"DY":-8,"BINS":[10,44,78,112],"BY":26}, M = {"themes":["needs","pain points","workflows","ideas"],"seq":[1,0,2,1,3,0,2,1,0,3,1,2]};
+  const P = {"origin":[310,203.97691059916906],"scale":1.3946587157677437,"azimuth":40,"elevation":30}, G = {"KX":78,"KY":60,"na":12,"nb":6}, M = {"a":12,"b":6};
   const $ = (n) => svg.querySelector('[data-part="' + n + '"]');
   const $$ = (n) => Array.from(svg.querySelectorAll('[data-part^="' + n + '"]'));
   const readout = card.querySelector("[data-readout]");
@@ -691,26 +691,23 @@ const ISO_CSS = `
   const tr = (el, v) => el && el.setAttribute("transform", translateAlong(P, v));
   let STEPS = null, STILL = null;
   
-  const PER = 1.6, N = M.seq.length, DUR = PER * N + 2.4;
-  const note = $("note"), cardEl = $("card"), drum = $("drum"), bar = $("bar"), pct = $("pct"), lv = [0,1,2,3].map((i) => $("lvl-" + i));
-  STEPS = [0.2, PER * 3, PER * 6, PER * 9, PER * N + 0.6]; STILL = PER * N + 1.2;
-  let spin = 0;
-  function update(t, dt) {
-    const done = t >= PER * N, i = Math.min(N - 1, Math.floor(t / PER)), f = done ? 1 : (t % PER) / PER, th = M.seq[i];
-    // note: hopper → chute → into the drum (first half); card: drum → conveyor → bin (second half)
-    let nx, ny, nz;
-    if (f < 0.2) { nx = G.HX; ny = G.HY; nz = 80 - 20 * ease(f / 0.2); }
-    else if (f < 0.45) { const g = ease((f - 0.2) / 0.25); nx = G.HX + (G.DX - G.HX) * g; ny = G.HY + (G.DY - G.HY) * g; nz = 60 - 18 * g; }
-    else { nx = G.DX; ny = G.DY; nz = 42 - 10 * ease(Math.min(1, (f - 0.45) / 0.1)); }
-    tr(note, [nx, ny, nz]); note.style.opacity = !done && f < 0.55 ? 1 : 0;
-    const tx = G.BINS[th], g2 = clamp((f - 0.55) / 0.35, 0, 1);
-    tr(cardEl, [G.DX + 20 + (tx - G.DX - 20) * ease(g2), G.BY - 28 + (g2 > 0.85 ? (g2 - 0.85) / 0.15 * 24 : 0), 8 + (g2 > 0.85 ? 6 - (g2 - 0.85) / 0.15 * 10 : 0)]);
-    cardEl.style.opacity = !done && f > 0.55 && f < 0.97 ? 1 : 0;
-    spin += dt * (f > 0.4 && f < 0.6 ? 3 : 0.6); tr(drum, [0, 0, 0]); drum.style.transformOrigin = "center";
-    const cnt = [0, 0, 0, 0]; for (let j = 0; j < (done ? N : i); j++) cnt[M.seq[j]]++; if (!done && f > 0.92) cnt[th]++;
-    lv.forEach((el, j) => { const h = Math.min(14, cnt[j] * 3.2); el.setAttribute("height", h.toFixed(1)); el.setAttribute("y", (15 - h).toFixed(1)); el.style.fill = !done && j === th && f > 0.92 ? "var(--anatomy-lit)" : "var(--anatomy-mid)"; });
-    const prog = done ? 1 : t / (PER * N); bar.setAttribute("width", (52 * prog).toFixed(1)); pct.textContent = done ? "50% faster" : "";
-    say(done ? "synthesis complete · turnaround 50% faster" : "session note " + (i + 1) + " of " + N + " · " + (f < 0.55 ? "AI-assisted synthesis" : "tagged → " + M.themes[th]));
+  const SP = 0.55, TA = G.na * SP, GAP = 1, TB = G.nb * SP, HOLD = 3.2, DUR = TA + GAP + TB + HOLD;
+  const pa = Array.from({ length: G.na + 1 }, (_, s) => $("pin-a-" + s)), pb = Array.from({ length: G.nb + 1 }, (_, s) => $("pin-b-" + s));
+  const ta = Array.from({ length: G.na + 1 }, (_, s) => $("thr-a-" + s)), tb = Array.from({ length: G.nb + 1 }, (_, s) => $("thr-b-" + s));
+  const na = $("na"), nb = $("nb"), mark = $("lrmark"), floor = $("floor");
+  STEPS = [0.2, TA * 0.5, TA + 0.1, TA + GAP + TB * 0.5, TA + GAP + TB + 0.3]; STILL = TA + GAP + TB + 1;
+  function update(t) {
+    const sa = Math.min(G.na, Math.floor(t / SP)), b0 = TA + GAP, sb = t < b0 ? -1 : Math.min(G.nb, Math.floor((t - b0) / SP));
+    pa.forEach((el, s) => el && (el.style.opacity = s <= sa ? (t >= b0 ? 0.45 : 1) : 0));
+    ta.forEach((el, s) => el && (el.style.opacity = s && s <= sa ? (t >= b0 ? 0.5 : 1) : 0));
+    pb.forEach((el, s) => el && (el.style.opacity = s <= sb ? 1 : 0));
+    tb.forEach((el, s) => el && (el.style.opacity = s && s <= sb ? 1 : 0));
+    na.textContent = String(sa); nb.textContent = sb < 0 ? "—" : String(sb);
+    const k = t < TA ? 0 : t < b0 ? ease((t - TA) / GAP) : 1, a = (-0.75 + k * 1.1) * Math.PI;
+    mark.setAttribute("d", lineOnTop([G.KX, G.KY], [G.KX + Math.sin(a) * 5, G.KY - Math.cos(a) * 5], 6.2, P));
+    const done = sb === G.nb;
+    floor.style.opacity = (sa === G.na && t < b0) || done ? 1 : 0.5;
+    say(t < TA ? "manual synthesis · step " + sa + " of " + G.na + " down to insight" : t < b0 ? "turning up the learning rate: guidelines + AI synthesis" : !done ? "guided + AI · step " + sb : "insight in " + G.nb + " steps instead of " + G.na + " · 50% faster");
   }
 
   let clock = 0, last = 0, frame = 0, visible = false, paused = false;

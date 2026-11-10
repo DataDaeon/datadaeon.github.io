@@ -679,7 +679,7 @@ const ISO_CSS = `
   const card = document.querySelector('[data-anatomy="oolalife"]');
   if (!card) return;
   const stage = card.querySelector(".iso-stage"), svg = stage.querySelector("svg");
-  const P = {"origin":[310,228.63108252162647],"scale":1.2421321893237736,"azimuth":40,"elevation":30}, G = {"COLS":[-108,-78,-48,-18,12,42,72]}, M = {"areas":["Faith","Family","Field","Finance","Fitness","Friends","Fun"],"days":3};
+  const P = {"origin":[310,214.39793605828277],"scale":1.4291401550822977,"azimuth":40,"elevation":30}, G = {"CX":0,"CY":-2,"R":64,"BZ":24,"RAD":[16,23,30,37,44,51,58],"KX":88}, M = {"areas":["Faith","Family","Field","Finance","Fitness","Friends","Fun"],"days":[[127,3],[95,5],[126,2],[127,4],[63,6],[127,3],[127,4]]};
   const $ = (n) => svg.querySelector('[data-part="' + n + '"]');
   const $$ = (n) => Array.from(svg.querySelectorAll('[data-part^="' + n + '"]'));
   const readout = card.querySelector("[data-readout]");
@@ -691,21 +691,33 @@ const ISO_CSS = `
   const tr = (el, v) => el && el.setAttribute("transform", translateAlong(P, v));
   let STEPS = null, STILL = null;
   
-  const PER = 0.9, N = M.areas.length, DAY = PER * N, DUR = DAY * M.days + 2;
-  const disp = $("disp"), drop = $("drop"), streak = $("streak"), fills = M.areas.map((_, i) => $("fill-" + i));
-  STEPS = Array.from({ length: M.days }, (_, d) => d * DAY + 0.2).concat([DAY * M.days + 0.4]); STILL = DAY * M.days + 1;
+  const DAY = 2.2, ND = M.days.length, DUR = DAY * ND + 1.2, SEC = Math.PI * 2 / ND;
+  const SET = -Math.PI * 0.72, READ = Math.atan2(Math.sin(40 * Math.PI / 180), Math.cos(40 * Math.PI / 180));
+  const pinsG = $("pins"), sectors = $("sectors"), setter = $("setter"), comb = $("comb"), tap = $("tap"), streak = $("streak"), dayn = $("dayn");
+  STEPS = Array.from({ length: ND }, (_, d) => d * DAY + DAY * 0.55).concat([DAY * ND + 0.4]); STILL = DAY * 4 + DAY * 0.7;
+  const Z = G.BZ + 5, pt = (a, r) => [G.CX + Math.cos(a) * r, G.CY + Math.sin(a) * r];
+  const bar = (a, r0, r1, half, z, h, st) => { const c = Math.cos(a), s = Math.sin(a), nx = -s * half, ny = c * half; const p0 = pt(a, r0), p1 = pt(a, r1);
+    return solidSvg(extrude([[p0[0] + nx, p0[1] + ny], [p1[0] + nx, p1[1] + ny], [p1[0] - nx, p1[1] - ny], [p0[0] - nx, p0[1] - ny]], z, h, P), st); };
   function update(t) {
-    const done = t >= DAY * M.days, d = done ? M.days - 1 : Math.floor(t / DAY), lt = done ? DAY : t - d * DAY;
-    const i = Math.min(N - 1, Math.floor(lt / PER)), f = done ? 1 : (lt % PER) / PER;
-    const from = i ? G.COLS[i - 1] : (d ? G.COLS[N - 1] : G.COLS[0]);
-    const x = done ? G.COLS[N - 1] : from + (G.COLS[i] - from) * ease(Math.min(1, f / 0.45));
-    tr(disp, [x, 0, 0]);
-    const fall = f > 0.45 && f < 0.8 && !done ? (f - 0.45) / 0.35 : -1;
-    drop.style.opacity = fall >= 0 ? 1 : 0; tr(drop, [x, 0, -Math.max(0, fall) * 8]);
-    fills.forEach((el, j) => { let lv = d + (j < i || (j === i && f >= 0.8) || done ? 1 : 0); const h = (lv / M.days) * 32; el.setAttribute("height", h.toFixed(2)); el.setAttribute("y", (33 - h).toFixed(2)); el.style.fill = j === i && !done ? "var(--anatomy-lit)" : "var(--anatomy-mid)"; });
-    const s = done ? M.days : d + (i === N - 1 && f >= 0.8 ? 1 : 0);
-    streak.textContent = String(s);
-    say(done ? "all seven areas balanced · " + M.days + "-day streak" : "day " + (d + 1) + " · daily action step: " + M.areas[i] + " · streak " + s);
+    const tt = Math.min(t, DAY * ND), th = SET - (tt / DAY) * SEC;            // disc angle: day d is under the setter at the middle of its slot
+    const d = Math.min(ND - 1, Math.floor(tt / DAY)), f = (tt % DAY) / DAY, over = t >= DAY * ND;
+    let sd = ""; for (let s = 0; s < ND; s++) { const a = th + s * SEC, p = pt(a, 10), q = pt(a, G.R - 2); sd += lineOnTop(p, q, Z, P); } sectors.setAttribute("d", sd);
+    // pins set so far: days before today, and today's once the dashpot drops (f ≥ 0.5)
+    const pins = [];
+    for (let s = 0; s <= d; s++) { if (s === d && f < 0.5 && !over) continue; const mask = M.days[s][0], a = th + (s + 0.5) * SEC;
+      for (let i = 0; i < 7; i++) if (mask >> i & 1) { const [x, y] = pt(a, G.RAD[i]); let diff = Math.atan2(Math.sin(a - READ), Math.cos(a - READ)); pins.push({ x, y, lit: s === d && !over, play: Math.abs(diff) < 0.09 }); } }
+    pins.sort((p, q) => depthOf([p.x, p.y, 0], P) - depthOf([q.x, q.y, 0], P));
+    pinsG.innerHTML = pins.map((p) => solidSvg(cylinder(p.x, p.y, 1.7, Z, 4.5, P, 12), { tone: p.play ? "hi" : "mid", crease: "none", lit: p.lit || p.play })).join("");
+    // dashpot setter at the back: plungers twitch with every tap, drop once per day
+    const taps = M.days[d][1], tf = f / 0.45, tapping = !over && f < 0.45 && (tf * taps) % 1 < 0.35;
+    const drop = !over && f >= 0.45 && f < 0.6 ? Math.sin((f - 0.45) / 0.15 * Math.PI) : 0;
+    setter.innerHTML = bar(SET, 8, G.R + 8, 4, Z + 14, 5, { tone: "mid" }) + bar(SET, 12, G.R - 2, 1.4, Z + 6 - drop * 3, 8, { tone: tapping ? "hi" : "mid", lit: drop > 0.2 });
+    comb.innerHTML = bar(READ, 12, G.R + 6, 3.2, Z + 6, 4, { tone: "mid" }) + bar(READ, G.R + 2, G.R + 12, 5, G.BZ, 10, { tone: "mid" });
+    tap.style.opacity = tapping ? 1 : 0;
+    const done = over ? ND : d + (f >= 0.5 ? 1 : 0), cnt = (m) => { let c = 0; for (let i = 0; i < 7; i++) c += m >> i & 1; return c; };
+    streak.textContent = String(done); dayn.textContent = over ? "week done" : "day " + (d + 1);
+    const n = cnt(M.days[d][0]);
+    say(over ? "one week · " + ND + "-day streak · one pin per area per day" : f < 0.45 ? "day " + (d + 1) + " · " + Math.min(taps, Math.ceil(tf * taps)) + (Math.min(taps, Math.ceil(tf * taps)) === 1 ? " tap" : " taps") + " on the knob" : "day " + (d + 1) + " · " + taps + " taps → 1 action step in " + n + " of 7 areas");
   }
 
   let clock = 0, last = 0, frame = 0, visible = false, paused = false;

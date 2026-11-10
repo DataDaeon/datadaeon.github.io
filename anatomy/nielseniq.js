@@ -679,7 +679,7 @@ const ISO_CSS = `
   const card = document.querySelector('[data-anatomy="nielseniq"]');
   if (!card) return;
   const stage = card.querySelector(".iso-stage"), svg = stage.querySelector("svg");
-  const P = {"origin":[310,187.0187613482978],"scale":1.4812744237281756,"azimuth":40,"elevation":30}, G = {"TRACKS":[-26,26],"GX":-64,"AX":6}, M = {"delivery":"+30%","bugs":"−50%","cards":[1,1,0,1,1,1,1,0,1,1]};
+  const P = {"origin":[320,209.96744644487177],"scale":1.4457509001352495,"azimuth":40,"elevation":30}, G = {"RY":60}, M = {"wMax":214,"wMin":128,"cx":-14,"y0":-58,"d":104};
   const $ = (n) => svg.querySelector('[data-part="' + n + '"]');
   const $$ = (n) => Array.from(svg.querySelectorAll('[data-part^="' + n + '"]'));
   const readout = card.querySelector("[data-readout]");
@@ -691,30 +691,58 @@ const ISO_CSS = `
   const tr = (el, v) => el && el.setAttribute("transform", translateAlong(P, v));
   let STEPS = null, STILL = null;
   
-  const PER = 2.6, N = M.cards.length, DUR = PER * N;
-  const dc = $("dcard"), arm = $("arm"), probe = $("probe"), ok = $("lampOk"), no = $("lampNo"), sp = $("sprint"), bg = $("bugs");
-  const vc = [0, 1, 2, 3].map((i) => $("vcard-" + i));
-  STEPS = Array.from({ length: N }, (_, i) => i * PER + PER * 0.4); STILL = PER * 3 + PER * 0.55;
+  const DUR = 18, BEFORE = 4, SNAP = 1.4;
+  const jig = $("jig"), jawL = $("jawL"), jawR = $("jawR"), sw = $("swmark"), sys = $("sys"), px = $("px"), bugs = $("bugs"), cols = $("cols");
+  STEPS = [0.3, BEFORE + SNAP, 7.6, 11.4, 14.5]; STILL = 13.6;
+  const J = (i, s) => { const v = Math.sin(i * 12.9898 + s * 78.233) * 43758.5453; return v - Math.floor(v) - 0.5; };
+  const BUGGY = [0, 2, 3, 5, 6], solid = (pl, z, h, st) => solidSvg(slabOf(pl, z, h, P, 3, 0.4), st);
+  let key = "";
+  function render(W, a) {
+    const x0 = M.cx - W / 2, y0 = M.y0, D = M.d, B = 8, PAD = 8, GAP = 6, back = [], front = [];
+    // margin: dashed outline + spacer blocks
+    back.push(lineSvg(planOutline({ x: x0 - 12, y: y0 - 12, w: W + 24, d: D + 24, r: 4 }, 0.2, P, 4), { tone: "faint", dashed: true }));
+    for (const [sx, sy] of [[x0 - 9, y0 - 9], [x0 + W + 3, y0 - 9], [x0 - 9, y0 + D + 3]]) back.push(solid({ x: sx, y: sy, w: 6, d: 6, r: 1 }, 0, 3, { tone: "lo" }));
+    // border frame (the design system): back + left bars, then content, then right + front bars
+    back.push(solid({ x: x0, y: y0, w: W, d: B, r: 1.4 }, 0, 10, { tone: "mid" }));
+    back.push(solid({ x: x0, y: y0 + B, w: B, d: D - 2 * B, r: 0.6 }, 0, 10, { tone: "mid" }));
+    // padding mat with its token guide
+    back.push(solid({ x: x0 + B, y: y0 + B, w: W - 2 * B, d: D - 2 * B, r: 0.6 }, 0, 2, { tone: "lo", crease: "none" }));
+    back.push(lineSvg(planOutline({ x: x0 + B + PAD, y: y0 + B + PAD, w: W - 2 * (B + PAD), d: D - 2 * (B + PAD), r: 1 }, 2, P, 3), { tone: a > 0.5 ? "lo" : "faint", dashed: true }));
+    // content: KPI widgets, 4 columns when wide, 2 when narrow
+    const n = W >= 172 ? 4 : 2, rows = n === 4 ? 2 : 3, cx0 = x0 + B + PAD, cy0 = y0 + B + PAD, cw = W - 2 * (B + PAD), cd = D - 2 * (B + PAD);
+    const tw = (cw - GAP * (n - 1)) / n, td = (cd - GAP * (rows - 1)) / rows, tiles = [];
+    for (let r = 0; r < rows; r++) for (let c = 0; c < n; c++) {
+      const i = r * n + c, m = 1 - a, jx = J(i, 1) * 9 * m, jy = J(i, 2) * 7 * m, jw = J(i, 3) * 8 * m, jd = J(i, 4) * 6 * m;
+      tiles.push({ i, x: cx0 + c * (tw + GAP) + jx, y: cy0 + r * (td + GAP) + jy, w: tw - 2 + jw, d: td - 2 + jd, h: 4 + ((i * 5) % 7) * 0.9 + J(i, 5) * 3 * m });
+    }
+    tiles.sort((p, q) => depthOf([p.x + p.w / 2, p.y + p.d / 2, 0], P) - depthOf([q.x + q.w / 2, q.y + q.d / 2, 0], P));
+    const nb = Math.round(12 - 6 * a), on = BUGGY.slice(0, Math.max(0, Math.round(BUGGY.length * (1 - a) + (a > 0.99 ? 0 : 0))));
+    for (const tl of tiles) {
+      back.push(solid({ x: tl.x, y: tl.y, w: Math.max(4, tl.w), d: Math.max(4, tl.d), r: 1 }, 2, tl.h, { tone: "hi", crease: "lo", lit: tl.i === 0 }));
+      back.push(lineSvg(lineOnTop([tl.x + 3, tl.y + tl.d * 0.35], [tl.x + Math.max(6, tl.w * 0.6), tl.y + tl.d * 0.35], 2 + tl.h, P), { tone: "lo" }));
+      if (on.indexOf(tl.i) >= 0) back.push(solidSvg(cylinder(tl.x + tl.w - 4, tl.y + 4, 1.6, 2 + tl.h, 4, P, 12), { tone: "mid", crease: "none", className: "bug" }));
+    }
+    front.push(solid({ x: x0 + W - B, y: y0 + B, w: B, d: D - 2 * B, r: 0.6 }, 0, 10, { tone: "mid" }));
+    front.push(solid({ x: x0, y: y0 + D - B, w: W, d: B, r: 1.4 }, 0, 10, { tone: "mid" }));
+    jig.innerHTML = back.join("") + front.join("");
+    jig.querySelectorAll(".bug .iso-top").forEach((p) => p.style.fill = "var(--anatomy-red)");
+    return { n, nb };
+  }
+  let cur = { n: 4, nb: 12 };
   function update(t) {
-    const i = Math.floor(t / PER) % N, f = (t % PER) / PER, good = M.cards[i];
-    // discovery: card enters at -120, stops under the gauge, then goes to the arm (good) or the chute (rework)
-    let x, z = 0, y = 0;
-    if (f < 0.3) x = -120 + (G.GX + 120) * ease(f / 0.3);
-    else if (f < 0.45) x = G.GX;
-    else if (good) {
-      if (f < 0.65) x = G.GX + (G.AX - G.GX) * ease((f - 0.45) / 0.2);
-      else { x = G.AX; const g = ease((f - 0.65) / 0.25); y = (G.TRACKS[1] - G.TRACKS[0]) * Math.min(1, g); z = Math.sin(Math.min(1, g) * Math.PI) * 18; }
-    } else x = G.GX + (138 - G.GX) * ease((f - 0.45) / 0.45);
-    tr(dc, [x, y, z]); dc.style.opacity = !good && f > 0.88 ? 0 : 1;
-    tr(arm, [0, good && f > 0.65 ? y : 0, 0]);
-    const p = f > 0.32 && f < 0.45 ? Math.sin(((f - 0.32) / 0.13) * Math.PI) : 0; tr(probe, [0, 0, -p * 8]);
-    ok.style.opacity = f > 0.4 && good ? 1 : 0.2; no.style.opacity = f > 0.4 && !good ? 1 : 0.2;
-    // delivery: validated cards travel one sprint behind
-    let done = 0, rej = 0; for (let j = 0; j < i; j++) M.cards[j] ? done++ : rej++;
-    const count = done + (f > 0.92 && good ? 1 : 0), slide = good && f > 0.92 ? 0 : ease(Math.min(1, f / 0.3)) * 26;
-    vc.forEach((c, j) => { const x = G.AX + 12 + j * 26 + (j < count ? slide - 26 * (f > 0.92 && good ? 0 : 1) + 26 : 0); c.style.opacity = j < count && x < 128 ? 1 : 0; tr(c, [x, 0, 0]); });
-    sp.textContent = "sprint " + (i + 1); bg.textContent = rej + " reworked";
-    say("sprint " + (i + 1) + " · discovery " + (f < 0.45 ? "validating" : good ? "passed → delivery" : "back to rework") + " · delivery one sprint behind");
+    const a = t < BEFORE ? 0 : ease(clamp((t - BEFORE) / SNAP, 0, 1));
+    let W = M.wMax;
+    if (t > 7) W = M.wMax + (M.wMin - M.wMax) * ease(clamp((t - 7) / 3, 0, 1));
+    if (t > 11) W = M.wMin + (M.wMax - M.wMin) * ease(clamp((t - 11) / 3, 0, 1));
+    const kk = W.toFixed(1) + "|" + a.toFixed(3);
+    if (kk !== key) { key = kk; cur = render(W, a); }
+    tr(jawL, [M.cx - W / 2, 0, 0]); tr(jawR, [M.cx + W / 2, 0, 0]);
+    const ang = (-0.6 + a * 1.2) * Math.PI;
+    sw.setAttribute("d", lineOnTop([128, 20], [128 + Math.sin(ang) * 5, 20 - Math.cos(ang) * 5], 6.2, P));
+    const w = Math.round(768 + (W - M.wMin) / (M.wMax - M.wMin) * 672);
+    sys.textContent = a > 0.5 ? "on" : "off"; px.textContent = String(w); bugs.textContent = String(cur.nb); cols.textContent = cur.n + " columns";
+    bugs.style.fill = a > 0.5 ? "var(--anatomy-lit)" : "var(--anatomy-red)";
+    say(t < BEFORE ? "no shared system · widgets drift · 12 UX bugs" : t < BEFORE + SNAP ? "design system on · snapping to tokens" : t < 7 ? "tokens hold the frame · UX bugs −50%" : "width " + w + "px · " + cur.n + " columns · border and padding hold");
   }
 
   let clock = 0, last = 0, frame = 0, visible = false, paused = false;

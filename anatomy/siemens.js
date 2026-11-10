@@ -679,47 +679,50 @@ const ISO_CSS = `
   const card = document.querySelector('[data-anatomy="siemens"]');
   if (!card) return;
   const stage = card.querySelector(".iso-stage"), svg = stage.querySelector("svg");
-  const P = {"origin":[322.78171231737923,195.15636062197765],"scale":1.395372251901664,"azimuth":38,"elevation":30}, G = {"CX":40,"CY":36,"BOARD":{"x":-170,"y":-78,"w":340,"d":160,"r":8}}, M = {"CX":40,"CY":36,"A":{"from":-76,"hold":-28,"to":166},"B":{"from":-38,"to":80},"T":{"bulletin":1.4,"holdAt":4.2,"bStart":3,"bEnd":8.6,"clear":9,"aGo":9.6,"end":15.5},"mp0":18.6,"mpPer":135};
+  const P = {"origin":[320,237.53837160395557],"scale":1.2582420926311813,"azimuth":40,"elevation":30}, G = {"TY":40,"RX":-34,"MC":[40,-34,38],"holes":[[-113,-46,45],[-83.5,-46,45],[-54,-46,45],[-24.5,-46,45],[-113,-46,15],[-83.5,-46,15],[-54,-46,15],[-24.5,-46,15]]}, M = {"msgs":[{"train":"RX-4471","code":"CSX0256","plain":"brake test overdue","stop":0,"b":4},{"train":"RX-2208","code":"PTC0113","plain":"speed restriction ahead","stop":0,"b":3},{"train":"RX-4471","code":"BUL2231","plain":"track window · hold at MP 19","stop":1,"b":0},{"train":"RX-1950","code":"CSX0388","plain":"crew change at MP 42","stop":0,"b":4},{"train":"RX-2208","code":"OBU0071","plain":"onboard unit restarted","stop":0,"b":5},{"train":"RX-4471","code":"PTC0420","plain":"authority extended","stop":0,"b":2},{"train":"RX-1950","code":"CSX0256","plain":"brake test overdue","stop":0,"b":4},{"train":"RX-3312","code":"WZA0019","plain":"work zone · 25 mph","stop":1,"b":7}]};
   const $ = (n) => svg.querySelector('[data-part="' + n + '"]');
+  const $$ = (n) => Array.from(svg.querySelectorAll('[data-part^="' + n + '"]'));
   const readout = card.querySelector("[data-readout]");
   const still = matchMedia("(prefers-reduced-motion: reduce)");
-  const tA = $("trainA"), tB = $("trainB"), s1 = $("scr1"), s2 = $("scr2"), s3 = $("scr3"), lR = $("lampR"), lG = $("lampG");
-  const T = M.T, A = M.A, B = M.B;
   const ease = (t) => t * t * (3 - 2 * t);
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-  const mp = (x) => M.mp0 + (x - A.from) / M.mpPer;
-  // positions as a function of time (the model)
-  function ax(t) {
-    if (t < T.holdAt) return A.from + (A.hold - A.from) * (1 - Math.pow(1 - t / T.holdAt, 1.8));
-    if (t < T.aGo) return A.hold;
-    return A.hold + (A.to - A.hold) * ease(clamp((t - T.aGo) / (T.end - 1.2 - T.aGo), 0, 1));
+  const seg = (t, a, b) => clamp((t - a) / (b - a), 0, 1);
+  const say = (t) => { if (readout.textContent !== t) readout.textContent = t; stage.setAttribute("aria-valuetext", t); };
+  const tr = (el, v) => el && el.setAttribute("transform", translateAlong(P, v));
+  let STEPS = null, STILL = null;
+  
+  const N = M.msgs.length, PER = 3.4, DUR = N * PER;
+  const loco = $("loco"), cardEl = $("card"), lamp = $("lamp"), rxl = $("rxlamp"), code = $("code"), hash = $("hash"), plain = $("plain");
+  const piles = Array.from({ length: 8 }, (_, b) => $("pile-" + b)), holes = Array.from({ length: 8 }, (_, b) => $("hole-" + b));
+  STEPS = Array.from({ length: N }, (_, i) => i * PER + PER * 0.62); STILL = PER * 6 + PER * 0.72;
+  const L3 = (a, b, g) => [a[0] + (b[0] - a[0]) * g, a[1] + (b[1] - a[1]) * g, a[2] + (b[2] - a[2]) * g];
+  function update(t) {
+    const i = Math.floor(t / PER) % N, f = (t % PER) / PER, m = M.msgs[i];
+    // the engine crosses the reader at f ≈ 0.3 (and slows at the reader if the message is a hold)
+    const x = -175 + 350 * f; tr(loco, [x, 0, 0]); loco.style.opacity = f < 0.05 ? f / 0.05 : f > 0.95 ? (1 - f) / 0.05 : 1;
+    rxl.style.opacity = f > 0.28 && f < 0.36 ? 1 : 0.25;
+    const src = [G.RX, G.TY - 20, 34], mc = G.MC, dst = G.holes[m.b];
+    let p = src, show = false;
+    if (f >= 0.3 && f < 0.45) { const g = ease((f - 0.3) / 0.15); p = L3(src, mc, g); p[2] += Math.sin(g * Math.PI) * 18; show = true; }
+    else if (f >= 0.45 && f < 0.62) { p = mc; show = f > 0.56; }
+    else if (f >= 0.62 && f < 0.86) { const g = ease((f - 0.62) / 0.24); p = L3(mc, dst, g); p[2] += Math.sin(g * Math.PI) * 14; show = true; }
+    tr(cardEl, p); cardEl.style.opacity = show ? 1 : 0;
+    const printing = f >= 0.45;
+    code.textContent = f >= 0.36 ? m.train + " · " + m.code : "—";
+    hash.textContent = printing ? "→ " + m.b : ""; plain.textContent = f >= 0.52 ? "“" + m.plain + "”" : "";
+    lamp.style.fill = m.stop ? "var(--anatomy-red)" : "var(--anatomy-green)"; lamp.style.opacity = f >= 0.52 ? 1 : 0.25;
+    const counts = new Array(8).fill(0); for (let j = 0; j < i; j++) counts[M.msgs[j].b]++; const landed = f >= 0.86; if (landed) counts[m.b]++;
+    piles.forEach((el, b) => { const c = b % 4, r = Math.floor(b / 4), hx = 5 + c * 29.5, hy = 5 + r * 30; let h = ""; for (let q = 0; q < counts[b]; q++) h += '<rect x="' + (hx + 3) + '" y="' + (hy + 20 - q * 3.4) + '" width="20" height="2.6" rx="0.5" style="fill:var(--anatomy-' + (b === m.b && q === counts[b] - 1 && landed ? "lit" : "mid") + ');opacity:.8"/>'; el.innerHTML = h; });
+    holes.forEach((el, b) => el.setAttribute("data-tone", printing && b === m.b ? "hi" : "lo"));
+    const n = counts[m.b];
+    say(f < 0.36 ? m.train + " approaching the reader" : !printing ? m.train + " reported " + m.code : m.code + " → bucket " + m.b + " · “" + m.plain + "”" + (landed && n > 1 ? " · collision: " + n + " in bucket" : ""));
   }
-  function by(t) { return B.from + (B.to - B.from) * ease(clamp((t - T.bStart) / (T.bEnd - T.bStart), 0, 1)); }
-  const fade = (v, a, b, m) => clamp(Math.min((v - a) / m, (b - v) / m), 0, 1);
+
   let clock = 0, last = 0, frame = 0, visible = false, paused = false;
-  function draw() {
-    const t = clock, x = ax(t), y = by(t);
-    tA.setAttribute("transform", translateAlong(P, [x, G.CY, 0]));
-    tB.setAttribute("transform", translateAlong(P, [G.CX, y, 0]));
-    const loopFade = clamp(Math.min(t / 0.5, (T.end + 0.8 - t) / 0.6), 0, 1);
-    tA.style.opacity = loopFade.toFixed(3);
-    tB.style.opacity = loopFade.toFixed(3);
-    const hold = t >= T.bulletin && t < T.clear;
-    lR.style.opacity = hold ? 1 : 0.18; lG.style.opacity = hold ? 0.18 : 1;
-    let l1, l2, l3, read;
-    if (t < T.bulletin) { l1 = "BOS · RIVER JCT"; l2 = "RX-4471 · MP " + mp(x).toFixed(1); l3 = "TRACK WINDOWS OK"; read = "RX-4471 · MP " + mp(x).toFixed(1) + " · line clear"; }
-    else if (t < T.clear) {
-      l1 = "BULLETIN 2231"; l2 = "HOLD AT MP 19.0"; l3 = "RIVER JCT · 08:00–16:00";
-      read = x >= A.hold - 0.5 ? "RX-4471 · holding at MP 19.0 · crossing train passing" : "RX-4471 · MP " + mp(x).toFixed(1) + " · braking for bulletin 2231";
-    } else { l1 = "BULLETIN 2231 · CLEARED"; l2 = "PROCEED · RX-4471"; l3 = "TRACK WINDOW CLOSED"; read = "RX-4471 · MP " + mp(x).toFixed(1) + " · proceeding"; }
-    if (s1.textContent !== l1) s1.textContent = l1; if (s2.textContent !== l2) s2.textContent = l2; if (s3.textContent !== l3) s3.textContent = l3;
-    if (readout.textContent !== read) readout.textContent = read;
-    stage.setAttribute("aria-valuetext", read);
-  }
   function tick(now) {
     const dt = last ? Math.min((now - last) / 1000, 1 / 30) : 1 / 60; last = now;
-    if (!paused) { clock += dt; if (clock > T.end + 0.8) clock = 0; }
-    draw();
+    if (!paused) { clock += dt; if (clock >= DUR) clock -= DUR; }
+    update(clock, paused ? 0 : dt);
     frame = visible && !still.matches ? requestAnimationFrame(tick) : 0;
   }
   const run = () => { if (!frame && visible && !still.matches) { last = 0; frame = requestAnimationFrame(tick); } };
@@ -728,11 +731,12 @@ const ISO_CSS = `
   stage.addEventListener("pointerleave", () => { paused = false; });
   stage.addEventListener("focus", () => { paused = true; });
   stage.addEventListener("blur", () => { paused = false; });
-  const jump = () => { const marks = [0, T.bulletin + 0.1, T.holdAt + 1.2, T.clear + 0.1, T.aGo + 1.6]; const i = marks.findIndex((m) => m > clock + 0.05); clock = i < 0 ? 0 : marks[i]; draw(); };
-  stage.addEventListener("click", jump);
-  stage.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " " || e.key === "ArrowRight") { e.preventDefault(); jump(); } if (e.key === "ArrowLeft") { e.preventDefault(); clock = Math.max(0, clock - 1); draw(); } });
-  if (still.matches) clock = T.holdAt + 1.6;
-  draw();
+  const marks = () => STEPS || Array.from({ length: 6 }, (_, i) => (DUR * i) / 6);
+  const jump = (dir) => { const m = marks(); let i = m.findIndex((x) => x > clock + 0.05); if (dir < 0) { i = m.slice().reverse().findIndex((x) => x < clock - 0.3); i = i < 0 ? 0 : m.length - 1 - i; clock = m[i]; } else clock = i < 0 ? m[0] : m[i]; update(clock, 0); };
+  stage.addEventListener("click", () => jump(1));
+  stage.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " " || e.key === "ArrowRight") { e.preventDefault(); jump(1); } if (e.key === "ArrowLeft") { e.preventDefault(); jump(-1); } });
+  clock = still.matches && STILL != null ? STILL : 0;
+  update(clock, 0);
 })();
 
 })();

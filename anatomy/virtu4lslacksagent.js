@@ -679,7 +679,7 @@ const ISO_CSS = `
   const card = document.querySelector('[data-anatomy="virtu4lslacksagent"]');
   if (!card) return;
   const stage = card.querySelector(".iso-stage"), svg = stage.querySelector("svg");
-  const P = {"origin":[310,226.77696381736575],"scale":1.2935519207443014,"azimuth":40,"elevation":30}, G = {"CAB":{"x":-96,"y":-52,"w":150,"d":70,"r":3},"HOLES":[[-84,56],[-50,56],[-16,56],[18,56]],"INTAKE":-77}, M = {"channels":["#checklists","#reservations","#sales","#ops"],"queue":[["daily checklist done",0],["booking · 4 players · 6pm",1],["sale · 2 sessions",2],["headset 3 needs charge",3],["booking · birthday · sat",1],["closing checklist",0],["sale · gift card",2],["projector lamp hours",3]],"tests":293};
+  const P = {"origin":[316.15108132266863,260.6875698442552],"scale":1.2696017331159541,"azimuth":40,"elevation":30}, G = {"nKeys":50}, M = {"channels":["checklists","reservations","sales","ops"],"queue":[["daily checklist done",0],["booking: 4 players 6pm",1],["sale: 2 sessions",2],["headset 3 low battery",3],["booking: birthday sat",1],["closing checklist",0],["sale: gift card",2],["projector lamp hours",3]]};
   const $ = (n) => svg.querySelector('[data-part="' + n + '"]');
   const $$ = (n) => Array.from(svg.querySelectorAll('[data-part^="' + n + '"]'));
   const readout = card.querySelector("[data-readout]");
@@ -691,24 +691,28 @@ const ISO_CSS = `
   const tr = (el, v) => el && el.setAttribute("transform", translateAlong(P, v));
   let STEPS = null, STILL = null;
   
-  const N = M.queue.length, PER = 2.4, DUR = N * PER;
-  const sorter = $("sorter"), msgCard = $("card"), piles = [0, 1, 2, 3].map((i) => $("pile-" + i));
-  STEPS = Array.from({ length: N }, (_, i) => i * PER + 1.2); STILL = PER * 3 + 1.4;
+  const N = M.queue.length, PER = 3.2, DUR = N * PER;
+  const msg = $("msg"), out = $("out"), cur = $("cur"), chip = $("chip"), rows = [0,1,2,3].map((j) => $("ch-" + j)), cnts = [0,1,2,3].map((j) => $("cnt-" + j));
+  const keys = Array.from({ length: G.nKeys }, (_, i) => $("key-" + i)), pressed = new Float32Array(G.nKeys).fill(-9);
+  STEPS = Array.from({ length: N }, (_, i) => i * PER + PER * 0.7); STILL = PER * 3 + PER * 0.75;
+  let lastChars = -1, lastI = -1;
   function update(t) {
-    const i = Math.floor(t / PER) % N, f = (t % PER) / PER, [msg, ch] = M.queue[i];
-    const target = G.HOLES[ch][0] + 13;
-    let x, z;
-    if (f < 0.25) { x = G.INTAKE; z = 44 * (1 - ease(f / 0.25)) + 0; }
-    else if (f < 0.7) { x = G.INTAKE + (target - G.INTAKE) * ease((f - 0.25) / 0.45); z = 0; }
-    else { x = target; z = -ease((f - 0.7) / 0.3) * 8; }
-    tr(sorter, [x, 0, 0]);
-    tr(msgCard, [x, 0, f < 0.25 ? 44 * (1 - ease(f / 0.25)) : z]);
-    msgCard.style.opacity = f > 0.95 ? 0 : 1;
-    const counts = [0, 0, 0, 0];
-    for (let j = 0; j < i; j++) counts[M.queue[j][1]]++;
-    if (f > 0.9) counts[ch]++;
-    piles.forEach((p, j) => { const lx = G.HOLES[j][0] - G.CAB.x - 6; let h = ""; for (let c = 0; c < counts[j]; c++) h += '<rect x="' + (lx + 3) + '" y="' + (31 - c * 3.2) + '" width="20" height="2.4" rx="0.5" style="fill:var(--anatomy-' + (c === counts[j] - 1 && j === ch && f > 0.9 ? "lit" : "mid") + ');opacity:.75"/>'; p.innerHTML = h; });
-    say((f < 0.7 ? "dasha reading: “" + msg + "”" : "filed → " + M.channels[ch]) + " · 0 public URLs");
+    const i = Math.floor(t / PER) % N, f = (t % PER) / PER, [text, c] = M.queue[i];
+    const chars = Math.min(text.length, Math.floor(text.length * f / 0.38));
+    if (chars !== lastChars || i !== lastI) { if (chars > 0 && chars <= text.length && f < 0.4) { const kk = (text.charCodeAt(chars - 1) * 7 + chars * 13) % (G.nKeys - 1); pressed[text[chars - 1] === " " ? G.nKeys - 1 : kk] = t; } lastChars = chars; lastI = i; }
+    keys.forEach((el, j) => tr(el, [0, 0, t - pressed[j] >= 0 && t - pressed[j] < 0.12 ? -1.6 : 0]));
+    msg.textContent = f < 0.92 ? text.slice(0, chars) : "";
+    // Dasha scans the channels, then files the message into the right one
+    const scan = f >= 0.4 && f < 0.56 ? Math.floor(((f - 0.4) / 0.16) * 6) % 4 : -1;
+    rows.forEach((r, j) => r.style.opacity = j === scan ? 0.12 : (f >= 0.56 && j === c ? 0.28 : 0));
+    const g = clamp((f - 0.56) / 0.22, 0, 1), e = ease(g);
+    chip.setAttribute("x", (30 + (6 - 30) * e).toFixed(2)); chip.setAttribute("y", (14 + (12 + c * 9 + 2 - 14) * e).toFixed(2));
+    chip.style.opacity = f >= 0.56 && f < 0.8 ? 1 : 0;
+    const counts = [0, 0, 0, 0]; for (let j = 0; j < i; j++) counts[M.queue[j][1]]++; if (f >= 0.8) counts[c]++;
+    cnts.forEach((el, j) => { el.textContent = String(counts[j]); });
+    out.textContent = f < 0.4 ? "" : f < 0.56 ? "› reading…" : "› filed → #" + M.channels[c];
+    cur.style.opacity = Math.floor(t * 2.5) % 2 ? 1 : 0.2;
+    say((f < 0.56 ? "message in: “" + text + "”" : "dasha filed it → #" + M.channels[c]) + " · on this machine · 0 public URLs");
   }
 
   let clock = 0, last = 0, frame = 0, visible = false, paused = false;

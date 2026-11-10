@@ -8,6 +8,107 @@
    4. initCompareSliders — drag before/after compare
    ================================================================ */
 
+/* ═══ MUSIC PLAYER, SITE-WIDE (Session 47) ═══════════════════════════════════
+   One controller for every page. Pages that already carry the widget markup
+   (index) keep it; every other page gets the same widget injected bottom-left.
+   Track, position and sound on/off survive navigation (sessionStorage), so the
+   music carries on from page to page. If the browser blocks audible autoplay
+   on the new page, it keeps playing muted and turns the sound back on at the
+   visitor's first click or key press. Stays hidden if a track file is missing. */
+(function () {
+  'use strict';
+  var KEY = 'musicState';
+  var TRACKS = [
+    { file: 'Level1-1.mp3', title: 'Pixel Adventure', artist: 'Dario Espinosa' },
+    { file: 'Brisk Arcade Groove.mp3', title: 'Brisk Arcade Groove', artist: 'Dario Espinosa' }
+  ];
+  var widget = document.getElementById('music-widget');
+  if (!widget) {
+    widget = document.createElement('div');
+    widget.className = 'music-widget mw-shared'; widget.id = 'music-widget';
+    widget.setAttribute('role', 'group'); widget.setAttribute('aria-label', 'Background music');
+    widget.innerHTML =
+      '<button type="button" class="music-toggle" id="music-toggle" aria-pressed="false" aria-label="Turn the sound on" title="Sound on">' +
+        '<span class="music-ring" aria-hidden="true"></span>' +
+        '<span class="music-icon music-icon-muted" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9H8L13 5V19L8 15H4V9Z" fill="currentColor"/><path d="M17 9L21 13M21 9L17 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>' +
+        '<span class="music-icon music-icon-on" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9H8L13 5V19L8 15H4V9Z" fill="currentColor"/><path d="M16.5 9.5C17.5 10.5 17.5 13.5 16.5 14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18.5 7.5C20.5 9.5 20.5 14.5 18.5 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/></svg></span>' +
+      '</button>' +
+      '<div class="music-meta"><span class="music-title" id="music-title">Pixel Adventure</span><span class="music-sub"><span class="music-artist" id="music-artist">Dario Espinosa</span><span class="music-time" id="music-time" aria-hidden="true">0:00 / 0:00</span></span></div>' +
+      '<span class="music-eq" id="music-eq" aria-hidden="true"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></span>' +
+      '<div class="music-progress-wrap"><span class="music-progress-fill" id="music-progress-fill" aria-hidden="true"></span><input type="range" id="music-seek" class="music-seek" min="0" max="1000" step="1" value="0" aria-label="Position in the track" disabled></div>' +
+      '<button type="button" class="music-next" id="music-next" aria-label="Next track" title="Next track"><svg viewBox="0 0 24 24" fill="none"><path d="M7 6L14 12L7 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 6V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>';
+    document.body.appendChild(widget);
+  }
+  var q = function (id) { return document.getElementById(id); };
+  var toggle = q('music-toggle'), next = q('music-next'), seek = q('music-seek'), fill = q('music-progress-fill');
+  var timeEl = q('music-time'), titleEl = q('music-title'), artistEl = q('music-artist');
+  if (!toggle || !seek) return;
+
+  var saved = null;
+  try { saved = JSON.parse(sessionStorage.getItem(KEY) || 'null'); } catch (e) {}
+  var wantSound = !!(saved && saved.on), trackIndex = saved && saved.i >= 0 ? saved.i % TRACKS.length : 0;
+  var resumeAt = saved && saved.t > 0 ? saved.t + (saved.on && saved.at ? Math.min(5, (Date.now() - saved.at) / 1000) : 0) : 0;
+
+  var audio = new Audio();
+  audio.preload = 'metadata'; audio.loop = true; audio.muted = true;
+
+  function fmt(s) { if (!isFinite(s) || s < 0) s = 0; var m = Math.floor(s / 60), r = Math.floor(s % 60); return m + ':' + (r < 10 ? '0' : '') + r; }
+  function save() { try { sessionStorage.setItem(KEY, JSON.stringify({ i: trackIndex, t: audio.currentTime || 0, on: wantSound, at: Date.now() })); } catch (e) {} }
+  var lastSave = 0;
+  function updateTime() {
+    if (timeEl) timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    if (fill && audio.duration) fill.style.transform = 'scaleX(' + (audio.currentTime / audio.duration) + ')';
+    if (audio.duration) seek.value = Math.round((audio.currentTime / audio.duration) * 1000);
+    var now = Date.now(); if (now - lastSave > 1500) { lastSave = now; save(); }
+  }
+  function setPlaying(on) {
+    widget.classList.toggle('is-playing', on);
+    toggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+    toggle.setAttribute('aria-label', on ? 'Mute the sound' : 'Turn the sound on');
+    toggle.title = on ? 'Mute' : 'Sound on';
+  }
+  function play() { var p = audio.play(); return p && typeof p.then === 'function' ? p : { then: function (f) { f(); return { catch: function () {} }; } }; }
+  // audible if the visitor had the sound on; otherwise ambient muted playback
+  function start() {
+    if (!wantSound) { audio.muted = true; play().catch(function () {}); setPlaying(false); return; }
+    audio.muted = false;
+    play().then(function () { setPlaying(true); }).catch(function () {
+      audio.muted = true; setPlaying(false); play().catch(function () {});
+      var resume = function () {
+        document.removeEventListener('pointerdown', resume, true); document.removeEventListener('keydown', resume, true);
+        if (!wantSound) return; audio.muted = false; play().then(function () { setPlaying(true); }).catch(function () {});
+      };
+      document.addEventListener('pointerdown', resume, true); document.addEventListener('keydown', resume, true);
+    });
+  }
+  function loadTrack(i) {
+    trackIndex = (i + TRACKS.length) % TRACKS.length;
+    var t = TRACKS[trackIndex];
+    if (titleEl) titleEl.textContent = t.title;
+    if (artistEl) artistEl.textContent = t.artist;
+    widget.classList.remove('is-ready'); seek.disabled = true;
+    audio.src = encodeURI('music/' + t.file);
+  }
+  audio.addEventListener('loadedmetadata', function () {
+    widget.classList.add('is-ready'); seek.disabled = false;
+    if (resumeAt && audio.duration) { try { audio.currentTime = resumeAt % audio.duration; } catch (e) {} }
+    resumeAt = 0; updateTime(); start();
+  });
+  audio.addEventListener('timeupdate', updateTime);
+  audio.addEventListener('error', function () { widget.classList.remove('is-ready'); });
+  toggle.addEventListener('click', function () {
+    if (!widget.classList.contains('is-ready')) return;
+    wantSound = audio.muted;            // muted now → visitor wants sound
+    audio.muted = !wantSound;
+    if (wantSound && audio.paused) play().catch(function () {});
+    setPlaying(wantSound); save();
+  });
+  if (next) next.addEventListener('click', function () { loadTrack(trackIndex + 1); save(); });
+  seek.addEventListener('input', function () { if (audio.duration) audio.currentTime = (seek.value / 1000) * audio.duration; });
+  window.addEventListener('pagehide', save);
+  loadTrack(trackIndex);
+})();
+
 (function () {
   'use strict';
 

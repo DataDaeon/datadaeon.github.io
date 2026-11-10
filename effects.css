@@ -542,3 +542,52 @@ html.theme-light .nda-alert strong,html.theme-light .nda-alert .nda-ic{color:#9a
 html.theme-light .pg-next .pg-next-k{color:#6b6b80}
 @media(max-width:600px){.pg-nav{left:14px;bottom:14px;gap:8px}.pg-nav--raised{bottom:72px}.pg-next .pg-next-t{display:none}}
 @media print{.pg-nav{display:none}}
+
+/* Session 47 — site-wide music player (injected by effects.js on pages without their own widget CSS) */
+.music-widget{position:fixed;left:20px;bottom:20px;z-index:40;display:flex;align-items:stretch;height:46px;border:1px solid var(--glass-border,rgba(255,255,255,.12));border-radius:10px;background:var(--glass-bg,rgba(14,14,22,.78));-webkit-backdrop-filter:var(--glass-blur,blur(12px));backdrop-filter:var(--glass-blur,blur(12px));overflow:hidden;opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease;color:var(--t1,#fff)}
+.music-widget.is-ready{opacity:1;transform:translateY(0)}
+.music-widget button{font:inherit}
+.music-toggle{position:relative;flex-shrink:0;width:44px;border:none;border-right:1px solid var(--glass-border,rgba(255,255,255,.12));background:rgba(255,255,255,.03);color:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.music-ring{position:absolute;inset:-1px;border:1px solid transparent;pointer-events:none;transition:border-color .15s ease}
+.music-toggle:focus-visible .music-ring{border-color:var(--teal,#50e3c2)}
+.music-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s ease}
+.music-icon svg{width:17px;height:17px}
+.music-icon-muted{opacity:1}
+.music-widget.is-playing .music-icon-muted{opacity:0}
+.music-widget.is-playing .music-icon-on{opacity:1}
+.music-meta{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:0 14px;min-width:0}
+.music-title,.music-artist,.music-time{font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.music-title{font-weight:600}
+.music-sub{position:relative;display:block;height:13px}
+.music-artist,.music-time{position:absolute;inset:0;color:var(--t3,rgba(255,255,255,.45));transition:opacity .15s ease}
+.music-time{opacity:0}
+.music-widget:hover .music-artist,.music-widget:focus-within .music-artist{opacity:0}
+.music-widget:hover .music-time,.music-widget:focus-within .music-time{opacity:1}
+.music-eq{display:flex;align-items:flex-end;gap:2px;width:16px;height:12px;margin:auto 12px auto 0;flex-shrink:0}
+.eq-bar{display:block;width:3px;flex-shrink:0;background:var(--teal,#50e3c2);height:3px;border-radius:1px}
+.music-widget.is-playing .eq-bar{animation:eq-bounce .9s ease-in-out infinite}
+.music-widget.is-playing .eq-bar:nth-child(1){animation-delay:-.6s}
+.music-widget.is-playing .eq-bar:nth-child(2){animation-delay:-.3s}
+.music-widget.is-playing .eq-bar:nth-child(3){animation-delay:-.75s}
+.music-widget.is-playing .eq-bar:nth-child(4){animation-delay:-.15s}
+@keyframes eq-bounce{0%,100%{height:3px}50%{height:12px}}
+.music-progress-wrap{position:relative;flex:1;min-width:60px;max-width:90px}
+.music-progress-fill{position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--teal,#50e3c2);transform-origin:left;transform:scaleX(0);transition:height .15s ease}
+.music-widget:hover .music-progress-fill,.music-widget:focus-within .music-progress-fill{height:4px}
+.music-seek{position:absolute;inset:auto 0 -6px 0;width:100%;height:14px;margin:0;cursor:pointer;-webkit-appearance:none;appearance:none;background:transparent}
+.music-seek::-webkit-slider-thumb{-webkit-appearance:none;width:1px;height:1px;opacity:0}
+.music-seek::-moz-range-thumb{width:1px;height:1px;opacity:0;border:none}
+.music-next{flex-shrink:0;width:28px;border:none;border-left:1px solid var(--glass-border,rgba(255,255,255,.12));background:rgba(255,255,255,.03);color:var(--t3,rgba(255,255,255,.45));cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color .15s ease}
+.music-next svg{width:13px;height:13px}
+.music-next:hover,.music-next:focus-visible{color:var(--teal,#50e3c2)}
+html.theme-light .music-widget.mw-shared{background:rgba(255,255,255,.9);border-color:rgba(20,20,42,.14);color:#14142a;box-shadow:0 8px 22px rgba(20,20,42,.1)}
+html.theme-light .music-widget.mw-shared .music-toggle,html.theme-light .music-widget.mw-shared .music-next{border-color:rgba(20,20,42,.12);background:rgba(20,20,42,.03)}
+html.theme-light .music-widget.mw-shared .music-artist,html.theme-light .music-widget.mw-shared .music-time,html.theme-light .music-widget.mw-shared .music-next{color:#6b6b80}
+html.theme-light .music-widget.mw-shared .eq-bar,html.theme-light .music-widget.mw-shared .music-progress-fill{background:#0a8f78}
+/* phones: compact player (sound + next track) so it never competes with Back / Next project */
+@media(max-width:720px){.music-widget.mw-shared{left:14px;bottom:14px;height:40px}.music-widget.mw-shared .music-meta,.music-widget.mw-shared .music-eq,.music-widget.mw-shared .music-progress-wrap{display:none}.music-widget.mw-shared .music-toggle{width:40px}}
+@media print{.music-widget{display:none}}
+@media(prefers-reduced-motion:reduce){.music-widget.is-playing .eq-bar{animation:none;height:6px}}
+/* Back / Next project sit one row above the player, never on top of it */
+.pg-nav--raised{bottom:80px}
+@media(max-width:720px){.pg-nav--raised{bottom:66px}}
