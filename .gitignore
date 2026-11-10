@@ -7,3 +7,6 @@
 .vscode/
 *.swp
 node_modules/
+# local agent/skill files — never publish
+.agents/
+skills-lock.json

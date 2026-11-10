@@ -1,10 +1,10 @@
 # Dario Espinosa — Lead Experience Designer
 
-> Portfolio: https://espinosadesign.com · Updated 2026-11-10
+> Portfolio: https://datadaeon.github.io · Updated 2026-11-10
 > Contact: despi@softserveinc.com · LinkedIn: https://www.linkedin.com/in/data-espinosa/ · Behance: https://behance.net/darioespinosa
 > Location: Chiapas, México · Languages: Spanish (native), English (B2)
 > Status: available for new opportunities. The site is under construction — new case studies and features are being added.
-> Full text of every page: https://espinosadesign.com/llms-full.txt
+> Full text of every page: https://datadaeon.github.io/llms-full.txt
 
 ## About
 
@@ -42,81 +42,81 @@ Experience Design Lead — SoftServe (January 2025 – present): leading how des
 
 ## Case studies
 
-Full filterable index: https://espinosadesign.com/work.html
+Full filterable index: https://datadaeon.github.io/work.html
 
 ### Replacing Legacy Tools: AI-Powered Blend Optimizer
 Replacing a decades-old Excel model with an ML-driven web app that lets Plant Operations Managers optimize oil-well fluid formulas in minutes instead of hours. Designed using an AI-assisted prototyping workflow (Claude), reaching React-ready fidelity at v7.
 Headline result: Excel replaced.
 Industry: energy
-URL: https://espinosadesign.com/blendops.html
+URL: https://datadaeon.github.io/blendops.html
 
 ### Rebuilding Benefits Software
 Leading UX for a from-scratch rebuild of a legacy employee-benefits platform, and building the code-first, AI-assisted workflow (HTML-to-Figma, connected requirements, a shared token system) that let a small, multinational team ship two full portals to WCAG 2.2 AA.
 Headline result: v1.3→v1.8 iterations shipped.
 Industry: enterprise-saas
-URL: https://espinosadesign.com/benefits-platform.html
+URL: https://datadaeon.github.io/benefits-platform.html
 
 ### From Bid to Blacktop: One Field App for Three Different Jobs
 Designing a mobile-first field platform for a national paving contractor — the sales bid, the dispatcher's desk, and the crew foreman's phone — through a forked, versioned prototyping pipeline a founder could click through without touching code.
 Headline result: 8 versions shipped.
 Industry: construction
-URL: https://espinosadesign.com/gradeline.html
+URL: https://datadaeon.github.io/gradeline.html
 
 ### VOS — VIRTU4L Operations System with Local AI
 A Slack-native operations brain for a real-world VR venue: daily checklists, reservations, sales tracking, and Dasha, an AI assistant running locally that handles what the team would otherwise forget.
 Headline result: 293 tests passing.
 Industry: entertainment
-URL: https://espinosadesign.com/virtu4lslacksagent.html
+URL: https://datadaeon.github.io/virtu4lslacksagent.html
 
 ### Revolutionizing Data Insights: Dashboard Redesign
 Introduced Double Track Agile and a consolidated Figma design system to a burned-out team. Feature delivery got 30% faster, and UX bugs dropped by half.
 Headline result: +30% delivery speed.
 Industry: analytics
-URL: https://espinosadesign.com/nielseniq.html
+URL: https://datadaeon.github.io/nielseniq.html
 
 ### Modernizing Railway Systems: Back Office Overhaul
 After a fatal collision exposed a decades-old dispatcher tool, I led the full redesign solo — research, workflow restructuring, and a component-driven Figma + Flutter UI — with a direct line to the Product Director and no design committee in between. Operator task time dropped 40%, onboarding time 60%.
 Headline result: −40% task time.
 Industry: transportation
-URL: https://espinosadesign.com/siemens.html
+URL: https://datadaeon.github.io/siemens.html
 
 ### Digital Transformation: AEM & eCommerce Evolution
 Led AT&T México’s five-year digital transformation across the flagship site, eCommerce platform, and dozens of microsites — including a 2021 AEM design system that moved seven teams from Photoshop into one shared Figma component library. Online sales rose 500%, with 96% accessibility compliance.
 Headline result: +500% online sales.
 Industry: telecommunications
-URL: https://espinosadesign.com/att.html
+URL: https://datadaeon.github.io/att.html
 
 ### From Philosophy to Digital Engagement: Life Coaching Platform
 Turned a bestselling self-help book into a product people would actually open daily — not preachy, more like a coach than a checklist. ~50 interviews shaped a 7-area gamification framework behind a COVID-era pivot, shipped in 6 months.
 Headline result: 7 life areas.
 Industry: health & wellness
-URL: https://espinosadesign.com/oolalife.html
+URL: https://datadaeon.github.io/oolalife.html
 
 ### Building a UX Powerhouse: Center of Excellence
 First designer hired at a live healthcare SaaS platform with no design function. Built the UX practice and the product at the same time — the rebuilt admin flow now ships under one promise: “Manage benefits in under an hour per month.”
 Headline result: +50% dev efficiency.
 Industry: healthcare
-URL: https://espinosadesign.com/benefitbridge.html
+URL: https://datadaeon.github.io/benefitbridge.html
 
 ### Exploring the Future: Metaverse Experience
 Designed a fully navigable immersive exhibition for a major European tech convention in 4 months, using Spatial + Unity. It drew 1,500+ virtual visitors.
 Headline result: 1,500+ visitors.
 Industry: technology
-URL: https://espinosadesign.com/metaverse.html
+URL: https://datadaeon.github.io/metaverse.html
 
 ### Optimizing User Research at Scale
 Built scalable research guidelines and AI-assisted synthesis workflows across product verticals. Research turnaround dropped 50%, and cross-team adoption of the methodology followed.
 Headline result: −50% turnaround.
 Industry: construction
-URL: https://espinosadesign.com/research-at-scale.html
+URL: https://datadaeon.github.io/research-at-scale.html
 
 ## Outside client work (his own ventures)
 
-VIRTU4L (a VR entertainment business built from scratch in Chiapas), EDGA (a multi-agent design-thinking Claude plugin) and Ascend Restyle (an internal portfolio-redesign skill): https://espinosadesign.com/founder-mode.html
+VIRTU4L (a VR entertainment business built from scratch in Chiapas), EDGA (a multi-agent design-thinking Claude plugin) and Ascend Restyle (an internal portfolio-redesign skill): https://datadaeon.github.io/founder-mode.html
 
 ## Archive Work (2017–2021)
 
-Full archive index: https://espinosadesign.com/archive.html
+Full archive index: https://datadaeon.github.io/archive.html
 
 - **Porsche Taycan Landing Page Concept** — Mobile-first Figma prototype with multi-step pre-order flow. Visceral and behavioral level design. → /tycan.html
 - **YAIWA Smartphone Brand & Packaging** — Complete brand identity and unboxing experience for Spirit Asian Company. Extended to IBERIA and Spirit Credit Card. → /yaiwa.html
@@ -127,22 +127,22 @@ Full archive index: https://espinosadesign.com/archive.html
 
 ## Key pages
 
-- Home: https://espinosadesign.com/
-- About, skills and full work history: https://espinosadesign.com/about.html
-- All case studies: https://espinosadesign.com/work.html
-- Own ventures: https://espinosadesign.com/founder-mode.html
-- Archive: https://espinosadesign.com/archive.html
-- Free guide (token and session habits for AI coding agents): https://espinosadesign.com/gift-token-habits.html
+- Home: https://datadaeon.github.io/
+- About, skills and full work history: https://datadaeon.github.io/about.html
+- All case studies: https://datadaeon.github.io/work.html
+- Own ventures: https://datadaeon.github.io/founder-mode.html
+- Archive: https://datadaeon.github.io/archive.html
+- Free guide (token and session habits for AI coding agents): https://datadaeon.github.io/gift-token-habits.html
 
 ## About the site itself
 
-The home page is interactive: a pixel computer wakes up when a "Hello" floppy disk is inserted (click or Enter), then the hero becomes a giant tile face with the case studies as cards and a chat that answers questions from the site's own content. All facts are also available as static HTML on the pages above, and in https://espinosadesign.com/llms-full.txt.
+The home page is interactive: a pixel computer wakes up when a "Hello" floppy disk is inserted (click or Enter), then the hero becomes a giant tile face with the case studies as cards and a chat that answers questions from the site's own content. All facts are also available as static HTML on the pages above, and in https://datadaeon.github.io/llms-full.txt.
 
 ## How to cite
 
 - Name: Dario Espinosa
 - Role: Lead Experience Designer (currently Experience Design Lead at SoftServe)
-- Portfolio: https://espinosadesign.com
+- Portfolio: https://datadaeon.github.io
 - Contact: despi@softserveinc.com
 
 ## Permissions for AI

@@ -1,13 +1,13 @@
 # Dario Espinosa — full site text
 
-> Source: https://espinosadesign.com · generated 2026-11-10 · one section per page. Short version: https://espinosadesign.com/llms.txt
+> Source: https://datadaeon.github.io · generated 2026-11-10 · one section per page. Short version: https://datadaeon.github.io/llms.txt
 > Note: the site is under construction; content is current as of the date above.
 
 
 ---
 
 ## Dario Espinosa — Lead Experience Designer
-URL: https://espinosadesign.com/
+URL: https://datadaeon.github.io/
 Summary: Dario Espinosa — Lead Experience Designer with 18+ years turning complex systems into clear experiences across telecom, healthcare, energy, analytics and spatial computing. Prototypes in code with Claude. Case studies 2017–2026.
 
 Portfolio · 2026
@@ -148,7 +148,7 @@ Dario Espinosa
 ---
 
 ## About — Dario Espinosa · Lead Experience Designer
-URL: https://espinosadesign.com/about.html
+URL: https://datadaeon.github.io/about.html
 Summary: Dario Espinosa — Lead Experience Designer with 18+ years building digital products. Specializing in design systems, accessibility, AI-assisted design, and enterprise UX.
 
 Lead Experience Designer · Chiapas MX
@@ -492,7 +492,7 @@ linkedin ↗
 ---
 
 ## Selected Work — Dario Espinosa · Lead Experience Designer
-URL: https://espinosadesign.com/work.html
+URL: https://datadaeon.github.io/work.html
 Summary: Full case-study archive: 11 UX and product design engagements across telecom, healthcare, energy, construction, analytics, and spatial computing.
 
 ← back to portfolio
@@ -692,7 +692,7 @@ construction-saas · cross-team · ai-assisted →
 ---
 
 ## When I'm the Client — Dario Espinosa · Lead Experience Designer
-URL: https://espinosadesign.com/founder-mode.html
+URL: https://datadaeon.github.io/founder-mode.html
 Summary: Outside client work: VIRTU4L (a VR business built from scratch), EDGA (a multi-agent design-thinking Claude plugin), and Ascend Restyle (an internal portfolio-redesign skill).
 
 ← back to portfolio
@@ -773,7 +773,7 @@ Open the gift
 ---
 
 ## Archive — Older Work & Concepts — Dario Espinosa
-URL: https://espinosadesign.com/archive.html
+URL: https://datadaeon.github.io/archive.html
 Summary: Freelance, startup, and concept work from 2017–2021: brand identity, eCommerce concepts, MVP research, and marketplace design.
 
 ← back to portfolio
@@ -823,7 +823,7 @@ Co-founded & designed a LATAM B2B marketplace from scratch.
 ---
 
 ## Ascend Restyle — A Skill That Redesigns Portfolio Decks · Dario Espinosa
-URL: https://espinosadesign.com/ascend-restyle.html
+URL: https://datadaeon.github.io/ascend-restyle.html
 Summary: Ascend Restyle — a Claude Agent Skill built for an internal UX Center of Excellence that restyles a designer's existing portfolio or bio deck into the firm's internal design system, producing an annotatable HTML preview before export to PPTX or PDF.
 
 internal tool · claude skill · ux coe
@@ -986,7 +986,7 @@ All work
 ---
 
 ## Digital Transformation: AEM & eCommerce Evolution · Dario Espinosa
-URL: https://espinosadesign.com/att.html
+URL: https://datadaeon.github.io/att.html
 Summary: Boosted online sales by 500% and reached 96% accessibility compliance — leading AT&T México's digital transformation through AEM, 40+ custom components, and a complete eCommerce redesign.
 
 Case Study 03
@@ -1160,7 +1160,7 @@ Start → Identify request → Route to queue → Resolve
 ---
 
 ## Building a UX Powerhouse: UX Center of Excellence · Dario Espinosa
-URL: https://espinosadesign.com/benefitbridge.html
+URL: https://datadaeon.github.io/benefitbridge.html
 Summary: Built a UX Center of Excellence from zero in a regulated healthcare environment. It improved design-to-dev efficiency by 50% and lifted user adoption to 80%.
 
 Case Study 05
@@ -1307,7 +1307,7 @@ Building from zero is different from inheriting a system. The hardest part isn't
 ---
 
 ## Modernizing Benefits Software: A Multinational, AI-Assisted Design System · Dario Espinosa
-URL: https://espinosadesign.com/benefits-platform.html
+URL: https://datadaeon.github.io/benefits-platform.html
 Summary: Leading UX for a from-scratch rebuild of a legacy employee-benefits platform — the code-first, HTML-to-Figma workflow, the multinational team, and the design tokens and KPI framework behind it. WCAG 2.2 AA.
 
 Case Study 08 · Ongoing
@@ -1513,7 +1513,7 @@ So alongside the redesign, we proposed a second, smaller set of numbers worth tr
 ---
 
 ## Replacing Legacy Tools: AI-Powered Blend Optimizer · Dario Espinosa
-URL: https://espinosadesign.com/blendops.html
+URL: https://datadaeon.github.io/blendops.html
 Summary: Replacing a decades-old Excel model with an ML-driven web app for oil-well fluid optimization. AI-assisted design process using Claude. 7 prototype iterations to React-ready fidelity.
 
 Case Study — Current Project
@@ -1725,7 +1725,7 @@ What surprised me most was how productive the AI-assisted prototyping workflow b
 ---
 
 ## Automating Customer Interaction: eCommerce Chatbot MVP · Dario Espinosa
-URL: https://espinosadesign.com/daily-bot.html
+URL: https://datadaeon.github.io/daily-bot.html
 Summary: MVP research and product design for a chatbot solution for an online cosmetics store. From benchmark and proto-persona through hypotheses, interviews, and 3 design iterations to functional demo.
 
 // archive · older work
@@ -1805,7 +1805,7 @@ Next: YAIWA Smartphone →
 ---
 
 ## EDGA — A Multi-Agent Design Thinking OS · Dario Espinosa
-URL: https://espinosadesign.com/edga.html
+URL: https://datadaeon.github.io/edga.html
 Summary: EDGA — Experience Designer Generalist Agent: a self-built Claude plugin that runs an end-to-end, phase-gated Design Thinking process with a coordinating Overseer, specialized sub-agents, and a continuously-updated knowledge base.
 
 internal tool · founder · claude plugin
@@ -2028,7 +2028,7 @@ All work
 ---
 
 ## A Token of Gratitude: Token & Session-Burnout Habits for AI Agents · Dario Espinosa
-URL: https://espinosadesign.com/gift-token-habits.html
+URL: https://datadaeon.github.io/gift-token-habits.html
 Summary: A free, portable guide to token and session-hygiene habits for AI code agents — checkpoint discipline, layered memory, and anti-patterns that keep long agent sessions from degrading. Shared as a thank-you for visiting the portfolio.
 
 A Token of Gratitude
@@ -2190,7 +2190,7 @@ Shared as a small thank-you for visiting my portfolio. No email required, no str
 ---
 
 ## From Bid to Blacktop: A Field App for Three Different Jobs · Dario Espinosa
-URL: https://espinosadesign.com/gradeline.html
+URL: https://datadaeon.github.io/gradeline.html
 Summary: Designing GradeLine, a mobile-first field platform for a national paving contractor — the sales bid, the dispatcher's desk, and the crew foreman's phone, built through a forked, versioned prototyping pipeline a founder could click through without touching code.
 
 Case Study · In Progress
@@ -2422,7 +2422,7 @@ construction field-ux design-systems ai-workflow versioned-prototyping accessibi
 ---
 
 ## Connecting Businesses: B2B Marketplace Redesign · Dario Espinosa
-URL: https://espinosadesign.com/kasuva.html
+URL: https://datadaeon.github.io/kasuva.html
 Summary: Complete redesign and frontend development of a B2B online marketplace for Latin America and Spain. Co-Founder and Design Director role, built on Magento with full HTML template integration.
 
 // archive · older work
@@ -2494,7 +2494,7 @@ Back to All Work →
 ---
 
 ## Exploring the Future: Metaverse Experience · Dario Espinosa
-URL: https://espinosadesign.com/metaverse.html
+URL: https://datadaeon.github.io/metaverse.html
 Summary: Attracted 1,500+ virtual visitors to a fully navigable immersive exhibition at a major European tech convention, designed in 4 months using Spatial and Unity.
 
 Case Study 06
@@ -2573,7 +2573,7 @@ Spatial design is fundamentally different from screen design. There's no scroll,
 ---
 
 ## Revolutionizing Data Insights: Dashboard Redesign · Dario Espinosa
-URL: https://espinosadesign.com/nielseniq.html
+URL: https://datadaeon.github.io/nielseniq.html
 Summary: Improved feature delivery speed by 30% and cut UX bugs by 50%, after introducing Double Track Agile and a consolidated Figma design system to a burned-out analytics team.
 
 Case Study 01
@@ -2689,7 +2689,7 @@ XXX
 ---
 
 ## From Philosophy to Digital Engagement: Life Coaching Platform · Dario Espinosa
-URL: https://espinosadesign.com/oolalife.html
+URL: https://datadaeon.github.io/oolalife.html
 Summary: Transformed a book tour cancelled by COVID into a mobile-first digital platform with gamified progress tracking — a 7-area gamification framework, 50 user interviews, 4 key personas, shipped in 6 months.
 
 Case Study 04
@@ -2818,7 +2818,7 @@ Persona: Ambassador Martha, one of 4 personas derived from 50 user interviews
 ---
 
 ## Optimizing User Research at Scale · Dario Espinosa
-URL: https://espinosadesign.com/research-at-scale.html
+URL: https://datadaeon.github.io/research-at-scale.html
 Summary: Cut research turnaround by 50% and drove cross-team adoption of UX methodology, by building scalable research guidelines and AI-assisted synthesis workflows across construction SaaS product verticals.
 
 Case Study 07
@@ -2897,7 +2897,7 @@ UX Research Process Flow: Definition → Recruiting → Testing → Reporting ·
 ---
 
 ## Modernizing Railway Systems: Back Office Overhaul · Dario Espinosa
-URL: https://espinosadesign.com/siemens.html
+URL: https://datadaeon.github.io/siemens.html
 Summary: Reduced operator task time by 40% and onboarding time by 60% — redesigning a safety-critical legacy C++ system with a component-driven Flutter and Figma design system. WCAG 2.1 AA compliant.
 
 Case Study 02
@@ -3048,7 +3048,7 @@ Five Current Sources of Train Information — PTC context slide showing the prob
 ---
 
 ## Driving Conversions: Electric Vehicle Launch Page · Dario Espinosa
-URL: https://espinosadesign.com/tycan.html
+URL: https://datadaeon.github.io/tycan.html
 Summary: Conceptual mobile-first landing page for Porsche's Taycan EV. Designed around visceral emotional triggers, conversion rate optimization, and a multi-step pre-order flow. Figma prototype, 2020.
 
 // archive · older work
@@ -3116,7 +3116,7 @@ Next: Zafyro UI →
 ---
 
 ## VIRTU4L — Brand, Website & AI-Powered VR Business · Dario Espinosa
-URL: https://espinosadesign.com/virtu4l.html
+URL: https://datadaeon.github.io/virtu4l.html
 Summary: VIRTU4L — founding a VR entertainment business in Chiapas: brand identity, website, AI-powered operations, and physical VR center experience design.
 
 personal business · founder
@@ -3424,7 +3424,7 @@ Visit VIRTU4L ↗
 ---
 
 ## VOS — VIRTU4L Operations System with Local AI · Dario Espinosa
-URL: https://espinosadesign.com/virtu4lslacksagent.html
+URL: https://datadaeon.github.io/virtu4lslacksagent.html
 Summary: Slack-native AI operations system for a VR venue. Daily checklists, reservations, sales tracking, and Dasha — a locally-hosted AI agent. 293 tests, 4 channels, 0 public URLs.
 
 ← back to work
@@ -3672,7 +3672,7 @@ VIRTU4L Website ↗
 ---
 
 ## Product Catalog Redesign: Smartphones & Accessories · Dario Espinosa
-URL: https://espinosadesign.com/walking-dog.html
+URL: https://datadaeon.github.io/walking-dog.html
 Summary: UI/UX redesign from concept to production of the AT&T México Smartphones, Accessories, and Tablets Catalog. Complete product catalog experience redesign deployed to att.com.mx/consiguelo.
 
 // archive · older work
@@ -3724,7 +3724,7 @@ Next: Kasuva B2B →
 ---
 
 ## From Identity to Shelf: Smartphone Brand & Packaging · Dario Espinosa
-URL: https://espinosadesign.com/yaiwa.html
+URL: https://datadaeon.github.io/yaiwa.html
 Summary: Complete brand identity system and unboxing experience design for YAIWA smartphone by Spirit Asian Company. From name proposal to 3D packaging renders, extended to IBERIA and Spirit Credit Card.
 
 // archive · older work
@@ -3784,7 +3784,7 @@ Next: Walking Dog →
 ---
 
 ## Custom Plan, Zero Friction: Telecom UI Concept · Dario Espinosa
-URL: https://espinosadesign.com/zafyro.html
+URL: https://datadaeon.github.io/zafyro.html
 Summary: High-fidelity mobile UI concept: 'Create your plan, pay only for the SIM.' A simple telecom plan configurator designed for transparency and zero commitment before activation.
 
 // archive · older work

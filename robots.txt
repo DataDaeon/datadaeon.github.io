@@ -1,4 +1,4 @@
-# espinosadesign.com — humans and AI crawlers are welcome.
+# datadaeon.github.io — humans and AI crawlers are welcome.
 # Machine-readable summaries: /llms.txt (short) and /llms-full.txt (full text of every page).
 
 User-agent: *
@@ -66,4 +66,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://espinosadesign.com/sitemap.xml
+Sitemap: https://datadaeon.github.io/sitemap.xml
