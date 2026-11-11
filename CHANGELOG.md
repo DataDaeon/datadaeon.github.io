@@ -983,3 +983,7 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 ### Session 52 (November 2026) — "Visit my Work" icon
 
 - The four-squares grid icon on the "Visit my Work" button (nav row) replaced by a briefcase, so it reads as "work" next to the rocket (Myself as Client) and the box (Archive).
+
+### Session 53 (November 2026) — Topic icons on the face-view cards
+
+- Every case card in the face view now shows a 42px icon tile under the title, left of the description (`.fm-body` / `.fm-ic`, icons in an `ICONS` map keyed by case URL): flask (Blend Optimizer), shield-plus (Benefits platform), traffic cone (GradeLine), VR headset (VOS), bar chart (Dashboard Redesign), train (Railway), cart (AT&T eCommerce), sprout (Life Coaching), columns (UX Center of Excellence), cube (Metaverse), magnifier (Research at Scale). Tile is translucent white on dark cards, translucent ink on lime/cyan; 34px on phones.
