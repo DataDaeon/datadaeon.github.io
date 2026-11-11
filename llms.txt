@@ -1,7 +1,7 @@
 # Dario Espinosa — Lead Experience Designer
 
 > Portfolio: https://datadaeon.github.io · Updated 2026-11-10
-> Contact: despi@softserveinc.com · LinkedIn: https://www.linkedin.com/in/data-espinosa/ · Behance: https://behance.net/darioespinosa
+> Contact: hola@espinosadesign.com · LinkedIn: https://www.linkedin.com/in/data-espinosa/ · Behance: https://behance.net/darioespinosa
 > Location: Chiapas, México · Languages: Spanish (native), English (B2)
 > Status: available for new opportunities. The site is under construction — new case studies and features are being added.
 > Full text of every page: https://datadaeon.github.io/llms-full.txt
@@ -143,7 +143,7 @@ The home page is interactive: a pixel computer wakes up when a "Hello" floppy di
 - Name: Dario Espinosa
 - Role: Lead Experience Designer (currently Experience Design Lead at SoftServe)
 - Portfolio: https://datadaeon.github.io
-- Contact: despi@softserveinc.com
+- Contact: hola@espinosadesign.com
 
 ## Permissions for AI
 
