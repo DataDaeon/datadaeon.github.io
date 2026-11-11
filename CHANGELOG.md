@@ -1006,3 +1006,7 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 - Bezel reverted to the medium version from the first C build (Dario preferred it); LED and DARIO·TV badge removed. The "glitch behind the bezel, then power-on" sequence stays.
 - **Doubled message box in the chat**: the SVG barrel displacement was also applied to `.fm-chat`; Chrome painted the focused text field a second time outside the filtered layer. The filter now applies to the cards column only, so the chat stays crisp with a single input.
 - The "Skip the cards / LET'S CHAT" sticker hides while the chat is open (the panel's own "Back to the cards" takes over), so it no longer sits on top of the panel.
+
+### Session 57 (November 2026) — Distinct CTAs on the TV stickers
+
+- The two stickers read as the same action ("let's chat" vs "let's talk"). Split them by *who* answers: top sticker = instant, on-page AI → "Skip the cards / ASK MY PIXEL TWIN →" (matches the chat intro "I'm Dario's pixel twin"); bottom round sticker = the real person, by email → "WORK / WITH ME" + envelope icon (aria: "Work with me: email the real Dario").
