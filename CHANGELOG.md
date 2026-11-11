@@ -987,3 +987,9 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 ### Session 53 (November 2026) — Topic icons on the face-view cards
 
 - Every case card in the face view now shows a 42px icon tile under the title, left of the description (`.fm-body` / `.fm-ic`, icons in an `ICONS` map keyed by case URL): flask (Blend Optimizer), shield-plus (Benefits platform), traffic cone (GradeLine), VR headset (VOS), bar chart (Dashboard Redesign), train (Railway), cart (AT&T eCommerce), sprout (Life Coaching), columns (UX Center of Excellence), cube (Metaverse), magnifier (Research at Scale). Tile is translucent white on dark cards, translucent ink on lime/cyan; 34px on phones.
+
+### Session 54 (November 2026) — TV / CRT effect tests (not linked, noindex)
+
+- `tv-test-ab.html`: copy of the index + option A (light glass over the face view: medium black rounded bezel, inner vignette, faint scanlines with a soft flicker, edge RGB tint, 1.4px RGB split on the face wall via an SVG filter) + option B (CRT power-on when the disk switches to the face view: white line → opens vertically → picture).
+- `tv-test-c.html`: copy of the index + option C (ntch.design-style): the face wall is redrawn every frame through a WebGL CRT shader (barrel curvature, edge chromatic aberration, scanlines, aperture mask, grain, vignette, rounded black bezel, shader power-on), and the cards/chat get a matching SVG barrel displacement (~8px at the edges).
+- Both: "Skip the cards" becomes a yellow ASK ME speech-bubble sticker, Menu becomes a round teal sticker (same dock), new OPEN TO WORK · let's talk sticker bottom-right (mailto, same as "get in touch"); the music player moves to bottom-centre in the face view. Yellow test badge on top with "replay power-on" and links between tests.
