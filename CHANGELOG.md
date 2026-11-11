@@ -962,3 +962,7 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 - **The Mac drops in**: hidden at load, it falls onto the centre of the name (gravity + squash and two small bounces, the name jolts on landing) on the first hover/focus of the name, Enter, a tap on the Insert-the-disk cue, or after 3 s. Floppy, hover, insert, wake and face-view interactions unchanged; reduced motion = fade-in. Phones: Mac drops below the stacked name.
 - **Stickers**: Claude, Figma and Cursor stickers (Dario's PNGs, trimmed, `images/hero/stickers/`) placed on the Mac's front face inside its SVG layer, skewed to the face plane, so they breathe/glitch with it.
 - **Tagline removed** from the hero (per Dario). In the face view the music player moves to the right so it doesn't sit on the case cards.
+
+### Session 49 (November 2026) — Remove the old "back to work" pill
+
+- benefits-platform and virtu4lslacksagent still had the legacy fixed `.sticky-back` link ("↩ index" / "← back to work"), a dark pill bottom-left that sat on top of the music player under the new Back / Next group. Removed both links; `effects.css` now hides `.sticky-back` site-wide as a safety net.

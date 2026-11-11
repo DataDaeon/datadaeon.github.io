@@ -591,3 +591,6 @@ html.theme-light .music-widget.mw-shared .eq-bar,html.theme-light .music-widget.
 /* Back / Next project sit one row above the player, never on top of it */
 .pg-nav--raised{bottom:80px}
 @media(max-width:720px){.pg-nav--raised{bottom:66px}}
+
+/* Session 49: the old fixed "back to work" pill is replaced by the shared Back / Next group (.pg-nav) */
+.sticky-back{display:none!important}
