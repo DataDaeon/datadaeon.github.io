@@ -979,3 +979,7 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 - Joystick moved further right (longer coiled cable, still tucked behind the Mac's right side), back to the Mac's exact voxel scale; Mac + floppy + joystick group recentred (`translate(-68%,-50%)`).
 - Removed the dark outline: every face is now edged in its own colour, like the Mac's render; cable recoloured to the Mac's warm greys.
 - CTA hierarchy: the floppy / "Insert the disk" stays the primary action. The joystick idles slightly desaturated and dimmed, comes to full colour only on hover/focus/when on, fades further while the visitor is reaching for the disk (`body.mac-alert`), and its "press start" tag only appears on hover/focus.
+
+### Session 52 (November 2026) — "Visit my Work" icon
+
+- The four-squares grid icon on the "Visit my Work" button (nav row) replaced by a briefcase, so it reads as "work" next to the rocket (Myself as Client) and the box (Archive).
