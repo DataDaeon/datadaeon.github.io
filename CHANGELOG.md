@@ -1000,3 +1000,9 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 - **Disk glitch inside the TV**: the bezel comes up as soon as the glitch starts; the glitch now plays *behind* it (below the bezel), softer (flash 0.42 max over 0.62s with easing, blurred bands, 2px eased shake instead of the stepped jolt); the screen stays dark and the CRT powers on ~0.44s after the switch, once the glitch is over.
 - **Cards dissolve** at the top and bottom of the column: the mask fades in a top edge as soon as you scroll and a 150px bottom fade; each card's opacity follows its distance to the edges (rAF on scroll). Smooth scroll for programmatic jumps.
 - **Stickers** (both tests): the chat CTA is now a raised yellow sticker *button* reading "Skip the cards / LET'S CHAT →" with a chat icon, hard offset shadow and a press-down state; Menu is a rectangular white sticker; bottom-right is a round two-line LET'S / TALK ↗ sticker (no "open to work").
+
+### Session 56 (November 2026) — TV test C: medium bezel back, chat box fix
+
+- Bezel reverted to the medium version from the first C build (Dario preferred it); LED and DARIO·TV badge removed. The "glitch behind the bezel, then power-on" sequence stays.
+- **Doubled message box in the chat**: the SVG barrel displacement was also applied to `.fm-chat`; Chrome painted the focused text field a second time outside the filtered layer. The filter now applies to the cards column only, so the chat stays crisp with a single input.
+- The "Skip the cards / LET'S CHAT" sticker hides while the chat is open (the panel's own "Back to the cards" takes over), so it no longer sits on top of the panel.

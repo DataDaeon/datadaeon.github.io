@@ -1115,6 +1115,8 @@ body.face-mode .fm-cta::after{content:"Skip the cards\A LET\2019 S CHAT \2192";w
 body.face-mode .fm-cta:hover,body.face-mode .fm-cta:focus-visible{transform:rotate(-2deg) translate(-1px,-2px);box-shadow:0 0 0 4px #fff,8px 10px 0 4px #050508,0 20px 30px rgba(0,0,0,.45)}
 body.face-mode .fm-cta:active{transform:rotate(-4deg) translate(5px,6px);box-shadow:0 0 0 4px #fff,1px 1px 0 4px #050508,0 6px 10px rgba(0,0,0,.4)}
 body.face-mode .fm-cta:focus-visible{outline:3px solid #50e3c2;outline-offset:8px}
+/* while the chat is open its own "Back to the cards" takes over: hide the sticker so it doesn't sit on the panel */
+body.face-mode:has(.fm-chat:not([hidden])) .fm-cta{display:none}
 /* Menu → rectangular white sticker (same dock) */
 body.face-mode .fm-dock{top:clamp(16px,2.8vw,40px);right:clamp(16px,3.4vw,54px);z-index:80}
 body.face-mode .fm-menu{height:48px!important;padding:0 22px!important;border-radius:6px!important;background:#fff!important;color:#050508!important;font-family:var(--font-pixel)!important;font-size:18px!important;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:3px solid #050508!important;transform:rotate(3deg);box-shadow:0 0 0 4px #fff,0 12px 20px rgba(0,0,0,.45)!important;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
@@ -1136,18 +1138,10 @@ body.face-mode .fm-card{transition:opacity .12s linear}
 #tv-gl{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0;transition:opacity .25s linear}
 body.face-mode #tv-gl{opacity:1}
 body.face-mode #face-wall{visibility:hidden}
-body.face-mode .fm-cards,body.face-mode .fm-chat{filter:url(#tvBarrel)}
+body.face-mode .fm-cards{filter:url(#tvBarrel)}
 .tv-bezel{position:fixed;inset:0;z-index:70;pointer-events:none;opacity:0;transition:opacity .3s}
 body.face-mode .tv-bezel{opacity:1}
-/* thick, protagonist bezel: moulded dark plastic, a bevelled lip around the glass, a power LED and an embossed badge */
-.tv-bezel::before{content:"";position:absolute;inset:clamp(22px,3vw,46px);border-radius:clamp(30px,4vw,60px);
-  box-shadow:0 0 0 3px #26262c,0 0 0 5px #0b0b0e,0 0 0 160px #121216,inset 0 0 0 2px rgba(255,255,255,.07),inset 0 0 70px 22px rgba(0,0,0,.65),inset 0 0 12px 3px rgba(0,0,0,.6)}
-.tv-bezel::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(255,255,255,.07),transparent 18%,transparent 82%,rgba(0,0,0,.35)),linear-gradient(90deg,rgba(255,255,255,.04),transparent 10%,transparent 90%,rgba(0,0,0,.25));
-  -webkit-mask:linear-gradient(#000 0 0) exclude,linear-gradient(#000 0 0) content-box;mask:linear-gradient(#000 0 0) exclude,linear-gradient(#000 0 0) content-box;padding:clamp(22px,3vw,46px)}
-.tv-bezel b{position:absolute;left:clamp(46px,6vw,90px);bottom:calc(clamp(22px,3vw,46px) / 2 - 3px);width:7px;height:7px;border-radius:50%;background:#50e3c2;box-shadow:0 0 8px 2px rgba(80,227,194,.7);animation:tvLed 3.2s ease-in-out infinite}
-.tv-bezel em{position:absolute;left:50%;bottom:calc(clamp(22px,3vw,46px) / 2 - 6px);transform:translateX(-50%);font:700 11px/1 var(--font-pixel);letter-spacing:.32em;color:#2c2c33;text-shadow:0 1px 0 rgba(255,255,255,.06),0 -1px 0 rgba(0,0,0,.6);font-style:normal}
-@keyframes tvLed{0%,100%{opacity:1}50%{opacity:.55}}
+.tv-bezel::before{content:"";position:absolute;inset:clamp(8px,1.4vw,18px);border-radius:clamp(26px,3.4vw,46px);box-shadow:0 0 0 90px #050506,inset 0 0 60px 18px rgba(0,0,0,.6),inset 0 0 0 1.5px rgba(255,255,255,.05)}
 /* the disk glitch now happens INSIDE the TV: the bezel is up first, the glitch plays behind it (softer),
    the screen goes dark, then the CRT powers on */
 body.glitching .tv-bezel{opacity:1;transition:opacity .16s ease}
@@ -1157,7 +1151,6 @@ body.glitching .tv-bezel{opacity:1;transition:opacity .16s ease}
 .glitch.on .band{animation-duration:.62s!important;animation-timing-function:ease-in-out!important;filter:blur(1.2px)}
 body.glitching .hero-content{animation:tvShake .55s ease-in-out 1!important}
 @keyframes tvShake{0%,100%{transform:none;filter:none}25%{transform:translateX(-2px);filter:drop-shadow(2px 0 0 rgba(80,227,194,.55)) drop-shadow(-2px 0 0 rgba(167,139,250,.55))}55%{transform:translateX(2px);filter:drop-shadow(-2px 0 0 rgba(80,227,194,.4)) drop-shadow(2px 0 0 rgba(167,139,250,.4))}80%{transform:translateX(-1px)}}
-@media(prefers-reduced-motion:reduce){.tv-bezel b{animation:none}}
 </style>
 </head>
 <body>
@@ -4166,7 +4159,7 @@ body.glitching .hero-content{animation:tvShake .55s ease-in-out 1!important}
 })();
 </script>
 <a class="tv-talk" href="mailto:despi@softserveinc.com" aria-label="Let's talk: send me an email"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="58" fill="#fff"/><circle cx="60" cy="60" r="51" fill="#50e3c2" stroke="#050508" stroke-width="4"/><circle cx="60" cy="60" r="43" fill="none" stroke="#050508" stroke-width="1.4" stroke-dasharray="3 4" opacity=".45"/><text x="60" y="56" text-anchor="middle" font-family="Pixelify Sans,monospace" font-weight="700" font-size="25" textLength="70" lengthAdjust="spacingAndGlyphs" fill="#050508">LET&#8217;S</text><text x="60" y="82" text-anchor="middle" font-family="Pixelify Sans,monospace" font-weight="700" font-size="25" textLength="74" lengthAdjust="spacingAndGlyphs" fill="#050508">TALK &#8599;</text></svg></a>
-<script>(function(){var c=document.getElementById('fm-cards');if(!c)return;var raf=0;function upd(){raf=0;var r=c.getBoundingClientRect(),F=150;c.style.setProperty('--ft',Math.min(90,c.scrollTop)+'px');[].forEach.call(c.querySelectorAll('.fm-card'),function(k){var b=k.getBoundingClientRect(),t=Math.max(0,Math.min(1,Math.min(b.bottom-r.top,r.bottom-b.top)/F));k.style.opacity=(.2+.8*t).toFixed(3);});}c.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(upd);},{passive:true});addEventListener('resize',upd);new MutationObserver(function(){setTimeout(upd,60);}).observe(document.body,{attributes:true,attributeFilter:['class']});setTimeout(upd,400);})();</script><div class="tv-bezel" aria-hidden="true"><b></b><em>DARIO&#183;TV</em></div>
+<script>(function(){var c=document.getElementById('fm-cards');if(!c)return;var raf=0;function upd(){raf=0;var r=c.getBoundingClientRect(),F=150;c.style.setProperty('--ft',Math.min(90,c.scrollTop)+'px');[].forEach.call(c.querySelectorAll('.fm-card'),function(k){var b=k.getBoundingClientRect(),t=Math.max(0,Math.min(1,Math.min(b.bottom-r.top,r.bottom-b.top)/F));k.style.opacity=(.2+.8*t).toFixed(3);});}c.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(upd);},{passive:true});addEventListener('resize',upd);new MutationObserver(function(){setTimeout(upd,60);}).observe(document.body,{attributes:true,attributeFilter:['class']});setTimeout(upd,400);})();</script><div class="tv-bezel" aria-hidden="true"></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tvBarrel" filterUnits="userSpaceOnUse" x="-4000" y="-4000" width="9000" height="9000" color-interpolation-filters="sRGB">
 <feImage id="tvBarrelMap" result="map" preserveAspectRatio="none"/>
 <feDisplacementMap in="SourceGraphic" in2="map" scale="110" xChannelSelector="R" yChannelSelector="G"/></filter></svg><div class="tv-badge" role="note">TEST · C · WebGL CRT shader <button type="button" id="tv-replay">replay power-on</button> <a href="tv-test-ab.html" style="color:inherit">see A+B</a> <a href="index.html" style="color:inherit">index</a></div><script>
@@ -4229,7 +4222,7 @@ body.glitching .hero-content{animation:tvShake .55s ease-in-out 1!important}
     x.putImageData(img, 0, 0); map.setAttribute('href', m.toDataURL()); anchor();
   }
   function anchor() {
-    var el = document.querySelector('.fm-cards:not([hidden])') || document.querySelector('.fm-chat:not([hidden])'); if (!el) return;
+    var el = document.querySelector('.fm-cards'); if (!el) return;
     var r = el.getBoundingClientRect();
     map.setAttribute('x', -r.left); map.setAttribute('y', -r.top); map.setAttribute('width', innerWidth); map.setAttribute('height', innerHeight);
   }

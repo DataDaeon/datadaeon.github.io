@@ -1115,6 +1115,8 @@ body.face-mode .fm-cta::after{content:"Skip the cards\A LET\2019 S CHAT \2192";w
 body.face-mode .fm-cta:hover,body.face-mode .fm-cta:focus-visible{transform:rotate(-2deg) translate(-1px,-2px);box-shadow:0 0 0 4px #fff,8px 10px 0 4px #050508,0 20px 30px rgba(0,0,0,.45)}
 body.face-mode .fm-cta:active{transform:rotate(-4deg) translate(5px,6px);box-shadow:0 0 0 4px #fff,1px 1px 0 4px #050508,0 6px 10px rgba(0,0,0,.4)}
 body.face-mode .fm-cta:focus-visible{outline:3px solid #50e3c2;outline-offset:8px}
+/* while the chat is open its own "Back to the cards" takes over: hide the sticker so it doesn't sit on the panel */
+body.face-mode:has(.fm-chat:not([hidden])) .fm-cta{display:none}
 /* Menu → rectangular white sticker (same dock) */
 body.face-mode .fm-dock{top:clamp(16px,2.8vw,40px);right:clamp(16px,3.4vw,54px);z-index:80}
 body.face-mode .fm-menu{height:48px!important;padding:0 22px!important;border-radius:6px!important;background:#fff!important;color:#050508!important;font-family:var(--font-pixel)!important;font-size:18px!important;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:3px solid #050508!important;transform:rotate(3deg);box-shadow:0 0 0 4px #fff,0 12px 20px rgba(0,0,0,.45)!important;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
