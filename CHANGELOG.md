@@ -966,3 +966,10 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 ### Session 49 (November 2026) — Remove the old "back to work" pill
 
 - benefits-platform and virtu4lslacksagent still had the legacy fixed `.sticky-back` link ("↩ index" / "← back to work"), a dark pill bottom-left that sat on top of the music player under the new Back / Next group. Removed both links; `effects.css` now hides `.sticky-back` site-wide as a safety net.
+
+### Session 50 (November 2026) — Sticker-covered Mac + joystick that releases the game stickers (`index.html`)
+
+- **Desk stickers**: Dario's eight pre-rotated stickers (Claude, ChatGPT, Gemini, Figma, Cursor, GitHub, Obsidian, code) placed on the Mac exactly as in his mock — Gemini and ChatGPT on the vented side, GitHub / Figma / Claude / Cursor along the front under the screen, Obsidian and </> by the drive slot. They live in the Mac's SVG layer (Mac units, scale 0.295 of the PNG size), so they breathe/glitch with it. Assets trimmed to their content in `images/hero/stickers/`.
+- **Joystick**: an Atari-style stick drawn as voxels in the Mac's own projection and palette (beige stepped base, dark boot and stick, red ball and fire button, teal LED), with a coiled cable that tucks behind the Mac's right side. It is its own `<button id="joy">` inside `.mac-wrap`, so it drops with the Mac (plus a small hop on landing); hover tilts the lever and shows a yellow "press start" tag.
+- **Press start**: the lever snaps, the fire button goes down, a pixel burst pops from the ball, and the five game stickers (WoW, Fallout, Ragnarok Online, Magic, Cyberpunk 2077 — resized to 400px WebP, ~40 KB each, `images/hero/gaming/`) fly out of the joystick to their spots around the hero (positions from Dario's mock) and float up/down at different speeds. Press again and they fly back in. `aria-pressed` + a polite live region; reduced motion = no burst/float.
+- **Layout**: Mac + floppy + joystick recentred as a group (`.mac-row` shifted −64%); on phones the group is narrower and left-offset so the joystick fits.
