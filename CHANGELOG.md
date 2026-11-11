@@ -1012,3 +1012,8 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 - The two stickers read as the same action ("let's chat" vs "let's talk"). Split them by *who* answers: top sticker = instant, on-page AI → "Skip the cards / ASK MY PIXEL TWIN →" (matches the chat intro "I'm Dario's pixel twin"); bottom round sticker = the real person, by email → "WORK / WITH ME" + envelope icon (aria: "Work with me: email the real Dario").
 
 - Session 57 addendum: the WORK / WITH ME sticker now links to LinkedIn (new tab, `rel="noopener"`, aria "Work with me: LinkedIn profile (opens in a new tab)") and shows a ↗ arrow instead of the envelope.
+
+### Session 58 (November 2026) — Version C merged into the index; test pages removed
+
+- The face view in `index.html` is now the CRT TV from `tv-test-c.html`: WebGL shader on the face wall (curvature, edge chromatic aberration, scanlines, aperture mask, grain, vignette, shader power-on), medium rounded bezel, the disk glitch plays behind the bezel then the CRT powers on, SVG barrel on the cards column only, cards dissolve at the top/bottom of the column, stickers: "Skip the cards / ASK MY PIXEL TWIN →" (hidden while the chat is open), white rectangular MENU, round WORK / WITH ME ↗ → LinkedIn; music player bottom-centre in the face view. Test badge and noindex dropped.
+- `tv-test-ab.html` and `tv-test-c.html` deleted (single version now).

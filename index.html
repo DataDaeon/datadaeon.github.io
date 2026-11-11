@@ -1102,6 +1102,53 @@ body.mac-alert .joy:not(:hover){opacity:.5}
 .fm-lime .fm-ic,.fm-cyan .fm-ic{background:rgba(5,5,8,.08);box-shadow:inset 0 0 0 1px rgba(5,5,8,.12)}
 @media(max-width:720px){.fm-ic{width:34px;height:34px;border-radius:9px}.fm-ic svg{width:18px;height:18px}.fm-body{gap:10px}}
 </style>
+<style>
+/* ═══ Session 58 — the face view as a CRT TV (was tv-test-c.html): WebGL shader on the face wall, medium bezel, glitch behind the bezel then power-on, card dissolve, stickers ═══ */
+/* ── TV TEST: stickers on the bezel ── */
+/* "Skip the cards → Let's chat": a raised, pressable sticker button */
+body.face-mode .fm-cta{all:unset;position:fixed;z-index:80;left:clamp(16px,3.4vw,54px);top:clamp(14px,2.6vw,38px);cursor:pointer;display:flex;align-items:center;gap:12px;
+  padding:12px 18px 12px 14px;background:#FFFF02;color:#050508;border:3px solid #050508;border-radius:16px;transform:rotate(-4deg);
+  box-shadow:0 0 0 4px #fff,6px 7px 0 4px #050508,0 16px 26px rgba(0,0,0,.45);transition:transform .15s ease,box-shadow .15s ease}
+body.face-mode .fm-cta > *{display:none}
+body.face-mode .fm-cta::before{content:"";flex:none;width:30px;height:30px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23050508' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z'/%3E%3Cpath d='M8.5 12h.01M12 12h.01M15.5 12h.01'/%3E%3C/svg%3E") center/contain no-repeat}
+body.face-mode .fm-cta::after{content:"Skip the cards\A ASK MY PIXEL TWIN \2192";white-space:pre;font:700 13px/1.25 var(--mono);letter-spacing:.02em}
+body.face-mode .fm-cta:hover,body.face-mode .fm-cta:focus-visible{transform:rotate(-2deg) translate(-1px,-2px);box-shadow:0 0 0 4px #fff,8px 10px 0 4px #050508,0 20px 30px rgba(0,0,0,.45)}
+body.face-mode .fm-cta:active{transform:rotate(-4deg) translate(5px,6px);box-shadow:0 0 0 4px #fff,1px 1px 0 4px #050508,0 6px 10px rgba(0,0,0,.4)}
+body.face-mode .fm-cta:focus-visible{outline:3px solid #50e3c2;outline-offset:8px}
+/* while the chat is open its own "Back to the cards" takes over: hide the sticker so it doesn't sit on the panel */
+body.face-mode:has(.fm-chat:not([hidden])) .fm-cta{display:none}
+/* Menu → rectangular white sticker (same dock) */
+body.face-mode .fm-dock{top:clamp(16px,2.8vw,40px);right:clamp(16px,3.4vw,54px);z-index:80}
+body.face-mode .fm-menu{height:48px!important;padding:0 22px!important;border-radius:6px!important;background:#fff!important;color:#050508!important;font-family:var(--font-pixel)!important;font-size:18px!important;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:3px solid #050508!important;transform:rotate(3deg);box-shadow:0 0 0 4px #fff,0 12px 20px rgba(0,0,0,.45)!important;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+body.face-mode .fm-menu:hover,body.face-mode .fm-menu:focus-visible{transform:rotate(0) scale(1.05)}
+/* Let's talk → round two-line sticker */
+.tv-talk{display:none}
+body.face-mode .tv-talk{display:block;position:fixed;z-index:80;right:clamp(16px,3.2vw,52px);bottom:clamp(16px,3vw,44px);width:118px;transform:rotate(-10deg);transition:transform .2s cubic-bezier(.3,1.6,.5,1);filter:drop-shadow(0 12px 18px rgba(0,0,0,.5))}
+body.face-mode .tv-talk:hover,body.face-mode .tv-talk:focus-visible{transform:rotate(0) scale(1.07)}
+.tv-talk svg{display:block;width:100%;height:auto}
+body.face-mode .music-widget{left:50%!important;right:auto!important;transform:translateX(-50%)!important;bottom:clamp(20px,3vw,40px)!important;z-index:79}
+/* cards: dissolve in/out at the top and bottom of the column instead of a hard cut */
+body.face-mode .fm-cards{top:clamp(128px,11vw,150px)!important;--ft:0px;-webkit-mask-image:linear-gradient(transparent 0,#000 var(--ft),#000 calc(100% - 150px),transparent 100%)!important;mask-image:linear-gradient(transparent 0,#000 var(--ft),#000 calc(100% - 150px),transparent 100%)!important;scroll-behavior:smooth}
+body.face-mode .fm-card{transition:opacity .12s linear}
+@media(max-width:720px){body.face-mode .fm-cta{padding:9px 12px 9px 10px}body.face-mode .fm-cta::after{font-size:11px}body.face-mode .fm-menu{height:40px!important;font-size:14px!important;padding:0 14px!important}body.face-mode .tv-talk{width:88px}}
+
+#tv-gl{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0;transition:opacity .25s linear}
+body.face-mode #tv-gl{opacity:1}
+body.face-mode #face-wall{visibility:hidden}
+body.face-mode .fm-cards{filter:url(#tvBarrel)}
+.tv-bezel{position:fixed;inset:0;z-index:70;pointer-events:none;opacity:0;transition:opacity .3s}
+body.face-mode .tv-bezel{opacity:1}
+.tv-bezel::before{content:"";position:absolute;inset:clamp(8px,1.4vw,18px);border-radius:clamp(26px,3.4vw,46px);box-shadow:0 0 0 90px #050506,inset 0 0 60px 18px rgba(0,0,0,.6),inset 0 0 0 1.5px rgba(255,255,255,.05)}
+/* the disk glitch now happens INSIDE the TV: the bezel is up first, the glitch plays behind it (softer),
+   the screen goes dark, then the CRT powers on */
+body.glitching .tv-bezel{opacity:1;transition:opacity .16s ease}
+.glitch{z-index:65!important}
+.glitch.on .flash{animation:tvFlash .62s cubic-bezier(.25,.6,.3,1) 1 both!important}
+@keyframes tvFlash{0%{opacity:0}22%{opacity:.42}100%{opacity:0}}
+.glitch.on .band{animation-duration:.62s!important;animation-timing-function:ease-in-out!important;filter:blur(1.2px)}
+body.glitching .hero-content{animation:tvShake .55s ease-in-out 1!important}
+@keyframes tvShake{0%,100%{transform:none;filter:none}25%{transform:translateX(-2px);filter:drop-shadow(2px 0 0 rgba(80,227,194,.55)) drop-shadow(-2px 0 0 rgba(167,139,250,.55))}55%{transform:translateX(2px);filter:drop-shadow(-2px 0 0 rgba(80,227,194,.4)) drop-shadow(2px 0 0 rgba(167,139,250,.4))}80%{transform:translateX(-1px)}}
+</style>
 </head>
 <body>
 <a href="#main-content" style="position:absolute;left:-9999px;top:4px;z-index:9999;background:#50e3c2;color:#050508;padding:8px 16px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none" onfocus="this.style.left='4px'" onblur="this.style.left='-9999px'">Skip to main content</a>
@@ -4106,6 +4153,80 @@ body.mac-alert .joy:not(:hover){opacity:.5}
   new MutationObserver(function () { if (!dock.hidden && document.body.classList.contains('face-mode') && !dock._shown) { dock._shown = true; set(true); autoFold(2600); } if (dock.hidden) dock._shown = false; })
     .observe(dock, { attributes: true, attributeFilter: ['hidden'] });
   if (!dock.hidden) { dock._shown = true; set(true); autoFold(2600); }
+})();
+</script>
+<a class="tv-talk" href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener" aria-label="Work with me: LinkedIn profile (opens in a new tab)"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="58" fill="#fff"/><circle cx="60" cy="60" r="51" fill="#50e3c2" stroke="#050508" stroke-width="4"/><circle cx="60" cy="60" r="43" fill="none" stroke="#050508" stroke-width="1.4" stroke-dasharray="3 4" opacity=".45"/><text x="60" y="52" text-anchor="middle" font-family="Pixelify Sans,monospace" font-weight="700" font-size="24" textLength="62" lengthAdjust="spacingAndGlyphs" fill="#050508">WORK</text><text x="60" y="76" text-anchor="middle" font-family="Pixelify Sans,monospace" font-weight="700" font-size="20" textLength="78" lengthAdjust="spacingAndGlyphs" fill="#050508">WITH ME</text><g transform="translate(52 82)" fill="none" stroke="#050508" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14 14 2"/><path d="M5 2h9v9"/></g></svg></a>
+<script>(function(){var c=document.getElementById('fm-cards');if(!c)return;var raf=0;function upd(){raf=0;var r=c.getBoundingClientRect(),F=150;c.style.setProperty('--ft',Math.min(90,c.scrollTop)+'px');[].forEach.call(c.querySelectorAll('.fm-card'),function(k){var b=k.getBoundingClientRect(),t=Math.max(0,Math.min(1,Math.min(b.bottom-r.top,r.bottom-b.top)/F));k.style.opacity=(.2+.8*t).toFixed(3);});}c.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(upd);},{passive:true});addEventListener('resize',upd);new MutationObserver(function(){setTimeout(upd,60);}).observe(document.body,{attributes:true,attributeFilter:['class']});setTimeout(upd,400);})();</script><div class="tv-bezel" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tvBarrel" filterUnits="userSpaceOnUse" x="-4000" y="-4000" width="9000" height="9000" color-interpolation-filters="sRGB">
+<feImage id="tvBarrelMap" result="map" preserveAspectRatio="none"/>
+<feDisplacementMap in="SourceGraphic" in2="map" scale="110" xChannelSelector="R" yChannelSelector="G"/></filter></svg><script>
+(function () {
+  var hero = document.getElementById('hero'), src = document.getElementById('face-wall');
+  if (!hero || !src) return;
+  var gl, cv = document.createElement('canvas'); cv.id = 'tv-gl'; cv.setAttribute('aria-hidden', 'true');
+  src.parentNode.insertBefore(cv, src.nextSibling);
+  gl = cv.getContext('webgl', { premultipliedAlpha: false, antialias: false });
+  var rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!gl) return;
+  var VS = 'attribute vec2 p;varying vec2 uv;void main(){uv=p*.5+.5;uv.y=1.-uv.y;gl_Position=vec4(p,0.,1.);}';
+  var FS = [
+    'precision mediump float;varying vec2 uv;uniform sampler2D t;uniform vec2 res;uniform float time,power;',
+    'vec2 barrel(vec2 u,float k){vec2 c=u-.5;float r=dot(c,c);return .5+c*(1.+k*r+k*.35*r*r);}',
+    'float rbox(vec2 p,vec2 b,float r){vec2 q=abs(p)-b+r;return length(max(q,0.))+min(max(q.x,q.y),0.)-r;}',
+    'float rnd(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}',
+    'void main(){',
+    ' vec2 u=barrel(uv,.16);',
+    ' vec2 c=u-.5; float edge=length(c)*1.9;',
+    ' float ab=.0025+.006*edge*edge;',
+    ' vec3 col=vec3(texture2D(t,u+c*ab).r,texture2D(t,u).g,texture2D(t,u-c*ab).b);',
+    ' float sl=.5+.5*sin((u.y*res.y)*3.14159*.66);col*=mix(1.,.86+.14*sl,.75);',
+    ' float mask=.94+.06*sin(u.x*res.x*2.1);col*=mask;',
+    ' col+=(rnd(uv*res+time)-.5)*.045;',
+    ' float vig=smoothstep(1.25,.35,length(c*vec2(1.,1.15))*1.6);col*=mix(.55,1.,vig);',
+    ' vec2 px=(u-.5)*res; float d=rbox(px,res*.5-vec2(4.),min(res.x,res.y)*.045);',
+    ' col*=1.-smoothstep(-10.,2.,d);',
+    ' col*=.97+.03*sin(time*7.);',
+    ' float on=clamp(power,0.,1.); float band=smoothstep(.0,.02,on*.5-abs(uv.y-.5)); col=mix(vec3(0.),col,band); col+=vec3(.6,1.,.95)*(1.-smoothstep(0.,.004,abs(uv.y-.5)))*(1.-on)*step(.01,on);',
+    ' gl_FragColor=vec4(col,1.);}'
+  ].join('\n');
+  function sh(type, s) { var o = gl.createShader(type); gl.shaderSource(o, s); gl.compileShader(o); if (!gl.getShaderParameter(o, gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(o)); return o; }
+  var pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr); gl.useProgram(pr);
+  var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+  var loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  var tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  var uRes = gl.getUniformLocation(pr, 'res'), uTime = gl.getUniformLocation(pr, 'time'), uPow = gl.getUniformLocation(pr, 'power');
+  var powerT = -1, t0 = performance.now();
+  function size() { var r = hero.getBoundingClientRect(), d = Math.min(2, devicePixelRatio || 1); cv.width = Math.round(r.width * d); cv.height = Math.round(r.height * d); gl.viewport(0, 0, cv.width, cv.height); buildMap(); }
+  function frame(now) {
+    requestAnimationFrame(frame);
+    if (!document.body.classList.contains('face-mode') || !src.width) return;
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    try { gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, src); } catch (e) { return; }
+    gl.uniform2f(uRes, cv.width, cv.height); gl.uniform1f(uTime, rm ? 0 : (now - t0) / 1000);
+    gl.uniform1f(uPow, rm || powerT < 0 ? 1 : Math.min(1, (now - powerT) / 650));
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+  // barrel map for the DOM cards: a viewport-sized displacement image, re-anchored to the cards column
+  var map = document.getElementById('tvBarrelMap');
+  function buildMap() {
+    var w = 256, h = 160, m = document.createElement('canvas'); m.width = w; m.height = h; var x = m.getContext('2d'), img = x.createImageData(w, h);
+    for (var j = 0; j < h; j++) for (var i = 0; i < w; i++) {
+      var u = i / (w - 1) - .5, v = j / (h - 1) - .5, r = u * u + v * v, k = .16 * r + .056 * r * r, o = (j * w + i) * 4;
+      img.data[o] = 128 - u * k * 255 * 3.5; img.data[o + 1] = 128 - v * k * 255 * 3.5; img.data[o + 2] = 128; img.data[o + 3] = 255;
+    }
+    x.putImageData(img, 0, 0); map.setAttribute('href', m.toDataURL()); anchor();
+  }
+  function anchor() {
+    var el = document.querySelector('.fm-cards'); if (!el) return;
+    var r = el.getBoundingClientRect();
+    map.setAttribute('x', -r.left); map.setAttribute('y', -r.top); map.setAttribute('width', innerWidth); map.setAttribute('height', innerHeight);
+  }
+  addEventListener('resize', size); size(); requestAnimationFrame(frame);
+  var b = document.body, was = b.classList.contains('face-mode');
+  new MutationObserver(function () { var now = b.classList.contains('face-mode'); if (now && !was) { powerT = performance.now() + 440; setTimeout(anchor, 50); } was = now; anchor(); }).observe(b, { attributes: true, attributeFilter: ['class'] });
+  var rp = document.getElementById('tv-replay'); if (rp) rp.addEventListener('click', function () { powerT = performance.now(); });
 })();
 </script>
 </body>
