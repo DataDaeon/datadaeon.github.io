@@ -973,3 +973,9 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 - **Joystick**: an Atari-style stick drawn as voxels in the Mac's own projection and palette (beige stepped base, dark boot and stick, red ball and fire button, teal LED), with a coiled cable that tucks behind the Mac's right side. It is its own `<button id="joy">` inside `.mac-wrap`, so it drops with the Mac (plus a small hop on landing); hover tilts the lever and shows a yellow "press start" tag.
 - **Press start**: the lever snaps, the fire button goes down, a pixel burst pops from the ball, and the five game stickers (WoW, Fallout, Ragnarok Online, Magic, Cyberpunk 2077 — resized to 400px WebP, ~40 KB each, `images/hero/gaming/`) fly out of the joystick to their spots around the hero (positions from Dario's mock) and float up/down at different speeds. Press again and they fly back in. `aria-pressed` + a polite live region; reduced motion = no burst/float.
 - **Layout**: Mac + floppy + joystick recentred as a group (`.mac-row` shifted −64%); on phones the group is narrower and left-offset so the joystick fits.
+
+### Session 51 (November 2026) — Joystick: farther right, no black outline, quieter than the disk
+
+- Joystick moved further right (longer coiled cable, still tucked behind the Mac's right side), back to the Mac's exact voxel scale; Mac + floppy + joystick group recentred (`translate(-68%,-50%)`).
+- Removed the dark outline: every face is now edged in its own colour, like the Mac's render; cable recoloured to the Mac's warm greys.
+- CTA hierarchy: the floppy / "Insert the disk" stays the primary action. The joystick idles slightly desaturated and dimmed, comes to full colour only on hover/focus/when on, fades further while the visitor is reaching for the disk (`body.mac-alert`), and its "press start" tag only appears on hover/focus.
