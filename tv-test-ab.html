@@ -1104,27 +1104,34 @@ body.mac-alert .joy:not(:hover){opacity:.5}
 @media(max-width:720px){.fm-ic{width:34px;height:34px;border-radius:9px}.fm-ic svg{width:18px;height:18px}.fm-body{gap:10px}}
 </style>
 <style>
-/* ── TV TEST: stickers on the bezel (replace "Skip the cards" + "Menu", add "Let's talk") ── */
-body.face-mode .fm-cta{all:unset;position:fixed;z-index:80;left:clamp(14px,3vw,46px);top:clamp(10px,2.2vw,30px);cursor:pointer;display:block;transform:rotate(-7deg);transition:transform .2s cubic-bezier(.3,1.6,.5,1);filter:drop-shadow(0 0 0 #fff) drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff) drop-shadow(0 8px 14px rgba(0,0,0,.45))}
+/* ── TV TEST: stickers on the bezel ── */
+/* "Skip the cards → Let's chat": a raised, pressable sticker button */
+body.face-mode .fm-cta{all:unset;position:fixed;z-index:80;left:clamp(16px,3.4vw,54px);top:clamp(14px,2.6vw,38px);cursor:pointer;display:flex;align-items:center;gap:12px;
+  padding:12px 18px 12px 14px;background:#FFFF02;color:#050508;border:3px solid #050508;border-radius:16px;transform:rotate(-4deg);
+  box-shadow:0 0 0 4px #fff,6px 7px 0 4px #050508,0 16px 26px rgba(0,0,0,.45);transition:transform .15s ease,box-shadow .15s ease}
 body.face-mode .fm-cta > *{display:none}
-body.face-mode .fm-cta::before{content:"";display:block;width:132px;height:96px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 132 96'%3E%3Cpath d='M14 6h104a10 10 0 0 1 10 10v44a10 10 0 0 1-10 10H58L34 90l6-20H14A10 10 0 0 1 4 60V16A10 10 0 0 1 14 6z' fill='%23FFFF02' stroke='%23050508' stroke-width='5' stroke-linejoin='round'/%3E%3Ctext x='66' y='48' text-anchor='middle' font-family='Pixelify Sans,monospace' font-weight='700' font-size='27' fill='%23050508'%3EASK ME%3C/text%3E%3C/svg%3E") center/contain no-repeat}
-body.face-mode .fm-cta:hover,body.face-mode .fm-cta:focus-visible{transform:rotate(-2deg) scale(1.06)}
-body.face-mode .fm-cta:focus-visible{outline:3px solid #50e3c2;outline-offset:6px;border-radius:14px}
-body.face-mode .fm-cards{top:clamp(120px,12vw,150px)!important}
-/* Menu → round sticker */
-body.face-mode .fm-dock{top:clamp(14px,2.4vw,32px);right:clamp(14px,3vw,46px);z-index:80}
-body.face-mode .fm-menu{width:86px!important;height:86px!important;padding:0!important;border-radius:50%!important;background:#50e3c2!important;color:#050508!important;font-family:var(--font-pixel)!important;font-size:19px!important;font-weight:700;letter-spacing:.04em;border:4px solid #050508!important;transform:rotate(8deg);box-shadow:0 0 0 4px #fff,0 10px 18px rgba(0,0,0,.45)!important;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
-body.face-mode .fm-menu:hover,body.face-mode .fm-menu:focus-visible{transform:rotate(0) scale(1.06)}
-/* Let's talk */
+body.face-mode .fm-cta::before{content:"";flex:none;width:30px;height:30px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23050508' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z'/%3E%3Cpath d='M8.5 12h.01M12 12h.01M15.5 12h.01'/%3E%3C/svg%3E") center/contain no-repeat}
+body.face-mode .fm-cta::after{content:"Skip the cards\A LET\2019 S CHAT \2192";white-space:pre;font:700 13px/1.25 var(--mono);letter-spacing:.02em}
+body.face-mode .fm-cta:hover,body.face-mode .fm-cta:focus-visible{transform:rotate(-2deg) translate(-1px,-2px);box-shadow:0 0 0 4px #fff,8px 10px 0 4px #050508,0 20px 30px rgba(0,0,0,.45)}
+body.face-mode .fm-cta:active{transform:rotate(-4deg) translate(5px,6px);box-shadow:0 0 0 4px #fff,1px 1px 0 4px #050508,0 6px 10px rgba(0,0,0,.4)}
+body.face-mode .fm-cta:focus-visible{outline:3px solid #50e3c2;outline-offset:8px}
+/* Menu → rectangular white sticker (same dock) */
+body.face-mode .fm-dock{top:clamp(16px,2.8vw,40px);right:clamp(16px,3.4vw,54px);z-index:80}
+body.face-mode .fm-menu{height:48px!important;padding:0 22px!important;border-radius:6px!important;background:#fff!important;color:#050508!important;font-family:var(--font-pixel)!important;font-size:18px!important;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:3px solid #050508!important;transform:rotate(3deg);box-shadow:0 0 0 4px #fff,0 12px 20px rgba(0,0,0,.45)!important;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+body.face-mode .fm-menu:hover,body.face-mode .fm-menu:focus-visible{transform:rotate(0) scale(1.05)}
+/* Let's talk → round two-line sticker */
 .tv-talk{display:none}
-body.face-mode .tv-talk{display:block;position:fixed;z-index:80;right:clamp(14px,3vw,46px);bottom:clamp(14px,2.6vw,36px);width:178px;transform:rotate(-9deg);transition:transform .2s cubic-bezier(.3,1.6,.5,1);filter:drop-shadow(0 10px 16px rgba(0,0,0,.45))}
-body.face-mode .tv-talk:hover,body.face-mode .tv-talk:focus-visible{transform:rotate(-3deg) scale(1.06)}
+body.face-mode .tv-talk{display:block;position:fixed;z-index:80;right:clamp(16px,3.2vw,52px);bottom:clamp(16px,3vw,44px);width:118px;transform:rotate(-10deg);transition:transform .2s cubic-bezier(.3,1.6,.5,1);filter:drop-shadow(0 12px 18px rgba(0,0,0,.5))}
+body.face-mode .tv-talk:hover,body.face-mode .tv-talk:focus-visible{transform:rotate(0) scale(1.07)}
 .tv-talk svg{display:block;width:100%;height:auto}
-body.face-mode .music-widget{left:50%!important;right:auto!important;transform:translateX(-50%)!important;bottom:22px!important;z-index:79}
+body.face-mode .music-widget{left:50%!important;right:auto!important;transform:translateX(-50%)!important;bottom:clamp(20px,3vw,40px)!important;z-index:79}
+/* cards: dissolve in/out at the top and bottom of the column instead of a hard cut */
+body.face-mode .fm-cards{top:clamp(128px,11vw,150px)!important;--ft:0px;-webkit-mask-image:linear-gradient(transparent 0,#000 var(--ft),#000 calc(100% - 150px),transparent 100%)!important;mask-image:linear-gradient(transparent 0,#000 var(--ft),#000 calc(100% - 150px),transparent 100%)!important;scroll-behavior:smooth}
+body.face-mode .fm-card{transition:opacity .12s linear}
 /* test badge */
 .tv-badge{position:fixed;z-index:200;left:50%;top:8px;transform:translateX(-50%);font:600 11px/1 var(--mono);letter-spacing:.08em;color:#050508;background:#FFFF02;padding:6px 10px;border-radius:999px;display:flex;gap:10px;align-items:center}
 .tv-badge button{all:unset;cursor:pointer;text-decoration:underline}
-@media(max-width:720px){body.face-mode .fm-cta::before{width:96px;height:70px}body.face-mode .fm-menu{width:64px!important;height:64px!important;font-size:15px!important}body.face-mode .tv-talk{width:128px}}
+@media(max-width:720px){body.face-mode .fm-cta{padding:9px 12px 9px 10px}body.face-mode .fm-cta::after{font-size:11px}body.face-mode .fm-menu{height:40px!important;font-size:14px!important;padding:0 14px!important}body.face-mode .tv-talk{width:88px}}
 
 .tv-glass{position:fixed;inset:0;z-index:70;pointer-events:none;opacity:0;transition:opacity .35s ease}
 body.face-mode .tv-glass{opacity:1}
@@ -4148,7 +4155,8 @@ body.face-mode #face-wall{filter:url(#tvRGB)}
   if (!dock.hidden) { dock._shown = true; set(true); autoFold(2600); }
 })();
 </script>
-<a class="tv-talk" href="mailto:despi@softserveinc.com" aria-label="Open to work. Let's talk: send me an email"><svg viewBox="0 0 180 120" aria-hidden="true"><path d="M20 22 160 8l12 86-140 18z" fill="#fff"/><path d="M27 28 155 15l10 73-128 16z" fill="#50e3c2" stroke="#050508" stroke-width="4" stroke-linejoin="round"/><text x="92" y="58" text-anchor="middle" transform="rotate(-4 92 58)" font-family="Pixelify Sans,monospace" font-weight="700" font-size="23" textLength="116" lengthAdjust="spacingAndGlyphs" fill="#050508">OPEN TO WORK</text><text x="94" y="84" text-anchor="middle" transform="rotate(-4 94 84)" font-family="Geist Mono,monospace" font-size="14" fill="#050508">let&#8217;s talk &#8599;</text></svg></a><div class="tv-glass" aria-hidden="true"><i></i></div><div class="tv-power" aria-hidden="true"><b></b></div>
+<a class="tv-talk" href="mailto:despi@softserveinc.com" aria-label="Let's talk: send me an email"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="58" fill="#fff"/><circle cx="60" cy="60" r="51" fill="#50e3c2" stroke="#050508" stroke-width="4"/><circle cx="60" cy="60" r="43" fill="none" stroke="#050508" stroke-width="1.4" stroke-dasharray="3 4" opacity=".45"/><text x="60" y="56" text-anchor="middle" font-family="Pixelify Sans,monospace" font-weight="700" font-size="25" textLength="70" lengthAdjust="spacingAndGlyphs" fill="#050508">LET&#8217;S</text><text x="60" y="82" text-anchor="middle" font-family="Pixelify Sans,monospace" font-weight="700" font-size="25" textLength="74" lengthAdjust="spacingAndGlyphs" fill="#050508">TALK &#8599;</text></svg></a>
+<script>(function(){var c=document.getElementById('fm-cards');if(!c)return;var raf=0;function upd(){raf=0;var r=c.getBoundingClientRect(),F=150;c.style.setProperty('--ft',Math.min(90,c.scrollTop)+'px');[].forEach.call(c.querySelectorAll('.fm-card'),function(k){var b=k.getBoundingClientRect(),t=Math.max(0,Math.min(1,Math.min(b.bottom-r.top,r.bottom-b.top)/F));k.style.opacity=(.2+.8*t).toFixed(3);});}c.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(upd);},{passive:true});addEventListener('resize',upd);new MutationObserver(function(){setTimeout(upd,60);}).observe(document.body,{attributes:true,attributeFilter:['class']});setTimeout(upd,400);})();</script><div class="tv-glass" aria-hidden="true"><i></i></div><div class="tv-power" aria-hidden="true"><b></b></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tvRGB" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
 <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="r"/><feOffset in="r" dx="1.4" result="r2"/>
 <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="g"/>
