@@ -345,6 +345,9 @@
         if (!picked) return;
         heroSrc = picked.src;
         heroAlt = picked.alt || 'Project UI preview';
+        /* Session 60: never show the same image twice — the hero now owns it, so hide the original */
+        var holder = picked.closest('figure, .img-single, .slide, .cs-screen');
+        if (holder && holder.querySelectorAll('img').length === 1) holder.hidden = true; else picked.hidden = true;
       }
 
       /* ── Build the hero card ────────────────────────────── */

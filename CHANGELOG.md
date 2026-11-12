@@ -1021,3 +1021,7 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 ### Session 59 (November 2026) — Personal contact email
 
 - Public contact switched from the SoftServe address to **hola@espinosadesign.com** everywhere visitors or bots see it: the pixel twin's answers (`effects.js` EMAIL), "get in touch" buttons (index, about), the index JSON-LD `email`, the noscript block, `llms.txt` and `llms-full.txt` (and the orphan hero-mac-demo). LinkedIn stays as the other contact. CLAUDE.md keeps the git identity untouched.
+
+### Session 60 (November 2026) — No repeated images
+
+- Root cause: `.scroll-hero-wrap[data-auto]` (att, benefitbridge, metaverse, nielseniq, research-at-scale, siemens) copies the page's first content image into the 3D scroll hero, so it showed twice. `effects.js` now hides the original (its figure/slide wrapper when it holds only that image) once the hero takes it. No two identical image files are used on any case page (checked by content hash).
