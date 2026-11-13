@@ -399,14 +399,278 @@
   }
 
   /* ────────────────────────────────────────────────────────────
+     6. CASE LEDE / RECRUITER WORDS — hover/focus → floating card
+        Markup: .cs-lede or .rec-brief with button.rec-word[data-rec]
+        + template#rec-panel-<id>. Lives under the case title.
+  ──────────────────────────────────────────────────────────── */
+  function initRecruiterBrief() {
+    var root = document.querySelector('.cs-lede') || document.querySelector('.rec-brief');
+    if (!root) return;
+    var words = root.querySelectorAll('.rec-word[data-rec]');
+    if (!words.length) return;
+    var RM = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    var coarse = !!(window.matchMedia && window.matchMedia('(hover: none), (pointer: coarse)').matches);
+    var card = document.createElement('div');
+    card.className = 'rec-card';
+    card.id = 'rec-floating-card';
+    card.setAttribute('role', 'dialog');
+    card.setAttribute('aria-modal', 'false');
+    card.hidden = true;
+    card.innerHTML = '<button type="button" class="rec-card-close" aria-label="Close detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="rec-card-body" aria-live="polite"></div>';
+    document.body.appendChild(card);
+    var body = card.querySelector('.rec-card-body');
+    var closeBtn = card.querySelector('.rec-card-close');
+    var openWord = null;
+    var hideTimer = null;
+
+    function panelFor(id) {
+      return document.getElementById('rec-panel-' + id) || document.querySelector('[data-rec-panel="' + id + '"]');
+    }
+    function placeNear(el, clientX, clientY) {
+      var pad = 14, w = card.offsetWidth || 360, h = card.offsetHeight || 180;
+      var x, y;
+      if (!RM && typeof clientX === 'number' && !coarse) {
+        x = clientX + 18; y = clientY + 18;
+      } else {
+        var r = el.getBoundingClientRect();
+        x = r.left; y = r.bottom + 10;
+      }
+      if (x + w > window.innerWidth - pad) x = window.innerWidth - w - pad;
+      if (x < pad) x = pad;
+      if (y + h > window.innerHeight - pad) y = Math.max(pad, (typeof clientY === 'number' ? clientY : el.getBoundingClientRect().top) - h - 12);
+      card.style.left = Math.round(x) + 'px';
+      card.style.top = Math.round(y) + 'px';
+    }
+    function open(word, clientX, clientY) {
+      var id = word.getAttribute('data-rec');
+      var tpl = panelFor(id);
+      if (!tpl) return;
+      if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+      if (openWord && openWord !== word) openWord.setAttribute('aria-expanded', 'false');
+      body.innerHTML = tpl.tagName === 'TEMPLATE' ? tpl.innerHTML : tpl.innerHTML;
+      var title = body.querySelector('.rec-card-title');
+      card.setAttribute('aria-label', title ? title.textContent : 'Detail');
+      word.setAttribute('aria-expanded', 'true');
+      openWord = word;
+      card.hidden = false;
+      card.classList.add('is-open');
+      /* Measure after paint so height is real, then clamp into the viewport */
+      requestAnimationFrame(function () {
+        placeNear(word, clientX, clientY);
+        requestAnimationFrame(function () { placeNear(word, clientX, clientY); });
+      });
+    }
+    function close() {
+      if (!openWord) return;
+      openWord.setAttribute('aria-expanded', 'false');
+      openWord = null;
+      card.classList.remove('is-open');
+      hideTimer = setTimeout(function () { card.hidden = true; body.innerHTML = ''; }, RM ? 0 : 180);
+    }
+    words.forEach(function (w) {
+      if (!w.id) w.id = 'rec-word-' + w.getAttribute('data-rec');
+      w.setAttribute('aria-expanded', 'false');
+      w.setAttribute('aria-controls', 'rec-floating-card');
+      w.addEventListener('mouseenter', function (e) {
+        if (coarse) return;
+        open(w, e.clientX, e.clientY);
+      });
+      w.addEventListener('mousemove', function (e) {
+        if (coarse || RM || openWord !== w) return;
+        placeNear(w, e.clientX, e.clientY);
+      });
+      w.addEventListener('mouseleave', function (e) {
+        if (coarse) return;
+        var to = e.relatedTarget;
+        if (to && (card.contains(to) || w.contains(to))) return;
+        close();
+      });
+      w.addEventListener('focus', function () { open(w); });
+      w.addEventListener('click', function (e) {
+        /* Touch: toggle. Desktop: open if somehow closed (keyboard/synthetic click). */
+        if (coarse) {
+          e.preventDefault();
+          if (openWord === w) close(); else open(w);
+        } else if (openWord !== w) {
+          open(w);
+        }
+      });
+    });
+    card.addEventListener('mouseleave', function (e) {
+      if (coarse) return;
+      var to = e.relatedTarget;
+      if (to && openWord && openWord.contains(to)) return;
+      close();
+    });
+    closeBtn.addEventListener('click', function () {
+      var prev = openWord;
+      close();
+      if (prev) prev.focus({ preventScroll: true });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && openWord) { e.preventDefault(); var prev = openWord; close(); prev.focus({ preventScroll: true }); }
+    });
+    document.addEventListener('pointerdown', function (e) {
+      if (!openWord) return;
+      if (card.contains(e.target) || (openWord && openWord.contains(e.target))) return;
+      close();
+    });
+  }
+
+  /* ────────────────────────────────────────────────────────────
      BOOT — run on DOMContentLoaded (or immediately if late)
   ──────────────────────────────────────────────────────────── */
+  function initA11yCleanup() {
+    /* Legacy sticky-back pills are CSS-hidden but can remain in the a11y tree */
+    document.querySelectorAll('.sticky-back').forEach(function (el) {
+      el.setAttribute('aria-hidden', 'true');
+      el.setAttribute('tabindex', '-1');
+    });
+  }
+
+  function initSkipLink() {
+    var main = document.getElementById('main-content') || document.querySelector('main');
+    if (!main) return;
+    if (!main.id) main.id = 'main-content';
+    if (!main.hasAttribute('tabindex')) main.setAttribute('tabindex', '-1');
+    /* Upgrade any existing inline skip link, or inject one */
+    var existing = document.querySelector('.skip-link, a[href="#main-content"], a[href="#' + main.id + '"]');
+    var a = existing;
+    if (a && /skip/i.test(a.textContent || '')) {
+      a.classList.add('skip-link');
+      a.removeAttribute('style');
+      a.removeAttribute('onfocus');
+      a.removeAttribute('onblur');
+      a.href = '#' + main.id;
+    } else if (!document.querySelector('.skip-link')) {
+      a = document.createElement('a');
+      a.className = 'skip-link';
+      a.href = '#' + main.id;
+      a.textContent = 'Skip to main content';
+      document.body.insertBefore(a, document.body.firstChild);
+    } else {
+      a = document.querySelector('.skip-link');
+    }
+    if (!a || a.dataset.skipBound) return;
+    a.dataset.skipBound = '1';
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      main.focus({ preventScroll: false });
+      try { main.scrollIntoView({ block: 'start' }); } catch (err) {}
+    });
+  }
+
   function boot() {
+    initSkipLink();
+    initA11yCleanup();
     initNoiseButtons();
     initTracingBeam();
     initCometCards();
     initCompareSliders();
     initScrollHeroes();
+    initRecruiterBrief();
+    initCaseAccordion();
+  }
+
+  /* ────────────────────────────────────────────────────────────
+     7. CASE FAQ ACCORDION — one-open FAQ list (Session 65)
+        Markup: .cs-acc > .cs-acc-item > button.cs-acc-trigger + .cs-acc-panel
+  ──────────────────────────────────────────────────────────── */
+  function initCaseAccordion() {
+    var root = document.querySelector('.cs-acc');
+    if (!root) return;
+    var RM = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    var items = Array.prototype.slice.call(root.querySelectorAll('.cs-acc-item'));
+    if (!items.length) return;
+
+    function setOpen(item, open) {
+      var btn = item.querySelector('.cs-acc-trigger');
+      var panel = item.querySelector('.cs-acc-panel');
+      var icon = item.querySelector('.cs-acc-icon');
+      if (!btn || !panel) return;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (icon) icon.textContent = open ? '−' : '+';
+      if (open) {
+        panel.hidden = false;
+        panel.classList.add('is-open');
+        if (!RM) {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        } else {
+          panel.style.maxHeight = 'none';
+        }
+        // scramble titles + charts / media need a reflow once visible
+        setTimeout(function () {
+          var heads = panel.querySelectorAll('h2[data-scramble]');
+          for (var hi = 0; hi < heads.length; hi++) {
+            if (RM) {
+              heads[hi].classList.add('scrambled');
+            } else if (typeof window.__scrambleHeading === 'function') {
+              window.__scrambleHeading(heads[hi]);
+            } else {
+              heads[hi].classList.add('scrambled');
+            }
+          }
+          try { window.dispatchEvent(new Event('resize')); } catch (e) {}
+          if (!RM) panel.style.maxHeight = panel.scrollHeight + 'px';
+          // scramble rewrite + diagram layout can grow the panel
+          setTimeout(function () {
+            if (!RM && btn.getAttribute('aria-expanded') === 'true') {
+              panel.style.maxHeight = panel.scrollHeight + 'px';
+            }
+          }, 560);
+        }, RM ? 0 : 80);
+      } else {
+        panel.classList.remove('is-open');
+        if (!RM) {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          // force reflow then collapse
+          panel.offsetHeight; // eslint-disable-line no-unused-expressions
+          panel.style.maxHeight = '0px';
+          var done = function () {
+            if (btn.getAttribute('aria-expanded') === 'false') panel.hidden = true;
+            panel.removeEventListener('transitionend', done);
+          };
+          panel.addEventListener('transitionend', done);
+        } else {
+          panel.style.maxHeight = '0px';
+          panel.hidden = true;
+        }
+      }
+    }
+
+    items.forEach(function (item, i) {
+      var btn = item.querySelector('.cs-acc-trigger');
+      var panel = item.querySelector('.cs-acc-panel');
+      if (!btn || !panel) return;
+      if (!btn.id) btn.id = 'cs-acc-btn-' + (i + 1);
+      if (!panel.id) panel.id = 'cs-acc-panel-' + (i + 1);
+      btn.setAttribute('aria-controls', panel.id);
+      panel.setAttribute('role', 'region');
+      panel.setAttribute('aria-labelledby', btn.id);
+      if (btn.getAttribute('aria-expanded') !== 'true') {
+        panel.hidden = true;
+        panel.style.maxHeight = '0px';
+      } else {
+        setOpen(item, true);
+      }
+      btn.addEventListener('click', function () {
+        var willOpen = btn.getAttribute('aria-expanded') !== 'true';
+        items.forEach(function (other) {
+          if (other !== item) setOpen(other, false);
+        });
+        setOpen(item, willOpen);
+      });
+    });
+
+    window.addEventListener('resize', function () {
+      items.forEach(function (item) {
+        var btn = item.querySelector('.cs-acc-trigger');
+        var panel = item.querySelector('.cs-acc-panel');
+        if (btn && panel && btn.getAttribute('aria-expanded') === 'true' && !RM) {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+      });
+    });
   }
 
   if (document.readyState === 'loading') {
@@ -848,4 +1112,95 @@
   form.addEventListener('submit', function (e) { e.preventDefault(); send(input.value); });
   chips.addEventListener('click', function (e) { var b = e.target.closest('.pt-chip'); if (b) send(b.textContent); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) { e.preventDefault(); close(); } });
+})();
+
+/* ═══ VIZ THEME (Session 64) — chart colors that survive light backgrounds ═
+   Canonical hexes are authored for dark (black/near-black plates). On
+   html.theme-light they remap to ink-weight accents so citron/cyan/soft grey
+   still read. Case-page D3 charts call VizTheme.color() / onChange(). */
+(function () {
+  'use strict';
+  var LIGHT = {
+    '#dae24c': '#4F5600',
+    '#38c6f4': '#02658F',
+    '#50e3c2': '#0a8f78',
+    '#a78bfa': '#5B21B6',
+    '#c4b5fd': '#6D28D9',
+    '#6b7280': '#374151',
+    '#9ca3af': '#4B5563',
+    '#d1d5db': '#3F3F46',
+    '#fcd34d': '#92400E',
+    '#ffff02': '#92400E',
+    '#cdff4d': '#3F6212'
+  };
+  function norm(hex) {
+    if (!hex || typeof hex !== 'string') return '';
+    var h = hex.trim().toLowerCase();
+    if (/^#[0-9a-f]{3}$/.test(h)) {
+      h = '#' + h[1] + h[1] + h[2] + h[2] + h[3] + h[3];
+    }
+    return h;
+  }
+  function isLight() {
+    return document.documentElement.classList.contains('theme-light');
+  }
+  function color(hex) {
+    var k = norm(hex);
+    if (!k) return hex;
+    if (!isLight()) return hex;
+    return LIGHT[k] || hex;
+  }
+  function luma(hex) {
+    var k = norm(color(hex)).replace('#', '');
+    if (k.length !== 6) return 0.5;
+    var r = parseInt(k.slice(0, 2), 16) / 255;
+    var g = parseInt(k.slice(2, 4), 16) / 255;
+    var b = parseInt(k.slice(4, 6), 16) / 255;
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  }
+  function labelOn(hex) {
+    return luma(hex) > 0.55 ? '#050508' : '#f8fafc';
+  }
+  function linkStroke() {
+    return isLight() ? 'rgba(20,20,42,0.16)' : 'rgba(255,255,255,0.12)';
+  }
+  function linkStrokeDim() {
+    return isLight() ? 'rgba(20,20,42,0.06)' : 'rgba(255,255,255,0.05)';
+  }
+  function headerFill() {
+    return isLight() ? 'rgba(20,20,42,0.45)' : 'rgba(255,255,255,0.28)';
+  }
+  function linkBlend() {
+    return isLight() ? 'multiply' : 'screen';
+  }
+  function mutedText(a) {
+    var alpha = (typeof a === 'number') ? a : 0.45;
+    return isLight()
+      ? 'rgba(20,20,42,' + Math.min(0.72, alpha + 0.18) + ')'
+      : 'rgba(255,255,255,' + alpha + ')';
+  }
+  var listeners = [];
+  function onChange(fn) {
+    if (typeof fn === 'function') listeners.push(fn);
+  }
+  function emit() {
+    for (var i = 0; i < listeners.length; i++) {
+      try { listeners[i](isLight()); } catch (e) {}
+    }
+  }
+  new MutationObserver(function () { emit(); })
+    .observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+  window.VizTheme = {
+    isLight: isLight,
+    color: color,
+    luma: luma,
+    labelOn: labelOn,
+    linkStroke: linkStroke,
+    linkStrokeDim: linkStrokeDim,
+    headerFill: headerFill,
+    linkBlend: linkBlend,
+    mutedText: mutedText,
+    onChange: onChange
+  };
 })();

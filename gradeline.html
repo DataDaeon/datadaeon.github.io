@@ -89,12 +89,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .tag{font-family:var(--mono);font-size:10px;color:var(--t3);background:var(--t4);border:1px solid var(--border-w);padding:2px 7px;border-radius:3px;letter-spacing:0.02em;display:inline-block;margin-right:6px;margin-bottom:4px}
 .tag-ind{color:#f59e0b;background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.25)}
 /* FOOTER / NAV */
-.cs-footer{border-top:1px solid var(--border-w);padding:32px}
-.cs-footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-.foot-nav{display:flex;gap:32px;align-items:center}
-.foot-link{font-family:var(--mono);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s;display:flex;align-items:center;gap:6px}
-.foot-link:hover{color:var(--teal)}
-.foot-link.teal{color:var(--teal)}
+/* .cs-footer skin → effects.css Session 67 */
+/* .cs-footer-inner → effects.css */
+/* foot-nav removed Session 67 — nav lives in .pg-nav */
 .foot-back{font-family:var(--mono);font-size:10px;color:var(--t3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color .15s}
 .foot-back:hover{color:var(--teal)}
 
@@ -164,8 +161,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
   .metrics-inner{flex-direction:column;gap:1px}
   .block-inner{padding:36px 20px}
   .meta-row{grid-template-columns:1fr 1fr}
-  .cs-footer{padding:24px 20px}
-  .cs-footer-inner{flex-direction:column;gap:16px;text-align:center}
   .phone-frame{width:240px}
   .phone-screen{min-height:460px}
 }
@@ -175,14 +170,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .cs-hero-inner{opacity:0;animation:cs-fadein .75s cubic-bezier(.16,1,.3,1) .1s forwards}
 .cs-eyebrow{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .05s forwards}
 .cs-hero h1{opacity:0;animation:cs-fadein .75s cubic-bezier(.16,1,.3,1) .18s forwards}
-.cs-xyz{opacity:0;animation:cs-fadein .65s cubic-bezier(.16,1,.3,1) .32s forwards}
-.meta-row{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .46s forwards}
+.cs-lede{opacity:0;animation:cs-fadein .65s cubic-bezier(.16,1,.3,1) .32s forwards}
+.cs-facts{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .46s forwards}
 @media (prefers-reduced-motion:reduce){
   .cs-hero-inner,.cs-eyebrow,.cs-hero h1,.cs-xyz,.meta-row{animation:none;opacity:1}
 }
 /* ── SCRAMBLE REVEAL ────────────────────────────────────────────────────── */
-.block h2[data-scramble]{opacity:0;transition:opacity .01s}
-.block h2[data-scramble].scrambled{opacity:1}
+h2[data-scramble]{opacity:0;transition:opacity .01s}
+h2[data-scramble].scrambled{opacity:1}
 
 /* ── IMAGE MODAL ─────────────────────────────────────── */
 .block img, .slide img, .grid-2 img {
@@ -275,13 +270,21 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
     <div class="cs-eyebrow">Case Study · In Progress</div>
     <div class="cs-tags" style="margin:8px 0 4px"><span class="tag tag-ind">construction</span><span class="tag">field-ux</span><span class="tag">ai-workflow</span><span class="tag">design-systems</span><span class="tag">current</span></div>
     <h1>From Bid to Blacktop: One Field App for Three Different Jobs</h1>
-    <p class="cs-xyz">Designing <strong>GradeLine</strong>, a mobile-first field platform for a national paving and sealcoating contractor — the sales bid, the dispatcher's desk, and the crew foreman's phone in the heat, all one product, built through a forked, versioned prototyping pipeline a founder could click through without touching code.</p>
-    <div class="meta-row">
-      <div class="meta-cell"><div class="meta-label">industry</div><div class="meta-val">Paving &amp; Sealcoating</div></div>
-      <div class="meta-cell"><div class="meta-label">phase</div><div class="meta-val">Discovery → Prototype</div></div>
-      <div class="meta-cell"><div class="meta-label">role</div><div class="meta-val">Lead Experience Designer</div></div>
-      <div class="meta-cell"><div class="meta-label">tags</div><div class="meta-val"><span class="tag">Field UX</span><span class="tag">AI Workflow</span></div></div>
+    <div class="cs-lede">
+      <p class="cs-lede-p">As <button type="button" class="rec-word" data-rec="role">Lead Experience Designer</button> on GradeLine, I scoped a mobile-first field platform for sales, dispatch, and crew — then shipped it as <button type="button" class="rec-word" data-rec="impact">eight forked, versioned prototypes</button> over one shared catalog of <button type="button" class="rec-word" data-rec="system">63 components</button>. The <button type="button" class="rec-word" data-rec="process">AI-assisted pipeline</button> (Claude → Cursor → Claude Code) turned on-site research into clickable builds a founder could review without touching code, under the usual <button type="button" class="rec-word" data-rec="nda">NDA constraints</button>.</p>
+      <p class="rec-hint">Hover or focus underlined words · Esc to close</p>
     </div>
+    <div class="cs-facts" role="list">
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">industry</div><div class="cs-fact-v">Paving &amp; Sealcoating</div></div>
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">phase</div><div class="cs-fact-v">Discovery → Prototype</div></div>
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">role</div><div class="cs-fact-v">Lead Experience Designer</div></div>
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">tags</div><div class="cs-fact-v"><span class="tag">Field UX</span><span class="tag">AI Workflow</span></div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">8</div><div class="cs-fact-k">forked versions shipped</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">63</div><div class="cs-fact-k">catalog components</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">3</div><div class="cs-fact-k">devices, one system</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">~90%</div><div class="cs-fact-k">agent cost is input tokens</div></div>
+    </div>
+
     <div class="cs-figure">
 <aside class="nda-alert" role="note" aria-label="Confidentiality note"><svg class="nda-ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><path d="M12 15v2"/></svg><p><strong>Under NDA.</strong> The real product UI is client-confidential, so it isn&rsquo;t shown here. The screens and figures on this page are illustrative recreations built for this portfolio; the problem, process, decisions and results are real.</p></aside>
 <section class="anat-section" aria-label="How it works">
@@ -291,36 +294,57 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
     <div class="scroll-hero-wrap" data-auto data-index="0"></div>
   </div>
 </header>
+<template id="rec-panel-role"><p class="rec-card-kicker">Role</p><p class="rec-card-title">Lead Experience Designer</p><p>Owned discovery framing, persona-specific directions, and the multi-app prototype architecture for a national paving and sealcoating contractor (described generically on this page).</p></template><template id="rec-panel-impact"><p class="rec-card-kicker">Impact</p><p class="rec-card-title">Eight forked versions, one lobby</p><p>Each meaningful product direction became a full fork of the same React/Tailwind codebase, deployed together so stakeholders could click through live versions instead of static decks.</p></template><template id="rec-panel-system"><p class="rec-card-kicker">System</p><p class="rec-card-title">63-primitive catalog + tokens</p><p>One living component catalog and shared token set kept eight diverging prototypes looking like one product across phone, desk, and field contexts.</p></template><template id="rec-panel-process"><p class="rec-card-kicker">Process &amp; AI</p><p class="rec-card-title">Research → fork → ship</p><p>Claude helped synthesize on-site notes and diverge directions; Figma and the catalog materialized screens; Cursor and Claude Code forked and hardened accessible, versioned builds.</p></template><template id="rec-panel-nda"><p class="rec-card-kicker">Constraint</p><p class="rec-card-title">Client UI withheld</p><p>Real product UI is confidential. Screens and figures here are illustrative recreations; the problem, process, decisions, and results are real.</p></template>
 
-<div class="metrics">
-  <div class="metrics-inner">
-    <div class="metric-box"><div class="metric-val">8</div><div class="metric-label">forked versions shipped</div></div>
-    <div class="metric-box"><div class="metric-val">63</div><div class="metric-label">catalog components</div></div>
-    <div class="metric-box"><div class="metric-val">3</div><div class="metric-label">devices, one system</div></div>
-    <div class="metric-box"><div class="metric-val">~90%</div><div class="metric-label">agent cost is input tokens</div></div>
-  </div>
-</div>
 
-<section class="block">
-  <div class="block-inner">
+<section class="cs-acc" aria-label="Case study details">
+  <div class="cs-acc-inner">
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">How Might We</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">How Might We</div>
     <div class="hmw">
       <div class="hmw-label">// hmw</div>
       <q>give a sales rep, a dispatcher, and a crew foreman one coherent mobile product, when each works in a completely different context, and the product itself was still being defined underneath us?</q>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">The Problem</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">The Problem</div>
     <p>The client runs paving and sealcoating crews across multiple regions, and the process that got a bid signed, scheduled, and finished still lived across paper tickets, spreadsheets, and phone calls. This engagement started in <strong>discovery</strong>, which meant the product itself kept shifting week to week — screens that looked settled on Monday were wrong by Thursday because the underlying business logic hadn't been locked yet.</p>
     <p>The founder and the client-side stakeholders needed to see and react to real, current thinking constantly, not once a sprint. A static deck couldn't keep up, and asking a non-technical founder to pull a branch and run a dev server wasn't realistic either.</p>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Visual Context</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Visual Context</div>
     <p style="margin-bottom:20px">Four screens from across the app — sign-in, dispatch, and the two live-AR surfaces the field crew actually leans on (lot measurement and before/after site verification).</p>
     <div class="vc-gallery">
@@ -343,18 +367,36 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
     </div>
     <p class="demo-disclosure" style="margin-top:14px">The production prototypes, Figma libraries, and stakeholder-facing screens are client-confidential and withheld. Everything above is rebuilt for this portfolio with a fictional product name, fictional personas, and generalized data — grounded in the real mobile layouts and the real design-system tokens, but with no client branding, real names, or real screens reproduced.</p>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">The Solution</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">The Solution</div>
     <p>Instead of one prototype that got overwritten every time a decision changed, each meaningful direction became its own <strong>full fork</strong> of the same React/Tailwind codebase — a complete, independent build, not a feature flag. All forks deployed together as one static, multi-app site, so any version was a public link, not a local checkout.</p>
     <p>Underneath every fork sat one <strong>living component catalog</strong>: the same button, input, badge, and list-row primitives, reused across every version and every persona's screens. That's what kept 8 diverging prototypes from turning into 8 different-looking products.</p>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">AI-Assisted Design</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">AI-Assisted Design</div>
     <h2 data-scramble aria-label="Process and Tools">Process and Tools</h2>
     <p style="margin-bottom:22px">The same five-stage arc repeated for every version fork, but the AI's role and the tools in hand shifted at each stage — from synthesizing on-site research to shipping a versioned, accessible prototype.</p>
@@ -429,10 +471,19 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
       </div>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Lobby, Versioning & Personas · Interactive</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Lobby, Versioning &amp; Personas · Interactive</div>
     <h2 data-scramble aria-label="A Version Switcher a Founder Could Actually Use">A Version Switcher a Founder Could Actually Use</h2>
     <p style="margin-bottom:24px">Instead of a founder scrolling through Slack screenshots asking "which build is this," every fork got a plain-language label and a running note on what changed. A five-minute click-through replaced a half-hour status meeting. The same screen also had to work for three completely different people — try both controls below.</p>
@@ -476,10 +527,19 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
       <p class="demo-disclosure" style="text-align:center;margin-top:18px">Illustrative recreation, not the real prototype. Palette follows the real shadcn/ui token set: navy for the one committing action, a scarce light-blue for accents, amber reserved strictly for warnings.</p>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Design System</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Design System</div>
     <h2 data-scramble aria-label="One Token Set, Three Platforms">One Token Set, Three Platforms</h2>
     <p>The product design system runs on a white-first shadcn/ui + Tailwind foundation: navy carries every primary call to action at AA contrast, a scarce light blue is reserved for accents, focus, and map detail, and amber is demoted to a single job — the warning state — instead of doubling as a brand color. A shape-and-motion layer on top adapts sheets, radii, and dialog behavior per platform (iOS vs. Android) without touching the brand tokens underneath.</p>
@@ -492,19 +552,37 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
       <div class="swatch"><div class="swatch-chip" style="background:#2e7d32"></div><div class="swatch-name">green · success</div></div>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Process</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Process</div>
     <h2 data-scramble aria-label="Making Cursor and Claude Cheaper to Run">Making Cursor and Claude Cheaper to Run</h2>
     <p>A discovery-phase engagement means the AI-assisted workflow runs constantly, so I spent real time treating token spend as a design problem, not just an engineering one. The biggest lever wasn't the model's output, it was what got loaded into context in the first place — input tokens, not generation, are most of an agent loop's cost.</p>
     <p>A few things that actually moved the number: defaulting to a <strong>reversible, soft exclusion</strong> for files that shouldn't be indexed by default but might still be needed (rather than a hard block that's unreachable even on purpose), preferring diff-based edits over full-file rewrites on anything long, and treating "context rot" as something that happens well before the window is actually full — so context gets loaded just-in-time and abstract-first instead of dumped upfront. Runaway agent loops got an external, mechanical limit — a checkpoint commit — instead of relying on the model to self-police. Prompt caching cut repeated-context cost dramatically, but only holds if the prefix stays stable, which is why the project's own working-memory file got reordered to put the fast-changing "current state" section last instead of first. And a full fork was reserved for anything that had to run live at the same time as everything else; a lighter branch handled exploration that was never going to ship.</p>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Research & Reflection</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Research &amp; Reflection</div>
     <h2 data-scramble aria-label="What the Field Told Us, and Where It Broke">What the Field Told Us, and Where It Broke</h2>
     <p>On-site research surfaced device-shaped gaps, not just screen-shaped ones. A dispatcher at a desk needed the reasoning behind a schedule, not just the result — "why this stop, why now" mattered as much as the assignment itself. A crew foreman's phone, in direct sun, on a schedule, got almost no patience for reading — copy had to be terse and voice-first by default. A sales screen was the one surface a client might actually read, so it was the one place the copy earned the right to be a full, persuasive sentence instead of a fragment. Seven separate on-site findings each traced forward into a specific interface decision this way, rather than sitting in a research deck nobody opened again.</p>
@@ -519,7 +597,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
       <p>The hardest part was never any single screen. It was making three people's genuinely different jobs feel like one coherent product without pretending their jobs were the same job.</p>
     </div>
   </div>
+
+      </div>
+    </div>
+  </div>
 </section>
+
 
 <script>
 /* Phone widget — version + persona controller, Session 17 (page-specific, inline) */
@@ -616,13 +699,15 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
 </div>
 
 </main>
-<footer class="cs-footer">
+<footer class="cs-footer" aria-label="Case close">
   <div class="cs-footer-inner">
-    <div class="foot-nav">
-      <a class="foot-link" href="benefits-platform.html">← Benefits Platform</a>
-      <a class="foot-link teal" href="virtu4lslacksagent.html">VOS →</a>
+    <p class="cs-footer-kicker">Close</p>
+    <p class="cs-footer-line">Want to talk through a similar problem?</p>
+    <div class="cs-footer-cta">
+      <a href="mailto:hola@espinosadesign.com">hola@espinosadesign.com</a>
+      <a href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener">LinkedIn<span class="sr-only-nav"> (opens in a new tab)</span></a>
+      <a href="work.html">All work</a>
     </div>
-    <a class="foot-back" href="index.html">↩ back to work</a>
   </div>
 </footer>
 
@@ -671,10 +756,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible{outline:2px soli
     }
     render();
   }
+  window.__scrambleHeading = scramble;
   var obs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ scramble(e.target); obs.unobserve(e.target); } });
   },{threshold:0.3});
-  document.querySelectorAll('.block h2[data-scramble]').forEach(function(el){ obs.observe(el); });
+  document.querySelectorAll('h2[data-scramble]').forEach(function(el){ obs.observe(el); });
 })();
 </script>
 

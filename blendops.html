@@ -123,12 +123,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .reflection{border-top:1px solid var(--border);padding-top:28px;margin-top:4px}
 .reflection-label{font-family:var(--mono);font-size:10px;color:var(--violet);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px}
 .reflection p{font-size:14px;color:var(--t2);line-height:1.85;font-style:italic}
-.cs-footer{border-top:1px solid var(--border-w);padding:32px}
-.cs-footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-.foot-nav{display:flex;gap:32px;align-items:center}
-.foot-link{font-family:var(--mono);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s;display:flex;align-items:center;gap:6px}
-.foot-link:hover{color:var(--teal)}
-.foot-link.teal{color:var(--teal)}
+/* .cs-footer skin → effects.css Session 67 */
+/* .cs-footer-inner → effects.css */
+/* foot-nav removed Session 67 — nav lives in .pg-nav */
 .foot-back{font-family:var(--mono);font-size:10px;color:var(--t3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color .15s}
 .foot-back:hover{color:var(--teal)}
 /* BlendOps accent strip */
@@ -140,20 +137,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
   .block-inner{padding:36px 20px}
   .meta-row{grid-template-columns:1fr 1fr}
   .grid-2{grid-template-columns:1fr}
-  .cs-footer{padding:24px 20px}
-  .cs-footer-inner{flex-direction:column;gap:16px;text-align:center}
-}
+  }
 
 /* ── PAGE FADE-IN ──────────────────────────────────────────────────────── */
 @keyframes cs-fadein{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .cs-hero-inner{opacity:0;animation:cs-fadein .75s cubic-bezier(.16,1,.3,1) .1s forwards}
 .cs-eyebrow{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .05s forwards}
 .cs-hero h1{opacity:0;animation:cs-fadein .75s cubic-bezier(.16,1,.3,1) .18s forwards}
-.cs-xyz{opacity:0;animation:cs-fadein .65s cubic-bezier(.16,1,.3,1) .32s forwards}
-.meta-row{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .46s forwards}
+.cs-lede{opacity:0;animation:cs-fadein .65s cubic-bezier(.16,1,.3,1) .32s forwards}
+.cs-facts{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .46s forwards}
 /* ── SCRAMBLE REVEAL ────────────────────────────────────────────────────── */
-.block h2[data-scramble]{opacity:0;transition:opacity .01s}
-.block h2[data-scramble].scrambled{opacity:1}
+h2[data-scramble]{opacity:0;transition:opacity .01s}
+h2[data-scramble].scrambled{opacity:1}
 
 
 /* ── IMAGE MODAL ─────────────────────────────────────── */
@@ -308,19 +303,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 /* ────────────────────────────────────────────────────────────────────────── */
 
 /* ── STICKY BACK NAV ─────────────────────────────────────────────────────── */
-.sticky-back {
-  position: fixed; bottom: 24px; left: 24px; z-index: 90;
-  font-family: var(--mono); font-size: 11px; letter-spacing:.05em;
-  color: var(--t2); text-decoration: none;
-  padding: 8px 16px;
-  background: rgba(5,5,8,0.88);
-  border: 1px solid var(--border-w);
-  border-radius: 99px;
-  backdrop-filter: blur(16px);
-  transition: all .2s;
-  opacity: 0; animation: sb-in .4s ease 1.2s forwards;
-}
-.sticky-back:hover { color: var(--teal); border-color: rgba(80,227,194,.3); }
+/* sticky-back retired Session 49/67 */
 @keyframes sb-in { to { opacity: 1; } }
 /* ────────────────────────────────────────────────────────────────────────── */
 
@@ -415,13 +398,21 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <div class="cs-eyebrow">Case Study — Current Project</div>
     <div class="cs-tags" style="margin:8px 0 4px"><span class="tag tag-ind">energy</span></div>
     <h1>Blend Optimizer</h1>
-    <p class="cs-xyz">Replacing a decades-old Excel-based blend planning workflow with an <strong>AI-powered web application</strong>, turning oil-well fluid optimization from a manual spreadsheet exercise into a fast, auditable, ML-driven process.</p>
-    <div class="meta-row">
-      <div class="meta-cell"><div class="meta-label">client</div><div class="meta-val">Energy Services (NDA)</div></div>
-      <div class="meta-cell"><div class="meta-label">context</div><div class="meta-val">Energy Services</div></div>
-      <div class="meta-cell"><div class="meta-label">role</div><div class="meta-val">UX Lead</div></div>
-      <div class="meta-cell"><div class="meta-label">stage</div><div class="meta-val">Phase 2 · MVP</div></div>
+    <div class="cs-lede">
+      <p class="cs-lede-p">Help plant ops run fluid blend optimization faster without losing the Excel-locked institutional knowledge. As UX lead for an oil-field services company, I replaced that spreadsheet chaos with a <button type="button" class="rec-word" data-rec="impact">near-production HTML prototype</button> co-built with <button type="button" class="rec-word" data-rec="process">Claude as design collaborator</button>. <button type="button" class="rec-word" data-rec="role">Ops and Data Science</button> reviewed working flows within hours of discovery — not slideware — then handed engineers a <button type="button" class="rec-word" data-rec="system">tokenized, React-ready</button> v7 under <button type="button" class="rec-word" data-rec="nda">NDA</button>.</p>
+      <p class="rec-hint">Hover or focus underlined words · Esc to close</p>
     </div>
+    <div class="cs-facts" role="list">
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">client</div><div class="cs-fact-v">Energy Services (NDA)</div></div>
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">context</div><div class="cs-fact-v">Energy Services</div></div>
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">role</div><div class="cs-fact-v">UX Lead</div></div>
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">stage</div><div class="cs-fact-v">Phase 2 · MVP</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">Excel</div><div class="cs-fact-k">replaced entirely</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">7</div><div class="cs-fact-k">prototype versions</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">3</div><div class="cs-fact-k">pilot runs per project</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">3&rarr;1</div><div class="cs-fact-k">systems unified</div></div>
+    </div>
+
     <div class="cs-figure">
 <aside class="nda-alert" role="note" aria-label="Confidentiality note"><svg class="nda-ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><path d="M12 15v2"/></svg><p><strong>Under NDA.</strong> The real product UI is client-confidential, so it isn&rsquo;t shown here. The screens and figures on this page are illustrative recreations built for this portfolio; the problem, process, decisions and results are real.</p></aside>
 <section class="anat-section" aria-label="How it works">
@@ -431,28 +422,40 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <div class="scroll-hero-wrap" data-src="images/inline/demo-blendops-options.svg" data-alt="Illustrative recreation — BlendOps Options panel showing generic component pricing and unit settings"></div>
   </div>
 </header>
+<template id="rec-panel-role"><p class="rec-card-kicker">Role</p><p class="rec-card-title">UX lead · Ops + Data Science partner</p><p>Mapped legacy blend-approval workflows with client Ops and Data Science, then iterated screens against their live feedback.</p></template><template id="rec-panel-impact"><p class="rec-card-kicker">Impact</p><p class="rec-card-title">Hours, not days, to a reviewable build</p><p>Full-fidelity interactive mockups landed the same day as discovery notes, compressing the design loop through v7 with brand tokens and major flows in place.</p></template><template id="rec-panel-process"><p class="rec-card-kicker">AI-assisted workflow</p><p class="rec-card-title">Conversation → working HTML</p><p>Described interaction patterns in Claude, generated functional HTML prototypes, and used Figma mainly for annotation — not as the source of truth.</p></template><template id="rec-panel-system"><p class="rec-card-kicker">Handoff</p><p class="rec-card-title">Token system + React-ready markup</p><p>v7 consolidated the product token system and flows into a spec close enough to production to inform the React implementation.</p></template><template id="rec-panel-nda"><p class="rec-card-kicker">Constraint</p><p class="rec-card-title">Illustrative recreation</p><p>Real product UI is confidential. What you see is an illustrative recreation; problem, process, and outcomes are real.</p></template>
 
-<div class="metrics">
-  <div class="metrics-inner">
-    <div class="metric-box"><div class="metric-val">Excel</div><div class="metric-label">replaced entirely</div></div>
-    <div class="metric-box"><div class="metric-val">7</div><div class="metric-label">prototype versions</div></div>
-    <div class="metric-box"><div class="metric-val">3</div><div class="metric-label">pilot runs per project</div></div>
-    <div class="metric-box"><div class="metric-val">3&rarr;1</div><div class="metric-label">systems unified</div></div>
-  </div>
-</div>
 
-<section class="block">
-  <div class="block-inner">
+<section class="cs-acc" aria-label="Case study details">
+  <div class="cs-acc-inner">
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">How Might We</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">How Might We</div>
     <div class="hmw">
       <div class="hmw-label">// hmw</div>
       <q>help Plant Operations Managers run fluid blend optimization faster and more accurately, without losing the nuance and institutional knowledge currently locked inside a complex Excel model?</q>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Context</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Context</div>
     <h2 data-scramble aria-label="The Problem with the Legacy Spreadsheet">The Problem with the Legacy Spreadsheet</h2>
     <p>The client, a global oil-field services company, operates in completion fluids: engineered salt brine solutions used to maintain pressure in oil and gas wells. Their existing blend optimization process ran through a proprietary spreadsheet model, where engineers manually input well parameters, cross-reference chemical inventories, and calculate optimal formulas for each job.</p>
@@ -460,10 +463,19 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 
     <p class="demo-disclosure" style="margin-top:28px">The production application is client-confidential. See the interactive recreation further down this page for an illustration of the resulting interface.</p>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">My Role</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">My Role</div>
     <h2 data-scramble aria-label="UX Lead on a Cross-Functional Team">UX Lead on a Cross-Functional Team</h2>
     <p>SoftServe was brought in to build the full-stack application: React + Next.js frontend, Python APIs, Azure infrastructure. As UX Lead, I owned the interaction design and prototyping from discovery through Phase 2 MVP handoff &mdash; consolidating three disconnected systems into one workflow, working alongside a cross-functional project team.</p>
@@ -473,10 +485,19 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       <p>Four discovery sessions with the client's operations and data science teams established that the primary user, the <strong>Plant Operations Manager</strong>, needed a workflow anchored to Jira tickets (the existing job tracking system) and connected to the client's internal plant monitoring system. Every design decision had to make sense within that mental model: jobs → pilots → blend results → approval → lab validation.</p>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">AI-Assisted Workflow</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">AI-Assisted Workflow</div>
     <div class="ai-badge">AI-accelerated design</div>
     <h2 data-scramble aria-label="Prototyping with Claude">Prototyping with Claude</h2>
@@ -531,279 +552,43 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       <div class="ai-process-hint">← swipe to see every stage →</div>
     </div>
   </div>
-</section>
 
-<section class="block" id="sankey-section">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Process · D3 Visualization</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Process · D3 Visualization</div>
     <h2 data-scramble aria-label="How AI Compressed the Design Loop">How AI Compressed the Design Loop</h2>
     <p>The diagram maps the real flow of inputs, AI-augmented work, and deliverables across the BlendOps engagement. Link weight reflects dependency intensity: client domain knowledge was the bottleneck that determined AI quality. Hover any node or link for context.</p>
     <div id="blendops-sankey" style="width:100%;margin-top:32px;position:relative;min-height:420px"></div>
     <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:18px">
-      <span style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3)"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#6b7280"></span>Inputs</span>
-      <span style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3)"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#a78bfa"></span>AI-augmented</span>
-      <span style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3)"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#38C6F4"></span>Iteration</span>
-      <span style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3)"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#DAE24C"></span>Deliverables</span>
+      <span style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3)"><span class="viz-swatch" data-viz="input" aria-hidden="true"></span>Inputs</span>
+      <span style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3)"><span class="viz-swatch" data-viz="violet" aria-hidden="true"></span>AI-augmented</span>
+      <span style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3)"><span class="viz-swatch" data-viz="cyan" aria-hidden="true"></span>Iteration</span>
+      <span style="display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3)"><span class="viz-swatch" data-viz="citron" aria-hidden="true"></span>Deliverables</span>
     </div>
   </div>
-</section>
 
-<script>
-/* ── BLENDOPS SANKEY — AI-Assisted Design Flow (D3 v7 + d3-sankey) ──────── */
-(function(){
-  var container = document.getElementById('blendops-sankey');
-  if (!container) return;
-  var fired = false;
-
-  function loadScript(src, cb){
-    var s = document.createElement('script');
-    s.src = src; s.onload = cb;
-    document.head.appendChild(s);
-  }
-
-  function init(){
-    if (fired) return; fired = true;
-    loadScript('https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js', function(){
-      loadScript('https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js', buildSankey);
-    });
-  }
-
-  var obs = new IntersectionObserver(function(entries){
-    if (entries[0].isIntersecting){ init(); obs.disconnect(); }
-  },{threshold:0.12});
-  obs.observe(container);
-
-  function buildSankey(){
-    // ── DATA — sourced exclusively from project content ──────────────────
-    // 4 discovery sessions, 7 prototype iterations, v7 handoff milestone,
-    // domain knowledge as the quality bottleneck (from reflection section),
-    // Claude as AI collaborator, Figma UI kit, React spec, client review loops
-    var nodes = [
-      { id:0, name:"Discovery · 4 sessions",  grp:"input",  color:"#6b7280",
-        tip:"4 sessions with the client's ops + data science teams — workflow mapping" },
-      { id:1, name:"Client Domain Knowledge", grp:"input",  color:"#9ca3af",
-        tip:"Chemical vocab (PPG, TCT, solubility) was the AI quality bottleneck — from project reflection" },
-      { id:2, name:"Designer Craft",          grp:"input",  color:"#d1d5db",
-        tip:"Interaction patterns, component states, mental model mapping" },
-      { id:3, name:"Cursor + Claude Cowork",  grp:"ai",     color:"#a78bfa",
-        tip:"Dual-tool AI workflow: Cursor for in-editor generation, Claude Cowork for design conversation + prototype iteration" },
-      { id:4, name:"Prompt Craft",            grp:"ai",     color:"#c4b5fd",
-        tip:"Quality of domain framing — chemical vocab, workflow context — determined output quality across both Cursor and Claude" },
-      { id:5, name:"Feedback & Iteration",    grp:"iter",   color:"#38C6F4",
-        tip:"Client ops + data science review loops — drove all prototype revisions" },
-      { id:6, name:"v7 Prototype",            grp:"output", color:"#DAE24C",
-        tip:"v7 — full-fidelity interactive, all major user flows, React-ready quality" },
-      { id:7, name:"React Handoff Spec",      grp:"output", color:"#38c6f4",
-        tip:"Component spec that directly informed the React + Next.js implementation" },
-      { id:8, name:"Figma UI Kit",            grp:"output", color:"#a78bfa",
-        tip:"Token-driven component library — form controls, data tables, modal flows, 3-panel shell" },
-    ];
-
-    var links = [
-      { source:0, target:3, value:4,  tip:"4 discovery sessions → shaped Cursor + Claude Cowork prompts and collaboration direction" },
-      { source:0, target:5, value:2,  tip:"Discovery criteria defined what the client reviewed in each feedback loop" },
-      { source:1, target:3, value:5,  tip:"Domain vocabulary (PPG, TCT) was the quality bottleneck for both Cursor generation and Claude conversation" },
-      { source:1, target:4, value:3,  tip:"Chemical precision enabled accurate component descriptions to Claude" },
-      { source:2, target:3, value:2,  tip:"Interaction patterns described via Claude Cowork conversation and Cursor inline edits" },
-      { source:2, target:4, value:4,  tip:"Designer craft drove prompt structure and quality" },
-      { source:3, target:5, value:8,  tip:"Cursor + Claude Cowork generated functional HTML across 7 prototype iterations" },
-      { source:4, target:5, value:5,  tip:"Prompt precision drove iteration speed — hours not days per cycle" },
-      { source:5, target:6, value:7,  tip:"Client review loops refined prototype from v1 scaffolding to v7 production quality" },
-      { source:5, target:7, value:5,  tip:"Feedback directly shaped component-level React spec" },
-      { source:5, target:8, value:4,  tip:"Iterated component states became the token-driven Figma UI Kit" },
-    ];
-
-    // ── LAYOUT ──────────────────────────────────────────────────────────
-    var W = container.offsetWidth || 700;
-    var H = 400;
-    var nodeW = 11;
-    var pad = { t:38, r:186, b:16, l:6 };
-
-    var graph = {
-      nodes: nodes.map(function(d){ return Object.assign({},d); }),
-      links: links.map(function(d){ return Object.assign({},d); })
-    };
-
-    var sankey = d3.sankey()
-      .nodeId(function(d){ return d.id; })
-      .nodeWidth(nodeW)
-      .nodePadding(24)
-      .nodeAlign(d3.sankeyLeft)
-      .extent([[pad.l, pad.t], [W - pad.r, H - pad.b]]);
-
-    var layout = sankey(graph);
-
-    var svg = d3.select(container).append('svg')
-      .attr('width', W).attr('height', H)
-      .style('overflow','visible').style('display','block');
-
-    // ── TOOLTIP ─────────────────────────────────────────────────────────
-    var tooltip = d3.select(container).append('div')
-      .style('position','absolute').style('pointer-events','none')
-      .style('opacity',0).style('transition','opacity .15s')
-      .style('background','rgba(5,5,8,0.96)')
-      .style('border','1px solid rgba(255,255,255,0.10)')
-      .style('border-radius','6px').style('padding','9px 13px')
-      .style('font-family','"Geist Mono",monospace').style('font-size','11px')
-      .style('color','rgba(255,255,255,0.72)').style('max-width','230px')
-      .style('line-height','1.55').style('z-index','50');
-
-    function showTip(event, text){
-      var r = container.getBoundingClientRect();
-      tooltip.style('opacity',1).html(text)
-        .style('left',(event.clientX - r.left + 14)+'px')
-        .style('top', (event.clientY - r.top  - 32)+'px');
-    }
-    function moveTip(event){
-      var r = container.getBoundingClientRect();
-      tooltip.style('left',(event.clientX - r.left + 14)+'px')
-             .style('top', (event.clientY - r.top  - 32)+'px');
-    }
-    function hideTip(){ tooltip.style('opacity',0); }
-
-    // ── COLUMN HEADERS ───────────────────────────────────────────────────
-    var colLabels = {0:"INPUTS", 1:"AI LAYER", 2:"ITERATION", 3:"DELIVERABLES"};
-    var colX = {};
-    layout.nodes.forEach(function(d){
-      if (!colX[d.depth]) colX[d.depth] = [];
-      colX[d.depth].push(d.x0 + nodeW/2);
-    });
-    Object.keys(colX).forEach(function(dep){
-      var xs = colX[dep];
-      var avgX = xs.reduce(function(a,b){return a+b},0) / xs.length;
-      svg.append('text')
-        .attr('x', avgX).attr('y', pad.t - 14)
-        .attr('text-anchor','middle')
-        .attr('fill','rgba(255,255,255,0.22)')
-        .attr('font-family','"Geist Mono",monospace')
-        .attr('font-size','9px').attr('letter-spacing','0.13em')
-        .text(colLabels[dep] || '');
-    });
-
-    // ── LINKS ────────────────────────────────────────────────────────────
-    var linkPaths = svg.append('g').attr('fill','none')
-      .selectAll('path')
-      .data(layout.links)
-      .join('path')
-        .attr('d', d3.sankeyLinkHorizontal())
-        .attr('stroke', function(d){ return d.source.color; })
-        .attr('stroke-width', function(d){ return Math.max(2, d.width); })
-        .attr('stroke-opacity', 0)
-        .style('mix-blend-mode','screen')
-        .style('cursor','crosshair')
-        .on('mouseenter', function(event, d){
-          d3.select(this).attr('stroke-opacity', 0.7);
-          showTip(event, d.tip);
-        })
-        .on('mousemove', moveTip)
-        .on('mouseleave', function(){
-          d3.select(this).attr('stroke-opacity', 0.22);
-          hideTip();
-        });
-
-    // Animate links in
-    linkPaths.transition().duration(1000)
-      .delay(function(d,i){ return 300 + i * 60; })
-      .attr('stroke-opacity', 0.22);
-
-    // ── NODES ────────────────────────────────────────────────────────────
-    var nodeGs = svg.append('g')
-      .selectAll('g').data(layout.nodes).join('g')
-      .style('cursor','pointer')
-      .on('mouseenter', function(event, d){
-        // Highlight connected links, dim others
-        linkPaths.attr('stroke-opacity', function(l){
-          return (l.source.id === d.id || l.target.id === d.id) ? 0.72 : 0.04;
-        });
-        d3.select(this).select('rect').attr('opacity', 1);
-        showTip(event, d.tip);
-      })
-      .on('mousemove', moveTip)
-      .on('mouseleave', function(){
-        linkPaths.attr('stroke-opacity', 0.22);
-        d3.select(this).select('rect').attr('opacity', 0.88);
-        hideTip();
-      });
-
-    nodeGs.append('rect')
-      .attr('x',      function(d){ return d.x0; })
-      .attr('y',      function(d){ return d.y0; })
-      .attr('width',  function(d){ return d.x1 - d.x0; })
-      .attr('height', function(d){ return Math.max(3, d.y1 - d.y0); })
-      .attr('fill',   function(d){ return d.color; })
-      .attr('rx', 3)
-      .attr('opacity', 0)
-      .transition().duration(700)
-      .delay(function(d,i){ return 100 + i * 75; })
-      .attr('opacity', 0.88);
-
-    // Node glow
-    nodeGs.append('rect')
-      .attr('x',      function(d){ return d.x0 - 2; })
-      .attr('y',      function(d){ return d.y0; })
-      .attr('width',  function(d){ return d.x1 - d.x0 + 4; })
-      .attr('height', function(d){ return Math.max(3, d.y1 - d.y0); })
-      .attr('fill',   'none')
-      .attr('stroke', function(d){ return d.color; })
-      .attr('stroke-width', 1)
-      .attr('rx', 4)
-      .attr('opacity', 0)
-      .transition().duration(700)
-      .delay(function(d,i){ return 150 + i * 75; })
-      .attr('opacity', 0.25);
-
-    // Labels
-    nodeGs.append('text')
-      .attr('x', function(d){ return d.x1 + 9; })
-      .attr('y', function(d){ return (d.y0 + d.y1) / 2; })
-      .attr('dy','0.35em')
-      .attr('text-anchor','start')
-      .attr('fill', function(d){ return d.color; })
-      .attr('font-family','"Geist Mono",monospace')
-      .attr('font-size','11px')
-      .attr('letter-spacing','0.01em')
-      .attr('opacity',0)
-      .text(function(d){ return d.name; })
-      .transition().duration(500)
-      .delay(function(d,i){ return 500 + i * 65; })
-      .attr('opacity', 1);
-  }
-})();
-</script>
-
-<script>
-/* Generic demo-panel tabs — Session 12, reused per-page (inline, not shared) */
-(function(){
-  document.querySelectorAll('.demo-panel').forEach(function(panel){
-    var tabs=panel.querySelectorAll('.demo-tab'), views=panel.querySelectorAll('.demo-view');
-    tabs.forEach(function(tab){
-      tab.addEventListener('click', function(){
-        tabs.forEach(function(t){t.classList.remove('is-active');t.setAttribute('aria-selected','false');});
-        views.forEach(function(v){v.classList.remove('is-active');v.hidden=true;});
-        tab.classList.add('is-active'); tab.setAttribute('aria-selected','true');
-        var idx=tab.getAttribute('data-tab');
-        var view=panel.querySelector('[data-view="'+idx+'"]');
-        if(view){view.hidden=false; view.classList.add('is-active');}
-      });
-    });
-    panel.querySelectorAll('.demo-toggle').forEach(function(tg){
-      tg.addEventListener('click', function(){ tg.classList.toggle('is-on'); });
-    });
-    var runBtn=panel.querySelector('[data-demo-run]');
-    if(runBtn){
-      runBtn.addEventListener('click', function(){
-        panel.querySelectorAll('[data-demo-rand]').forEach(function(el){
-          var lo=parseFloat(el.getAttribute('data-lo')), hi=parseFloat(el.getAttribute('data-hi')), dec=parseInt(el.getAttribute('data-dec')||'0',10);
-          el.textContent=(Math.random()*(hi-lo)+lo).toFixed(dec);
-        });
-      });
-    }
-  });
-})();
-</script>
-
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Illustrative Recreation</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Illustrative Recreation</div>
     <h2 data-scramble aria-label="From Ticket to Approved Blend">From Ticket to Approved Blend</h2>
     <p style="margin-bottom:18px">The core workflow follows a Project → Pilot → Run → Approve loop. Each project can hold up to three pilot blends; only one can be approved for production. The production application is client-confidential. Below is an interactive recreation with generic labels and fictional data illustrating the same interaction pattern.</p>
@@ -854,10 +639,19 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       </div>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Component Library</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Component Library</div>
     <h2 data-scramble aria-label="Building the BlendOps UI Kit">Building the BlendOps UI Kit</h2>
 
@@ -889,143 +683,19 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       </div>
     </div>
   </div>
-</section>
 
-<script>
-/* ── PRODUCT COLOR SWATCH REORDER ─────────────────────────────────────── */
-(function(){
-  var swatches = [
-    { hex:'#005495', name:'Primary Blue',  role:'Navigation · Authority · Structure',   token:'--color-primary' },
-    { hex:'#38C6F4', name:'Cyan Accent',   role:'Interactive · Topbar stripe · Links',  token:'--color-accent'  },
-    { hex:'#DAE24C', name:'Citron CTA',    role:'Commit actions only — Run / Submit',   token:'--color-action'  },
-    { hex:'#1B2332', name:'Surface Dark',  role:'Card backgrounds · Panel shells',      token:'--color-surface' },
-    { hex:'#E8EDF3', name:'Neutral Light', role:'Data table rows · Form fields',        token:'--color-neutral' },
-    { hex:'#FF6B6B', name:'Error / Alert', role:'Validation failures · Critical states',token:'--color-error'   },
-  ];
-
-  var container = document.getElementById('blendops-swatches');
-  if (!container) return;
-
-  var items = [];
-  var dragging = null, dragIndex = null, overIndex = null;
-  var startY = 0, startScrollY = 0;
-
-  function buildItems() {
-    container.innerHTML = '';
-    items = [];
-    swatches.forEach(function(sw, idx) {
-      var el = document.createElement('div');
-      el.className = 'tsw-item';
-      el.setAttribute('data-idx', idx);
-      el.style.cssText = [
-        'display:flex;align-items:center;gap:14px',
-        'padding:10px 14px',
-        'border-radius:6px',
-        'border:1px solid rgba(255,255,255,0.07)',
-        'background:rgba(255,255,255,0.03)',
-        'cursor:grab',
-        'transition:transform .22s cubic-bezier(.25,.46,.45,.94), opacity .2s, box-shadow .2s',
-        'touch-action:none',
-      ].join(';');
-
-      var swatch = document.createElement('div');
-      swatch.style.cssText = 'width:36px;height:36px;border-radius:5px;flex-shrink:0;border:1px solid rgba(255,255,255,0.1)';
-      swatch.style.background = sw.hex;
-
-      var info = document.createElement('div');
-      info.style.cssText = 'flex:1;min-width:0';
-      info.innerHTML =
-        '<div style="font-size:13px;font-weight:600;color:#fff;letter-spacing:-0.01em">' + sw.name + '</div>' +
-        '<div style="font-family:var(--mono);font-size:11px;color:rgba(255,255,255,0.44);margin-top:2px;line-height:1.4">' + sw.role + '</div>';
-
-      var token = document.createElement('div');
-      token.style.cssText = 'font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.28);letter-spacing:0.04em;white-space:nowrap;flex-shrink:0';
-      token.textContent = sw.token;
-
-      el.appendChild(swatch);
-      el.appendChild(info);
-      el.appendChild(token);
-      container.appendChild(el);
-      items.push({ el: el, sw: sw });
-
-      // Pointer events
-      el.addEventListener('pointerdown', function(e) {
-        dragIndex = idx;
-        dragging = el;
-        startY = e.clientY;
-        startScrollY = window.scrollY;
-        el.setPointerCapture(e.pointerId);
-        el.style.opacity = '0.55';
-        el.style.boxShadow = '0 4px 24px rgba(0,0,0,0.5)';
-        el.style.cursor = 'grabbing';
-        el.style.zIndex = '10';
-        e.preventDefault();
-      });
-    });
-  }
-
-  function onPointerMove(e) {
-    if (dragging === null) return;
-    var dy = e.clientY - startY + (window.scrollY - startScrollY);
-    dragging.style.transform = 'translateY(' + dy + 'px)';
-
-    // Determine which slot we're hovering
-    var rect = container.getBoundingClientRect();
-    var relY = e.clientY - rect.top;
-    var itemH = container.offsetHeight / swatches.length;
-    var newOver = Math.max(0, Math.min(swatches.length - 1, Math.floor(relY / itemH)));
-
-    if (newOver !== overIndex) {
-      overIndex = newOver;
-      // Shift other items visually
-      items.forEach(function(item, i) {
-        if (item.el === dragging) return;
-        var shift = 0;
-        if (dragIndex < overIndex) {
-          if (i > dragIndex && i <= overIndex) shift = -itemH;
-        } else {
-          if (i >= overIndex && i < dragIndex) shift = itemH;
-        }
-        item.el.style.transform = 'translateY(' + shift + 'px)';
-      });
-    }
-  }
-
-  function onPointerUp(e) {
-    if (dragging === null) return;
-    var from = dragIndex;
-    var to   = overIndex !== null ? overIndex : from;
-
-    // Reorder swatches array
-    var moved = swatches.splice(from, 1)[0];
-    swatches.splice(to, 0, moved);
-
-    // Reset & rebuild
-    dragging = null; dragIndex = null; overIndex = null;
-    buildItems();
-  }
-
-  document.addEventListener('pointermove', onPointerMove);
-  document.addEventListener('pointerup',   onPointerUp);
-
-  buildItems();
-
-  // Auto-demo: shuffle once after 1.5s to show it's interactive
-  setTimeout(function(){
-    var a = swatches.splice(2,1)[0];
-    swatches.unshift(a);
-    buildItems();
-    setTimeout(function(){
-      var b = swatches.shift();
-      swatches.splice(2,0,b);
-      buildItems();
-    }, 600);
-  }, 1500);
-})();
-</script>
-
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Design Decisions</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Design Decisions</div>
     <h2 data-scramble aria-label="Why These Choices">Why These Choices</h2>
 
@@ -1049,10 +719,19 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       <p>Left sidebar for job navigation (All Jobs → Current Job → Pilot tabs), center for the active workflow form, right panel for the optimizer result and comparison table. This maps to how operations managers actually work: they hold the job context in their head while checking results against targets. The layout externalizes that mental model.</p>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Stack & Integration</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Stack &amp; Integration</div>
     <h2 data-scramble aria-label="Technical Context">Technical Context</h2>
     <p>BlendOps is a standalone Azure-hosted web application. The frontend is React + Next.js; Python APIs handle ML orchestration, Jira sync, and plant-monitoring data retrieval. From a UX perspective, the architecture meant designing around API latency: the optimizer takes 1–2 minutes to return results, requiring explicit loading state design and a clear "run in progress" pattern that doesn't lock the interface.</p>
@@ -1066,16 +745,22 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       <p>What surprised me most was how productive the AI-assisted prototyping workflow became once the domain was well-established. The first few iterations were mostly me learning the chemical vocabulary: what density means in ppg vs kg/L, what TCT (Thermodynamic Crystallization Temperature) constrains. Once that was solid, the AI could generate accurate UI scaffolding because I could describe the domain precisely. The quality of the prototype was a direct function of the quality of my domain knowledge. That's a lesson I'll carry forward.</p>
     </div>
   </div>
+
+      </div>
+    </div>
+  </div>
 </section>
 
+
 </main>
-<footer class="cs-footer">
+<footer class="cs-footer" aria-label="Case close">
   <div class="cs-footer-inner">
-    <a class="foot-back" href="index.html">← back to portfolio</a>
-    <div class="foot-nav">
-      <a class="foot-link" href="nielseniq.html">NielsenIQ ↗</a>
-      <a class="foot-link" href="siemens.html">Siemens ↗</a>
-      <a class="foot-link teal" href="work.html">all work ↗</a>
+    <p class="cs-footer-kicker">Close</p>
+    <p class="cs-footer-line">Want to talk through a similar problem?</p>
+    <div class="cs-footer-cta">
+      <a href="mailto:hola@espinosadesign.com">hola@espinosadesign.com</a>
+      <a href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener">LinkedIn<span class="sr-only-nav"> (opens in a new tab)</span></a>
+      <a href="work.html">All work</a>
     </div>
   </div>
 </footer>
@@ -1125,10 +810,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     }
     render();
   }
+  window.__scrambleHeading = scramble;
   var obs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ scramble(e.target); obs.unobserve(e.target); } });
   },{threshold:0.3});
-  document.querySelectorAll('.block h2[data-scramble]').forEach(function(el){ obs.observe(el); });
+  document.querySelectorAll('h2[data-scramble]').forEach(function(el){ obs.observe(el); });
 })();
 </script>
 

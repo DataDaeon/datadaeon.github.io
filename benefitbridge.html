@@ -157,12 +157,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 /* TAGS */
 .tag{font-family:var(--mono);font-size:10px;color:var(--t3);background:var(--t4);border:1px solid var(--border-w);padding:2px 7px;border-radius:3px;letter-spacing:0.02em;display:inline-block;margin-right:6px;margin-bottom:4px}
 /* FOOTER / NAV */
-.cs-footer{border-top:1px solid var(--border-w);padding:32px}
-.cs-footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-.foot-nav{display:flex;gap:32px;align-items:center}
-.foot-link{font-family:var(--mono);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s;display:flex;align-items:center;gap:6px}
-.foot-link:hover{color:var(--teal)}
-.foot-link.teal{color:var(--teal)}
+/* .cs-footer skin → effects.css Session 67 */
+/* .cs-footer-inner → effects.css */
+/* foot-nav removed Session 67 — nav lives in .pg-nav */
 .foot-back{font-family:var(--mono);font-size:10px;color:var(--t3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color .15s}
 .foot-back:hover{color:var(--teal)}
 @media(max-width:680px){
@@ -172,9 +169,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
   .block-inner{padding:36px 20px}
   .meta-row{grid-template-columns:1fr 1fr}
   .grid-2{grid-template-columns:1fr}
-  .cs-footer{padding:24px 20px}
-  .cs-footer-inner{flex-direction:column;gap:16px;text-align:center}
-}
+  }
 
 
 /* ── PAGE FADE-IN ──────────────────────────────────────────────────────── */
@@ -182,11 +177,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .cs-hero-inner{opacity:0;animation:cs-fadein .75s cubic-bezier(.16,1,.3,1) .1s forwards}
 .cs-eyebrow{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .05s forwards}
 .cs-hero h1{opacity:0;animation:cs-fadein .75s cubic-bezier(.16,1,.3,1) .18s forwards}
-.cs-xyz{opacity:0;animation:cs-fadein .65s cubic-bezier(.16,1,.3,1) .32s forwards}
-.meta-row{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .46s forwards}
+.cs-lede{opacity:0;animation:cs-fadein .65s cubic-bezier(.16,1,.3,1) .32s forwards}
+.cs-facts{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .46s forwards}
 /* ── SCRAMBLE REVEAL ────────────────────────────────────────────────────── */
-.block h2[data-scramble]{opacity:0;transition:opacity .01s}
-.block h2[data-scramble].scrambled{opacity:1}
+h2[data-scramble]{opacity:0;transition:opacity .01s}
+h2[data-scramble].scrambled{opacity:1}
 
 
 /* ── IMAGE MODAL ─────────────────────────────────────── */
@@ -341,20 +336,25 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 /* ────────────────────────────────────────────────────────────────────────── */
 
 /* ── STICKY BACK NAV ─────────────────────────────────────────────────────── */
-.sticky-back {
-  position: fixed; bottom: 24px; left: 24px; z-index: 90;
-  font-family: var(--mono); font-size: 11px; letter-spacing:.05em;
-  color: var(--t2); text-decoration: none;
-  padding: 8px 16px;
-  background: rgba(5,5,8,0.88);
-  border: 1px solid var(--border-w);
-  border-radius: 99px;
-  backdrop-filter: blur(16px);
-  transition: all .2s;
-  opacity: 0; animation: sb-in .4s ease 1.2s forwards;
-}
-.sticky-back:hover { color: var(--teal); border-color: rgba(80,227,194,.3); }
+/* sticky-back retired Session 49/67 */
 @keyframes sb-in { to { opacity: 1; } }
+
+.ai-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--violet);background:var(--violet-dim);border:1px solid var(--border-v);padding:3px 10px;border-radius:3px;letter-spacing:0.04em;margin-bottom:18px}
+.ai-badge::before{content:'◆';font-size:8px}
+.ai-process-wrap{max-width:1100px;margin:0 auto}
+.ai-process-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border-w);border-radius:var(--r)}
+.ai-process{border-collapse:collapse;width:100%;min-width:820px}
+.ai-process caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ai-process th,.ai-process td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border-w);border-right:1px solid var(--border-w)}
+.ai-process th:last-child,.ai-process td:last-child{border-right:none}
+.ai-process tr:last-child th,.ai-process tr:last-child td{border-bottom:none}
+.ai-process thead th{background:var(--teal-dim);font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:.06em;text-transform:uppercase}
+.ai-process thead th:first-child{background:var(--surface2);color:var(--t3)}
+.ai-process tbody th{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;background:var(--surface2);position:sticky;left:0;z-index:1}
+.ai-process tbody td{font-size:12px;color:var(--t2);line-height:1.55;background:var(--surface);min-width:160px}
+.ai-process tbody td strong{color:var(--t1);font-weight:600}
+.ai-process-hint{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;text-align:center;margin-top:10px;display:none}
+@media(max-width:899px){.ai-process-hint{display:block}}
 /* ────────────────────────────────────────────────────────────────────────── */
 </style>
   <meta name="description" content="Built a UX Center of Excellence from zero in a regulated healthcare environment. It improved design-to-dev efficiency by 50% and lifted user adoption to 80%.">
@@ -429,13 +429,21 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <div class="cs-eyebrow">Case Study 05</div>
     <div class="cs-tags" style="margin:8px 0 4px"><span class="tag tag-ind">healthcare</span></div>
     <h1>UX Center of Excellence</h1>
-    <p class="cs-xyz">Built a UX Center of Excellence from zero. It delivered <strong>80% user adoption</strong> and cut accessibility issues by 70%, inside a WCAG/ADA-regulated healthcare environment.</p>
-    <div class="meta-row">
-      <div class="meta-cell"><div class="meta-label">period</div><div class="meta-val">Healthcare SaaS</div></div>
-      <div class="meta-cell"><div class="meta-label">context</div><div class="meta-val">WCAG / ADA</div></div>
-      <div class="meta-cell"><div class="meta-label">role</div><div class="meta-val">UX Lead</div></div>
-      <div class="meta-cell"><div class="meta-label">tags</div><div class="meta-val"><span class="tag">Healthcare</span><span class="tag">Design System</span><span class="tag">Accessibility</span></div></div>
+    <div class="cs-lede">
+      <p class="cs-lede-p">As <button type="button" class="rec-word" data-rec="role">UX Lead</button> in regulated healthcare SaaS, I built a <button type="button" class="rec-word" data-rec="system">WCAG/ADA Figma design system</button> from zero without pausing delivery, framed as <button type="button" class="rec-word" data-rec="process">legal risk reduction</button> for buy-in. Adoption hit <button type="button" class="rec-word" data-rec="impact">80%</button> with <button type="button" class="rec-word" data-rec="impact2">−70% accessibility issues</button> and faster design-to-dev cycles — under <button type="button" class="rec-word" data-rec="nda">NDA</button>.</p>
+      <p class="rec-hint">Hover or focus underlined words · Esc to close</p>
     </div>
+    <div class="cs-facts" role="list">
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">period</div><div class="cs-fact-v">Healthcare SaaS</div></div>
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">context</div><div class="cs-fact-v">WCAG / ADA</div></div>
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">role</div><div class="cs-fact-v">UX Lead</div></div>
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">tags</div><div class="cs-fact-v"><span class="tag">Healthcare</span><span class="tag">Design System</span><span class="tag">Accessibility</span></div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">80%</div><div class="cs-fact-k">user adoption</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">−70%</div><div class="cs-fact-k">a11y issues</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">50%</div><div class="cs-fact-k">faster dev cycles</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">0→1</div><div class="cs-fact-k">design system</div></div>
+    </div>
+
     <div class="cs-figure">
 <aside class="nda-alert" role="note" aria-label="Confidentiality note"><svg class="nda-ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><path d="M12 15v2"/></svg><p><strong>Under NDA.</strong> The real product UI is client-confidential, so it isn&rsquo;t shown here. The screens and figures on this page are illustrative recreations built for this portfolio; the problem, process, decisions and results are real.</p></aside>
 <section class="anat-section" aria-label="How it works">
@@ -445,67 +453,57 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <div class="scroll-hero-wrap" data-auto></div>
   </div>
 </header>
+<template id="rec-panel-role"><p class="rec-card-kicker">Role</p><p class="rec-card-title">UX Lead · UX Center of Excellence</p><p>Stood up the CoE: principles, tokens, components, a11y checks, documentation, and stakeholder training.</p></template><template id="rec-panel-system"><p class="rec-card-kicker">System</p><p class="rec-card-title">Accessibility-first component library</p><p>Figma library prioritized WCAG/ADA compliance over visual polish — required in healthcare where failures have legal weight.</p></template><template id="rec-panel-process"><p class="rec-card-kicker">Process</p><p class="rec-card-title">Buy-in before polish</p><p>Aligned legal, engineering, and product on a shared vocabulary before the library looked finished; shopping-flow redesign proved adoption.</p></template><template id="rec-panel-impact"><p class="rec-card-kicker">Adoption</p><p class="rec-card-title">80% of the product on-system</p><p>Flagship shopping experience demonstrated the library was shippable, not theoretical.</p></template><template id="rec-panel-impact2"><p class="rec-card-kicker">Outcomes</p><p class="rec-card-title">−70% a11y issues · ~50% faster cycles</p><p>Measured drop in accessibility defects and faster design-to-dev once handoff standards stuck.</p></template><template id="rec-panel-nda"><p class="rec-card-kicker">Constraint</p><p class="rec-card-title">Illustrative recreations</p><p>Real UI withheld; problem, process, and metrics are real.</p></template>
 
-<div class="metrics">
-  <div class="metrics-inner">
-<div class="metric-box"><div class="metric-val">80%</div><div class="metric-label">user adoption</div></div>
-<div class="metric-box"><div class="metric-val">−70%</div><div class="metric-label">a11y issues</div></div>
-<div class="metric-box"><div class="metric-val">50%</div><div class="metric-label">faster dev cycles</div></div>
-<div class="metric-box"><div class="metric-val">0→1</div><div class="metric-label">design system</div></div>
-  </div>
-</div>
 
-<section class="block">
-  <div class="block-inner">
+<section class="cs-acc" aria-label="Case study details">
+  <div class="cs-acc-inner">
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">How Might We</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">How Might We</div>
     <div class="hmw">
       <div class="hmw-label">// hmw</div>
       <q>build a scalable, accessible, and consistent design system from zero, in a regulated healthcare environment, without disrupting ongoing product development?</q>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">The Problem</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">The Problem</div>
     <p>There was no design system, no component library, no naming conventions in Figma. Accessibility complaints were surfacing in production, and in healthcare, compliance failure has legal consequences, not just UX ones.</p>
 <p>There were no documented design principles. PMs were making product decisions without research backing. The design function existed but lacked the infrastructure to scale or defend its decisions.</p>
   </div>
-</section>
 
-<script>
-/* Generic demo-panel tabs — Session 12, reused per-page (inline, not shared) */
-(function(){
-  document.querySelectorAll('.demo-panel').forEach(function(panel){
-    var tabs=panel.querySelectorAll('.demo-tab'), views=panel.querySelectorAll('.demo-view');
-    tabs.forEach(function(tab){
-      tab.addEventListener('click', function(){
-        tabs.forEach(function(t){t.classList.remove('is-active');t.setAttribute('aria-selected','false');});
-        views.forEach(function(v){v.classList.remove('is-active');v.hidden=true;});
-        tab.classList.add('is-active'); tab.setAttribute('aria-selected','true');
-        var idx=tab.getAttribute('data-tab');
-        var view=panel.querySelector('[data-view="'+idx+'"]');
-        if(view){view.hidden=false; view.classList.add('is-active');}
-      });
-    });
-    panel.querySelectorAll('.demo-toggle').forEach(function(tg){
-      tg.addEventListener('click', function(){ tg.classList.toggle('is-on'); });
-    });
-    var runBtn=panel.querySelector('[data-demo-run]');
-    if(runBtn){
-      runBtn.addEventListener('click', function(){
-        panel.querySelectorAll('[data-demo-rand]').forEach(function(el){
-          var lo=parseFloat(el.getAttribute('data-lo')), hi=parseFloat(el.getAttribute('data-hi')), dec=parseInt(el.getAttribute('data-dec')||'0',10);
-          el.textContent=(Math.random()*(hi-lo)+lo).toFixed(dec);
-        });
-      });
-    }
-  });
-})();
-</script>
-
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Illustrative Recreation</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Illustrative Recreation</div>
     <h2 data-scramble aria-label="How the Component Library Felt to Use">How the Component Library Felt to Use</h2>
     <p style="margin-bottom:18px;max-width:640px">The production member and admin portals are client-confidential. Below is an interactive recreation built for this portfolio, using the same interaction pattern with a generic product name and fictional data.</p>
@@ -607,18 +605,106 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       </div>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">The Solution</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">The Solution</div>
     <p>Built a <strong>WCAG/ADA-aligned component library</strong> in Figma from zero, prioritizing accessibility-first components over visual refinement. I framed the design system as a risk-reduction tool to get cross-functional buy-in.</p>
 <p>Established a <strong>design-to-dev handoff process</strong> and trained PMs and stakeholders on design system usage. Redesigned the shopping experience flow, which became the flagship proof of adoption: 80% of the product now runs through the system.</p>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Process and Tools</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
+    <div class="block-label">Process and Tools</div>
+    <h2 data-scramble aria-label="From Zero to an Adopted System">From Zero to an Adopted System</h2>
+    <p>Building a UX Center of Excellence in regulated healthcare meant sequencing buy-in before polish — accessibility-first Figma components, a design-to-dev handoff, and a shopping-flow redesign that proved adoption.</p>
+
+    <div class="ai-process-wrap">
+      <div class="ai-process-scroll" tabindex="0" role="group" aria-label="Process and tools by stage, scrollable table">
+        <table class="ai-process">
+          <caption>UX Center of Excellence — process and tools by stage</caption>
+          <thead>
+            <tr>
+              <th scope="col">Stage</th>
+              <th scope="col">01 · Frame</th>
+              <th scope="col">02 · Build</th>
+              <th scope="col">03 · Handoff</th>
+              <th scope="col">04 · Prove</th>
+              <th scope="col">05 · Scale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Focus</th>
+              <td>Position the design system as risk reduction, not preference</td>
+              <td>WCAG/ADA-aligned component library from zero</td>
+              <td>Design-to-dev handoff process</td>
+              <td>Shopping experience redesign as adoption proof</td>
+              <td>Train PMs and stakeholders on system usage</td>
+            </tr>
+            <tr>
+              <th scope="row">Tools</th>
+              <td>Shared vocabulary / principles</td>
+              <td>Figma, WCAG / ADA criteria</td>
+              <td>Figma library + handoff docs</td>
+              <td>Figma flows</td>
+              <td>Component library + training sessions</td>
+            </tr>
+            <tr>
+              <th scope="row">Process</th>
+              <td>Got legal, engineering, and product aligned before anything looked finished</td>
+              <td>Prioritized accessibility-first components over visual refinement</td>
+              <td>Established how signed-off components reach engineering</td>
+              <td>Redesigned shopping so 80% of the product could run through the system</td>
+              <td>Coached the org to use the system without a designer in every ticket</td>
+            </tr>
+            <tr>
+              <th scope="row">Key question</th>
+              <td>Why should non-designers fund a design system?</td>
+              <td>What must every component pass before it exists?</td>
+              <td>Can engineering trust what leaves Figma?</td>
+              <td>Does a real product flow prove the library works?</td>
+              <td>Will the org keep using it once the UX lead steps back?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ai-process-hint">← swipe to see every stage →</div>
+    </div>
+  </div>
+
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Key Decision</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Key Decision</div>
     <div class="decision">
       <div class="decision-label">// design-decision</div>
@@ -629,16 +715,23 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       <p>Building from zero is different from inheriting a system. The hardest part isn't the design. It's getting cross-functional buy-in before there's anything visible to show. The first deliverable that mattered wasn't a component either. It was a shared vocabulary.</p>
     </div>
   </div>
+
+      </div>
+    </div>
+  </div>
 </section>
 
+
 </main>
-<footer class="cs-footer">
+<footer class="cs-footer" aria-label="Case close">
   <div class="cs-footer-inner">
-    <div class="foot-nav">
-      <a class="foot-link" href="oolalife.html">← OolaLife</a>
-      <a class="foot-link teal" href="metaverse.html">Metaverse →</a>
+    <p class="cs-footer-kicker">Close</p>
+    <p class="cs-footer-line">Want to talk through a similar problem?</p>
+    <div class="cs-footer-cta">
+      <a href="mailto:hola@espinosadesign.com">hola@espinosadesign.com</a>
+      <a href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener">LinkedIn<span class="sr-only-nav"> (opens in a new tab)</span></a>
+      <a href="work.html">All work</a>
     </div>
-    <a class="foot-back" href="index.html">↩ back to work</a>
   </div>
 </footer>
 
@@ -687,10 +780,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     }
     render();
   }
+  window.__scrambleHeading = scramble;
   var obs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ scramble(e.target); obs.unobserve(e.target); } });
   },{threshold:0.3});
-  document.querySelectorAll('.block h2[data-scramble]').forEach(function(el){ obs.observe(el); });
+  document.querySelectorAll('h2[data-scramble]').forEach(function(el){ obs.observe(el); });
 })();
 </script>
 

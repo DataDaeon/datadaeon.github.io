@@ -1025,3 +1025,54 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 ### Session 60 (November 2026) — No repeated images
 
 - Root cause: `.scroll-hero-wrap[data-auto]` (att, benefitbridge, metaverse, nielseniq, research-at-scale, siemens) copies the page's first content image into the 3D scroll hero, so it showed twice. `effects.js` now hides the original (its figure/slide wrapper when it holds only that image) once the hero takes it. No two identical image files are used on any case page (checked by content hash).
+
+### Session 61 (November 2026) — Process/Tools tables on remaining case pages + OolaLife duplicate
+
+- **Process and Tools** (same scrollable stage table pattern as BlendOps / Benefits Platform / VOS) added after **The Solution** on the 7 case pages that still lacked it: `att`, `benefitbridge`, `metaverse`, `nielseniq`, `oolalife`, `research-at-scale`, `siemens`. Inline `.ai-process` CSS only (not in `effects.css`).
+- **AI claim honesty:** only `research-at-scale` titles the block **AI-Assisted Design** and has an AI-role row (synthesis with human interpretation) — that page already names AI on-body. The other six use **Process and Tools** / Focus rows from facts already on each page (no invented Claude/Cursor usage). Existing AI sections on gradeline, blendops, benefits-platform, virtu4lslacksagent unchanged.
+- **`oolalife.html` duplicate:** Visual Context had `oolalife-02.jpg`, nearly identical to the later homepage gallery shot `oolalife-03.jpg` (perceptual MAD ≈ 0.3). Removed `-02`; kept the wireframe (`-01`) and a single homepage (`-03`). Scroll hero `oola-life-one.png` stays (different asset — products/community strip).
+
+### Session 62 (November 2026) — Recruiter briefs + hover-word overlays + WCAG 2.2 pass
+
+- **Recruiter brief** on all 11 case studies (after metrics): one NDA-safe paragraph with underlined `button.rec-word` hotspots. Hover/focus/click opens a floating cursor-card (`role="dialog"`, `aria-live="polite"`, Esc / outside click / close button). Reduced motion: no cursor-follow. Shared CSS/JS in `effects.css` / `effects.js` (`initRecruiterBrief`). Templates hold Role / Impact / Process / System / NDA (etc.) detail drawn only from on-page facts.
+- **A11y / WCAG 2.2 AA fixes:**
+  - Contrast: dark `--t3` lifted ~0.35→0.52 (~3:1→≥4.5:1 on `#050508`); light `--t3` →0.68 (was failing AA on gray UI chrome).
+  - Skip link: upgrade or inject `.skip-link` site-wide; focus moves to `#main-content` (`tabindex="-1"`).
+  - Global `:focus-visible` ring for links/buttons; legacy `.sticky-back` removed from a11y tree (`aria-hidden` + `tabindex="-1"`).
+  - Recruiter words are real `<button>`s with `aria-expanded` / `aria-controls`.
+- **Still pending:** About bento + wave-grid + LinkedIn certifications (needs Dario’s cert list).
+
+### Session 63 (November 2026) — About page: wave-grid hero + bento grid
+
+- **Hero:** removed Three.js WebGL particle field. Replaced with a vanilla `<canvas id="wave-grid">` wave mesh (horizontal + vertical lines, soft vignette). Theme-aware stroke/fade; pauses on `document.hidden`; `prefers-reduced-motion` draws a static frame only. No external Three.js script.
+- **About body:** former bio / stats / skills / focus / role / languages restyled as a 12-column CSS **bento** (`.about-bento`). Bio spans left 7×4; four count-up stats stack in the right column; skills + AT&T award + CTA; six focus tiles; SoftServe role + languages. Spotlight hover via `--mx/--my` on `.bento`. Responsive: 6-col tablet, 2-col phone.
+- **Kept below:** aptitudes/tools tickers, sticky experience stack, full work history, recommendation deck, awards scramble, contact strip.
+- **Cleanup:** dead `.bio-reveal` / `.focus-grid` / `.howiwork` CSS+JS removed; skip link uses shared `.skip-link`; light-theme glass buttons.
+- **Deferred:** LinkedIn certifications block (needs Dario’s cert list + links).
+
+### Session 64 (November 2026) — VizTheme: chart accents for light vs dark
+
+- Problem: D3 charts authored bright citron `#DAE24C`, cyan `#38C6F4`, and soft greys (`#d1d5db`) for dark plates — they wash out / fail contrast on `html.theme-light` (white face-view handoff).
+- **`window.VizTheme`** in `effects.js`: remaps known chart hexes on light (`#DAE24C→#4F5600`, `#38C6F4→#02658F`, teal/violet/input greys similarly — ink-weight for small labels); helpers for `labelOn`, `linkStroke`, `headerFill`, `linkBlend` (`screen`↔`multiply`), `mutedText`; `onChange` via MutationObserver on `html.class`.
+- **CSS tokens** in `effects.css`: `--viz-citron` / `--viz-cyan` / … + `.viz-swatch[data-viz]` for legends.
+- Wired into charts: `blendops` sankey, `benefits-platform` + `siemens` force graphs, `metaverse` layers, `nielseniq` swimlane, `oolalife` arc, `att` flowchart, `research-at-scale` stages. Product brand docs that literally name `#DAE24C` stay unchanged.
+
+### Session 65 (November 2026) — Case pages: lede under title, unified facts, FAQ accordion
+
+- **Lede:** former “Recruiter brief” moves under the case `h1` as `.cs-lede` (no “Recruiter brief” label). Hover-word overlays (`.rec-word`) stay. Duplicate `.cs-xyz` dropped.
+- **Facts strip:** `.meta-row` + `.metrics` merged into one `.cs-facts` grid (period/role/tags + metric accents) so the hero doesn’t show two repeating boxes.
+- **Accordion:** all narrative `.block` sections (HMW → Decision/etc.) wrapped in `.cs-acc` FAQ list (vengeanceui faq-accordion pattern: left bar, +/−, one-open, keyboard, reduced-motion). Shared CSS in `effects.css`; `initCaseAccordion` in `effects.js`.
+- Applied on all 11 case pages: att, benefitbridge, benefits-platform, blendops, gradeline, metaverse, nielseniq, oolalife, research-at-scale, siemens, virtu4lslacksagent.
+- Ledes enriched from HMW/problem framing (no “Recruiter brief” label); orphaned metric-box HTML cleaned; accordion triggers use `div` (not nested `h2`); open panels dispatch resize for charts.
+
+### Session 66 (November 2026) — Workflow diagram, token light theme, scramble in accordion
+
+- **Design Workflow diagram** on `benefits-platform`: diagram-design flowchart (Dark Matter tokens via CSS vars) — code-first → test → Figma capture → human gate → codegen; shortens the prose above it.
+- **Token block** theme-aware in `effects.css` (`html.theme-light` paper + amber that holds contrast).
+- **Scramble titles** restored inside accordion panels: selectors fixed to `h2[data-scramble]`, `window.__scrambleHeading` hooked from each case page, accordion open triggers the ASCII reveal (reduced-motion shows title immediately).
+
+### Session 67 (November 2026) — Case footer: close, don’t re-nav
+
+- Floating `.pg-nav` (Home + Next) stays the only project↔project navigation; music stays site chrome.
+- Replaced prev/next + “back to work” footers on all 11 case pages with a quiet close: one line + `hola@…` / LinkedIn / All work.
+- Shared `.cs-footer` styles in `effects.css`; page-local footer layout rules neutralized so they don’t fight the stack.

@@ -130,12 +130,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 /* TAGS */
 .tag{font-family:var(--mono);font-size:10px;color:var(--t3);background:var(--t4);border:1px solid var(--border-w);padding:2px 7px;border-radius:3px;letter-spacing:0.02em;display:inline-block;margin-right:6px;margin-bottom:4px}
 /* FOOTER / NAV */
-.cs-footer{border-top:1px solid var(--border-w);padding:32px}
-.cs-footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-.foot-nav{display:flex;gap:32px;align-items:center}
-.foot-link{font-family:var(--mono);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:0.04em;transition:color .15s;display:flex;align-items:center;gap:6px}
-.foot-link:hover{color:var(--teal)}
-.foot-link.teal{color:var(--teal)}
+/* .cs-footer skin → effects.css Session 67 */
+/* .cs-footer-inner → effects.css */
+/* foot-nav removed Session 67 — nav lives in .pg-nav */
 .foot-back{font-family:var(--mono);font-size:10px;color:var(--t3);text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:color .15s}
 .foot-back:hover{color:var(--teal)}
 @media(max-width:680px){
@@ -145,9 +142,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
   .block-inner{padding:36px 20px}
   .meta-row{grid-template-columns:1fr 1fr}
   .grid-2{grid-template-columns:1fr}
-  .cs-footer{padding:24px 20px}
-  .cs-footer-inner{flex-direction:column;gap:16px;text-align:center}
-}
+  }
 
 
 /* ── PAGE FADE-IN ──────────────────────────────────────────────────────── */
@@ -155,11 +150,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:48px;border-bottom:1p
 .cs-hero-inner{opacity:0;animation:cs-fadein .75s cubic-bezier(.16,1,.3,1) .1s forwards}
 .cs-eyebrow{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .05s forwards}
 .cs-hero h1{opacity:0;animation:cs-fadein .75s cubic-bezier(.16,1,.3,1) .18s forwards}
-.cs-xyz{opacity:0;animation:cs-fadein .65s cubic-bezier(.16,1,.3,1) .32s forwards}
-.meta-row{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .46s forwards}
+.cs-lede{opacity:0;animation:cs-fadein .65s cubic-bezier(.16,1,.3,1) .32s forwards}
+.cs-facts{opacity:0;animation:cs-fadein .6s cubic-bezier(.16,1,.3,1) .46s forwards}
 /* ── SCRAMBLE REVEAL ────────────────────────────────────────────────────── */
-.block h2[data-scramble]{opacity:0;transition:opacity .01s}
-.block h2[data-scramble].scrambled{opacity:1}
+h2[data-scramble]{opacity:0;transition:opacity .01s}
+h2[data-scramble].scrambled{opacity:1}
 
 
 /* ── IMAGE MODAL ─────────────────────────────────────── */
@@ -323,20 +318,25 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 /* ────────────────────────────────────────────────────────────────────────── */
 
 /* ── STICKY BACK NAV ─────────────────────────────────────────────────────── */
-.sticky-back {
-  position: fixed; bottom: 24px; left: 24px; z-index: 90;
-  font-family: var(--mono); font-size: 11px; letter-spacing:.05em;
-  color: var(--t2); text-decoration: none;
-  padding: 8px 16px;
-  background: rgba(5,5,8,0.88);
-  border: 1px solid var(--border-w);
-  border-radius: 99px;
-  backdrop-filter: blur(16px);
-  transition: all .2s;
-  opacity: 0; animation: sb-in .4s ease 1.2s forwards;
-}
-.sticky-back:hover { color: var(--teal); border-color: rgba(80,227,194,.3); }
+/* sticky-back retired Session 49/67 */
 @keyframes sb-in { to { opacity: 1; } }
+
+.ai-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--violet);background:var(--violet-dim);border:1px solid var(--border-v);padding:3px 10px;border-radius:3px;letter-spacing:0.04em;margin-bottom:18px}
+.ai-badge::before{content:'◆';font-size:8px}
+.ai-process-wrap{max-width:1100px;margin:0 auto}
+.ai-process-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border-w);border-radius:var(--r)}
+.ai-process{border-collapse:collapse;width:100%;min-width:820px}
+.ai-process caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.ai-process th,.ai-process td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border-w);border-right:1px solid var(--border-w)}
+.ai-process th:last-child,.ai-process td:last-child{border-right:none}
+.ai-process tr:last-child th,.ai-process tr:last-child td{border-bottom:none}
+.ai-process thead th{background:var(--teal-dim);font-family:var(--mono);font-size:11px;color:var(--teal);letter-spacing:.06em;text-transform:uppercase}
+.ai-process thead th:first-child{background:var(--surface2);color:var(--t3)}
+.ai-process tbody th{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;background:var(--surface2);position:sticky;left:0;z-index:1}
+.ai-process tbody td{font-size:12px;color:var(--t2);line-height:1.55;background:var(--surface);min-width:160px}
+.ai-process tbody td strong{color:var(--t1);font-weight:600}
+.ai-process-hint{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;text-align:center;margin-top:10px;display:none}
+@media(max-width:899px){.ai-process-hint{display:block}}
 /* ────────────────────────────────────────────────────────────────────────── */
 </style>
   <meta name="description" content="Reduced operator task time by 40% and onboarding time by 60% — redesigning a safety-critical legacy C++ system with a component-driven Flutter and Figma design system. WCAG 2.1 AA compliant.">
@@ -411,13 +411,21 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     <div class="cs-eyebrow">Case Study 02</div>
     <div class="cs-tags" style="margin:8px 0 4px"><span class="tag tag-ind">transportation</span></div>
     <h1>Railway Back Office</h1>
-    <p class="cs-xyz">Reduced operator task time by <strong>40%</strong> and onboarding time by 60%, by redesigning a legacy railway backoffice system with a component-driven design system aligned to Siemens brand standards.</p>
-    <div class="meta-row">
-      <div class="meta-cell"><div class="meta-label">period</div><div class="meta-val">Rail Transport</div></div>
-      <div class="meta-cell"><div class="meta-label">context</div><div class="meta-val">Safety-Critical</div></div>
-      <div class="meta-cell"><div class="meta-label">role</div><div class="meta-val">Solo Lead</div></div>
-      <div class="meta-cell"><div class="meta-label">tags</div><div class="meta-val"><span class="tag">Enterprise UX</span><span class="tag">Design System</span><span class="tag">WCAG</span></div></div>
+    <div class="cs-lede">
+      <p class="cs-lede-p">Redesign a legacy railway back-office tool — every UI choice has safety weight — without disrupting live operations. As <button type="button" class="rec-word" data-rec="role">solo Lead</button> I introduced <button type="button" class="rec-word" data-rec="process">Scrum</button> and a <button type="button" class="rec-word" data-rec="system">Flutter-ready Material kit</button> to Siemens brand and <button type="button" class="rec-word" data-rec="impact">WCAG 2.1 AA</button>. Operators saw <button type="button" class="rec-word" data-rec="impact2">−40% task time</button>; a one-week expo MVP proved desktop and rugged tablet — under <button type="button" class="rec-word" data-rec="nda">NDA</button>.</p>
+      <p class="rec-hint">Hover or focus underlined words · Esc to close</p>
     </div>
+    <div class="cs-facts" role="list">
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">period</div><div class="cs-fact-v">Rail Transport</div></div>
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">context</div><div class="cs-fact-v">Safety-Critical</div></div>
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">role</div><div class="cs-fact-v">Solo Lead</div></div>
+    <div class="cs-fact" role="listitem"><div class="cs-fact-k">tags</div><div class="cs-fact-v"><span class="tag">Enterprise UX</span><span class="tag">Design System</span><span class="tag">WCAG</span></div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">−40%</div><div class="cs-fact-k">operator task time</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">−60%</div><div class="cs-fact-k">onboarding time</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">100%</div><div class="cs-fact-k">WCAG 2.1 AA</div></div>
+    <div class="cs-fact cs-fact--metric" role="listitem"><div class="cs-fact-v cs-fact-v--accent">1</div><div class="cs-fact-k">solo lead</div></div>
+    </div>
+
     <div class="cs-figure">
 <aside class="nda-alert" role="note" aria-label="Confidentiality note"><svg class="nda-ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><path d="M12 15v2"/></svg><p><strong>Under NDA.</strong> The real product UI is client-confidential, so it isn&rsquo;t shown here. The screens and figures on this page are illustrative recreations built for this portfolio; the problem, process, decisions and results are real.</p></aside>
 <section class="anat-section" aria-label="How it works">
@@ -427,36 +435,57 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 <div class="scroll-hero-wrap" data-auto data-index="0"></div>
   </div>
 </header>
+<template id="rec-panel-role"><p class="rec-card-kicker">Role</p><p class="rec-card-title">Solo Lead</p><p>Owned method, system, prototype, and expo delivery without a large design bench behind the work.</p></template><template id="rec-panel-process"><p class="rec-card-kicker">Method</p><p class="rec-card-title">Scrum for a new-to-Agile team</p><p>Established cadence for a high-stakes redesign of a live PTC admin tool that could not take the railway offline.</p></template><template id="rec-panel-system"><p class="rec-card-kicker">System</p><p class="rec-card-title">Material · Atomic Design · Figma → Zeplin</p><p>Dark/light themes and Flutter-ready specs; web-resolution parity covered Flutter desktop export gaps.</p></template><template id="rec-panel-impact"><p class="rec-card-kicker">Accessibility</p><p class="rec-card-title">100% WCAG 2.1 AA target</p><p>Accessibility was a library constraint, not a late audit — required for operator tooling.</p></template><template id="rec-panel-impact2"><p class="rec-card-kicker">Outcomes</p><p class="rec-card-title">−40% task time · −60% onboarding</p><p>Measured operator efficiency and faster onboarding after the redesign path landed.</p></template><template id="rec-panel-nda"><p class="rec-card-kicker">Constraint</p><p class="rec-card-title">Real UI &amp; Figma maps withheld</p><p>Illustrative recreation only; process and results are real.</p></template>
 
-<div class="metrics">
-  <div class="metrics-inner">
-<div class="metric-box"><div class="metric-val">−40%</div><div class="metric-label">operator task time</div></div>
-<div class="metric-box"><div class="metric-val">−60%</div><div class="metric-label">onboarding time</div></div>
-<div class="metric-box"><div class="metric-val">100%</div><div class="metric-label">WCAG 2.1 AA</div></div>
-<div class="metric-box"><div class="metric-val">1</div><div class="metric-label">solo lead</div></div>
-  </div>
-</div>
 
-<section class="block">
-  <div class="block-inner">
+<section class="cs-acc" aria-label="Case study details">
+  <div class="cs-acc-inner">
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">How Might We</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">How Might We</div>
     <div class="hmw">
       <div class="hmw-label">// hmw</div>
       <q>redesign a complex, legacy backend tool, where every UI decision has safety implications, without disrupting active railroad operations?</q>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">The Problem</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">The Problem</div>
     <p>The PTC Backend Admin Server was a native C++ application with no design standards, cryptic error codes like CSX0256, and zero documentation for onboarding. A train collision made digital modernization non-negotiable. The stakes weren't abstract.</p>
 <p>The primary competitor (GE) had already set a high bar for usability. The existing interface couldn't just be iterated on. It needed to be rethought from the ground up, while operators continued to rely on it daily.</p>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Visual Context</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Visual Context</div>
 
     <!-- Design system reference — generic, no client branding, safe to show as-is -->
@@ -468,34 +497,132 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 
     <p class="demo-disclosure" style="margin-top:14px">The underlying architecture documents and Figma prototype maps are client-confidential and withheld. The interactive recreation further down shows the resulting interface without any client-identifying detail.</p>
     </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">The Solution</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">The Solution</div>
     <p>Introduced <strong>Scrum</strong> to a team that had never worked with it, establishing rhythm and predictability for a high-stakes redesign. Built a <strong>Material Design UI kit</strong> aligned to Siemens brand standards and Flutter-ready component specs using Atomic Design principles.</p>
 <p>Dark and light themes. A fully navigable prototype for desktop review. And a separate <strong>tablet solution</strong> for field workers who needed the same system in motion, on trains, on platforms, in variable light conditions.</p>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Process and Tools</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
+    <div class="block-label">Process and Tools</div>
+    <h2 data-scramble aria-label="Material Kit to Expo MVP">Material Kit to Expo MVP</h2>
+    <p>A solo-led redesign of a legacy C++ PTC admin tool: introduce Scrum, build a Flutter-ready Material kit to Siemens brand and WCAG 2.1 AA, then prove it on desktop and rugged tablet at a live expo.</p>
+
+    <div class="ai-process-wrap">
+      <div class="ai-process-scroll" tabindex="0" role="group" aria-label="Process and tools by stage, scrollable table">
+        <table class="ai-process">
+          <caption>Railway Back Office — process and tools by stage</caption>
+          <thead>
+            <tr>
+              <th scope="col">Stage</th>
+              <th scope="col">01 · Frame</th>
+              <th scope="col">02 · Method</th>
+              <th scope="col">03 · System</th>
+              <th scope="col">04 · Prototype</th>
+              <th scope="col">05 · Expo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Focus</th>
+              <td>Redesign without disrupting live railway operations</td>
+              <td>Introduce Scrum to a team new to it</td>
+              <td>Material + Siemens brand + WCAG 2.1 AA component library</td>
+              <td>Navigable desktop prototype + tablet field solution</td>
+              <td>One-week MVP for C&amp;S Transportation Signals Expo 2021</td>
+            </tr>
+            <tr>
+              <th scope="row">Tools</th>
+              <td>Legacy C++ admin audit</td>
+              <td>Scrum ceremonies</td>
+              <td>Figma, Figma Variables, Atomic Design, Material Design</td>
+              <td>Figma, Zeplin, Flutter-ready specs</td>
+              <td>Wall display + rugged tablet build</td>
+            </tr>
+            <tr>
+              <th scope="row">Process</th>
+              <td>Mapped operator tasks and onboarding pain against the live PTC tool</td>
+              <td>Established delivery rhythm for a high-stakes redesign</td>
+              <td>Converged frameworks into one library with dark/light themes</td>
+              <td>Matched web resolution for Flutter desktop export gaps; handed off via Zeplin</td>
+              <td>Shipped a demo-ready MVP on site in one week</td>
+            </tr>
+            <tr>
+              <th scope="row">Key question</th>
+              <td>What can change without taking the railway offline?</td>
+              <td>Can a new-to-Scrum team hold a predictable cadence?</td>
+              <td>Will one kit serve dense tables, live status, and multi-level nav?</td>
+              <td>Does the field tablet feel like the same system?</td>
+              <td>Can a solo lead prove it live in a week?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ai-process-hint">← swipe to see every stage →</div>
+    </div>
+  </div>
+
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">System Architecture · D3</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">System Architecture · D3</div>
     <h2 data-scramble aria-label="Component Library as Design Hub">Component Library as Design Hub</h2>
     <p>Force-directed graph showing how Material Design, Siemens brand standards, WCAG 2.1 AA, and Atomic Design converged into a single component library, which then radiated out to screens, themes, and delivery platforms. Drag any node.</p>
     <div id="siemens-force" style="width:100%;margin-top:28px;position:relative"></div>
     <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:14px">
       <span style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#ef4444;display:inline-block"></span>Legacy system</span>
-      <span style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#6b7280;display:inline-block"></span>Input frameworks</span>
-      <span style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#38C6F4;display:inline-block"></span>Component hub</span>
-      <span style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#50e3c2;display:inline-block"></span>UI screens</span>
+      <span style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);display:flex;align-items:center;gap:6px"><span class="viz-swatch" data-viz="input" data-round aria-hidden="true"></span>Input frameworks</span>
+      <span style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);display:flex;align-items:center;gap:6px"><span class="viz-swatch" data-viz="cyan" data-round aria-hidden="true"></span>Component hub</span>
+      <span style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);display:flex;align-items:center;gap:6px"><span class="viz-swatch" data-viz="teal" data-round aria-hidden="true"></span>UI screens</span>
       <span style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);display:flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:50%;background:#005495;display:inline-block"></span>Platforms</span>
+      <span style="font-family:var(--mono);font-size:var(--fs-2xs,11px);color:var(--t3);display:flex;align-items:center;gap:6px"><span class="viz-swatch" data-viz="citron" data-round aria-hidden="true"></span>Themes</span>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Key Decision</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Key Decision</div>
     <div class="decision">
       <div class="decision-label">// design-decision</div>
@@ -506,19 +633,37 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       <p>Doing this solo was the biggest constraint and the biggest lesson. I learned to ruthlessly prioritize what required design leadership versus what could be iterated through developer feedback. The output was cleaner for it, too. Fewer opinions meant fewer compromises.</p>
     </div>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">On Site Collab · POC for Expo</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">On Site Collab · POC for Expo</div>
     <h2 data-scramble aria-label="One Week, One MVP, One Global Stage">One Week, One MVP, One Global Stage</h2>
     <p style="max-width:680px;margin-bottom:28px">During a week-long on-site sprint, the team delivered a fully functional MVP for the <strong>C&amp;S Transportation Signals Expo 2021</strong>. The prototype ran live on both a wall-mounted display and a ruggedized tablet, drawing significant interest from railroad operators and sparking the broader vision of merging the BOS tablet capability with the existing desktop platform.</p>
     <p class="demo-disclosure">Event photography withheld. The on-site booth and demo stations were client-branded assets outside the scope of what can be shown publicly here.</p>
   </div>
-</section>
 
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Design System</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Design System</div>
     <h2 data-scramble aria-label="BOS Tablet Design System">BOS Tablet Design System</h2>
 
@@ -549,41 +694,19 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       </div>
     </div>
   </div>
-</section>
 
-<script>
-/* Generic demo-panel tabs — Session 12, reused per-page (inline, not shared) */
-(function(){
-  document.querySelectorAll('.demo-panel').forEach(function(panel){
-    var tabs=panel.querySelectorAll('.demo-tab'), views=panel.querySelectorAll('.demo-view');
-    tabs.forEach(function(tab){
-      tab.addEventListener('click', function(){
-        tabs.forEach(function(t){t.classList.remove('is-active');t.setAttribute('aria-selected','false');});
-        views.forEach(function(v){v.classList.remove('is-active');v.hidden=true;});
-        tab.classList.add('is-active'); tab.setAttribute('aria-selected','true');
-        var idx=tab.getAttribute('data-tab');
-        var view=panel.querySelector('[data-view="'+idx+'"]');
-        if(view){view.hidden=false; view.classList.add('is-active');}
-      });
-    });
-    panel.querySelectorAll('.demo-toggle').forEach(function(tg){
-      tg.addEventListener('click', function(){ tg.classList.toggle('is-on'); });
-    });
-    var runBtn=panel.querySelector('[data-demo-run]');
-    if(runBtn){
-      runBtn.addEventListener('click', function(){
-        panel.querySelectorAll('[data-demo-rand]').forEach(function(el){
-          var lo=parseFloat(el.getAttribute('data-lo')), hi=parseFloat(el.getAttribute('data-hi')), dec=parseInt(el.getAttribute('data-dec')||'0',10);
-          el.textContent=(Math.random()*(hi-lo)+lo).toFixed(dec);
-        });
-      });
-    }
-  });
-})();
-</script>
-
-<section class="block">
-  <div class="block-inner">
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Illustrative Recreation</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
     <div class="block-label">Illustrative Recreation</div>
     <h2 data-scramble aria-label="How the Console Felt to Use">How the Console Felt to Use</h2>
     <p style="margin-bottom:18px;max-width:640px">The real prototype and production screens are client-confidential. Below is an interactive recreation built for this portfolio, using the same interaction patterns and information density, but with generic labels and fictional data.</p>
@@ -645,11 +768,26 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       </div>
     </div>
   </div>
+
+      </div>
+    </div>
+    <div class="cs-acc-item">
+      <div class="cs-acc-h">
+        <button type="button" class="cs-acc-trigger" aria-expanded="false">
+          <span class="cs-acc-icon" aria-hidden="true">+</span>
+          <span class="cs-acc-q">Section 11</span>
+          <svg class="cs-acc-chev" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </div>
+      <div class="cs-acc-panel" hidden>
+<div class="block-inner">
+    <div class="slide"><img src="images/inline/siemens-10.jpg" alt="Five Current Sources of Train Information — PTC context slide showing the problem space before digital transformation (2021)" loading="lazy"><div class="slide-caption">Five Current Sources of Train Information — PTC context slide showing the problem space before digital transformation (2021)</div></div>
+
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="block"><div class="block-inner">
-    <div class="slide"><img src="images/inline/siemens-10.jpg" alt="Five Current Sources of Train Information — PTC context slide showing the problem space before digital transformation (2021)" loading="lazy"><div class="slide-caption">Five Current Sources of Train Information — PTC context slide showing the problem space before digital transformation (2021)</div></div>
-</section>
 <script>
 (function(){
   var el=document.getElementById('siemens-force'); if(!el)return; var fired=false;
@@ -657,6 +795,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
   var obs=new IntersectionObserver(function(en){if(en[0].isIntersecting&&!fired){fired=true;obs.disconnect();loadScript('https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js',build);}},{threshold:0.1});
   obs.observe(el);
   function build(){
+    var VT=window.VizTheme||{color:function(c){return c;},labelOn:function(){return '#050508';},linkStroke:function(){return 'rgba(255,255,255,0.12)';},linkStrokeDim:function(){return 'rgba(255,255,255,0.05)';},linkBlend:function(){return 'screen';},onChange:function(){}};
     var W=el.offsetWidth||700,H=440; el.style.height=H+'px';
     var nodes=[
       {id:0,name:"PTC Admin System",      g:"problem",  color:"#ef4444",r:22,tip:"Legacy C++ app — cryptic error codes (CSX0256), no design standards, zero onboarding docs. A train collision made modernisation non-negotiable."},
@@ -694,7 +833,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       .force('charge',d3.forceManyBody().strength(-300))
       .force('center',d3.forceCenter(W/2,H/2))
       .force('collide',d3.forceCollide().radius(function(d){return d.r+16;}));
-    var lnk=svg.append('g').selectAll('line').data(links).join('line').attr('stroke','rgba(255,255,255,0.1)').attr('stroke-width',1.5);
+    var lnk=svg.append('g').selectAll('line').data(links).join('line').attr('stroke',VT.linkStroke()).attr('stroke-width',1.5);
     var nd=svg.append('g').selectAll('g').data(nodes).join('g').style('cursor','pointer')
       .call(d3.drag()
         .on('start',function(ev,d){if(!ev.active)sim.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
@@ -703,16 +842,23 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
       .on('mouseenter',function(ev,d){
         var conn=new Set();links.forEach(function(l){if(l.source.id===d.id||l.target.id===d.id){conn.add(l.source.id);conn.add(l.target.id);}});
         nd.select('circle').attr('opacity',function(n){return conn.has(n.id)||n.id===d.id?0.95:0.12;});
-        lnk.attr('stroke',function(l){return l.source.id===d.id||l.target.id===d.id?d.color:'rgba(255,255,255,0.05)';}).attr('stroke-opacity',function(l){return l.source.id===d.id||l.target.id===d.id?0.75:0.2;});
+        lnk.attr('stroke',function(l){return l.source.id===d.id||l.target.id===d.id?VT.color(d.color):VT.linkStrokeDim();}).attr('stroke-opacity',function(l){return l.source.id===d.id||l.target.id===d.id?0.75:0.2;});
         sT(ev,d.tip);
-      }).on('mousemove',mT).on('mouseleave',function(){nd.select('circle').attr('opacity',0.85);lnk.attr('stroke','rgba(255,255,255,0.1)').attr('stroke-opacity',1);tip.style('opacity',0);});
-    nd.append('circle').attr('r',function(d){return d.r;}).attr('fill',function(d){return d.color;}).attr('opacity',0).style('mix-blend-mode','screen')
+      }).on('mousemove',mT).on('mouseleave',function(){nd.select('circle').attr('opacity',0.85);lnk.attr('stroke',VT.linkStroke()).attr('stroke-opacity',1);tip.style('opacity',0);});
+    nd.append('circle').attr('class','node-dot').attr('r',function(d){return d.r;}).attr('fill',function(d){return VT.color(d.color);}).attr('opacity',0).style('mix-blend-mode',VT.linkBlend())
       .transition().duration(800).delay(function(d,i){return i*55;}).attr('opacity',0.85);
-    nd.append('text').attr('dy','0.35em').attr('text-anchor','middle').attr('fill','rgba(5,5,8,0.88)')
+    nd.append('text').attr('class','node-chip').attr('dy','0.35em').attr('text-anchor','middle').attr('fill',function(d){return VT.labelOn(d.color);})
       .attr('font-family','"Geist Mono",monospace').attr('font-size',function(d){return d.r>20?'9px':'8px';}).attr('font-weight','700').attr('pointer-events','none')
       .text(function(d){return d.name.split(' ')[0];});
-    nd.append('text').attr('dy',function(d){return d.r+13;}).attr('text-anchor','middle').attr('fill',function(d){return d.color;})
+    nd.append('text').attr('class','node-caption').attr('dy',function(d){return d.r+13;}).attr('text-anchor','middle').attr('fill',function(d){return VT.color(d.color);})
       .attr('font-family','"Geist Mono",monospace').attr('font-size','9px').attr('pointer-events','none').text(function(d){return d.name;});
+    function applyTheme(){
+      nd.select('circle.node-dot').attr('fill',function(d){return VT.color(d.color);}).style('mix-blend-mode',VT.linkBlend());
+      nd.select('text.node-chip').attr('fill',function(d){return VT.labelOn(d.color);});
+      nd.select('text.node-caption').attr('fill',function(d){return VT.color(d.color);});
+      lnk.attr('stroke',VT.linkStroke());
+    }
+    VT.onChange(applyTheme);
     sim.on('tick',function(){
       lnk.attr('x1',function(d){return d.source.x;}).attr('y1',function(d){return d.source.y;}).attr('x2',function(d){return d.target.x;}).attr('y2',function(d){return d.target.y;});
       nd.attr('transform',function(d){d.x=Math.max(d.r+8,Math.min(W-d.r-8,d.x));d.y=Math.max(d.r+8,Math.min(H-d.r-8,d.y));return 'translate('+d.x+','+d.y+')';});
@@ -721,13 +867,15 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
 })();
 </script>
 </main>
-<footer class="cs-footer">
+<footer class="cs-footer" aria-label="Case close">
   <div class="cs-footer-inner">
-    <div class="foot-nav">
-      <a class="foot-link" href="nielseniq.html">← NielsenIQ</a>
-      <a class="foot-link teal" href="att.html">AT&T México →</a>
+    <p class="cs-footer-kicker">Close</p>
+    <p class="cs-footer-line">Want to talk through a similar problem?</p>
+    <div class="cs-footer-cta">
+      <a href="mailto:hola@espinosadesign.com">hola@espinosadesign.com</a>
+      <a href="https://www.linkedin.com/in/data-espinosa/" target="_blank" rel="noopener">LinkedIn<span class="sr-only-nav"> (opens in a new tab)</span></a>
+      <a href="work.html">All work</a>
     </div>
-    <a class="foot-back" href="index.html">↩ back to work</a>
   </div>
 </footer>
 
@@ -776,10 +924,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible,
     }
     render();
   }
+  window.__scrambleHeading = scramble;
   var obs=new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ scramble(e.target); obs.unobserve(e.target); } });
   },{threshold:0.3});
-  document.querySelectorAll('.block h2[data-scramble]').forEach(function(el){ obs.observe(el); });
+  document.querySelectorAll('h2[data-scramble]').forEach(function(el){ obs.observe(el); });
 })();
 </script>
 
