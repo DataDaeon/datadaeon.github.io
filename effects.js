@@ -19,8 +19,8 @@
   'use strict';
   var KEY = 'musicState';
   var TRACKS = [
-    { file: 'Level1-1.mp3', title: 'Pixel Adventure', artist: 'Dario Espinosa' },
-    { file: 'Brisk Arcade Groove.mp3', title: 'Brisk Arcade Groove', artist: 'Dario Espinosa' }
+    { file: 'Level1-1.mp3', title: 'Pixel Adventure', artist: 'made with Suno' },
+    { file: 'Brisk Arcade Groove.mp3', title: 'Brisk Arcade Groove', artist: 'made with Suno' }
   ];
   var widget = document.getElementById('music-widget');
   if (!widget) {
@@ -33,7 +33,7 @@
         '<span class="music-icon music-icon-muted" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9H8L13 5V19L8 15H4V9Z" fill="currentColor"/><path d="M17 9L21 13M21 9L17 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>' +
         '<span class="music-icon music-icon-on" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9H8L13 5V19L8 15H4V9Z" fill="currentColor"/><path d="M16.5 9.5C17.5 10.5 17.5 13.5 16.5 14.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18.5 7.5C20.5 9.5 20.5 14.5 18.5 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/></svg></span>' +
       '</button>' +
-      '<div class="music-meta"><span class="music-title" id="music-title">Pixel Adventure</span><span class="music-sub"><span class="music-artist" id="music-artist">Dario Espinosa</span><span class="music-time" id="music-time" aria-hidden="true">0:00 / 0:00</span></span></div>' +
+      '<div class="music-meta"><span class="music-title" id="music-title">Pixel Adventure</span><span class="music-sub"><span class="music-artist" id="music-artist">made with Suno</span><span class="music-time" id="music-time" aria-hidden="true">0:00 / 0:00</span></span></div>' +
       '<span class="music-eq" id="music-eq" aria-hidden="true"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></span>' +
       '<div class="music-progress-wrap"><span class="music-progress-fill" id="music-progress-fill" aria-hidden="true"></span><input type="range" id="music-seek" class="music-seek" min="0" max="1000" step="1" value="0" aria-label="Position in the track" disabled></div>' +
       '<button type="button" class="music-next" id="music-next" aria-label="Next track" title="Next track"><svg viewBox="0 0 24 24" fill="none"><path d="M7 6L14 12L7 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 6V18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>';

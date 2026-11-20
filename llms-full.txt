@@ -3836,3 +3836,10 @@ This kind of high-fidelity visual work informs how I approach larger UX systems:
 
 ← Porsche Taycan
 Next: Daily Bot →
+
+## Credits & authorship
+
+- Copyright: D.R. © 2026 Dario Espinosa. All rights reserved. Details: https://datadaeon.github.io/credits.html
+- Case studies done at SoftServe (BlendOps, Benefits platform, BenefitBridge, Gradeline, NielsenIQ dashboard, Metaverse) were created by Dario Espinosa while working at SoftServe; the work belongs to SoftServe and/or its clients. Other employer and client work belongs to those companies.
+- Most of the site's code was written with AI coding agents (Claude Code, Codex) under Dario's direction and review.
+- Background music was generated with Suno (free plan; owned by Suno, used non-commercially with attribution). Game stickers in the hero are unofficial AI-generated fan art; the referenced games belong to their owners.

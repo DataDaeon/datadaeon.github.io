@@ -58,7 +58,7 @@ Fonts: **Geist** (body) + **Geist Mono** (labels/code/eyebrows). Accent yellow `
 
 ## Git
 
-- Identity: Dario Espinosa / despi@softserveinc.com. Conventional commits (`feat(scope):`, `fix:`, `chore:`).
+- Identity: Dario Espinosa / hola@espinosadesign.com (professional; never the SoftServe or personal proton email). Conventional commits (`feat(scope):`, `fix:`, `chore:`).
 - `.gitignore`: `*.pdf`, `.DS_Store`, editor files. **All of `images/` is tracked** (Pages deploy needs it).
 - Pushes are done by Dario manually (enterprise local-only policy — agent never pushes).
 - If git refuses with lock errors: stale `*.lock` files in `.git/` from a crashed run (happened June 2) — verify no live git process, then delete them.

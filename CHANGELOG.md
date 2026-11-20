@@ -1076,3 +1076,10 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 - Floating `.pg-nav` (Home + Next) stays the only project↔project navigation; music stays site chrome.
 - Replaced prev/next + “back to work” footers on all 11 case pages with a quiet close: one line + `hola@…` / LinkedIn / All work.
 - Shared `.cs-footer` styles in `effects.css`; page-local footer layout rules neutralized so they don’t fight the stack.
+
+### Session 68 (2026-11-20) — Credits & authorship
+
+- New `credits.html` (gift-page template): D.R. © 2026 Dario Espinosa, all rights reserved; what's mine, what's AI-assisted (code by Claude Code/Codex under direction), employer/client ownership (6 SoftServe cases listed: blendops, benefits-platform, benefitbridge, gradeline, nielseniq, metaverse), third-party content (Suno music on free plan with attribution, game fan art, tool logos, Kasuva's licensed Unicase base theme, OFL fonts, D3 ISC), trademarks, takedown contact.
+- Every page links to it: simple footers get `© 2026 dario-espinosa · credits`; case footers get a `Credits` link; footer-less archive pages get `.site-credit`. The 6 SoftServe cases carry `.cs-footer-credit` (© SoftServe and its client · designed by Dario while working at SoftServe).
+- Music widget artist `Dario Espinosa` → `made with Suno` (index, hero-mac-demo, effects.js TRACKS) — Suno free plan requires attribution.
+- `LICENSE` (all rights reserved + exceptions) and `README.md` added; `sitemap.xml`, `llms.txt`, `llms-full.txt` updated. Shared styles appended to `effects.css`.
