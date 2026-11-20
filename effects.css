@@ -826,4 +826,5 @@ html.theme-light{
 .site-credit{border-top:1px solid var(--border-w,rgba(255,255,255,.07));padding:24px 32px 40px;text-align:center;font-family:var(--mono,ui-monospace,monospace);font-size:11px;letter-spacing:.04em}
 .site-credit a{color:var(--t3,rgba(255,255,255,.44));text-decoration:none}
 .site-credit a:hover,.site-credit a:focus-visible{color:var(--teal,#50e3c2)}
+html.theme-light .foot-credit:hover,html.theme-light .foot-credit:focus-visible,html.theme-light .site-credit a:hover,html.theme-light .site-credit a:focus-visible{color:#087a66}
 @media(prefers-reduced-motion:reduce){.foot-credit{transition:none}}
