@@ -19,5 +19,13 @@ for f in sorted(list(root.glob('*.html')) + list(root.glob('*.js')) + list(root.
         ctx = s[max(0, m.start() - 200):m.end()]
         if not re.search(GUARD, ctx):
             bad.append(f"{f.name}:{s.count(chr(10), 0, m.start()) + 1} 'precision mediump float' not guarded by #ifdef GL_FRAGMENT_PRECISION_HIGH/highp")
+    # mediump fallback: the CRT noise hash must get a bounded input. rnd(uv*res+time) reaches ~1e5 in pixel space,
+    # sin(dot(p,..)) overflows fp16 (65504) -> NaN -> black wedge. Every GLSL rnd(...) call must start with mod(...).
+    if f.suffix == '.html':
+        for m in re.finditer(r'(?<![\w.])rnd\(', s):
+            if s[m.start() - 6:m.start()] == 'float ':
+                continue  # the definition float rnd(vec2 p)
+            if not s.startswith('mod(', m.end()):
+                bad.append(f"{f.name}:{s.count(chr(10), 0, m.start()) + 1} shader rnd() input not bounded with mod(...)")
 print('\n'.join(bad) or 'shader precision: OK')
 sys.exit(1 if bad else 0)
