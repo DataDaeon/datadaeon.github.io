@@ -23,6 +23,8 @@ def line(s, i):
 
 
 bad = []
+if not (root / 'index.html').is_file():
+    print(f'no index.html under {root}: nothing to check'); sys.exit(1)
 for f in sorted(list(root.glob('*.html')) + list(root.glob('*.js')) + list(root.glob('anatomy/*.js'))):
     s = f.read_text(encoding='utf-8')
     for m in re.finditer(r'precision\s+mediump\s+float', s):
@@ -38,11 +40,13 @@ for f in sorted(list(root.glob('*.html')) + list(root.glob('*.js')) + list(root.
         if s[m.start() - 6:m.start()] == 'float ':
             continue  # the definition float rnd(vec2 p)
         before = s[:m.start()]
-        opened, closed = before.rfind('#ifdef CRT_GRAIN'), before.rfind('#endif')
-        if not defines or opened < 0 or closed > opened:
+        opened = before.rfind('#ifdef CRT_GRAIN')
+        between = before[opened:] if opened >= 0 else ''
+        if not defines or opened < 0 or re.search(r'#(?:endif|else|elif)\b', between):
             bad.append(f"{f.name}:{line(s, m.start())} grain rnd() runs outside #ifdef CRT_GRAIN (mediump overflow)")
     for m in re.finditer(r'uniform1f\(\s*uTime\s*,([^;]*)\)', s):
-        if '%' not in m.group(1):
-            bad.append(f"{f.name}:{line(s, m.start())} time uniform not wrapped (% N): time*7. overflows mediump")
+        w = re.search(r'\)\s*%\s*(\d+(?:\.\d+)?)\s*$', m.group(1))  # ((now - t0) / 1000) % N
+        if not w or float(w.group(1)) * 7 > 16384:
+            bad.append(f"{f.name}:{line(s, m.start())} time uniform must be ((elapsed) % N) with N*7 <= 16384 (mediump)")
 print('\n'.join(bad) or 'shader precision: OK')
 sys.exit(1 if bad else 0)
