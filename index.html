@@ -4172,7 +4172,8 @@ body.glitching .hero-content{animation:tvShake .55s ease-in-out 1!important}
   var FS = [
     // highp where available: on GPUs whose mediump is real fp16 (e.g. NVIDIA via ANGLE/GLES), pixel-space math
     // overflowed 65504 -> inf -> NaN and painted a black diagonal wedge over the face (Session 69).
-    '#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\nvarying vec2 uv;uniform sampler2D t;uniform vec2 res;uniform float time,power;',
+    // Film grain (hash * 43758) only runs with highp: WebGL1 mediump only guarantees +-16384, so the fallback skips it.
+    '#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#define CRT_GRAIN 1\n#else\nprecision mediump float;\n#endif\nvarying vec2 uv;uniform sampler2D t;uniform vec2 res;uniform float time,power;',
     'vec2 barrel(vec2 u,float k){vec2 c=u-.5;float r=dot(c,c);return .5+c*(1.+k*r+k*.35*r*r);}',
     'float rbox(vec2 p,vec2 b,float r){vec2 q=abs(p)-b+r;return length(max(q,0.))+min(max(q.x,q.y),0.)-r;}',
     'float rnd(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}',
@@ -4183,7 +4184,9 @@ body.glitching .hero-content{animation:tvShake .55s ease-in-out 1!important}
     ' vec3 col=vec3(texture2D(t,u+c*ab).r,texture2D(t,u).g,texture2D(t,u-c*ab).b);',
     ' float sl=.5+.5*sin((u.y*res.y)*3.14159*.66);col*=mix(1.,.86+.14*sl,.75);',
     ' float mask=.94+.06*sin(u.x*res.x*2.1);col*=mask;',
+    '#ifdef CRT_GRAIN',
     ' col+=(rnd(mod(uv*res,256.)+fract(time))-.5)*.045;',
+    '#endif',
     ' float vig=smoothstep(1.25,.35,length(c*vec2(1.,1.15))*1.6);col*=mix(.55,1.,vig);',
     ' vec2 px=(u-.5)*res; float d=rbox(px,res*.5-vec2(4.),min(res.x,res.y)*.045);',
     ' col*=1.-smoothstep(-10.,2.,d);',
@@ -4206,7 +4209,7 @@ body.glitching .hero-content{animation:tvShake .55s ease-in-out 1!important}
     if (!document.body.classList.contains('face-mode') || !src.width) return;
     gl.bindTexture(gl.TEXTURE_2D, tex);
     try { gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, src); } catch (e) { return; }
-    gl.uniform2f(uRes, cv.width, cv.height); gl.uniform1f(uTime, rm ? 0 : (now - t0) / 1000);
+    gl.uniform2f(uRes, cv.width, cv.height); gl.uniform1f(uTime, rm ? 0 : ((now - t0) / 1000) % 600); // wrapped: time*7. must stay in mediump range
     gl.uniform1f(uPow, rm || powerT < 0 ? 1 : Math.min(1, (now - powerT) / 650));
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   }
