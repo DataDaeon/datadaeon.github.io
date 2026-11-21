@@ -4170,7 +4170,9 @@ body.glitching .hero-content{animation:tvShake .55s ease-in-out 1!important}
   if (!gl) return;
   var VS = 'attribute vec2 p;varying vec2 uv;void main(){uv=p*.5+.5;uv.y=1.-uv.y;gl_Position=vec4(p,0.,1.);}';
   var FS = [
-    'precision mediump float;varying vec2 uv;uniform sampler2D t;uniform vec2 res;uniform float time,power;',
+    // highp where available: on GPUs whose mediump is real fp16 (e.g. NVIDIA via ANGLE/GLES), pixel-space math
+    // overflowed 65504 -> inf -> NaN and painted a black diagonal wedge over the face (Session 69).
+    '#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\nvarying vec2 uv;uniform sampler2D t;uniform vec2 res;uniform float time,power;',
     'vec2 barrel(vec2 u,float k){vec2 c=u-.5;float r=dot(c,c);return .5+c*(1.+k*r+k*.35*r*r);}',
     'float rbox(vec2 p,vec2 b,float r){vec2 q=abs(p)-b+r;return length(max(q,0.))+min(max(q.x,q.y),0.)-r;}',
     'float rnd(vec2 p){return fract(sin(dot(p,vec2(12.9898,78.233)))*43758.5453);}',
@@ -4181,7 +4183,7 @@ body.glitching .hero-content{animation:tvShake .55s ease-in-out 1!important}
     ' vec3 col=vec3(texture2D(t,u+c*ab).r,texture2D(t,u).g,texture2D(t,u-c*ab).b);',
     ' float sl=.5+.5*sin((u.y*res.y)*3.14159*.66);col*=mix(1.,.86+.14*sl,.75);',
     ' float mask=.94+.06*sin(u.x*res.x*2.1);col*=mask;',
-    ' col+=(rnd(uv*res+time)-.5)*.045;',
+    ' col+=(rnd(mod(uv*res,256.)+fract(time))-.5)*.045;',
     ' float vig=smoothstep(1.25,.35,length(c*vec2(1.,1.15))*1.6);col*=mix(.55,1.,vig);',
     ' vec2 px=(u-.5)*res; float d=rbox(px,res*.5-vec2(4.),min(res.x,res.y)*.045);',
     ' col*=1.-smoothstep(-10.,2.,d);',

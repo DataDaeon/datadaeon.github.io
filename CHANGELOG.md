@@ -1084,3 +1084,10 @@ Verified with Playwright: face view pills/CTA/chat at 1440 and 390 px, EN + ES q
 - Music widget artist `Dario Espinosa` → `made with Suno` (index, hero-mac-demo, effects.js TRACKS) — Suno free plan requires attribution.
 - Codex review fixes: simple footers carry the credit link on the right (left side sits under the fixed music player); credits footer leaves 120px for the player; light-mode eyebrow/intro accent #087a66; Metaverse notice credits SoftServe alone (own booth); hero-mac-demo inline TRACKS also say made with Suno; case credit keeps 88px clear of the player and Back/Next nav; light-mode inline code #087a66; archive .site-credit 104px; compact player shows "music: Suno"; credits footer + nav hover #087a66 in light mode; gift footer 96px bottom room; LICENSE keeps the llms.txt AI-indexing permission; scramble headings skip on reduced motion and stay visible without JS (`html.js-scramble`, also on the gift page); light-mode link color #087a66 (4.79:1) on credits and on footer credit hover/focus.
 - `LICENSE` (all rights reserved + exceptions) and `README.md` added; `sitemap.xml`, `llms.txt`, `llms-full.txt` updated. Shared styles appended to `effects.css`.
+
+### Session 69 (2026-11-20/21) — Pixel Twin black wedge in Chromium
+
+- Bug: in Chromium on NVIDIA (ANGLE → OpenGL ES, RTX 5070 Ti), face mode painted a black diagonal wedge over the Pixel Twin. The CRT fragment shader used `precision mediump float`, which is real fp16 there (max 65504); the noise input `uv*res+time` overflowed → inf → NaN → black. Firefox/Apple GPUs give mediump more precision, so it never showed there.
+- Fix (`index.html`, CRT shader): `highp` when `GL_FRAGMENT_PRECISION_HIGH`, else `mediump`; noise input bounded: `rnd(mod(uv*res,256.)+fract(time))`.
+- Regression check: `python3 -I tools/check_shaders.py` fails on any bare `precision mediump float` in `*.html`, `*.js`, `anatomy/*.js` (exit 1 on old code, 0 on fix).
+- Verified with headed Chromium 155 on the real GPU (1440×900 and 400×800): wedge present on old code, gone with the fix.
