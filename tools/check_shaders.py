@@ -21,6 +21,8 @@ PINNED = {
     'grain block': "    '#ifdef CRT_GRAIN',\n"
                    "    ' col+=(rnd(mod(uv*res,256.)+fract(time))-.5)*.045;',\n"
                    "    '#endif',\n",
+    # flicker: the only other shader use of time; the bound is 600 (JS wrap) * 7 = 4200 < 16384
+    'flicker line': "    ' col*=.97+.03*sin(time*7.);',\n",
     # time wrapped in JS: 600 * 7 = 4200 < 16384, and never NaN
     'time uniform': "gl.uniform1f(uTime, rm ? 0 : ((now - t0) / 1000) % 600);",
 }
@@ -33,6 +35,9 @@ ONLY_PINNED = {
     'uTime set': r'uniform1f\(\s*uTime',
 }
 
+# inside the fragment shader source, `time` may only appear in the uniform declaration and the pinned lines
+FS_TIME_ALLOWED = len(re.findall(r'\btime\b', PINNED['grain block'] + PINNED['flicker line'])) + 1
+
 bad = []
 idx = root / 'index.html'
 if not idx.is_file():
@@ -43,6 +48,12 @@ for name, text in PINNED.items():
     n = s.count(text)
     if n != 1:
         bad.append(f'index.html: pinned {name} found {n}x (expected 1) — re-verify in Chromium before changing')
+fs = re.search(r'var FS = \[(.*?)\]\.join', s, re.S)
+if not fs:
+    bad.append('index.html: CRT fragment shader (var FS = [...].join) not found')
+elif len(re.findall(r'\btime\b', fs.group(1))) != FS_TIME_ALLOWED:
+    bad.append(f"index.html: `time` used {len(re.findall(r'\btime\b', fs.group(1)))}x in the CRT shader, "
+               f"expected {FS_TIME_ALLOWED}x (declaration + pinned grain/flicker lines)")
 pinned_all = ''.join(PINNED.values())
 for name, pat in ONLY_PINNED.items():
     want, got = len(re.findall(pat, pinned_all)), len(re.findall(pat, s))
