@@ -48,9 +48,10 @@ for name, text in PINNED.items():
     n = s.count(text)
     if n != 1:
         bad.append(f'index.html: pinned {name} found {n}x (expected 1) — re-verify in Chromium before changing')
-fs = re.search(r'var FS = \[(.*?)\]\.join', s, re.S)
+# the preprocessor directives (#ifdef/#define/#else/#endif) need their own lines: the array must be joined with '\n'
+fs = re.search(r"var FS = \[(.*?)\]\.join\('\\n'\);", s, re.S)
 if not fs:
-    bad.append('index.html: CRT fragment shader (var FS = [...].join) not found')
+    bad.append("index.html: CRT fragment shader must be `var FS = [...].join('\\n');` (directives need their own lines)")
 elif len(re.findall(r'\btime\b', fs.group(1))) != FS_TIME_ALLOWED:
     bad.append(f"index.html: `time` used {len(re.findall(r'\btime\b', fs.group(1)))}x in the CRT shader, "
                f"expected {FS_TIME_ALLOWED}x (declaration + pinned grain/flicker lines)")
